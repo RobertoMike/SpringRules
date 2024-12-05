@@ -1,8 +1,6 @@
 package io.github.robertomike.springrules.constraints
 
 import io.github.robertomike.springrules.validations.ExistsValidation
-import jakarta.validation.ConstraintValidator
-import jakarta.validation.ConstraintValidatorContext
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.ApplicationContext
 import org.springframework.util.ClassUtils.getMethod
@@ -12,7 +10,7 @@ import java.util.Optional
 
 class ExistsConstraint : SimpleConstraint<ExistsValidation, Long> {
     @Autowired
-    private val applicationContext: ApplicationContext? = null
+    private lateinit var applicationContext: ApplicationContext
     private lateinit var method: String
     private lateinit var repository: Class<out Any>
 
@@ -24,7 +22,7 @@ class ExistsConstraint : SimpleConstraint<ExistsValidation, Long> {
 
     override fun isValid(value: Long): Boolean {
         try {
-            val instance = applicationContext!!.getBean(repository)
+            val instance = applicationContext.getBean(repository)
             val callable: Method = getMethod(repository, method, value.javaClass)
             val result = callable.invoke(instance, value)
             if (result is Optional<*>) {
