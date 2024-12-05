@@ -4,7 +4,7 @@ import jakarta.validation.ConstraintValidator
 import jakarta.validation.ConstraintValidatorContext
 
 @FunctionalInterface
-interface SimpleConstraintValidator<A : Annotation, T> : ConstraintValidator<A, T> {
+interface SimpleConstraint<A : Annotation, T> : ConstraintValidator<A, T> {
     override fun initialize(constraintAnnotation: A) {
     }
 
