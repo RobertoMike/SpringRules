@@ -10,11 +10,11 @@ import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Method
 import java.util.Optional
 
-class ExistsConstraint : ConstraintValidator<ExistsValidation, Long?> {
+class ExistsConstraint : SimpleConstraint<ExistsValidation, Long> {
     @Autowired
     private val applicationContext: ApplicationContext? = null
-    var method: String? = null
-    var repository: Class<out Any>? = null
+    private lateinit var method: String
+    private lateinit var repository: Class<out Any>
 
     override fun initialize(constraintAnnotation: ExistsValidation) {
         this.method = constraintAnnotation.method
@@ -22,10 +22,7 @@ class ExistsConstraint : ConstraintValidator<ExistsValidation, Long?> {
         super.initialize(constraintAnnotation)
     }
 
-    override fun isValid(value: Long?, constraintValidatorContext: ConstraintValidatorContext): Boolean {
-        if (value == null) {
-            return true
-        }
+    override fun isValid(value: Long): Boolean {
         try {
             val instance = applicationContext!!.getBean(repository)
             val callable: Method = getMethod(repository, method, value.javaClass)
@@ -36,16 +33,16 @@ class ExistsConstraint : ConstraintValidator<ExistsValidation, Long?> {
             if (result is Boolean) {
                 return result
             }
-            if (result == null) {
-                return false
-            }
+
+            return result != null
         } catch (e: IllegalAccessException) {
             return false
         } catch (e: NoSuchMethodException) {
             return false
         } catch (e: InvocationTargetException) {
             return false
+        } catch (e: Exception) {
+            return false
         }
-        return true
     }
 }
