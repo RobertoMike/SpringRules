@@ -1,6 +1,9 @@
 plugins {
-    kotlin("jvm") version "1.9.25"
-    kotlin("plugin.spring") version "1.9.25"
+    kotlin("jvm") version "2.1.0"
+
+    id("java-library")
+    `maven-publish`
+    id("signing")
 }
 
 group = "io.github.robertomike"
