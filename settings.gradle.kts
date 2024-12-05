@@ -1,1 +1,1 @@
-rootProject.name = "spring-shield"
+rootProject.name = "spring-rules"

@@ -1,4 +1,4 @@
-package io.github.robertomike.springshield
+package io.github.robertomike.springrules
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

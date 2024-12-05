@@ -1,11 +1,11 @@
-package io.github.robertomike.springshield
+package io.github.robertomike.springrules
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class SpringShieldApplication
+class SpringRulesApplication
 
 fun main(args: Array<String>) {
-    runApplication<SpringShieldApplication>(*args)
+    runApplication<SpringRulesApplication>(*args)
 }
