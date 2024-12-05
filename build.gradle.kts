@@ -20,7 +20,6 @@ var springVersion = "3.0.0"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-validation:$springVersion")
-    implementation("org.springframework.boot:spring-boot-starter-web:$springVersion")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:$springVersion")
