@@ -12,7 +12,6 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 annotation class PasswordValidation(
     val message: String = "{spring-rules.password}",
-    val canBeEmpty: Boolean = false,
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )
