@@ -16,7 +16,7 @@ import kotlin.reflect.KClass
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
-annotation class UniqueValidation(
+annotation class Unique(
     val message: String = "{spring-rules.unique}",
     val method: String,
     val repository: KClass<*>,

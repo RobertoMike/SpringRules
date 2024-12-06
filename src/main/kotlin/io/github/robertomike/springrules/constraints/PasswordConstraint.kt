@@ -1,9 +1,9 @@
 package io.github.robertomike.springrules.constraints
 
 import io.github.robertomike.springrules.utils.MessageUtil
-import io.github.robertomike.springrules.validations.PasswordValidation
+import io.github.robertomike.springrules.validations.Password
 
-class PasswordConstraint: SimpleMessageConstraint<PasswordValidation, String>() {
+class PasswordConstraint: SimpleMessageConstraint<Password, String>() {
     private val symbolRegex = "(?=.*[~!@#$%^&*()_-]).*".toRegex()
     private val lowercaseRegex = "(?=.*[a-z]).*".toRegex()
     private val uppercaseRegex = "(?=.*[A-Z]).*".toRegex()

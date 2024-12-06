@@ -1,13 +1,13 @@
 package io.github.robertomike.springrules.constraints
 
-import io.github.robertomike.springrules.validations.UniqueValidation
+import io.github.robertomike.springrules.validations.Unique
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.ApplicationContext
 import org.springframework.util.ClassUtils.getMethod
 import java.lang.reflect.Method
 import java.util.Optional
 
-class UniqueConstraint: SimpleConstraint<UniqueValidation, String>() {
+class UniqueConstraint: SimpleConstraint<Unique, String>() {
     @Autowired
     private lateinit var applicationContext: ApplicationContext
     private val method: String

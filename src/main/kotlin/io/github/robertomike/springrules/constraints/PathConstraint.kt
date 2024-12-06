@@ -1,8 +1,8 @@
 package io.github.robertomike.springrules.constraints
 
-import io.github.robertomike.springrules.validations.PathValidation
+import io.github.robertomike.springrules.validations.Path
 
-class PathConstraint: SimpleConstraint<PathValidation, String>() {
+class PathConstraint: SimpleConstraint<Path, String>() {
     override fun isValid(path: String): Boolean {
         if (path.isEmpty()) {
             return false

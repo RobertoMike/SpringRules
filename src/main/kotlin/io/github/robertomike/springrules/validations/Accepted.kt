@@ -1,12 +1,13 @@
 package io.github.robertomike.springrules.validations
 
-import io.github.robertomike.springrules.constraints.PasswordConstraint
+import io.github.robertomike.springrules.constraints.AcceptedConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
+import jakarta.validation.constraints.NotNull
 import kotlin.reflect.KClass
 
 @MustBeDocumented
-@Constraint(validatedBy = [PasswordConstraint::class])
+@Constraint(validatedBy = [AcceptedConstraint::class])
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
@@ -16,14 +17,9 @@ import kotlin.reflect.KClass
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
-annotation class PasswordValidation(
-    val message: String = "{spring-rules.password.default}",
-    val minLength: Int = 8,
-    val maxLength: Int = 256,
-    val digit: Boolean = true,
-    val letters: Boolean = true,
-    val uppercaseAndLowercase: Boolean = true,
-    val specialCharacters: Boolean = true,
+@NotNull
+annotation class Accepted(
+    val message: String = "{spring-rules.accepted}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

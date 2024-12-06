@@ -1,8 +1,8 @@
 package io.github.robertomike.springrules.constraints
 
-import io.github.robertomike.springrules.validations.StartWithValidation
+import io.github.robertomike.springrules.validations.StartsWith
 
-class StartWithConstraint: SimpleConstraint<StartWithValidation, String>() {
+class StartWithConstraint: SimpleConstraint<StartsWith, String>() {
     override fun isValid(value: String): Boolean {
         if (value.isEmpty()) {
             return false

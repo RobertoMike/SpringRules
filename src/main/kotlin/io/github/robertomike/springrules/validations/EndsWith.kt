@@ -1,12 +1,12 @@
 package io.github.robertomike.springrules.validations
 
-import io.github.robertomike.springrules.constraints.ExistsConstraint
+import io.github.robertomike.springrules.constraints.EndWithConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass
 
 @MustBeDocumented
-@Constraint(validatedBy = [ExistsConstraint::class])
+@Constraint(validatedBy = [EndWithConstraint::class])
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
@@ -16,10 +16,9 @@ import kotlin.reflect.KClass
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
-annotation class ExistsValidation(
-    val message: String = "{spring-rules.exists}",
-    val method: String,
-    val repository: KClass<*>,
+annotation class EndsWith(
+    val message: String = "{spring-rules.end-with}",
+    val value: String,
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

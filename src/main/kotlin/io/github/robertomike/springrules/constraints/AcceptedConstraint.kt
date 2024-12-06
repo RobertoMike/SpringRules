@@ -1,9 +1,9 @@
 package io.github.robertomike.springrules.constraints
 
-import io.github.robertomike.springrules.validations.AcceptedValidation
+import io.github.robertomike.springrules.validations.Accepted
 import java.lang.UnsupportedOperationException
 
-class AcceptedConstraint: SimpleConstraint<AcceptedValidation, Any>() {
+class AcceptedConstraint: SimpleConstraint<Accepted, Any>() {
     private val acceptedStringValues = listOf("true", "y", "1")
 
     override fun isValid(value: Any): Boolean {

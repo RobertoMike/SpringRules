@@ -17,7 +17,7 @@ import kotlin.reflect.KClass
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
-annotation class PathValidation(
+annotation class Path(
     val message: String = "{spring-rules.path}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []

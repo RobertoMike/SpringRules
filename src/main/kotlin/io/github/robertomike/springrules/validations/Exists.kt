@@ -1,13 +1,12 @@
 package io.github.robertomike.springrules.validations
 
-import io.github.robertomike.springrules.constraints.AcceptedConstraint
+import io.github.robertomike.springrules.constraints.ExistsConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
-import jakarta.validation.constraints.NotNull
 import kotlin.reflect.KClass
 
 @MustBeDocumented
-@Constraint(validatedBy = [AcceptedConstraint::class])
+@Constraint(validatedBy = [ExistsConstraint::class])
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
@@ -17,9 +16,10 @@ import kotlin.reflect.KClass
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
-@NotNull
-annotation class AcceptedValidation(
-    val message: String = "{spring-rules.accepted}",
+annotation class Exists(
+    val message: String = "{spring-rules.exists}",
+    val method: String,
+    val repository: KClass<*>,
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

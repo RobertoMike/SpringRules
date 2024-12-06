@@ -1,12 +1,12 @@
 package io.github.robertomike.springrules.validations
 
-import io.github.robertomike.springrules.constraints.StartWithConstraint
+import io.github.robertomike.springrules.constraints.PasswordConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass
 
 @MustBeDocumented
-@Constraint(validatedBy = [StartWithConstraint::class])
+@Constraint(validatedBy = [PasswordConstraint::class])
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
@@ -16,9 +16,14 @@ import kotlin.reflect.KClass
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
-annotation class StartWithValidation(
-    val message: String = "{spring-rules.start-with}",
-    val value: String,
+annotation class Password(
+    val message: String = "{spring-rules.password.default}",
+    val minLength: Int = 8,
+    val maxLength: Int = 256,
+    val digit: Boolean = true,
+    val letters: Boolean = true,
+    val uppercaseAndLowercase: Boolean = true,
+    val specialCharacters: Boolean = true,
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

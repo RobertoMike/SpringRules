@@ -1,8 +1,8 @@
 package io.github.robertomike.springrules.constraints
 
-import io.github.robertomike.springrules.validations.EndWithValidation
+import io.github.robertomike.springrules.validations.EndsWith
 
-class EndWithConstraint: SimpleConstraint<EndWithValidation, String>() {
+class EndWithConstraint: SimpleConstraint<EndsWith, String>() {
     override fun isValid(value: String): Boolean {
         if (value.isEmpty()) {
             return false
