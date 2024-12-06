@@ -29,7 +29,7 @@ class PasswordConstraint: SimpleMessageConstraint<PasswordValidation, String>() 
             messages.add("password.digit")
         }
 
-        if (annotation.uppercaseAndLowercase) {
+        if (annotation.letters && annotation.uppercaseAndLowercase) {
             // Todo: we need to check if in this way will add the two messages
             when {
                 !value.matches(lowercaseRegex) -> messages.add("password.lower-case")
