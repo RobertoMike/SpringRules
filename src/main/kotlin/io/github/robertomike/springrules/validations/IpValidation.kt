@@ -1,9 +1,8 @@
 package io.github.robertomike.springrules.validations
 
-import io.github.robertomike.springrules.constraints.ip.IpConstraint
+import io.github.robertomike.springrules.constraints.IpConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
-import jakarta.validation.constraints.NotNull
 import kotlin.reflect.KClass
 
 @MustBeDocumented

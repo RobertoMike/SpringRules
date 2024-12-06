@@ -1,17 +1,10 @@
 package io.github.robertomike.springrules.validations
 
-import io.github.robertomike.springrules.constraints.ip.Ip4Constraint
-import jakarta.validation.Constraint
-import jakarta.validation.Payload
-import jakarta.validation.constraints.NotNull
-import kotlin.reflect.KClass
+import io.github.robertomike.springrules.constraints.IpConstraint
+import jakarta.validation.constraints.Pattern
 
 @MustBeDocumented
-@Constraint(validatedBy = [Ip4Constraint::class])
 @Target(AnnotationTarget.FIELD, AnnotationTarget.PROPERTY, AnnotationTarget.FUNCTION)
 @Retention(AnnotationRetention.RUNTIME)
-annotation class Ip4Validation(
-    val message: String = "{spring-rules.ip4}",
-    val groups: Array<KClass<*>> = [],
-    val payload: Array<KClass<out Payload>> = []
-)
+@Pattern(regexp = IpConstraint.IP4_REGEX, flags = [Pattern.Flag.CASE_INSENSITIVE], message = "{spring-rules.ip4}")
+annotation class Ip4Validation

@@ -1,17 +1,10 @@
 package io.github.robertomike.springrules.validations
 
-import io.github.robertomike.springrules.constraints.ip.Ip6Constraint
-import jakarta.validation.Constraint
-import jakarta.validation.Payload
-import jakarta.validation.constraints.NotNull
-import kotlin.reflect.KClass
+import io.github.robertomike.springrules.constraints.IpConstraint
+import jakarta.validation.constraints.Pattern
 
 @MustBeDocumented
-@Constraint(validatedBy = [Ip6Constraint::class])
 @Target(AnnotationTarget.FIELD, AnnotationTarget.PROPERTY, AnnotationTarget.FUNCTION)
 @Retention(AnnotationRetention.RUNTIME)
-annotation class Ip6Validation(
-    val message: String = "{spring-rules.ip6}",
-    val groups: Array<KClass<*>> = [],
-    val payload: Array<KClass<out Payload>> = []
-)
+@Pattern(regexp = IpConstraint.IP6_REGEX, flags = [Pattern.Flag.CASE_INSENSITIVE], message = "{spring-rules.ip6}")
+annotation class Ip6Validation
