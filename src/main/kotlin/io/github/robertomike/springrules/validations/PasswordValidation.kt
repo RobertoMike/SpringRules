@@ -7,7 +7,14 @@ import kotlin.reflect.KClass
 
 @MustBeDocumented
 @Constraint(validatedBy = [PasswordConstraint::class])
-@Target(AnnotationTarget.FIELD, AnnotationTarget.FUNCTION)
+@Target(
+    AnnotationTarget.FIELD,
+    AnnotationTarget.PROPERTY,
+    AnnotationTarget.FUNCTION,
+    AnnotationTarget.ANNOTATION_CLASS,
+    AnnotationTarget.CONSTRUCTOR,
+    AnnotationTarget.TYPE
+)
 @Retention(AnnotationRetention.RUNTIME)
 annotation class PasswordValidation(
     val message: String = "{spring-rules.password.default}",
