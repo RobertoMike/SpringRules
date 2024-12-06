@@ -1,6 +1,6 @@
 package io.github.robertomike.springrules.constraints
 
-import io.github.robertomike.springrules.exceptions.SpringRulesException
+import io.github.robertomike.springrules.exceptions.RulesException
 import jakarta.validation.ConstraintValidator
 import jakarta.validation.ConstraintValidatorContext
 import java.lang.reflect.InvocationTargetException
@@ -21,9 +21,9 @@ abstract class SimpleConstraint<A: Annotation, T>: ConstraintValidator<A, T> {
         try {
             return isValid(value)
         } catch (e: NoSuchMethodException) {
-            throw SpringRulesException("There was an error retrieving the method", e)
+            throw RulesException("There was an error retrieving the method", e)
         } catch (e: InvocationTargetException) {
-            throw SpringRulesException("There was an error invoking some method", e)
+            throw RulesException("There was an error invoking some method", e)
         }
     }
 

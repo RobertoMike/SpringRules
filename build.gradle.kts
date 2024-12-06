@@ -19,13 +19,12 @@ repositories {
     mavenCentral()
 }
 
-var springVersion = "3.0.0"
+var jakartaVersion = "3.0.0"
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-validation:$springVersion")
+    implementation("jakarta.validation:jakarta.validation-api:$jakartaVersion")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test:$springVersion")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
