@@ -3,11 +3,11 @@ package io.github.robertomike.springrules.constraints
 import io.github.robertomike.springrules.validations.Path
 
 class PathConstraint: SimpleConstraint<Path, String>() {
-    override fun isValid(path: String): Boolean {
-        if (path.isEmpty()) {
+    override fun isValid(value: String): Boolean {
+        if (value.isEmpty()) {
             return false
         }
 
-        return path.matches("^/([a-zA-Z0-9-_]+/)*[a-zA-Z0-9-_]+$".toRegex())
+        return value.matches("^/([a-zA-Z0-9-_]+/)*[a-zA-Z0-9-_]+$".toRegex())
     }
 }
