@@ -8,7 +8,7 @@ class PasswordConstraint: SimpleMessageConstraint<PasswordValidation, String>() 
     private val lowercaseRegex = "(?=.*[a-z]).*".toRegex()
     private val uppercaseRegex = "(?=.*[A-Z]).*".toRegex()
     private val letterRegex = ".*[a-zA-Z].*".toRegex()
-    private val numberRegex = "(?=.*\\d).*".toRegex()
+    private val digitRegex = "(?=.*\\d).*".toRegex()
 
     override fun isValid(value: String, util: MessageUtil): Boolean {
         val messages = mutableListOf<String>()
@@ -25,12 +25,16 @@ class PasswordConstraint: SimpleMessageConstraint<PasswordValidation, String>() 
             messages.add("password.special-character")
         }
 
-        if (annotation.number && !value.matches(numberRegex)) {
-            messages.add("password.number")
+        if (annotation.digit && !value.matches(digitRegex)) {
+            messages.add("password.digit")
         }
 
-        if (annotation.uppercaseAndLowercase && !(value.matches(lowercaseRegex) && value.matches(uppercaseRegex))) {
-            messages.add("password.number")
+        if (annotation.uppercaseAndLowercase) {
+            // Todo: we need to check if in this way will add the two messages
+            when {
+                !value.matches(lowercaseRegex) -> messages.add("password.lower-case")
+                !value.matches(uppercaseRegex) -> messages.add("password.upper-case")
+            }
         }
 
         if (annotation.letters && !value.matches(letterRegex)) {

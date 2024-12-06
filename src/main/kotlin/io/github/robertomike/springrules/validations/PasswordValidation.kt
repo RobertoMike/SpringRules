@@ -13,7 +13,7 @@ annotation class PasswordValidation(
     val message: String = "{spring-rules.password.default}",
     val minLength: Int = 8,
     val maxLength: Int = 256,
-    val number: Boolean = true,
+    val digit: Boolean = true,
     val letters: Boolean = true,
     val uppercaseAndLowercase: Boolean = true,
     val specialCharacters: Boolean = true,

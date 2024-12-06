@@ -4,3 +4,13 @@ spring-rules:
   ip: "Invalid IP address"
   ip4: "Invalid IP4 address"
   ip6: "Invalid IP6 address"
+  password:
+    default: "Invalid password"
+    length:
+      min: "Password must be at least {minLength} characters long" # We need to check if we need to use the name of the field inside the annotation of value
+      max: "Password must be at most {value} characters long" # I will put one with value and the other with the name of the field
+    special-character: "Password must contain at least one special character"
+    digit: "Password must contain at least one digit"
+    upper-case: "Password must contain at least one upper case character"
+    lower-case: "Password must contain at least one lower case character"
+    letter: "Password must contain at least one letter"
