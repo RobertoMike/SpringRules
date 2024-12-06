@@ -1,25 +1,19 @@
 package io.github.robertomike.springrules.constraints
 
 import io.github.robertomike.springrules.exceptions.SpringRulesException
-import jakarta.validation.ConstraintValidator
+import io.github.robertomike.springrules.utils.MessageUtil
 import jakarta.validation.ConstraintValidatorContext
 import java.lang.reflect.InvocationTargetException
 
 @FunctionalInterface
-abstract class SimpleConstraint<A: Annotation, T>: ConstraintValidator<A, T> {
-    protected lateinit var annotation: A
-
-    override fun initialize(constrain: A) {
-        annotation = constrain
-    }
-
+abstract class SimpleMessageConstraint<A: Annotation, T>: SimpleConstraint<A, T>() {
     override fun isValid(value: T?, context: ConstraintValidatorContext): Boolean {
         if (value == null) {
             return true
         }
 
         try {
-            return isValid(value)
+            return isValid(value, MessageUtil(context))
         } catch (e: NoSuchMethodException) {
             throw SpringRulesException("There was an error retrieving the method", e)
         } catch (e: InvocationTargetException) {
@@ -27,7 +21,5 @@ abstract class SimpleConstraint<A: Annotation, T>: ConstraintValidator<A, T> {
         }
     }
 
-    open fun isValid(value: T): Boolean {
-        TODO()
-    }
+    abstract fun isValid(value: T, util: MessageUtil): Boolean
 }
