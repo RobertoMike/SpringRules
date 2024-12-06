@@ -1,0 +1,6 @@
+spring-rules:
+  accepted: "You must accept"
+  start-with: "Need to start with {value}"
+  ip: "Invalid IP address"
+  ip4: "Invalid IP4 address"
+  ip6: "Invalid IP6 address"
