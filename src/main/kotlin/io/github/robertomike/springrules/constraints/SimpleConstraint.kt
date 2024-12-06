@@ -5,9 +5,6 @@ import jakarta.validation.ConstraintValidatorContext
 
 @FunctionalInterface
 interface SimpleConstraint<A : Annotation, T> : ConstraintValidator<A, T> {
-    override fun initialize(constraintAnnotation: A) {
-    }
-
     override fun isValid(value: T?, context: ConstraintValidatorContext): Boolean {
         if (value == null) {
             return true
