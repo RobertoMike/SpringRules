@@ -1,18 +1,18 @@
 package io.github.robertomike.springrules.validations
 
-import io.github.robertomike.springrules.constraints.ExistsConstraint
+import io.github.robertomike.springrules.constraints.PasswordConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass
 
+
 @MustBeDocumented
-@Constraint(validatedBy = [ExistsConstraint::class])
+@Constraint(validatedBy = [PasswordConstraint::class])
 @Target(AnnotationTarget.FIELD, AnnotationTarget.FUNCTION)
 @Retention(AnnotationRetention.RUNTIME)
-annotation class ExistsValidation(
-    val message: String = "{spring-rules.exists}",
-    val method: String,
-    val repository: KClass<*>,
+annotation class PasswordValidation(
+    val message: String = "{spring-rules.password}",
+    val canBeEmpty: Boolean = false,
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

@@ -1,16 +1,16 @@
 package io.github.robertomike.springrules.validations
 
-import io.github.robertomike.springrules.constraints.ExistsConstraint
+import io.github.robertomike.springrules.constraints.UniqueConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass
 
 @MustBeDocumented
-@Constraint(validatedBy = [ExistsConstraint::class])
+@Constraint(validatedBy = [UniqueConstraint::class])
 @Target(AnnotationTarget.FIELD, AnnotationTarget.FUNCTION)
 @Retention(AnnotationRetention.RUNTIME)
-annotation class ExistsValidation(
-    val message: String = "{spring-rules.exists}",
+annotation class UniqueValidation(
+    val message: String = "{spring-rules.unique}",
     val method: String,
     val repository: KClass<*>,
     val groups: Array<KClass<*>> = [],
