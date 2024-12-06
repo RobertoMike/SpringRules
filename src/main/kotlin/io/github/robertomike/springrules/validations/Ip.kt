@@ -16,7 +16,7 @@ import kotlin.reflect.KClass
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
-annotation class IpValidation(
+annotation class Ip(
     val message: String = "{spring-rules.ip}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
