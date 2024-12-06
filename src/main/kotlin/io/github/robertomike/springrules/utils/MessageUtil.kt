@@ -9,9 +9,11 @@ class MessageUtil(private val context: ConstraintValidatorContext) {
 
     fun changeMessages(vararg messages: String) {
         resetDefaultMessage()
-        messages.forEach {
-            templateMessage(it).addConstraintViolation()
-        }
+        messages.forEach(this::addMessage)
+    }
+
+    fun addMessage(message: String) {
+        templateMessage(message).addConstraintViolation()
     }
 
     fun addMessageForProperty(property: String, message: String) {

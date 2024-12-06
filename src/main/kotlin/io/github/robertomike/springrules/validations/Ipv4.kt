@@ -14,4 +14,4 @@ import jakarta.validation.constraints.Pattern
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Pattern(regexp = IpConstraint.IP4_REGEX, flags = [Pattern.Flag.CASE_INSENSITIVE], message = "{spring-rules.ip4}")
-annotation class Ip4Validation
+annotation class Ipv4
