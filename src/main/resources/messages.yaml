@@ -20,3 +20,5 @@ spring-rules:
     default: "Field must contain only letters"
     numeric: "Field must contain only letters and numbers"
     symbols: "Field must contain letters, numbers and symbols"
+  case:
+    snake: "Field must be in snake_case"
