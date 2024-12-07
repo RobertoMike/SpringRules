@@ -25,6 +25,10 @@ dependencies {
     implementation("jakarta.validation:jakarta.validation-api:$jakartaVersion")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
+    api("jakarta.validation:jakarta.validation-api:$jakartaVersion")
+
+    testImplementation("org.hibernate.validator:hibernate-validator:8.0.1.Final")
+    testImplementation("org.glassfish.expressly:expressly:5.0.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
