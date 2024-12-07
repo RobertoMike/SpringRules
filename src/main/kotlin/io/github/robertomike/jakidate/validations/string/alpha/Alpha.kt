@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate.validations.alpha
+package io.github.robertomike.jakidate.validations.string.alpha
 
 import jakarta.validation.constraints.Pattern
 
@@ -12,5 +12,5 @@ import jakarta.validation.constraints.Pattern
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
-@Pattern(regexp = "[a-zA-Z\\d]+", message = "{spring-rules.alpha.numeric}")
-annotation class AlphaNum
+@Pattern(regexp = "[a-zA-Z]+", message = "{spring-rules.alpha.default}")
+annotation class Alpha
