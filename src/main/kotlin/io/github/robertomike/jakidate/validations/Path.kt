@@ -17,6 +17,7 @@ import kotlin.reflect.KClass
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
+@Repeatable
 annotation class Path(
     val message: String = "{spring-rules.path}",
     val groups: Array<KClass<*>> = [],

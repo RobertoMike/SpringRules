@@ -12,5 +12,6 @@ import jakarta.validation.constraints.Pattern
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
+@Repeatable
 @Pattern(regexp = "[a-zA-Z\\d]+", message = "{spring-rules.alpha.numeric}")
 annotation class AlphaNum

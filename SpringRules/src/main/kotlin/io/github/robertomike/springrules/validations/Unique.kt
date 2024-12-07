@@ -16,6 +16,7 @@ import kotlin.reflect.KClass
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
+@Repeatable
 annotation class Unique(
     val message: String = "{spring-rules.unique}",
     val method: String,

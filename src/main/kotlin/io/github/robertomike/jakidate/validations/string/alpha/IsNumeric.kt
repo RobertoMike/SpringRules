@@ -12,5 +12,6 @@ import jakarta.validation.constraints.Pattern
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
+@Repeatable
 @Pattern(regexp = "\\d+", message = "{spring-rules.numeric}")
 annotation class IsNumeric

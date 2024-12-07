@@ -16,6 +16,7 @@ import kotlin.reflect.KClass
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
+@Repeatable
 annotation class Between(
     val message: String = "{spring-rules.numeric.between}",
     val groups: Array<KClass<*>> = [],

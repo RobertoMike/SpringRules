@@ -16,6 +16,7 @@ import kotlin.reflect.KClass
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
+@Repeatable
 annotation class StartsWith(
     val value: String,
     val message: String = "{spring-rules.start-with}",

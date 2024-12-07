@@ -1,8 +1,6 @@
 package io.github.robertomike.jakidate.validations.`object`.required
 
 import io.github.robertomike.jakidate.constraints.required.Expression
-import java.util.function.BiFunction
-import java.util.function.Function
 import kotlin.reflect.KClass
 
 @MustBeDocumented

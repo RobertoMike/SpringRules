@@ -12,5 +12,6 @@ import jakarta.validation.constraints.Pattern
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
+@Repeatable
 @Pattern(regexp = "^([a-z])+\$", message = "{spring-rules.case.lower}")
 annotation class LowerCase

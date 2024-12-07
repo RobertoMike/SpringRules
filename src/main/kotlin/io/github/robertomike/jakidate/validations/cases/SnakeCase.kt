@@ -12,5 +12,6 @@ import jakarta.validation.constraints.Pattern
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
+@Repeatable
 @Pattern(regexp = "^(([a-z0-9]+)([_])*)+\$", message = "{spring-rules.case.snake}")
 annotation class SnakeCase

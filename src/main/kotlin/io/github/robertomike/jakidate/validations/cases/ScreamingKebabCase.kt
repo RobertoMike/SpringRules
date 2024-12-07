@@ -12,5 +12,6 @@ import jakarta.validation.constraints.Pattern
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
+@Repeatable
 @Pattern(regexp = "^(([A-Z0-9]+)([-])*)+\$", message = "{spring-rules.case.screaming-kebab}")
 annotation class ScreamingKebabCase

@@ -8,6 +8,7 @@ import kotlin.reflect.KClass
 @Constraint(validatedBy = [])
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)
+@Repeatable
 annotation class RequiredIf(
     val message: String = "{spring-rules.required-if.default}",
     val groups: Array<KClass<*>> = [],
