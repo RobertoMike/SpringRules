@@ -16,3 +16,7 @@ spring-rules:
     letter: "Password must contain at least one letter"
   required-if:
     default: "Field is required"
+  alpha:
+    default: "Field must contain only letters"
+    numeric: "Field must contain only letters and numbers"
+    symbols: "Field must contain letters, numbers and symbols"
