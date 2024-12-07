@@ -1,6 +1,5 @@
-package io.github.robertomike.jakidate.validations
+package io.github.robertomike.jakidate.validations.cases
 
-import io.github.robertomike.jakidate.constraints.IpConstraint
 import jakarta.validation.constraints.Pattern
 
 @MustBeDocumented
@@ -13,5 +12,5 @@ import jakarta.validation.constraints.Pattern
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
-@Pattern(regexp = IpConstraint.IP4_REGEX, flags = [Pattern.Flag.CASE_INSENSITIVE], message = "{spring-rules.ip4}")
-annotation class Ipv4
+@Pattern(regexp = "^([a-z])+\$", message = "{spring-rules.case.lower}")
+annotation class LowerCase

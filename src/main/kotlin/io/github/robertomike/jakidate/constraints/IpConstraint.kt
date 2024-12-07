@@ -1,6 +1,6 @@
 package io.github.robertomike.jakidate.constraints
 
-import io.github.robertomike.jakidate.validations.Ip
+import io.github.robertomike.jakidate.validations.ip.Ip
 
 class IpConstraint: SimpleConstraint<Ip, String>() {
     companion object {

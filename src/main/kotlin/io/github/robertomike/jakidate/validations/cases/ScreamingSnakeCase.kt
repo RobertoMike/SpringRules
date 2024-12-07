@@ -1,6 +1,5 @@
-package io.github.robertomike.jakidate.validations
+package io.github.robertomike.jakidate.validations.cases
 
-import io.github.robertomike.jakidate.constraints.IpConstraint
 import jakarta.validation.constraints.Pattern
 
 @MustBeDocumented
@@ -13,5 +12,5 @@ import jakarta.validation.constraints.Pattern
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
-@Pattern(regexp = IpConstraint.IP6_REGEX, flags = [Pattern.Flag.CASE_INSENSITIVE], message = "{spring-rules.ip6}")
-annotation class Ipv6
+@Pattern(regexp = "^(([A-Z0-9]+)([_])*)+\$", message = "{spring-rules.case.screaming-snake}")
+annotation class ScreamingSnakeCase

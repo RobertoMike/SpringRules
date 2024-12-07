@@ -18,3 +18,18 @@ spring-rules:
     default: "Field is required"
     # TODO We need to check how to pass the parameters to the message
     field-null: "Field cannot be null when {conditionField} is {conditionValue}"
+  alpha:
+    default: "Field must contain only letters"
+    numeric: "Field must contain only letters and numbers"
+    symbols: "Field must contain letters, numbers and symbols"
+  case:
+    snake: "Field must be in snake_case"
+    screaming-snake: "Field must be in SCREAMING_SNAKE_CASE"
+    lower: "Field must be in lowercase"
+    upper: "Field must be in UPPERCASE"
+    camel: "Field must be in camelCase"
+    camel-snake: "Field must be in camel_Snake_Case"
+    kebab: "Field must be in kebab-case"
+    screaming-kebab: "Field must be in SCREAMING-KEBAB-CASE"
+    pascal: "Field must be in PascalCase"
+    train: "Field must be in Train-Case"
