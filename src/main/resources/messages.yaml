@@ -26,6 +26,7 @@ spring-rules:
     lower: "Field must be in lowercase"
     upper: "Field must be in UPPERCASE"
     camel: "Field must be in camelCase"
+    camel-snake: "Field must be in camel_Snake_Case"
     kebab: "Field must be in kebab-case"
     screaming-kebab: "Field must be in SCREAMING-KEBAB-CASE"
     pascal: "Field must be in PascalCase"
