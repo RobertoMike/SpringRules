@@ -19,8 +19,8 @@ import kotlin.reflect.KClass
     AnnotationRetention.RUNTIME
 )
 annotation class In(
+    val allowed: Array<String>,
     val message: String = "{spring-rules.in}",
     val groups: Array<KClass<*>> = [],
-    val allowed: Array<String>,
     val payload: Array<KClass<out Payload>> = []
 )

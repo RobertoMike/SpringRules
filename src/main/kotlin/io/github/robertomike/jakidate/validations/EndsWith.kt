@@ -17,8 +17,8 @@ import kotlin.reflect.KClass
 )
 @Retention(AnnotationRetention.RUNTIME)
 annotation class EndsWith(
-    val message: String = "{spring-rules.end-with}",
     val value: String,
+    val message: String = "{spring-rules.end-with}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )
