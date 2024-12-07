@@ -1,16 +1,15 @@
 package io.github.robertomike.jakidate.validations
 
+import io.github.robertomike.jakidate.CustomTest
 import io.github.robertomike.jakidate.examples.User
-import jakarta.validation.Validation
+import jakarta.validation.Validator
 import org.junit.jupiter.api.Test
 
+@CustomTest
 class StartsWithTest {
     @Test
-    fun good() {
+    fun good(validator: Validator) {
         val user = User("Jake alexander")
-
-        val factory = Validation.buildDefaultValidatorFactory()
-        val validator = factory.validator
 
         val constraints = validator.validate(user)
 
