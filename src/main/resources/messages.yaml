@@ -30,3 +30,4 @@ spring-rules:
     kebab: "Field must be in kebab-case"
     screaming-kebab: "Field must be in SCREAMING-KEBAB-CASE"
     pascal: "Field must be in PascalCase"
+    train: "Field must be in Train-Case"
