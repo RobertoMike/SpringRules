@@ -4,7 +4,9 @@ import io.github.robertomike.jakidate.validations.Accepted
 import java.lang.UnsupportedOperationException
 
 class AcceptedConstraint: SimpleConstraint<Accepted, Any>() {
-    private val acceptedStringValues = listOf("true", "y", "1")
+    companion object {
+        val acceptedStringValues = listOf("true", "y", "1")
+    }
 
     override fun isValid(value: Any): Boolean {
         return when (value) {

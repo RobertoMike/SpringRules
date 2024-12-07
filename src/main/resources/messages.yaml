@@ -7,8 +7,8 @@ spring-rules:
   password:
     default: "Invalid password"
     length:
-      min: "Password must be at least {minLength} characters long" # We need to check if we need to use the name of the field inside the annotation of value
-      max: "Password must be at most {value} characters long" # I will put one with value and the other with the name of the field
+      min: "Password must be at least {minLength} characters long" # TODO We need to check if we need to use the name of the field inside the annotation of value
+      max: "Password must be at most {value} characters long" # TODO I will put one with value and the other with the name of the field
     special-character: "Password must contain at least one special character"
     digit: "Password must contain at least one digit"
     upper-case: "Password must contain at least one upper case character"
@@ -16,6 +16,8 @@ spring-rules:
     letter: "Password must contain at least one letter"
   required-if:
     default: "Field is required"
+    # TODO We need to check how to pass the parameters to the message
+    field-null: "Field cannot be null when {conditionField} is {conditionValue}"
   alpha:
     default: "Field must contain only letters"
     numeric: "Field must contain only letters and numbers"
