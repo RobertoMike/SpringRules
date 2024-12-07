@@ -34,5 +34,5 @@ annotation class RequiredIfField(
      * This field is used to define the expression that will be used to evaluate the condition,
      * when this is different from supported expressions or behavior
      */
-    val expression: KClass<out Function<Any, Boolean>> = Expression::class,
+    val expression: KClass<out Expression> = Expression::class,
 )
