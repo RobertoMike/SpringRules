@@ -22,3 +22,4 @@ spring-rules:
     symbols: "Field must contain letters, numbers and symbols"
   case:
     snake: "Field must be in snake_case"
+    screaming-snake: "Field must be in SCREAMING_SNAKE_CASE"
