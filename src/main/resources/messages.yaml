@@ -27,3 +27,4 @@ spring-rules:
     upper: "Field must be in UPPERCASE"
     camel: "Field must be in camelCase"
     kebab: "Field must be in kebab-case"
+    screaming-kebab: "Field must be in SCREAMING-KEBAB-CASE"
