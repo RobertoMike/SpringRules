@@ -1,6 +1,6 @@
-package io.github.robertomike.springrules.constraints
+package io.github.robertomike.jakidate.constraints
 
-import io.github.robertomike.springrules.validations.Alpha
+import io.github.robertomike.jakidate.validations.Alpha
 
 class AlphaConstraint: SimpleConstraint<Alpha, String>() {
     private val letterRegex = ".*[a-zA-Z].*".toRegex()

@@ -1,6 +1,6 @@
-package io.github.robertomike.springrules.validations
+package io.github.robertomike.jakidate.validations
 
-import io.github.robertomike.springrules.constraints.AlphaConstraint
+import io.github.robertomike.jakidate.constraints.AlphaConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass
