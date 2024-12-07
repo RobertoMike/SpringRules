@@ -1,1 +1,2 @@
-rootProject.name = "spring-rules"
+rootProject.name = "jakidate"
+include("SpringRules")

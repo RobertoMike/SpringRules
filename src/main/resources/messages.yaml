@@ -14,3 +14,5 @@ spring-rules:
     upper-case: "Password must contain at least one upper case character"
     lower-case: "Password must contain at least one lower case character"
     letter: "Password must contain at least one letter"
+  required-if:
+    default: "Field is required"
