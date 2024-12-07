@@ -23,3 +23,4 @@ spring-rules:
   case:
     snake: "Field must be in snake_case"
     screaming-snake: "Field must be in SCREAMING_SNAKE_CASE"
+    lower: "Field must be in lowercase"
