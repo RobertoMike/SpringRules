@@ -28,3 +28,4 @@ spring-rules:
     camel: "Field must be in camelCase"
     kebab: "Field must be in kebab-case"
     screaming-kebab: "Field must be in SCREAMING-KEBAB-CASE"
+    pascal: "Field must be in PascalCase"
