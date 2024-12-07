@@ -31,3 +31,6 @@ spring-rules:
     screaming-kebab: "Field must be in SCREAMING-KEBAB-CASE"
     pascal: "Field must be in PascalCase"
     train: "Field must be in Train-Case"
+  numeric:
+    default: "Field must contain only numbers"
+    between: "Field must be between {min} and {max}"
