@@ -25,3 +25,4 @@ spring-rules:
     screaming-snake: "Field must be in SCREAMING_SNAKE_CASE"
     lower: "Field must be in lowercase"
     upper: "Field must be in UPPERCASE"
+    camel: "Field must be in camelCase"
