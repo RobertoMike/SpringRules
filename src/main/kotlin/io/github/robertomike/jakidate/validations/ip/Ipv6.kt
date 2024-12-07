@@ -1,5 +1,6 @@
-package io.github.robertomike.jakidate.validations
+package io.github.robertomike.jakidate.validations.ip
 
+import io.github.robertomike.jakidate.constraints.IpConstraint
 import jakarta.validation.constraints.Pattern
 
 @MustBeDocumented
@@ -12,5 +13,5 @@ import jakarta.validation.constraints.Pattern
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
-@Pattern(regexp = "^([\\.,;:?!'\\\"\\-\\—_\\/\\\\()\\[\\]{}@#&%\\*\\+=<>≠≈√Δ∑π¢\\\$€£¥\\|~\\^¿¡ÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÇØÆßa-zA-Z0-9]+)\$", message = "{spring-rules.alpha.symbols}")
-annotation class AlphaSymbols
+@Pattern(regexp = IpConstraint.IP6_REGEX, flags = [Pattern.Flag.CASE_INSENSITIVE], message = "{spring-rules.ip6}")
+annotation class Ipv6

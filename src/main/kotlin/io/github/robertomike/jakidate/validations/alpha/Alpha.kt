@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate.validations
+package io.github.robertomike.jakidate.validations.alpha
 
 import jakarta.validation.constraints.Pattern
 
