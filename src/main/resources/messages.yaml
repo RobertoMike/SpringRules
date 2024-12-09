@@ -39,3 +39,5 @@ spring-rules:
     between: "Field must be between {min} and {max}"
   file:
     format: "File format is not valid, allowed are {value}"
+  distinct: "Array must not contain any duplicate entries"
+  different: "The values of the fields must be different"
