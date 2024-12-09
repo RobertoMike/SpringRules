@@ -1,6 +1,9 @@
 package io.github.robertomike.jakidate.validations.string.alpha
 
+import jakarta.validation.Constraint
+import jakarta.validation.Payload
 import jakarta.validation.constraints.Pattern
+import kotlin.reflect.KClass
 
 @MustBeDocumented
 @Target(
@@ -13,5 +16,10 @@ import jakarta.validation.constraints.Pattern
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
+@Constraint(validatedBy = [])
 @Pattern(regexp = "\\d+", message = "{spring-rules.numeric}")
-annotation class IsNumeric
+annotation class IsNumeric(
+    val message: String = "{spring-rules.numeric}",
+    val groups: Array<KClass<*>> = [],
+    val payload: Array<KClass<out Payload>> = []
+)

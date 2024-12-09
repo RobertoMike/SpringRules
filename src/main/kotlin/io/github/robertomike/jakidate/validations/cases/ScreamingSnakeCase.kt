@@ -1,6 +1,9 @@
 package io.github.robertomike.jakidate.validations.cases
 
+import jakarta.validation.Constraint
+import jakarta.validation.Payload
 import jakarta.validation.constraints.Pattern
+import kotlin.reflect.KClass
 
 @MustBeDocumented
 @Target(
@@ -13,5 +16,10 @@ import jakarta.validation.constraints.Pattern
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
+@Constraint(validatedBy = [])
 @Pattern(regexp = "^(([A-Z0-9]+)([_])*)+\$", message = "{spring-rules.case.screaming-snake}")
-annotation class ScreamingSnakeCase
+annotation class ScreamingSnakeCase(
+    val message: String = "{spring-rules.case.screaming-snake}",
+    val groups: Array<KClass<*>> = [],
+    val payload: Array<KClass<out Payload>> = []
+)

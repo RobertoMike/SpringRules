@@ -1,6 +1,9 @@
 package io.github.robertomike.jakidate.validations
 
+import jakarta.validation.Constraint
+import jakarta.validation.Payload
 import jakarta.validation.constraints.Pattern
+import kotlin.reflect.KClass
 
 @MustBeDocumented
 @Target(
@@ -13,5 +16,10 @@ import jakarta.validation.constraints.Pattern
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
-@Pattern(regexp = "^/([a-zA-Z0-9-_]+/)*[a-zA-Z0-9-_]+\$", message = "{spring-rules.path}")
-annotation class Path
+@Constraint(validatedBy = [])
+@Pattern(regexp = "^/([a-zA-Z0-9-_]+/*)*[a-zA-Z0-9-_]+$", message = "{spring-rules.path}")
+annotation class Path(
+    val message: String = "{spring-rules.path}",
+    val groups: Array<KClass<*>> = [],
+    val payload: Array<KClass<out Payload>> = []
+)

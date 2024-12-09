@@ -1,6 +1,9 @@
 package io.github.robertomike.jakidate.validations.cases
 
+import jakarta.validation.Constraint
+import jakarta.validation.Payload
 import jakarta.validation.constraints.Pattern
+import kotlin.reflect.KClass
 
 @MustBeDocumented
 @Target(
@@ -13,5 +16,10 @@ import jakarta.validation.constraints.Pattern
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
+@Constraint(validatedBy = [])
 @Pattern(regexp = "^([a-z])+\$", message = "{spring-rules.case.lower}")
-annotation class LowerCase
+annotation class LowerCase(
+    val message: String = "{spring-rules.case.lower}",
+    val groups: Array<KClass<*>> = [],
+    val payload: Array<KClass<out Payload>> = []
+)
