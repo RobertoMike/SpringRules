@@ -2,8 +2,8 @@ spring-rules:
   accepted: "You must accept"
   start-with: "Need to start with {value}"
   ip: "Invalid IP address"
-  ip4: "Invalid IP4 address"
-  ip6: "Invalid IP6 address"
+  ipv4: "Invalid IPv4 address"
+  ipv6: "Invalid IPv6 address"
   password:
     default: "Invalid password"
     length:
@@ -36,3 +36,4 @@ spring-rules:
   numeric:
     default: "Field must contain only numbers"
     between: "Field must be between {min} and {max}"
+  format-file: "File format is not valid, allowed are {value}"
