@@ -11,7 +11,6 @@ object Versions {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.KOTLIN}")
     implementation("org.jetbrains.kotlin:kotlin-serialization:${Versions.KOTLIN}")
     implementation("org.yaml:snakeyaml:2.0")
 }

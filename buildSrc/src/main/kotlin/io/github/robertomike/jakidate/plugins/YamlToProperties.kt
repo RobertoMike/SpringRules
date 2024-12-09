@@ -3,27 +3,26 @@ package io.github.robertomike.jakidate.plugins
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.yaml.snakeyaml.Yaml
-import java.io.File
 import java.io.FileInputStream
 import java.util.*
 
 class YamlToProperties: Plugin<Project> {
     override fun apply(project: Project) {
-        project.tasks.register("convertYamlToProperties") {
-            doLast {
-                val yaml = Yaml()
-                val messages = yaml.load<Map<String, Any>>(FileInputStream("src/main/resources/messages.yml"))
-                val propertiesFile = project.file("src/main/resources/ValidationMessages.properties")
+        println("Applying YamlToProperties task...")
+        println("Converting YAML to properties...")
+        val yaml = Yaml()
 
-                val properties = Properties()
+        val messages = yaml.load<Map<String, Any>>(FileInputStream("src/main/resources/messages.yaml"))
+        val propertiesFile = project.file("src/main/resources/ValidationMessages.properties")
 
-                flattenYaml(messages, properties)
+        val properties = Properties()
 
-                propertiesFile.outputStream().use { outputStream ->
-                    properties.store(outputStream, null)
-                }
-            }
+        flattenYaml(messages, properties)
+
+        propertiesFile.outputStream().use { outputStream ->
+            properties.store(outputStream, null)
         }
+        println("Finished converting YAML to properties...")
     }
 
     private fun flattenYaml(map: Map<String, Any>, properties: Properties, prefix: String = "") {
