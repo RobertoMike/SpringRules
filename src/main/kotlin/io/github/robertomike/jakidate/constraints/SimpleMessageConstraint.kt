@@ -5,7 +5,6 @@ import io.github.robertomike.jakidate.utils.MessageUtil
 import jakarta.validation.ConstraintValidatorContext
 import java.lang.reflect.InvocationTargetException
 
-@FunctionalInterface
 abstract class SimpleMessageConstraint<A: Annotation, T>: SimpleConstraint<A, T>() {
     override fun isValid(value: T?, context: ConstraintValidatorContext): Boolean {
         if (value == null) {

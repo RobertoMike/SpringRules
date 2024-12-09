@@ -5,7 +5,6 @@ import jakarta.validation.ConstraintValidator
 import jakarta.validation.ConstraintValidatorContext
 import java.lang.reflect.InvocationTargetException
 
-@FunctionalInterface
 abstract class SimpleConstraint<A: Annotation, T>: ConstraintValidator<A, T> {
     protected lateinit var annotation: A
 
