@@ -19,7 +19,7 @@ import kotlin.reflect.KClass
 @Repeatable
 annotation class Extension(
     val value: Array<String> = [],
-    val message: String = "{spring-rules.format-file}",
+    val message: String = "{spring-rules.file.extension}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )
