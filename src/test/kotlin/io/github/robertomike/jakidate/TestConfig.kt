@@ -7,6 +7,7 @@ import java.util.concurrent.locks.Lock
 import java.util.concurrent.locks.ReentrantLock
 import kotlin.concurrent.Volatile
 
+
 class TestConfig : BeforeAllCallback, ParameterResolver {
     companion object {
         /**
@@ -27,19 +28,21 @@ class TestConfig : BeforeAllCallback, ParameterResolver {
                 started = true
             }
 
-            val factory = Validation.buildDefaultValidatorFactory()
-            validator = factory.validator
+            validator = Validation.byDefaultProvider()
+                .configure()
+                .buildValidatorFactory()
+                .validator
         } catch (e: Exception) {
-            println(e.message);
-            throw RuntimeException(e);
+            println(e.message)
+            throw RuntimeException(e)
         } finally {
             // free the access
-            LOCK.unlock();
+            LOCK.unlock()
         }
 
 
         val globalStore = context.getStore(NAMESPACE)
-        globalStore.put("validator", validator)
+        globalStore.put("Validator", validator)
     }
 
     private fun getSimpleName(parameterContext: ParameterContext): String {

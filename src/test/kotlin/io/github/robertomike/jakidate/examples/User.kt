@@ -3,6 +3,6 @@ package io.github.robertomike.jakidate.examples
 import io.github.robertomike.jakidate.validations.StartsWith
 
 data class User(
-    @StartsWith("Jake")
+    @field:StartsWith("Jake")
     val name: String,
 )
