@@ -1,12 +1,12 @@
 package io.github.robertomike.jakidate.validations
 
-import io.github.robertomike.jakidate.constraints.EndWithConstraint
+import io.github.robertomike.jakidate.constraints.EndsWithConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass
 
 @MustBeDocumented
-@Constraint(validatedBy = [EndWithConstraint::class])
+@Constraint(validatedBy = [EndsWithConstraint::class])
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,

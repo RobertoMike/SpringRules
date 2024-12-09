@@ -2,7 +2,7 @@ package io.github.robertomike.jakidate.constraints
 
 import io.github.robertomike.jakidate.validations.StartsWith
 
-class StartWithConstraint: SimpleConstraint<StartsWith, String>() {
+class StartsWithConstraint: SimpleConstraint<StartsWith, String>() {
     override fun isValid(value: String): Boolean {
         if (value.isEmpty()) {
             return false

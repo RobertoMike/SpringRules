@@ -1,12 +1,12 @@
 package io.github.robertomike.jakidate.validations
 
-import io.github.robertomike.jakidate.constraints.StartWithConstraint
+import io.github.robertomike.jakidate.constraints.StartsWithConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass
 
 @MustBeDocumented
-@Constraint(validatedBy = [StartWithConstraint::class])
+@Constraint(validatedBy = [StartsWithConstraint::class])
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
