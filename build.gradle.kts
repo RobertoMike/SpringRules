@@ -4,10 +4,11 @@ plugins {
     id("java-library")
     `maven-publish`
     id("signing")
+    id("yaml-to-properties")
 }
 
 group = "io.github.robertomike"
-version = "0.0.1"
+version = "1.0.0"
 
 java {
     toolchain {
