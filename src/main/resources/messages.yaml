@@ -37,3 +37,4 @@ spring-rules:
     default: "Field must contain only numbers"
     between: "Field must be between {min} and {max}"
   format-file: "File format is not valid, allowed are {value}"
+  distinct: "Array must not contain any duplicate entries"
