@@ -1,6 +1,6 @@
-package io.github.robertomike.jakidate.validations
+package io.github.robertomike.jakidate.validations.`object`
 
-import io.github.robertomike.jakidate.constraints.DifferentConstraint
+import io.github.robertomike.jakidate.constraints.objects.DifferentConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass

@@ -1,6 +1,7 @@
 package io.github.robertomike.jakidate.utils
 
 import jakarta.validation.ConstraintValidatorContext
+import java.lang.reflect.Field
 
 class MessageUtil(private val context: ConstraintValidatorContext) {
     fun resetDefaultMessage() {
@@ -12,13 +13,20 @@ class MessageUtil(private val context: ConstraintValidatorContext) {
         messages.forEach(this::addMessage)
     }
 
-    fun addMessage(message: String) {
-        templateMessage(message).addConstraintViolation()
+    fun addMessage(message: String, vararg parameters: Pair<String, Any>) {
+        val template = templateMessage(message)
+        template.addConstraintViolation()
     }
 
     fun addMessageForProperty(property: String, message: String) {
         templateMessage(message)
             .addPropertyNode(property)
+            .addConstraintViolation()
+    }
+
+    fun addMessageForProperty(property: Field, message: String) {
+        templateMessage(message)
+            .addPropertyNode(property.name)
             .addConstraintViolation()
     }
 
