@@ -16,9 +16,16 @@ abstract class CompareFieldsConstraint<A : Annotation> : SimpleMessageConstraint
         get() = annotationField.simpleName
 
     override fun isValid(value: Any, util: MessageUtil): Boolean {
+        util.resetDefaultMessage()
         val fields = getFields(value)
 
-        return fields.all { (_, list) -> validateGroup(list, util, value) }
+        var valid = true
+        fields.forEach { (_, list) ->
+            if (!validateGroup(list, util, value))
+                valid = false
+        }
+
+        return valid
     }
 
     abstract fun groupBy(fields: Sequence<Field>): Map<String, List<Field>>
@@ -49,11 +56,8 @@ abstract class CompareFieldsConstraint<A : Annotation> : SimpleMessageConstraint
         else sequence.any { it.first == it.second }
 
         if (!result) {
-            util.resetDefaultMessage()
             util.addParameters(Pair("otherFields", fields.joinToString(", ") { it.name }))
-            fields.forEach {
-                util.addMessageForProperty(it, message)
-            }
+            util.addMessageForProperty(fields.first(), message)
         }
 
         return result
