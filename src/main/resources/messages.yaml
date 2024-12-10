@@ -9,7 +9,7 @@ spring-rules:
     default: "Invalid password"
     length:
       min: "Password must be at least {minLength} characters long" # TODO We need to check if we need to use the name of the field inside the annotation of value
-      max: "Password must be at most {value} characters long" # TODO I will put one with value and the other with the name of the field
+      max: "Password must be at most {maxLength} characters long" # TODO I will put one with value and the other with the name of the field
     special-character: "Password must contain at least one special character"
     digit: "Password must contain at least one digit"
     upper-case: "Password must contain at least one upper case character"
@@ -18,7 +18,7 @@ spring-rules:
   required-if:
     default: "Field is required"
     # TODO We need to check how to pass the parameters to the message
-    field-null: "Field cannot be null when {conditionField} is {conditionValue}"
+    field-null: "It cannot be null when {conditionField} is true"
   alpha:
     default: "Field must contain only letters"
     numeric: "Field must contain only letters and numbers"
@@ -40,4 +40,4 @@ spring-rules:
   file:
     format: "File format is not valid, allowed are {value}"
   distinct: "Array must not contain any duplicate entries"
-  different: "The values of the fields must be different"
+  different: "The value need to be different from {otherFields}"
