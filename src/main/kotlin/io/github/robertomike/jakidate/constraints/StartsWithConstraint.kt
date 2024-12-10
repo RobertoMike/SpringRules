@@ -4,10 +4,6 @@ import io.github.robertomike.jakidate.validations.StartsWith
 
 class StartsWithConstraint: SimpleConstraint<StartsWith, String>() {
     override fun isValid(value: String): Boolean {
-        if (value.isEmpty()) {
-            return false
-        }
-
         return value.startsWith(annotation.value)
     }
 }
