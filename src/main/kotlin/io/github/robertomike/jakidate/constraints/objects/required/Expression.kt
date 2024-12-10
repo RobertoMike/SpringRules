@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate.constraints.required
+package io.github.robertomike.jakidate.constraints.objects.required
 
 import io.github.robertomike.jakidate.constraints.AcceptedConstraint
 import java.util.function.Function
