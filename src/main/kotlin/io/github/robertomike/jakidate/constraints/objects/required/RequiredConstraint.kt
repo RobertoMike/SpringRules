@@ -40,12 +40,14 @@ class RequiredConstraint: SimpleMessageConstraint<Required, Any>() {
         val fieldsToValidate = fields.filter { !it.getAnnotation(annotationField).value }
 
         if (value is Boolean && value) {
+            util.addParameters(Pair("conditionField", fieldCondition.name))
             return validateFields(fieldsToValidate, original, util)
         }
 
         val lambda = annotationCondition.expression.members.single { it.name == "apply" }
 
         if (lambda.call(value) as Boolean) {
+            util.addParameters(Pair("conditionField", fieldCondition.name))
             return validateFields(fieldsToValidate, original, util)
         }
 

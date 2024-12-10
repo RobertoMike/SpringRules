@@ -50,6 +50,7 @@ abstract class CompareFieldsConstraint<A : Annotation> : SimpleMessageConstraint
 
         if (!result) {
             util.resetDefaultMessage()
+            util.addParameters(Pair("otherFields", fields.joinToString(", ") { it.name }))
             fields.forEach {
                 util.addMessageForProperty(it, message)
             }
