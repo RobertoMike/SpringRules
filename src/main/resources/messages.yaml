@@ -43,3 +43,4 @@ spring-rules:
   different: "The value need to be different for {otherFields}"
   same: "The value need to be the same for {otherFields}"
   url: "Invalid URL"
+  in: "The field must be one of the following values: {value}"
