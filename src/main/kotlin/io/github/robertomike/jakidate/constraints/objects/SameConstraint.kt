@@ -8,6 +8,6 @@ class SameConstraint(override val message: String = "same") : CompareFieldsConst
     override val annotationField = SameField::class.java
 
     override fun groupBy(fields: Sequence<Field>): Map<String, List<Field>> {
-        return fields.groupBy { it.getAnnotation(annotationField).key }
+        return fields.groupBy { it.getAnnotation(annotationField).value }
     }
 }

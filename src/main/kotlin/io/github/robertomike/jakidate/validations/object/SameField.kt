@@ -14,5 +14,5 @@ annotation class SameField(
     /**
      * This field is used to separate logic between different conditions
      */
-    val key: String = "default",
+    val value: String = "default",
 )
