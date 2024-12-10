@@ -42,3 +42,4 @@ spring-rules:
   distinct: "Array must not contain any duplicate entries"
   different: "The value need to be different for {otherFields}"
   same: "The value need to be the same for {otherFields}"
+  url: "Invalid URL"
