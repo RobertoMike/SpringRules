@@ -5,6 +5,7 @@ plugins {
     `maven-publish`
     id("signing")
     id("yaml-to-properties")
+    `java-test-fixtures`
 }
 
 group = "io.github.robertomike"
@@ -42,4 +43,17 @@ kotlin {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+val testJar by tasks.registering(Jar::class) {
+    archiveClassifier.set("${project.name}-tests")
+    from(sourceSets.test.get().output)
+}
+
+configurations {
+    create("testArtifacts")
+}
+
+artifacts {
+    add("testArtifacts", testJar)
 }
