@@ -8,12 +8,11 @@ plugins {
 }
 
 group = "io.github.robertomike"
-version = "1.0.0"
+version = "2.0.0"
 
 java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 }
 
 repositories {
@@ -35,6 +34,7 @@ dependencies {
 }
 
 kotlin {
+    jvmToolchain(11)
     compilerOptions {
         freeCompilerArgs.addAll("-Xjsr305=strict")
     }
