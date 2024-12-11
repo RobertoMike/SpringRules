@@ -27,7 +27,7 @@ class MessageUtil(private val context: ConstraintValidatorContext) {
         val function = addParameterFunction ?: context::class.declaredFunctions
             .firstOrNull { it.name == "addMessageParameter" }
 
-        if (function != null) {
+        function?.let {
             parameters.forEach {
                 function.call(context, it.first, it.second)
             }
