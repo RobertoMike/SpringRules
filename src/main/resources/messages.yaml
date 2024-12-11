@@ -1,5 +1,6 @@
 jakidate:
   accepted: "You must accept"
+  declined: "You must decline"
   start-with: "Need to starts with {value}"
   end-with: "Need to ends with {value}"
   ip: "Invalid IP address"
@@ -42,3 +43,5 @@ jakidate:
   distinct: "Array must not contain any duplicate entries"
   different: "The value need to be different for {otherFields}"
   same: "The value need to be the same for {otherFields}"
+  url: "Invalid URL"
+  in: "The field must be one of the following values: {value}"
