@@ -11,10 +11,16 @@ class YamlToProperties: Plugin<Project> {
         println("Converting YAML to properties...")
         val yaml = Yaml()
 
-        val messages = yaml.load<Map<String, Any>>(FileInputStream("src/main/resources/messages.yaml"))
-        val buildDir = project.layout.buildDirectory
+        val layout = project.layout
+        val projectDirectory = layout.projectDirectory
+        val messageFile = projectDirectory.file("src/main/resources/messages.yaml")
+
+        val messages = yaml.load<Map<String, Any>>(FileInputStream(messageFile.asFile))
+        val buildDir = layout.buildDirectory
+        val startPath = buildDir.file("/resources/main")
+        startPath.get().asFile.mkdirs()
+
         val propertiesFile = buildDir.file("/resources/main/ValidationMessages.properties")
-        propertiesFile.get().asFile.mkdirs()
 
         val properties = Properties()
 
@@ -28,8 +34,10 @@ class YamlToProperties: Plugin<Project> {
     }
 
     @Suppress("UNCHECKED_CAST")
-    private fun flattenYaml(map: Map<String, Any>, properties: Properties, prefix: String = "") {
+    private fun flattenYaml(map: Map<String, Any?>, properties: Properties, prefix: String = "") {
         map.forEach { (key, value) ->
+            value ?: return@forEach
+
             val newKey = if (prefix.isNotEmpty()) "$prefix.$key" else key
             when (value) {
                 is Map<*, *> -> flattenYaml(value as Map<String, Any>, properties, newKey)
