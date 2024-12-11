@@ -1,13 +1,10 @@
 package io.github.robertomike.jakidate.constraints
 
+import io.github.robertomike.jakidate.utils.acceptedStringValues
 import io.github.robertomike.jakidate.validations.Accepted
 import java.lang.UnsupportedOperationException
 
 class AcceptedConstraint: SimpleConstraint<Accepted, Any>() {
-    companion object {
-        val acceptedStringValues = listOf("true", "y", "1")
-    }
-
     override fun isValid(value: Any): Boolean {
         return when (value) {
             is Boolean -> value == true

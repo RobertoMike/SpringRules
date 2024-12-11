@@ -1,5 +1,6 @@
 spring-rules:
   accepted: "You must accept"
+  declined: "You must decline"
   start-with: "Need to starts with {value}"
   end-with: "Need to ends with {value}"
   ip: "Invalid IP address"
