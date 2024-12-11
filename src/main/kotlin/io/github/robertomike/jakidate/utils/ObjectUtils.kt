@@ -14,3 +14,13 @@ fun Field.getValue(original: Any): Any? {
 
     return this.get(original)
 }
+
+fun Map<String, List<Field>>.validate(lambda: (list: List<Field>) -> Boolean): Boolean {
+    var valid = true
+    this.forEach { (_, list) ->
+        if (!lambda(list))
+            valid = false
+    }
+
+    return valid
+}

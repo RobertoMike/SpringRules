@@ -5,6 +5,7 @@ import io.github.robertomike.jakidate.exceptions.RulesException
 import io.github.robertomike.jakidate.utils.MessageUtil
 import io.github.robertomike.jakidate.utils.getFieldsByAnnotation
 import io.github.robertomike.jakidate.utils.getValue
+import io.github.robertomike.jakidate.utils.validate
 import java.lang.reflect.Field
 
 abstract class CompareFieldsConstraint<A : Annotation> : SimpleMessageConstraint<A, Any>() {
@@ -19,13 +20,7 @@ abstract class CompareFieldsConstraint<A : Annotation> : SimpleMessageConstraint
         util.resetDefaultMessage()
         val fields = getFields(value)
 
-        var valid = true
-        fields.forEach { (_, list) ->
-            if (!validateGroup(list, util, value))
-                valid = false
-        }
-
-        return valid
+        return fields.validate { validateGroup(it, util, value) }
     }
 
     abstract fun groupBy(fields: Sequence<Field>): Map<String, List<Field>>

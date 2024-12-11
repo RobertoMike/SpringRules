@@ -5,6 +5,7 @@ import io.github.robertomike.jakidate.exceptions.RulesException
 import io.github.robertomike.jakidate.utils.MessageUtil
 import io.github.robertomike.jakidate.utils.getFieldsByAnnotation
 import io.github.robertomike.jakidate.utils.getValue
+import io.github.robertomike.jakidate.utils.validate
 import io.github.robertomike.jakidate.validations.`object`.required.Required
 import io.github.robertomike.jakidate.validations.`object`.required.RequiredIf
 import java.lang.reflect.Field
@@ -15,7 +16,7 @@ class RequiredConstraint: SimpleMessageConstraint<Required, Any>() {
     override fun isValid(value: Any, util: MessageUtil): Boolean {
         val fields = getFields(value)
 
-        return fields.all { (_, list) -> validateGroup(list, util, value) }
+        return fields.validate { validateGroup(it, util, value) }
     }
 
     private fun getFields(value: Any): Map<String, List<Field>> {
