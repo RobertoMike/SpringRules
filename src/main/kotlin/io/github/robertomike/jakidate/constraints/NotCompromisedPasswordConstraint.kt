@@ -10,7 +10,6 @@ import java.net.http.HttpResponse
 
 class NotCompromisedPasswordConstraint : SimpleConstraint<NotCompromisedPassword, String>() {
     override fun isValid(value: String): Boolean {
-
         val hash = value.sha1()
         val shortHash = hash.substring(0, 5)
 
