@@ -47,3 +47,6 @@ jakidate:
   same: "The value need to be the same for {otherFields}"
   url: "Invalid URL"
   in: "The field must be one of the following values: {value}"
+  colors:
+    hex: "Invalid hex color"
+    rgb: "Invalid RGB color"
