@@ -7,7 +7,7 @@ import java.util.*
 
 class ExtensionConstraint: SimpleConstraint<Extension, MultipartFile>() {
     override fun isValid(value: MultipartFile): Boolean {
-        val fileName = Objects.requireNonNull(value.originalFilename)
+        val fileName = value.originalFilename ?: throw NullPointerException("File name cannot be null")
 
         return annotation.value
             .asSequence()
