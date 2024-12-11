@@ -1,12 +1,12 @@
 package io.github.robertomike.jakidate.validations
 
-import io.github.robertomike.jakidate.constraints.objects.string.end.EndsWithConstraint
+import io.github.robertomike.jakidate.constraints.objects.string.start.StartsWithConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass
 
 @MustBeDocumented
-@Constraint(validatedBy = [EndsWithConstraint::class])
+@Constraint(validatedBy = [StartsWithConstraint::class])
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
@@ -17,9 +17,9 @@ import kotlin.reflect.KClass
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
-annotation class EndsWith(
+annotation class DoesntStartWith(
     val value: String,
-    val message: String = "{jakidate.end-with}",
+    val message: String = "{spring-rules.doesnt-start-with}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

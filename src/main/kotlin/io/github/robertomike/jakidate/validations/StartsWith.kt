@@ -1,6 +1,6 @@
 package io.github.robertomike.jakidate.validations
 
-import io.github.robertomike.jakidate.constraints.StartsWithConstraint
+import io.github.robertomike.jakidate.constraints.objects.string.start.StartsWithConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass

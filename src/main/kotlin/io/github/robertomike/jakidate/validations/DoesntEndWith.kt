@@ -17,9 +17,9 @@ import kotlin.reflect.KClass
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
-annotation class EndsWith(
+annotation class DoesntEndWith(
     val value: String,
-    val message: String = "{jakidate.end-with}",
+    val message: String = "{spring-rules.doesnt-end-with}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )
