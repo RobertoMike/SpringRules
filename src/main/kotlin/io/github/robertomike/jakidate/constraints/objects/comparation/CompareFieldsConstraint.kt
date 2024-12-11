@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate.constraints.objects
+package io.github.robertomike.jakidate.constraints.objects.comparation
 
 import io.github.robertomike.jakidate.constraints.SimpleMessageConstraint
 import io.github.robertomike.jakidate.exceptions.RulesException

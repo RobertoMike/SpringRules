@@ -1,6 +1,6 @@
 package io.github.robertomike.jakidate.validations.`object`
 
-import io.github.robertomike.jakidate.constraints.objects.SameConstraint
+import io.github.robertomike.jakidate.constraints.objects.comparation.SameConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass

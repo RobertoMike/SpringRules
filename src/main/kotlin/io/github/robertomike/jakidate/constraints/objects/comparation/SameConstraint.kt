@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate.constraints.objects
+package io.github.robertomike.jakidate.constraints.objects.comparation
 
 import io.github.robertomike.jakidate.validations.`object`.Same
 import io.github.robertomike.jakidate.validations.`object`.SameField
