@@ -1,8 +1,10 @@
 spring-rules:
   accepted: "You must accept"
   declined: "You must decline"
-  start-with: "Need to starts with {value}"
-  end-with: "Need to ends with {value}"
+  start-with: "String needs to start with {value}"
+  end-with: "String needs to end with {value}"
+  doesnt-start-with: "String doesn't have to starts with {value}"
+  doesnt-end-with: "String doesn't have to ends with {value}"
   ip: "Invalid IP address"
   ipv4: "Invalid IPv4 address"
   ipv6: "Invalid IPv6 address"
