@@ -1,7 +1,7 @@
 package io.github.robertomike.jakidate.constraints.objects
 
-import io.github.robertomike.jakidate.validations.`object`.Different
-import io.github.robertomike.jakidate.validations.`object`.DifferentAs
+import io.github.robertomike.jakidate.validations.objects.Different
+import io.github.robertomike.jakidate.validations.objects.DifferentAs
 import java.lang.reflect.Field
 
 class DifferentConstraint(override val message: String = "different") : CompareFieldsConstraint<Different>() {

@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate.validations.`object`
+package io.github.robertomike.jakidate.validations.objects
 
 @MustBeDocumented
 @Target(
@@ -10,7 +10,7 @@ package io.github.robertomike.jakidate.validations.`object`
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
-annotation class DifferentAs(
+annotation class SameAs(
     /**
      * This field is used to separate logic between different conditions
      */

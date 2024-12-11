@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate.validations.`object`.required
+package io.github.robertomike.jakidate.validations.objects.required
 
 import io.github.robertomike.jakidate.constraints.objects.required.RequiredConstraint
 import jakarta.validation.Constraint

@@ -1,7 +1,7 @@
 package io.github.robertomike.jakidate.constraints.objects
 
-import io.github.robertomike.jakidate.validations.`object`.Same
-import io.github.robertomike.jakidate.validations.`object`.SameAs
+import io.github.robertomike.jakidate.validations.objects.Same
+import io.github.robertomike.jakidate.validations.objects.SameAs
 import java.lang.reflect.Field
 
 class SameConstraint(override val message: String = "same") : CompareFieldsConstraint<Same>() {

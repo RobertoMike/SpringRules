@@ -6,8 +6,8 @@ import io.github.robertomike.jakidate.utils.MessageUtil
 import io.github.robertomike.jakidate.utils.getFieldsByAnnotation
 import io.github.robertomike.jakidate.utils.getValue
 import io.github.robertomike.jakidate.utils.validate
-import io.github.robertomike.jakidate.validations.`object`.required.Required
-import io.github.robertomike.jakidate.validations.`object`.required.RequiredIf
+import io.github.robertomike.jakidate.validations.objects.required.Required
+import io.github.robertomike.jakidate.validations.objects.required.RequiredIf
 import java.lang.reflect.Field
 
 class RequiredConstraint: SimpleMessageConstraint<Required, Any>() {
