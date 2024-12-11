@@ -19,7 +19,7 @@ import kotlin.reflect.KClass
 @Repeatable
 annotation class DoesntStartWith(
     val value: String,
-    val message: String = "{spring-rules.doesnt-start-with}",
+    val message: String = "{jakidate.doesnt-start-with}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

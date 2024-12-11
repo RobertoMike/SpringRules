@@ -1,13 +1,13 @@
-package io.github.robertomike.jakidate.validations
+package io.github.robertomike.jakidate.validations.colors
 
-import io.github.robertomike.jakidate.constraints.UrlConstraint
+import io.github.robertomike.jakidate.utils.hexColorRegex
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
-import jakarta.validation.constraints.NotNull
+import jakarta.validation.constraints.Pattern
 import kotlin.reflect.KClass
 
 @MustBeDocumented
-@Constraint(validatedBy = [UrlConstraint::class])
+@Constraint(validatedBy = [])
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
@@ -18,9 +18,9 @@ import kotlin.reflect.KClass
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
-@NotNull
-annotation class Url(
-    val message: String = "{jakidate.url}",
+@Pattern(regexp = hexColorRegex, flags = [Pattern.Flag.CASE_INSENSITIVE], message = "{jakidate.colors.hex}")
+annotation class HexColor(
+    val message: String = "{jakidate.colors.hex}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )
