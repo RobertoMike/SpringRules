@@ -1,11 +1,13 @@
 package io.github.robertomike.jakidate.utils
 
+import io.github.robertomike.jakidate.configs.Configuration
 import jakarta.validation.ConstraintValidatorContext
 import java.lang.reflect.Field
 import kotlin.reflect.KFunction
 import kotlin.reflect.full.declaredFunctions
 
 class MessageUtil(private val context: ConstraintValidatorContext) {
+    private val baseTemplate get() = Configuration.instance.baseTemplate
     private var addParameterFunction: KFunction<*>? = null
 
     fun resetDefaultMessage() {
@@ -61,6 +63,6 @@ class MessageUtil(private val context: ConstraintValidatorContext) {
     }
 
     private fun templateMessage(message: String): ConstraintValidatorContext.ConstraintViolationBuilder {
-        return context.buildConstraintViolationWithTemplate("{spring-rules.${message}}")
+        return context.buildConstraintViolationWithTemplate("{${baseTemplate}.${message}}")
     }
 }

@@ -1,9 +1,14 @@
 plugins {
-    kotlin("jvm")
+    kotlin("jvm") version "2.1.0"
+
+    id("java-library")
+    `maven-publish`
+    id("signing")
+    id("yaml-to-properties")
 }
 
 group = "io.github.robertomike"
-version = "1.0.0"
+version = "2.0.0"
 
 repositories {
     mavenCentral()
@@ -16,6 +21,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-validation:$springVersion")
     implementation("org.springframework.boot:spring-boot-starter-web:$springVersion")
 
+    api("org.springframework.boot:spring-boot-starter-validation:$springVersion")
+    api("org.springframework.boot:spring-boot-starter-web:$springVersion")
     api(project(":"))
 
     testImplementation(kotlin("test"))
