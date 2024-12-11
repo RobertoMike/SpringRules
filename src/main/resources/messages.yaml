@@ -1,4 +1,4 @@
-spring-rules:
+jakidate:
   accepted: "You must accept"
   start-with: "Need to starts with {value}"
   end-with: "Need to ends with {value}"

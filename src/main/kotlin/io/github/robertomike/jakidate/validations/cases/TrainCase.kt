@@ -17,9 +17,9 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "^(([A-Z]+)([a-z0-9]*))([-]([A-Z]+)([a-z0-9]*))*\$", message = "{spring-rules.case.train}")
+@Pattern(regexp = "^(([A-Z]+)([a-z0-9]*))([-]([A-Z]+)([a-z0-9]*))*\$", message = "{jakidate.case.train}")
 annotation class TrainCase(
-    val message: String = "{spring-rules.case.train}",
+    val message: String = "{jakidate.case.train}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

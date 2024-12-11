@@ -11,7 +11,7 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 annotation class Distinct(
-    val message: String = "{spring-rules.distinct}",
+    val message: String = "{jakidate.distinct}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = [],
 )

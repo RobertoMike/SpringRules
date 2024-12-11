@@ -20,7 +20,7 @@ import kotlin.reflect.KClass
 @Repeatable
 @NotNull
 annotation class Accepted(
-    val message: String = "{spring-rules.accepted}",
+    val message: String = "{jakidate.accepted}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

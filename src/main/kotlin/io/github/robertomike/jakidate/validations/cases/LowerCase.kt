@@ -17,9 +17,9 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "^([a-z])+\$", message = "{spring-rules.case.lower}")
+@Pattern(regexp = "^([a-z])+\$", message = "{jakidate.case.lower}")
 annotation class LowerCase(
-    val message: String = "{spring-rules.case.lower}",
+    val message: String = "{jakidate.case.lower}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

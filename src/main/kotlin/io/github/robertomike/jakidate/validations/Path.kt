@@ -17,9 +17,9 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "^/([a-zA-Z0-9-_]+/*)*[a-zA-Z0-9-_]+$", message = "{spring-rules.path}")
+@Pattern(regexp = "^/([a-zA-Z0-9-_]+/*)*[a-zA-Z0-9-_]+$", message = "{jakidate.path}")
 annotation class Path(
-    val message: String = "{spring-rules.path}",
+    val message: String = "{jakidate.path}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

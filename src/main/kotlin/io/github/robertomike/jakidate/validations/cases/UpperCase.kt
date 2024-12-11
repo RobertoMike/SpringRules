@@ -17,9 +17,9 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "^([A-Z])+\$", message = "{spring-rules.case.upper}")
+@Pattern(regexp = "^([A-Z])+\$", message = "{jakidate.case.upper}")
 annotation class UpperCase(
-    val message: String = "{spring-rules.case.upper}",
+    val message: String = "{jakidate.case.upper}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

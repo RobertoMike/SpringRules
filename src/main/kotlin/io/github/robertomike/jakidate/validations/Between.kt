@@ -18,7 +18,7 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 annotation class Between(
-    val message: String = "{spring-rules.numeric.between}",
+    val message: String = "{jakidate.numeric.between}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = [],
     val min: String,

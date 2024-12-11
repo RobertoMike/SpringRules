@@ -18,7 +18,7 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 annotation class Password(
-    val message: String = "{spring-rules.password.default}",
+    val message: String = "{jakidate.password.default}",
     val minLength: Int = 8,
     val maxLength: Int = 256,
     val digit: Boolean = true,

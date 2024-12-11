@@ -18,7 +18,7 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 annotation class Ip(
-    val message: String = "{spring-rules.ip}",
+    val message: String = "{jakidate.ip}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

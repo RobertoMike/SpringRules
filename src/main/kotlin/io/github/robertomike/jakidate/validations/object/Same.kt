@@ -11,7 +11,7 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 annotation class Same(
-    val message: String = "{spring-rules.same}",
+    val message: String = "{jakidate.same}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = [],
 )

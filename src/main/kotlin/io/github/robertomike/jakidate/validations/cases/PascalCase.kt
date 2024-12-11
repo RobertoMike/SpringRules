@@ -17,9 +17,9 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "^(([A-Z]+)([a-z0-9]*))+\$", message = "{spring-rules.case.pascal}")
+@Pattern(regexp = "^(([A-Z]+)([a-z0-9]*))+\$", message = "{jakidate.case.pascal}")
 annotation class PascalCase(
-    val message: String = "{spring-rules.case.pascal}",
+    val message: String = "{jakidate.case.pascal}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

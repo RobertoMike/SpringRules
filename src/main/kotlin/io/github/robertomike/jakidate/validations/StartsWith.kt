@@ -19,7 +19,7 @@ import kotlin.reflect.KClass
 @Repeatable
 annotation class StartsWith(
     val value: String,
-    val message: String = "{spring-rules.start-with}",
+    val message: String = "{jakidate.start-with}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

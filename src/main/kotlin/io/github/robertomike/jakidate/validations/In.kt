@@ -19,7 +19,7 @@ import kotlin.reflect.KClass
 @Repeatable
 annotation class In(
     val allowed: Array<String>,
-    val message: String = "{spring-rules.in}",
+    val message: String = "{jakidate.in}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )
