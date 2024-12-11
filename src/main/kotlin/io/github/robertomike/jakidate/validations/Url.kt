@@ -20,7 +20,7 @@ import kotlin.reflect.KClass
 @Repeatable
 @NotNull
 annotation class Url(
-    val message: String = "{spring-rules.url}",
+    val message: String = "{jakidate.url}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

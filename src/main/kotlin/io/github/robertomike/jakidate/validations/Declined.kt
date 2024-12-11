@@ -20,7 +20,7 @@ import kotlin.reflect.KClass
 @Repeatable
 @NotNull
 annotation class Declined(
-    val message: String = "{spring-rules.declined}",
+    val message: String = "{jakidate.declined}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )
