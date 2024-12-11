@@ -18,9 +18,9 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 annotation class Exists(
-    val message: String = "{spring-rules.exists}",
-    val method: String,
     val repository: KClass<*>,
+    val method: String = "findById",
+    val message: String = "{spring-rules.exists}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

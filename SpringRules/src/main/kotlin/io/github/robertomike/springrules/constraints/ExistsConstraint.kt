@@ -8,7 +8,7 @@ import org.springframework.util.ClassUtils.getMethod
 import java.lang.reflect.Method
 import java.util.Optional
 
-class ExistsConstraint: SimpleConstraint<Exists, Long>() {
+class ExistsConstraint: SimpleConstraint<Exists, Any>() {
     @Autowired
     private lateinit var applicationContext: ApplicationContext
     private val method: String
@@ -16,7 +16,9 @@ class ExistsConstraint: SimpleConstraint<Exists, Long>() {
     private val repository: Class<out Any>
         get() = annotation.repository.java
 
-    override fun isValid(value: Long): Boolean {
+    override fun isValid(value: Any): Boolean {
+        return false
+
         val instance = applicationContext.getBean(repository)
         val callable: Method = getMethod(repository, method, value.javaClass)
         val result = callable.invoke(instance, value)
