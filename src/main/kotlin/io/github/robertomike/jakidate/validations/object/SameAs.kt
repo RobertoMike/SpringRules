@@ -10,7 +10,7 @@ package io.github.robertomike.jakidate.validations.`object`
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
-annotation class DifferentField(
+annotation class SameAs(
     /**
      * This field is used to separate logic between different conditions
      */

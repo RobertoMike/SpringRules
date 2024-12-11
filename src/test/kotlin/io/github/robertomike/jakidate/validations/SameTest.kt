@@ -2,7 +2,7 @@ package io.github.robertomike.jakidate.validations
 
 import io.github.robertomike.jakidate.BaseTest
 import io.github.robertomike.jakidate.validations.`object`.Same
-import io.github.robertomike.jakidate.validations.`object`.SameField
+import io.github.robertomike.jakidate.validations.`object`.SameAs
 import jakarta.validation.Validator
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
@@ -10,13 +10,13 @@ import kotlin.test.assertEquals
 class SameTest : BaseTest() {
     @Same
     inner class Example(
-        @field:SameField
+        @field:SameAs
         val password: String,
-        @field:SameField
+        @field:SameAs
         val passwordConfirmation: String,
-        @field:SameField("email")
+        @field:SameAs("email")
         val email: String,
-        @field:SameField("email")
+        @field:SameAs("email")
         val emailConfirmation: String,
     )
 
