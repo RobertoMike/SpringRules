@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate
+package io.github.robertomike.jakidate.configs
 
 import jakarta.validation.Validation
 import jakarta.validation.Validator
@@ -55,7 +55,7 @@ class TestConfig : BeforeAllCallback, ParameterResolver {
     }
 
     @Throws(ParameterResolutionException::class)
-    override fun resolveParameter(parameterContext: ParameterContext?, extensionContext: ExtensionContext): Any {
-        return extensionContext.getStore(NAMESPACE)[getSimpleName(parameterContext!!)]
+    override fun resolveParameter(parameterContext: ParameterContext, extensionContext: ExtensionContext): Any {
+        return extensionContext.getStore(NAMESPACE)[getSimpleName(parameterContext)]
     }
 }

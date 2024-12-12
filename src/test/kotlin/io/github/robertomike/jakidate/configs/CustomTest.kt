@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate
+package io.github.robertomike.jakidate.configs
 
 import org.junit.jupiter.api.extension.ExtendWith
 import org.junit.platform.commons.annotation.Testable
