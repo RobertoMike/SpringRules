@@ -31,6 +31,8 @@ dependencies {
     testImplementation("org.hibernate.validator:hibernate-validator:8.0.1.Final")
     testImplementation("org.glassfish.expressly:expressly:5.0.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+    testImplementation("org.yaml:snakeyaml:2.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.11.0")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
