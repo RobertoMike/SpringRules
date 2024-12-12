@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate.validations.string.alpha
+package io.github.robertomike.jakidate.validations.strings.alpha
 
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
@@ -17,9 +17,9 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "[a-zA-Z]+", message = "{jakidate.alpha.default}")
-annotation class Alpha(
-    val message: String = "{jakidate.alpha.default}",
+@Pattern(regexp = "[a-zA-Z\\d]+", message = "{jakidate.alpha.numeric}")
+annotation class AlphaNum(
+    val message: String = "{jakidate.alpha.numeric}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )
