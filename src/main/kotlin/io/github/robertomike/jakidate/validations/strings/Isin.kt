@@ -1,12 +1,12 @@
-package io.github.robertomike.jakidate.validations
+package io.github.robertomike.jakidate.validations.strings
 
-import io.github.robertomike.jakidate.constraints.objects.strings.end.EndsWithConstraint
+import io.github.robertomike.jakidate.constraints.objects.strings.IsinConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
+import jakarta.validation.constraints.Pattern
 import kotlin.reflect.KClass
 
 @MustBeDocumented
-@Constraint(validatedBy = [EndsWithConstraint::class])
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
@@ -17,9 +17,10 @@ import kotlin.reflect.KClass
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
-annotation class DoesntEndWith(
-    val value: String,
-    val message: String = "{jakidate.doesnt-end-with}",
+@Constraint(validatedBy = [IsinConstraint::class])
+@Pattern(regexp = "^([A-Z]{2}-?[0-9A-Z]{9}-?\\d)$", message = "{jakidate.strings.isin}")
+annotation class Isin(
+    val message: String = "{jakidate.strings.isin}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

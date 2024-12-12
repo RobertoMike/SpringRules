@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate.constraints.objects.string.start
+package io.github.robertomike.jakidate.constraints.objects.strings.start
 
 import io.github.robertomike.jakidate.constraints.SimpleConstraint
 import io.github.robertomike.jakidate.validations.StartsWith
