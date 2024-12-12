@@ -1,0 +1,54 @@
+good:
+  - "US0378331005"
+  - "US5949181045"
+  - "GB0002875804"
+  - "DE0005190037"
+  - "FR0000120271"
+  - "CA0084741085"
+  - "CH0012032048"
+  - "AU000000BHP4"
+  - "NL0000009165"
+  - "DE0001102473"
+  - "FR0013234333"
+  - "AU3CB0226496"
+  - "NL0009712413"
+wrong:
+  - 'US123'         # Too short
+  - 'US123456789012345' # Too long
+  - 'US-123456789012345' # Excessive length with hyphen
+  - 'US@123456789A'  # Contains special character
+  - '123456789012'   # No country code
+  - 'USABCDEFGHIJK' # Invalid format
+  - 'US-ABCDEFG-H'  # Incorrect alphanumeric placement
+  - 'us0378331005'  # Lowercase country code
+  - 'US-0378331005-X' # Invalid checksum
+  - 'US 037833100 5' # Contains spaces
+  - 'US.037833100.5' # Contains dots
+  - 'US_037833100_5' # Contains underscores
+  - 'USABCDEFGHIJ0'  # All letters except last digit
+  - '00000000000000' # All zeros
+  - '99999999999999' # All nines
+  - 'US-ABCD-EFGH-I' # Fragmented format
+  - 'USABCDEFGHIJ'   # Missing checksum
+  - 'US-ABCDEFGHIJ'  # Missing checksum with hyphen
+  - 'US123456789A'   # Invalid character
+  - 'US-123-456-789' # Incorrect hyphenation
+  - 'USABCD123456'   # Incorrect length
+  - 'US$037833100X'  # Special character
+  - 'US-ABCdef1234'  # Lowercase letters
+  - 'US!037833100A'  # Exclamation mark
+  - 'US#037833100B'  # Hash symbol
+  - 'US%037833100C'  # Percentage symbol
+  - 'US^037833100D'  # Caret symbol
+  - 'US&037833100E'  # Ampersand symbol
+  - 'US*037833100F'  # Asterisk symbol
+  - 'US(037833100G'  # Parenthesis
+  - 'US)037833100H'  # Closing parenthesis
+  - 'US+037833100I'  # Plus symbol
+  - 'US=037833100J'  # Equals symbol
+  - 'US~037833100K'  # Tilde symbol
+  - 'US`037833100L'  # Backtick
+  - 'US[037833100M'  # Square bracket
+  - 'US]037833100N'  # Closing square bracket
+  - 'US{037833100O'  # Curly brace
+  - 'US}037833100P'  # Closing curly brace
