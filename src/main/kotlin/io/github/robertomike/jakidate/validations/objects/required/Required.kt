@@ -11,6 +11,7 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 annotation class Required(
+    val checkEmpty: Boolean = true,
     val message: String = "{jakidate.required-if.default}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []

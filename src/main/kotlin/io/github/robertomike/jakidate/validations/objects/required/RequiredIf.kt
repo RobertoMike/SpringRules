@@ -15,6 +15,7 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 annotation class RequiredIf(
     /**
+     * ConditionalField
      * This field is used to define what are the conditions fields and necessary fields
      *
      * If the value is true, the field will be considered as condition field.
@@ -23,7 +24,7 @@ annotation class RequiredIf(
      *
      * If the value is false, the field will be considered as necessary field
      */
-    val value: Boolean = false,
+    val conditional: Boolean = false,
     /**
      * This field is used to separate logic between different conditions
      */

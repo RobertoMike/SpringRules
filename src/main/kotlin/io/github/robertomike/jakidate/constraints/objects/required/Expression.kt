@@ -3,7 +3,7 @@ package io.github.robertomike.jakidate.constraints.objects.required
 import io.github.robertomike.jakidate.utils.acceptedStringValues
 import java.util.function.Function
 
-interface Expression: Function<Any, Boolean> {
+class Expression: Function<Any, Boolean> {
     override fun apply(value: Any): Boolean {
         return when (value) {
             is String -> value in acceptedStringValues
