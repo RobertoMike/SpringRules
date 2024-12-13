@@ -1,5 +1,6 @@
 package io.github.robertomike.jakidate.validations.strings
 
+import io.github.robertomike.jakidate.constraints.objects.strings.ISINConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import jakarta.validation.constraints.Pattern
@@ -16,9 +17,9 @@ import kotlin.reflect.KClass
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
-@Constraint(validatedBy = [])
-@Pattern(regexp = "^(\\d{4}-\\d{3}[Xx0-9])$", message = "{jakidate.strings.isin}")
-annotation class Issn(
+@Constraint(validatedBy = [ISINConstraint::class])
+@Pattern(regexp = "^([A-Z]{2}-?[0-9A-Z]{9}-?\\d)$", message = "{jakidate.strings.isin}")
+annotation class ISIN(
     val message: String = "{jakidate.strings.isin}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []

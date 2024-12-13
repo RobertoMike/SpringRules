@@ -1,33 +1,33 @@
 package io.github.robertomike.jakidate.validations
 
 import io.github.robertomike.jakidate.BaseTest
-import io.github.robertomike.jakidate.validations.strings.Isin
+import io.github.robertomike.jakidate.validations.strings.ISSN
 import jakarta.validation.Validator
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 
-class IsinTest : BaseTest() {
+class ISSNTest : BaseTest() {
     inner class Example(
-        @field:Isin
+        @field:ISSN
         val code: String
     )
 
     companion object {
         @JvmStatic
-        fun validIsin(): Stream<String> {
-            return loadAndGetYaml("/strings/isin")["good"]!!.stream()
+        fun valid(): Stream<String> {
+            return loadAndGetYaml("/strings/issn")["good"]!!.stream()
         }
         @JvmStatic
-        fun invalidIsin(): Stream<String> {
-            return loadAndGetYaml("/strings/isin")["wrong"]!!.stream()
+        fun invalid(): Stream<String> {
+            return loadAndGetYaml("/strings/issn")["wrong"]!!.stream()
         }
     }
 
     @ParameterizedTest
-    @MethodSource("validIsin")
-    fun good(isin: String, validator: Validator) {
-        val example = Example(isin)
+    @MethodSource("valid")
+    fun good(issn: String, validator: Validator) {
+        val example = Example(issn)
 
         val constraints = validator.validate(example)
 
@@ -35,9 +35,9 @@ class IsinTest : BaseTest() {
     }
 
     @ParameterizedTest
-    @MethodSource("invalidIsin")
-    fun wrong(isin: String, validator: Validator) {
-        val example = Example(isin)
+    @MethodSource("invalid")
+    fun wrong(issn: String, validator: Validator) {
+        val example = Example(issn)
 
         val constraints = validator.validate(example)
 

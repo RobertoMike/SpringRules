@@ -1,9 +1,9 @@
 package io.github.robertomike.jakidate.constraints.objects.strings
 
 import io.github.robertomike.jakidate.constraints.SimpleConstraint
-import io.github.robertomike.jakidate.validations.strings.Isin
+import io.github.robertomike.jakidate.validations.strings.ISIN
 
-class IsinConstraint : SimpleConstraint<Isin, String>() {
+class ISINConstraint : SimpleConstraint<ISIN, String>() {
     override fun isValid(value: String): Boolean {
         if (!value.last().isDigit())
             return false

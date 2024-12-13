@@ -1,0 +1,52 @@
+good:
+  - "0395-2037"
+  - "0028-0836"
+  - "1476-4687"
+  - "0036-8075"
+  - "1095-9203"
+  - "0001-4966"
+  - "1520-8524"
+  - "0003-6951"
+  - "1077-3118"
+  - "0031-9007"
+  - "2045-2322"
+wrong:
+  - '123456'        # Too short
+  - '123456789'     # Too long
+  - '1234-567'      # Incorrect hyphenation
+  - 'ABCD-EFGH'     # Non-numeric characters
+  - '0000-0000'     # All zeros
+  - '1111-1111'     # All ones
+  - '9999-9999'     # All nines
+  - '123A-5678'     # Contains letter
+  - '1234.5678'     # Incorrect separator
+  - '12345678'      # No hyphen
+  - 'X234-5678'     # Starts with X
+  - '1234-X678'     # X in wrong position
+  - '1234-56789'    # Extra digit after hyphen
+  - '123-456'       # Too few digits
+  - '1234 5678'     # Space instead of hyphen
+  - '0000000000'    # No hyphen, all zeros
+  - '9999999999'    # No hyphen, all nines
+  - '1234-567A'     # Ends with letter
+  - '0000-000A'     # Mixed zeros and letter
+  - '1111-111B'     # Mixed ones and letter
+  - '9999-999C'     # Mixed nines and letter
+  - 'ISSN1234-5678' # Contains text
+  - '1234-5678-9012'# Extra segments
+  - '123-45-67-890' # Fragmented
+  - '978-1234-5678' # Incorrect prefix
+  - '0000-000000'   # Extra zeros
+  - '9999-999999'   # Extra nines
+  - '1234_5678'     # Underscore separator
+  - '12-34-56-78'   # Incorrect segmentation
+  - 'ISBN1234-5678' # Incorrect identifier
+  - '1234.5678.9012'# Multiple separators
+  - '0000-ABCD'     # Mixed numeric and letters
+  - '9999-WXYZ'     # All letters
+  - '1234-56-78'    # Irregular segmentation
+  - 'X000-0000'     # X at start
+  - '0000-X000'     # X in middle
+  - '0000-0000X'    # X at end
+  - '1234 - 5678'   # Spaces around hyphen
+  - '123456789012'  # Extremely long
