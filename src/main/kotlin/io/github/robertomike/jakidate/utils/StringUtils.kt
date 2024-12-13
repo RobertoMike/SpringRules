@@ -1,7 +1,6 @@
 package io.github.robertomike.jakidate.utils
 
 import io.github.robertomike.jakidate.exceptions.RulesException
-import jdk.nashorn.tools.ShellFunctions.input
 import java.security.MessageDigest
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
