@@ -56,3 +56,4 @@ jakidate:
     rgb: "Invalid RGB color"
   digits:
     max: "Field must contain at most {value} digits"
+    min: "Field must contain at least {value} digits"

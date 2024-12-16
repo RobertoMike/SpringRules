@@ -1,18 +1,18 @@
 package io.github.robertomike.jakidate.validations
 
-import io.github.robertomike.jakidate.constraints.MaxDigitsConstraint
+import io.github.robertomike.jakidate.constraints.MinDigitsConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass
 
 @MustBeDocumented
-@Constraint(validatedBy = [MaxDigitsConstraint::class])
+@Constraint(validatedBy = [MinDigitsConstraint::class])
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
-annotation class MaxDigits(
+annotation class MinDigits(
     val value: Int,
-    val message: String = "{jakidate.digits.max}",
+    val message: String = "{jakidate.digits.min}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )
