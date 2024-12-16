@@ -26,7 +26,7 @@ class RequiredConstraint: SimpleMessageConstraint<Required, Any>() {
             .groupBy { it.getAnnotation(annotationField).key }
 
         if (fields.isEmpty()) {
-            throw RulesException("You need to use the @RequiredIfField annotation on the condition field and necessary field")
+            throw RulesException("You need to use the @RequiredIf annotation on the condition field and necessary field")
         }
 
         return fields
@@ -36,24 +36,11 @@ class RequiredConstraint: SimpleMessageConstraint<Required, Any>() {
         val fieldCondition = fields.firstOrNull { it.getAnnotation(annotationField).conditional }
             ?: throw RulesException("You need to use the @RequiredIf annotation on the condition field")
 
-        val annotationCondition = fieldCondition.getAnnotation(annotationField)
-        val value = fieldCondition.getValue(original)
-            ?: throw RulesException("The value of the field cannot be null when is condition field")
+        val condition = getCondition(fieldCondition, original)
 
         val fieldsToValidate = fields.filter { !it.getAnnotation(annotationField).conditional }
 
-        if (value is Boolean) {
-            if (!value) {
-                return true
-            }
-
-            util.addParameters(Pair("conditionField", fieldCondition.name))
-            return validateFields(fieldsToValidate, original, util)
-        }
-
-        val expression = annotationCondition.expression.createInstance()
-
-        if (expression.apply(value)) {
+        if (condition) {
             util.addParameters(Pair("conditionField", fieldCondition.name))
             return validateFields(fieldsToValidate, original, util)
         }
@@ -72,6 +59,18 @@ class RequiredConstraint: SimpleMessageConstraint<Required, Any>() {
 
             true
         }
+    }
+
+    private fun getCondition(field: Field, original: Any): Boolean {
+        val annotationCondition = field.getAnnotation(annotationField)
+        val value = field.getValue(original)
+            ?: throw RulesException("The value of the field cannot be null when is a condition field")
+
+        if (value is Boolean) {
+            return value
+        }
+
+        return annotationCondition.expression.createInstance().apply(value)
     }
 
     private fun checkIfEmpty(value: Any?): Boolean {
