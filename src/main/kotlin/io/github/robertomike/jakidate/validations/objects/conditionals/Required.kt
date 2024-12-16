@@ -1,6 +1,6 @@
-package io.github.robertomike.jakidate.validations.objects.required
+package io.github.robertomike.jakidate.validations.objects.conditionals
 
-import io.github.robertomike.jakidate.constraints.objects.required.RequiredConstraint
+import io.github.robertomike.jakidate.constraints.objects.conditionals.RequiredConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass
@@ -12,7 +12,7 @@ import kotlin.reflect.KClass
 @Repeatable
 annotation class Required(
     val checkEmpty: Boolean = true,
-    val message: String = "{jakidate.required-if.default}",
+    val message: String = "{jakidate.required.default}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

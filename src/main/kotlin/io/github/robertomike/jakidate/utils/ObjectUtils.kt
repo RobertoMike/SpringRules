@@ -8,6 +8,11 @@ fun <T : Annotation> Any.getFieldsByAnnotation(annotation: Class<T>): Sequence<F
         .asSequence()
         .filter { it.isAnnotationPresent(annotation) }
 }
+fun <T> Annotation.getFieldValue(name: String): T {
+    return this.javaClass.declaredMethods
+        .first { it.name == name }
+        .invoke(this) as T
+}
 
 fun Field.getValue(original: Any): Any? {
     this.trySetAccessible()

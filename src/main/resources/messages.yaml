@@ -19,9 +19,14 @@ jakidate:
     lower-case: "Password must contain at least one lower case character"
     letter: "Password must contain at least one letter"
     compromised: "Password is compromised"
-  required-if:
+  required:
     default: "Field is required"
-    field-null: "It cannot be null when {conditionField} is true"
+    if: "It cannot be null when {conditionField} is true"
+    unless: "It cannot be null when {conditionField} is false"
+  exclude:
+    default: "Field is required"
+    if: "It needs to be null when {conditionField} is true"
+    unless: "It needs to be null when {conditionField} is false"
   alpha:
     default: "Field must contain only letters"
     numeric: "Field must contain only letters and numbers"

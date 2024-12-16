@@ -1,22 +1,22 @@
 package io.github.robertomike.jakidate.validations
 
 import io.github.robertomike.jakidate.BaseTest
-import io.github.robertomike.jakidate.validations.objects.conditionals.Required
-import io.github.robertomike.jakidate.validations.objects.conditionals.RequiredIf
+import io.github.robertomike.jakidate.validations.objects.conditionals.Exclude
+import io.github.robertomike.jakidate.validations.objects.conditionals.ExcludeIf
 import jakarta.validation.Validator
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class RequiredTest : BaseTest() {
-    @Required
+class ExcludeTest : BaseTest() {
+    @Exclude
     inner class Example(
-        @field:RequiredIf(true)
+        @field:ExcludeIf(true)
         val control: Boolean,
-        @field:RequiredIf
+        @field:ExcludeIf
         val password: String?,
-        @field:RequiredIf(true, "email")
+        @field:ExcludeIf(true, "email")
         val conditional: String,
-        @field:RequiredIf(key = "email")
+        @field:ExcludeIf(key = "email")
         val email: String?,
     )
 
@@ -24,9 +24,9 @@ class RequiredTest : BaseTest() {
     fun good(validator: Validator) {
         val example = Example(
             true,
-            "1234",
+            "",
             "yes",
-            "user@mail.com",
+            "",
         )
 
         val constraints = validator.validate(example)
@@ -38,9 +38,9 @@ class RequiredTest : BaseTest() {
     fun allError(validator: Validator) {
         val example = Example(
             true,
-            null,
+            "someRandomPassword",
             "yes",
-            "",
+            "email@mail.com",
         )
 
         val constraints = validator.validate(example)
@@ -56,7 +56,7 @@ class RequiredTest : BaseTest() {
             false,
             null,
             "on",
-            null,
+            "email@mail.com",
         )
 
         val constraints = validator.validate(example)

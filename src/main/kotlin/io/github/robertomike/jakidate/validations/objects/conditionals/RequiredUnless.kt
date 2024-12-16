@@ -1,6 +1,6 @@
-package io.github.robertomike.jakidate.validations.objects.required
+package io.github.robertomike.jakidate.validations.objects.conditionals
 
-import io.github.robertomike.jakidate.constraints.objects.required.Expression
+import io.github.robertomike.jakidate.constraints.objects.Expression
 import kotlin.reflect.KClass
 
 @MustBeDocumented
@@ -13,7 +13,7 @@ import kotlin.reflect.KClass
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
-annotation class RequiredIf(
+annotation class RequiredUnless(
     /**
      * ConditionalField
      * This field is used to define what are the conditions fields and necessary fields
