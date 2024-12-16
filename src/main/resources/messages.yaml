@@ -54,3 +54,5 @@ jakidate:
   colors:
     hex: "Invalid hex color"
     rgb: "Invalid RGB color"
+  digits:
+    max: "Field must contain at most {value} digits"
