@@ -5,12 +5,7 @@ import kotlin.reflect.KClass
 
 @MustBeDocumented
 @Target(
-    AnnotationTarget.FIELD,
-    AnnotationTarget.PROPERTY,
-    AnnotationTarget.FUNCTION,
-    AnnotationTarget.ANNOTATION_CLASS,
-    AnnotationTarget.CONSTRUCTOR,
-    AnnotationTarget.TYPE
+    AnnotationTarget.FIELD
 )
 @Retention(AnnotationRetention.RUNTIME)
 annotation class RequiredUnless(
