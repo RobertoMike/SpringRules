@@ -1,6 +1,6 @@
 package io.github.robertomike.jakidate.validations.colors
 
-import io.github.robertomike.jakidate.constraints.RgbConstraint
+import io.github.robertomike.jakidate.constraints.objects.colors.RgbConstraint
 import io.github.robertomike.jakidate.enums.RgbOptions
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
