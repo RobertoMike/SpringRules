@@ -5,16 +5,16 @@ import jakarta.validation.Validator
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class ExcludeTest : BaseTest() {
+class ExcludeIfTest : BaseTest() {
     @Exclude
     inner class Example(
         @field:ExcludeIf(true)
         val control: Boolean,
         @field:ExcludeIf
         val password: String?,
-        @field:ExcludeUnless(true, "email")
+        @field:ExcludeIf(true, "email")
         val conditional: String,
-        @field:ExcludeUnless(key = "email")
+        @field:ExcludeIf(key = "email")
         val email: String?,
     )
 
@@ -23,7 +23,7 @@ class ExcludeTest : BaseTest() {
         val example = Example(
             true,
             "",
-            "false",
+            "yes",
             "",
         )
 
@@ -37,7 +37,7 @@ class ExcludeTest : BaseTest() {
         val example = Example(
             true,
             "someRandomPassword",
-            "n",
+            "yes",
             "email@mail.com",
         )
 
@@ -53,7 +53,7 @@ class ExcludeTest : BaseTest() {
         val example = Example(
             false,
             null,
-            "0",
+            "on",
             "email@mail.com",
         )
 
