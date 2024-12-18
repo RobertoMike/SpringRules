@@ -1,12 +1,11 @@
 package io.github.robertomike.jakidate.validations
 
 import io.github.robertomike.jakidate.BaseTest
-import io.github.robertomike.jakidate.utils.acceptedStringValues
 import jakarta.validation.Validator
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
-import org.junit.jupiter.params.provider.MethodSource
 import org.junit.jupiter.params.provider.ValueSource
+import kotlin.test.assertFails
 
 class AcceptedTest : BaseTest() {
     inner class Example(
@@ -69,5 +68,12 @@ class AcceptedTest : BaseTest() {
         val result = validator.validate(example)
 
         assert(result.isNotEmpty())
+    }
+
+    @Test
+    fun unsupportedType(validator: Validator) {
+        val example = Example(Example())
+
+        assertFails { validator.validate(example) }
     }
 }
