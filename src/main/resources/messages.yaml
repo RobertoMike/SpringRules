@@ -57,8 +57,9 @@ jakidate:
   in: "The field must be one of the following values: {value}"
   multiple: "The field must be a multiple of {value}"
   colors:
-    hex: "Invalid hex color"
+    hex: "Invalid Hexadecimal color"
     rgb: "Invalid RGB color"
+    hsl: "Invalid HSL color"
   digits:
     max: "Field must contain at most {value} digits"
     min: "Field must contain at least {value} digits"
