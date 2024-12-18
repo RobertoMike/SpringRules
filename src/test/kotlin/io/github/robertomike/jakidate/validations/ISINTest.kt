@@ -1,6 +1,7 @@
 package io.github.robertomike.jakidate.validations
 
 import io.github.robertomike.jakidate.BaseTest
+import io.github.robertomike.jakidate.utils.YamlSource
 import io.github.robertomike.jakidate.validations.strings.ISIN
 import jakarta.validation.Validator
 import org.junit.jupiter.params.ParameterizedTest
@@ -13,19 +14,8 @@ class ISINTest : BaseTest() {
         val code: String
     )
 
-    companion object {
-        @JvmStatic
-        fun validIsin(): Stream<String> {
-            return loadAndGetYaml("/strings/isin")["good"]!!.stream()
-        }
-        @JvmStatic
-        fun invalidIsin(): Stream<String> {
-            return loadAndGetYaml("/strings/isin")["wrong"]!!.stream()
-        }
-    }
-
     @ParameterizedTest
-    @MethodSource("validIsin")
+    @YamlSource("/strings/isin", "good")
     fun good(isin: String, validator: Validator) {
         val example = Example(isin)
 
@@ -35,7 +25,7 @@ class ISINTest : BaseTest() {
     }
 
     @ParameterizedTest
-    @MethodSource("invalidIsin")
+    @YamlSource("/strings/isin", "wrong")
     fun wrong(isin: String, validator: Validator) {
         val example = Example(isin)
 
