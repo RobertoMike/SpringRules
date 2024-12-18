@@ -1,7 +1,7 @@
 package io.github.robertomike.jakidate.constraints.objects.strings.end
 
 import io.github.robertomike.jakidate.constraints.SimpleConstraint
-import io.github.robertomike.jakidate.validations.EndsWith
+import io.github.robertomike.jakidate.validations.strings.EndsWith
 
 class EndsWithConstraint: SimpleConstraint<EndsWith, String>() {
     override fun isValid(value: String): Boolean {

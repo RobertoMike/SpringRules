@@ -1,12 +1,12 @@
-package io.github.robertomike.jakidate.validations
+package io.github.robertomike.jakidate.validations.strings
 
-import io.github.robertomike.jakidate.constraints.objects.strings.start.StartsWithConstraint
+import io.github.robertomike.jakidate.constraints.objects.strings.end.EndsWithConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass
 
 @MustBeDocumented
-@Constraint(validatedBy = [StartsWithConstraint::class])
+@Constraint(validatedBy = [EndsWithConstraint::class])
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
@@ -17,9 +17,9 @@ import kotlin.reflect.KClass
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
-annotation class StartsWith(
+annotation class DoesntEndWith(
     val value: String,
-    val message: String = "{jakidate.start-with}",
+    val message: String = "{jakidate.doesnt-end-with}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )
