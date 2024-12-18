@@ -51,8 +51,7 @@ abstract class CompareFieldsConstraint<A : Annotation> : SimpleMessageConstraint
         else sequence.any { it.first == it.second }
 
         if (!result) {
-            util.addParameters(Pair("otherFields", fields.joinToString(", ") { it.name }))
-            util.addMessageForProperty(fields.first(), message)
+            util.addMessageForProperty(fields.first(), message, Pair("otherFields", fields.joinToString(", ") { it.name }))
         }
 
         return result
