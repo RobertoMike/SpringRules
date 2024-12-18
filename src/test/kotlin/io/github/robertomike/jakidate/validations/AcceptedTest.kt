@@ -1,0 +1,73 @@
+package io.github.robertomike.jakidate.validations
+
+import io.github.robertomike.jakidate.BaseTest
+import io.github.robertomike.jakidate.utils.acceptedStringValues
+import jakarta.validation.Validator
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.MethodSource
+import org.junit.jupiter.params.provider.ValueSource
+
+class AcceptedTest : BaseTest() {
+    inner class Example(
+        @field:Accepted
+        var value: Any? = null
+    )
+
+
+    @Test
+    fun validValue(validator: Validator) {
+        val example = Example(true)
+
+        val result = validator.validate(example)
+
+        assert(result.isEmpty())
+    }
+
+    @Test
+    fun invalidValue(validator: Validator) {
+        val example = Example(false)
+
+        val result = validator.validate(example)
+
+        assert(result.isNotEmpty())
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["yes", "on", "true", "y", "1"])
+    fun validStringValues(accepted: String, validator: Validator) {
+        val example = Example(accepted)
+
+        val result = validator.validate(example)
+
+        assert(result.isEmpty())
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["no", "off", "false", "n", "0"])
+    fun invalidStringValues(accepted: String, validator: Validator) {
+        val example = Example(accepted)
+
+        val result = validator.validate(example)
+
+        assert(result.isNotEmpty())
+    }
+
+    @Test
+    fun validNumberValue(validator: Validator) {
+        val example = Example(1)
+
+        val result = validator.validate(example)
+
+        assert(result.isEmpty())
+    }
+
+    @Test
+    fun invalidNumberValue(validator: Validator) {
+        val example = Example(0)
+
+        val result = validator.validate(example)
+
+        assert(result.isNotEmpty())
+    }
+}

@@ -7,7 +7,14 @@ import kotlin.reflect.KClass
 
 @MustBeDocumented
 @Constraint(validatedBy = [DistinctConstraint::class])
-@Target(AnnotationTarget.CLASS)
+@Target(
+    AnnotationTarget.FIELD,
+    AnnotationTarget.PROPERTY,
+    AnnotationTarget.FUNCTION,
+    AnnotationTarget.ANNOTATION_CLASS,
+    AnnotationTarget.CONSTRUCTOR,
+    AnnotationTarget.TYPE
+)
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 annotation class Distinct(

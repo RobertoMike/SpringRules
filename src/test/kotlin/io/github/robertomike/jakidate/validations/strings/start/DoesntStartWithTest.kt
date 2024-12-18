@@ -1,18 +1,19 @@
-package io.github.robertomike.jakidate.validations.strings
+package io.github.robertomike.jakidate.validations.strings.start
 
 import io.github.robertomike.jakidate.BaseTest
+import io.github.robertomike.jakidate.validations.strings.DoesntStartWith
 import jakarta.validation.Validator
 import org.junit.jupiter.api.Test
 
-class EndsWithTest : BaseTest() {
+class DoesntStartWithTest : BaseTest() {
     inner class Example(
-        @field:EndsWith("lumaca")
-        val name: String
+        @field:DoesntStartWith("Leonardo")
+        val name: String,
     )
 
     @Test
     fun good(validator: Validator) {
-        val example = Example("Some random sentence with lumaca")
+        val example = Example("Da Vinci Leonardo")
 
         val constraints = validator.validate(example)
 
@@ -21,7 +22,7 @@ class EndsWithTest : BaseTest() {
 
     @Test
     fun error(validator: Validator) {
-        val example = Example("I don't have lumaca at the end")
+        val example = Example("Leonardo Da Vinci")
 
         val constraints = validator.validate(example)
 

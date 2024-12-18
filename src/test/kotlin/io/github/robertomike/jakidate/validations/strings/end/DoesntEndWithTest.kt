@@ -1,27 +1,27 @@
-package io.github.robertomike.jakidate.validations.strings
+package io.github.robertomike.jakidate.validations.strings.end
 
 import io.github.robertomike.jakidate.BaseTest
+import io.github.robertomike.jakidate.validations.strings.DoesntEndWith
 import jakarta.validation.Validator
 import org.junit.jupiter.api.Test
 
-class StartsWithTest : BaseTest() {
+class DoesntEndWithTest : BaseTest() {
     inner class Example(
-        @field:StartsWith("Jake")
-        val name: String,
+        @field:DoesntEndWith("Alighieri")
+        val name: String
     )
 
     @Test
     fun good(validator: Validator) {
-        val example = Example("Jake Alexander")
+        val example = Example("Alighieri Dante")
 
         val constraints = validator.validate(example)
-
         assert(constraints.isEmpty())
     }
 
     @Test
     fun error(validator: Validator) {
-        val example = Example("alexander Jake")
+        val example = Example("Dante Alighieri")
 
         val constraints = validator.validate(example)
 
