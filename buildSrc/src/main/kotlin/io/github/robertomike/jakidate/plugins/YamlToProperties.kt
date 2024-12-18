@@ -16,11 +16,13 @@ class YamlToProperties: Plugin<Project> {
         val messageFile = projectDirectory.file("src/main/resources/messages.yaml")
 
         val messages = yaml.load<Map<String, Any>>(FileInputStream(messageFile.asFile))
-        val buildDir = layout.buildDirectory
-        val startPath = buildDir.file("/resources/main")
+        val buildDirObject = layout.buildDirectory
+        val buildDir = buildDirObject.get().asFile.path
+        val startPath = buildDirObject.file("$buildDir/resources/main")
         startPath.get().asFile.mkdirs()
 
-        val propertiesFile = buildDir.file("/resources/main/ValidationMessages.properties")
+        val propertiesFile = buildDirObject.file("$buildDir/resources/main/ValidationMessages.properties")
+        propertiesFile.get().asFile.createNewFile()
 
         val properties = Properties()
 
