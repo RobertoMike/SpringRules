@@ -13,7 +13,9 @@ class RequiredConstraint: SimpleMessageConstraint<Required, Any>() {
             value, util, annotation.checkEmpty
         )
 
-        return validateWithConditional.isValid(RequiredIf::class.java, "required.if") &&
-                validateWithConditional.isValid(RequiredUnless::class.java, "required.unless", true)
+        val ifValid = validateWithConditional.isValid(RequiredIf::class.java, "required.if")
+        val unlessValid = validateWithConditional.isValid(RequiredUnless::class.java, "required.unless", true)
+
+        return ifValid && unlessValid
     }
 }

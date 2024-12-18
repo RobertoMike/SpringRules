@@ -1,31 +1,17 @@
-package io.github.robertomike.jakidate.validations
+package io.github.robertomike.jakidate.validations.objects.conditionals
 
 import io.github.robertomike.jakidate.BaseTest
-import io.github.robertomike.jakidate.validations.objects.conditionals.Required
-import io.github.robertomike.jakidate.validations.objects.conditionals.RequiredIf
 import jakarta.validation.Validator
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class RequiredTest : BaseTest() {
-    @Required
-    inner class Example(
-        @field:RequiredIf(true)
-        val control: Boolean,
-        @field:RequiredIf
-        val password: String?,
-        @field:RequiredIf(true, "email")
-        val conditional: String,
-        @field:RequiredIf(key = "email")
-        val email: String?,
-    )
-
+class RequiredUnlessTest : BaseTest() {
     @Test
     fun good(validator: Validator) {
         val example = Example(
-            true,
+            false,
             "1234",
-            "yes",
+            "0",
             "user@mail.com",
         )
 
@@ -37,9 +23,9 @@ class RequiredTest : BaseTest() {
     @Test
     fun allError(validator: Validator) {
         val example = Example(
-            true,
+            false,
             null,
-            "yes",
+            "off",
             "",
         )
 
@@ -53,9 +39,9 @@ class RequiredTest : BaseTest() {
     @Test
     fun onlyOneError(validator: Validator) {
         val example = Example(
-            false,
+            true,
             null,
-            "on",
+            "false",
             null,
         )
 
@@ -64,4 +50,17 @@ class RequiredTest : BaseTest() {
         assertEquals(1, constraints.size)
         assertEquals("email", constraints.first().propertyPath.first().name)
     }
+
+
+    @Required
+    inner class Example(
+        @field:RequiredUnless(true)
+        val control: Boolean,
+        @field:RequiredUnless
+        val password: String?,
+        @field:RequiredUnless(true, "email")
+        val conditional: String,
+        @field:RequiredUnless(key = "email")
+        val email: String?,
+    )
 }

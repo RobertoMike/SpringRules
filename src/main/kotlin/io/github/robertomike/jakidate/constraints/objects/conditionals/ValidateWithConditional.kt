@@ -60,10 +60,12 @@ class ValidateWithConditional(
             return value == unless
         }
 
-        val expression = annotationCondition.getFieldValue<Class<out Expression>>("expression")
+        val constructor = annotationCondition.getFieldValue<Class<out Expression>>("expression")
             .constructors
-            .first { it.parameters.isEmpty() }
-            .newInstance() as Expression
+            .firstOrNull { it.parameters.isEmpty() }
+            ?: throw RulesException("The expression need to have a empty constructor")
+
+        val expression = constructor.newInstance() as Expression
 
         return expression.apply(value, !unless)
     }
