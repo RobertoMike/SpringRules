@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate.constraints.objects.strings.end
+package io.github.robertomike.jakidate.constraints.strings.end
 
 import io.github.robertomike.jakidate.constraints.SimpleConstraint
 import io.github.robertomike.jakidate.validations.strings.DoesntEndWith

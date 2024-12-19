@@ -1,6 +1,6 @@
 package io.github.robertomike.jakidate.validations.strings
 
-import io.github.robertomike.jakidate.constraints.objects.strings.ISSNConstraint
+import io.github.robertomike.jakidate.constraints.strings.ISSNConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import jakarta.validation.constraints.Pattern

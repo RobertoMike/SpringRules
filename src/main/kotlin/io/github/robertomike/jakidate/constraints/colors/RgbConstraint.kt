@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate.constraints.objects.colors
+package io.github.robertomike.jakidate.constraints.colors
 
 import io.github.robertomike.jakidate.constraints.SimpleConstraint
 import io.github.robertomike.jakidate.validations.colors.RgbColor
