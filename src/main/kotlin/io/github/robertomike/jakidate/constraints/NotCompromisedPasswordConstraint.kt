@@ -27,6 +27,7 @@ class NotCompromisedPasswordConstraint : SimpleConstraint<NotCompromisedPassword
             }
 
             response.body().split("\r\n")
+                .asSequence()
                 .map { shortHash + it.split(":")[0] }
                 .none { it.equals(hash, ignoreCase = true) }
         } catch (e: Exception) {

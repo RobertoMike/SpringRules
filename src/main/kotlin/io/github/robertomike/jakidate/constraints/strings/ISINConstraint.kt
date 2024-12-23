@@ -30,9 +30,9 @@ class ISINConstraint : SimpleConstraint<ISIN, String>() {
         }
 
         if (firstGroup.size > secondGroup.size)
-            firstGroup = firstGroup.flatMap { transformBigNumber(it * 2) }.toMutableList()
+            firstGroup = firstGroup.asSequence().flatMap { transformBigNumber(it * 2) }.toMutableList()
         else
-            secondGroup = secondGroup.flatMap { transformBigNumber(it * 2) }.toMutableList()
+            secondGroup = secondGroup.asSequence().flatMap { transformBigNumber(it * 2) }.toMutableList()
 
         val sum = firstGroup.sum() + secondGroup.sum()
 

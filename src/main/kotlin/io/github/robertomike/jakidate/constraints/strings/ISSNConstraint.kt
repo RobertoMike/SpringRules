@@ -11,6 +11,7 @@ class ISSNConstraint : SimpleConstraint<ISSN, String>() {
             return false
 
         val sum = onlyNumbers.dropLast(1)
+            .asSequence()
             .mapIndexed { index, number ->
                 number.toString().toInt() * (8 - index)
             }.sum()
