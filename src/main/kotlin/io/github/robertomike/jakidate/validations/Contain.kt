@@ -1,12 +1,12 @@
 package io.github.robertomike.jakidate.validations
 
-import io.github.robertomike.jakidate.constraints.InConstraint
+import io.github.robertomike.jakidate.constraints.ContainConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass
 
 @MustBeDocumented
-@Constraint(validatedBy = [InConstraint::class])
+@Constraint(validatedBy = [ContainConstraint::class])
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
@@ -17,9 +17,9 @@ import kotlin.reflect.KClass
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
-annotation class In(
+annotation class Contain(
     val value: Array<String>,
-    val message: String = "{jakidate.in}",
+    val message: String = "{jakidate.contain}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

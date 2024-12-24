@@ -1,8 +1,8 @@
 package io.github.robertomike.jakidate.constraints
 
-import io.github.robertomike.jakidate.validations.In
+import io.github.robertomike.jakidate.validations.Contain
 
-class InConstraint : SimpleConstraint<In, Any>() {
+class ContainConstraint : SimpleConstraint<Contain, Any>() {
     override fun isValid(value: Any): Boolean {
         return when (value) {
             is String -> annotation.value
