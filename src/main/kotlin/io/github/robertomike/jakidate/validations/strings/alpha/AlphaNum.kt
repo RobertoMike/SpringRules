@@ -17,9 +17,9 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "[a-zA-Z\\d]+", message = "{jakidate.alpha.numeric}")
+@Pattern(regexp = "[a-zA-Z\\d]+", message = "{jakidate.string.alpha.numeric}")
 annotation class AlphaNum(
-    val message: String = "{jakidate.alpha.numeric}",
+    val message: String = "{jakidate.string.alpha.numeric}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

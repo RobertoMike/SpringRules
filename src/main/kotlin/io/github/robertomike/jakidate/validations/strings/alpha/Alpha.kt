@@ -17,9 +17,9 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "[a-zA-Z]+", message = "{jakidate.alpha.default}")
+@Pattern(regexp = "[a-zA-Z]+", message = "{jakidate.string.alpha.default}")
 annotation class Alpha(
-    val message: String = "{jakidate.alpha.default}",
+    val message: String = "{jakidate.string.alpha.default}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

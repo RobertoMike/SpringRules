@@ -19,7 +19,7 @@ import kotlin.reflect.KClass
 @Repeatable
 annotation class DoesntEndWith(
     val value: String,
-    val message: String = "{jakidate.doesnt-end-with}",
+    val message: String = "{jakidate.string.doesnt-end-with}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

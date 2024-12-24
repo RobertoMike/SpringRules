@@ -17,9 +17,9 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "\\d+", message = "{jakidate.numeric}")
+@Pattern(regexp = "\\d+", message = "{jakidate.string.numeric}")
 annotation class IsNumeric(
-    val message: String = "{jakidate.numeric}",
+    val message: String = "{jakidate.string.numeric}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

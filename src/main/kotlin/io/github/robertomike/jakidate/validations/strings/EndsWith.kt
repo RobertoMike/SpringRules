@@ -19,7 +19,7 @@ import kotlin.reflect.KClass
 @Repeatable
 annotation class EndsWith(
     val value: String,
-    val message: String = "{jakidate.end-with}",
+    val message: String = "{jakidate.string.end-with}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )
