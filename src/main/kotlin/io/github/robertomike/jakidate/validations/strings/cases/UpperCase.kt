@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate.validations.cases
+package io.github.robertomike.jakidate.validations.strings.cases
 
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
@@ -17,9 +17,9 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "^([A-Z])+\$", message = "{jakidate.case.upper}")
+@Pattern(regexp = "^([A-Z])+\$", message = "{jakidate.string.case.upper}")
 annotation class UpperCase(
-    val message: String = "{jakidate.case.upper}",
+    val message: String = "{jakidate.string.case.upper}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )

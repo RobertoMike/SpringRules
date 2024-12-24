@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate.validations.cases
+package io.github.robertomike.jakidate.validations.strings.cases
 
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
@@ -17,9 +17,9 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "^(([A-Z0-9]+)([-])*)+\$", message = "{jakidate.case.screaming-kebab}")
+@Pattern(regexp = "^(([A-Z0-9]+)([-])*)+\$", message = "{jakidate.string.case.screaming-kebab}")
 annotation class ScreamingKebabCase(
-    val message: String = "{jakidate.case.screaming-kebab}",
+    val message: String = "{jakidate.string.case.screaming-kebab}",
     val groups: Array<KClass<*>> = [],
     val payload: Array<KClass<out Payload>> = []
 )
