@@ -30,10 +30,9 @@ fun String.toLocalDateTime(): LocalDateTime {
 fun String.sha1(): String {
     val md = MessageDigest.getInstance("SHA-1")
     val messageDigest = md.digest(this.toByteArray())
-    val sb = StringBuilder()
-    for (b in messageDigest) {
-        sb.append(String.format("%02x", b))
+    return buildString {
+        messageDigest.forEach {
+            this.append(String.format("%02x", it))
+        }
     }
-
-    return sb.toString()
 }
