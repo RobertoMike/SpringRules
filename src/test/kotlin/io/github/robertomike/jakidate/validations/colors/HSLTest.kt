@@ -29,5 +29,6 @@ class HSLTest : BaseTest() {
         val constraints = validator.validate(example)
 
         assert(constraints.isNotEmpty())
+        checkMessages(constraints)
     }
 }

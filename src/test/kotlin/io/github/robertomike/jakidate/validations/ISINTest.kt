@@ -5,8 +5,6 @@ import io.github.robertomike.jakidate.utils.YamlSource
 import io.github.robertomike.jakidate.validations.strings.ISIN
 import jakarta.validation.Validator
 import org.junit.jupiter.params.ParameterizedTest
-import org.junit.jupiter.params.provider.MethodSource
-import java.util.stream.Stream
 
 class ISINTest : BaseTest() {
     inner class Example(
@@ -32,5 +30,6 @@ class ISINTest : BaseTest() {
         val constraints = validator.validate(example)
 
         assert(constraints.isNotEmpty())
+        checkMessages(constraints)
     }
 }

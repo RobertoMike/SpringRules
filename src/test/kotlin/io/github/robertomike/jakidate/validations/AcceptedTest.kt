@@ -30,6 +30,7 @@ class AcceptedTest : BaseTest() {
         val result = validator.validate(example)
 
         assert(result.isNotEmpty())
+        checkMessages(result)
     }
 
     @ParameterizedTest

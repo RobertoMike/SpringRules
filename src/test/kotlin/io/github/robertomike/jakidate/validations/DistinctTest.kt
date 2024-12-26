@@ -2,7 +2,6 @@ package io.github.robertomike.jakidate.validations
 
 import io.github.robertomike.jakidate.BaseTest
 import jakarta.validation.Validator
-import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 class DistinctTest : BaseTest() {
@@ -36,5 +35,6 @@ class DistinctTest : BaseTest() {
         val result = validator.validate(example)
 
         assert(result.isNotEmpty())
+        checkMessages(result)
     }
 }

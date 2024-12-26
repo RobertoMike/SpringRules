@@ -48,6 +48,7 @@ class SameTest : BaseTest() {
         assertEquals(2, constraints.size)
         assert(constraints.any { it.propertyPath.first().name == "password" })
         assert(constraints.any { it.propertyPath.first().name == "email" })
+        checkMessages(constraints)
     }
 
     @Test
