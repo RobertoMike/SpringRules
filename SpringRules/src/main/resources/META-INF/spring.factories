@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=io.github.robertomike.springrules.configs.SpringRulesConfig,\
+  io.github.robertomike.springrules.configs.RegistrationConfig
