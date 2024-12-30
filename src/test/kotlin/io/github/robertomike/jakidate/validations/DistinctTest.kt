@@ -12,7 +12,7 @@ class DistinctTest : BaseTest() {
 
     @Test
     fun validValue(validator: Validator) {
-        val example = Example(arrayOf("a", "b", "c", "a"))
+        val example = Example(arrayOf("a", "b", "c", "d"))
 
         val result = validator.validate(example)
 
@@ -30,7 +30,7 @@ class DistinctTest : BaseTest() {
 
     @Test
     fun invalidValue(validator: Validator) {
-        val example = Example(arrayOf("a", "b", "c", "d"))
+        val example = Example(arrayOf("a", "b", "c", "c"))
 
         val result = validator.validate(example)
 

@@ -7,6 +7,6 @@ class DistinctConstraint: SimpleConstraint<Distinct, Array<Any>>() {
         if (value.isEmpty())
             return true
 
-        return value.distinct().size != value.size
+        return value.distinct().size == value.size
     }
 }
