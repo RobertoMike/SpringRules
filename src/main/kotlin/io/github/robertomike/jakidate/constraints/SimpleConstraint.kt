@@ -12,8 +12,7 @@ import java.lang.reflect.InvocationTargetException
  * @param <A> the type of annotation that this constraint validator supports
  * @param <T> the type of value that this constraint validator can validate
  * @author Roberto Micheletti
- * @version 1.0
- * @since 27/12/2024
+ * @since 1.0.0
  */
 abstract class SimpleConstraint<A: Annotation, T>: ConstraintValidator<A, T> {
     /**

@@ -4,8 +4,22 @@ import io.github.robertomike.jakidate.validations.MultipleOf
 import java.math.BigDecimal
 import java.math.BigInteger
 
+/**
+ * A constraint that checks if a value is a multiple of a given number.
+ *
+ * This constraint can be applied to properties of type [Int], [BigInteger], [BigDecimal], [Short], [Byte], and [Long].
+ *
+ * @author Giorgio Andrei
+ * @since 1.0.0
+ */
 class MultipleOfConstraint : SimpleConstraint<MultipleOf, Any>() {
-
+    /**
+     * Checks if the given value is a multiple of the number specified in the [MultipleOf] annotation.
+     *
+     * @param value the value to validate
+     * @return true if the value is a multiple of the specified number, false otherwise
+     * @throws UnsupportedOperationException if the type of the value is not supported
+     */
     override fun isValid(value: Any): Boolean {
         return when (value) {
             is Int -> value % annotation.value.toInt() == 0

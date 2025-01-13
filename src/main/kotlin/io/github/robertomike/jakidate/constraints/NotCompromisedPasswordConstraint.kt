@@ -8,7 +8,20 @@ import java.net.http.HttpClient
 import java.net.http.HttpRequest
 import java.net.http.HttpResponse
 
+/**
+ * A constraint that checks if a password has been compromised by checking it against the Pwned Passwords API.
+ *
+ * @author Roberto Micheletti
+ * @since 1.0.0
+ */
 class NotCompromisedPasswordConstraint : SimpleConstraint<NotCompromisedPassword, String>() {
+    /**
+     * Checks if the given password has been compromised.
+     *
+     * @param value the password to check
+     * @return true if the password has not been compromised, false otherwise
+     * @throws RulesException if there was an error communicating with the server
+     */
     override fun isValid(value: String): Boolean {
         val hash = value.sha1()
         val shortHash = hash.substring(0, 5)
