@@ -43,22 +43,7 @@ class MessageUtil(private val context: ConstraintValidatorContext) {
     }
 
     fun addMessageForProperty(property: Field, message: String, vararg parameters: Pair<String, Any>) {
-        addParameters(*parameters)
-        templateMessage(message)
-            .addPropertyNode(property.name)
-            .addConstraintViolation()
-    }
-
-    // Todo: da provare dopo aver creato una validazione per array
-    fun addMessageItemArray(property: String, key: Any, message: String, vararg parameters: Pair<String, Any>) {
-        addParameters(*parameters)
-        templateMessage(message)
-            .addPropertyNode(property)
-            .addBeanNode()
-            .inContainer(Map::class.java, 1)
-            .inIterable()
-            .atKey(key)
-            .addConstraintViolation()
+        addMessageForProperty(property.name, message, *parameters)
     }
 
     private fun templateMessage(message: String): ConstraintValidatorContext.ConstraintViolationBuilder {
