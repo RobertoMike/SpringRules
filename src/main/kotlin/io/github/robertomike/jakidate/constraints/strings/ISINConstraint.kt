@@ -3,7 +3,22 @@ package io.github.robertomike.jakidate.constraints.strings
 import io.github.robertomike.jakidate.constraints.SimpleConstraint
 import io.github.robertomike.jakidate.validations.strings.ISIN
 
+/**
+ * A constraint validator that checks if a given string is a valid International Securities Identification Number (ISIN).
+ *
+ * @author Roberto Micheletti
+ * @since 1.0.0
+ */
 class ISINConstraint : SimpleConstraint<ISIN, String>() {
+    /**
+     * Checks if the given string is a valid ISIN.
+     *
+     * A valid ISIN consists of 12 characters, with the last character being a check digit.
+     * The check digit is calculated using a specific algorithm.
+     *
+     * @param value the string to be validated
+     * @return true if the string is a valid ISIN, false otherwise
+     */
     override fun isValid(value: String): Boolean {
         if (!value.last().isDigit())
             return false

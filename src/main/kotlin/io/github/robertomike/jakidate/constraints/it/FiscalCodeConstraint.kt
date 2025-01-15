@@ -11,19 +11,15 @@ import io.github.robertomike.jakidate.validations.it.FiscalCode
  * This class provides a validation mechanism for Italian fiscal codes, ensuring that they conform to the expected format and rules.
  *
  * @author Roberto Micheletti
- * @version 1.0
- * @since 27/12/2024
+ * @since 1.0.0
  */
 class FiscalCodeConstraint : SimpleConstraint<FiscalCode, String>() {
     companion object {
         /**
-         * A custom constraint validator for Italian fiscal codes.
+         * A map of even values used in the calculation of the fiscal code control character.
          *
-         * This class provides a validation mechanism for Italian fiscal codes, ensuring that they conform to the expected format and rules.
+         * This map is initialized with the values from the {@link #evenString} constant.
          *
-         * @author Roberto Micheletti
-         * @version 1.0
-         * @since 27/12/2024
          */
         private val evenValues: Map<String, Int> = evenString.specialToMap()
         /**
