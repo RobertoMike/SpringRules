@@ -16,6 +16,8 @@ class YamlToProperties: Plugin<Project> {
         val messageFile = projectDirectory.file("src/main/resources/messages.yaml")
 
         val messages = yaml.load<Map<String, Any>>(FileInputStream(messageFile.asFile))
+
+        // This is necessary because on linux take the base dir of the machine
         val buildDirObject = layout.buildDirectory
         val buildDir = buildDirObject.get().asFile.path
         val startPath = buildDirObject.file("$buildDir/resources/main")
