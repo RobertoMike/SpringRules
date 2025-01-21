@@ -5,6 +5,12 @@ import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass
 
+/**
+ * The string must end with the specified value
+ *
+ * @author Roberto Micheletti
+ * @since 1.0.0
+ */
 @MustBeDocumented
 @Constraint(validatedBy = [EndsWithConstraint::class])
 @Target(
@@ -18,8 +24,20 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 annotation class EndsWith(
+    /**
+     * the value the string must end with
+     */
     val value: String,
+    /**
+     * the error message template
+     */
     val message: String = "{jakidate.string.end-with}",
+    /**
+     * the groups the constraint belongs to
+     */
     val groups: Array<KClass<*>> = [],
+    /**
+     * the payload associated to the constraint
+     */
     val payload: Array<KClass<out Payload>> = []
 )

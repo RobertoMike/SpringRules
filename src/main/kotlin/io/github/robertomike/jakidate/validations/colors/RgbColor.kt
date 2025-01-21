@@ -6,6 +6,12 @@ import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass
 
+/**
+ * Validates a string is an RGB color
+ *
+ * @author Roberto Micheletti
+ * @since 1.0.0
+ */
 @MustBeDocumented
 @Constraint(validatedBy = [RgbConstraint::class])
 @Target(
@@ -19,9 +25,21 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 annotation class RgbColor(
+    /**
+     * This allows you what kind of structure you want
+     */
     val value: RgbOptions = RgbOptions.ALL,
+    /**
+     * the error message template
+     */
     val message: String = "{jakidate.colors.rgb}",
+    /**
+     * the groups the constraint belongs to
+     */
     val groups: Array<KClass<*>> = [],
+    /**
+     * the payload associated to the constraint
+     */
     val payload: Array<KClass<out Payload>> = []
 )
 

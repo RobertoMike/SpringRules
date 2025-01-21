@@ -5,6 +5,14 @@ import jakarta.validation.Payload
 import jakarta.validation.constraints.Pattern
 import kotlin.reflect.KClass
 
+/**
+ * The string must be camel snake case
+ *
+ * An example is: accept_Language, hello_World
+ *
+ * @author Giorgio Andrei
+ * @since 1.0.0
+ */
 @MustBeDocumented
 @Target(
     AnnotationTarget.FIELD,
@@ -19,7 +27,16 @@ import kotlin.reflect.KClass
 @Constraint(validatedBy = [])
 @Pattern(regexp = "^([a-z0-9]+)([_]([A-Z]+)([a-z0-9]*))+\$", message = "{jakidate.string.case.camel-snake}")
 annotation class CamelSnakeCase(
+    /**
+     * the error message template
+     */
     val message: String = "{jakidate.string.case.camel-snake}",
+    /**
+     * the groups the constraint belongs to
+     */
     val groups: Array<KClass<*>> = [],
+    /**
+     * the payload associated to the constraint
+     */
     val payload: Array<KClass<out Payload>> = []
 )

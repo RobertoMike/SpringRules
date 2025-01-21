@@ -6,6 +6,12 @@ import jakarta.validation.Payload
 import jakarta.validation.constraints.Pattern
 import kotlin.reflect.KClass
 
+/**
+ * Validates a string is an HSL color
+ *
+ * @author Roberto Micheletti
+ * @since 1.0.0
+ */
 @MustBeDocumented
 @Constraint(validatedBy = [])
 @Target(
@@ -20,8 +26,17 @@ import kotlin.reflect.KClass
 @Repeatable
 @Pattern(regexp = hslRegex, message = "{jakidate.colors.hsl}")
 annotation class HSLColor(
+    /**
+     * the error message template
+     */
     val message: String = "{jakidate.colors.hsl}",
+    /**
+     * the groups the constraint belongs to
+     */
     val groups: Array<KClass<*>> = [],
+    /**
+     * the payload associated to the constraint
+     */
     val payload: Array<KClass<out Payload>> = []
 )
 

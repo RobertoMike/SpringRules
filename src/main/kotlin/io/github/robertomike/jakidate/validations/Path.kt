@@ -5,6 +5,14 @@ import jakarta.validation.Payload
 import jakarta.validation.constraints.Pattern
 import kotlin.reflect.KClass
 
+/**
+ * Annotation for validating a path.
+ *
+ * This annotation can be used to validate a path in a variety of contexts, such as a file path or a URL path.
+ *
+ * @author Roberto Micheletti
+ * @since 1.0.0
+ */
 @MustBeDocumented
 @Target(
     AnnotationTarget.FIELD,
@@ -19,7 +27,16 @@ import kotlin.reflect.KClass
 @Constraint(validatedBy = [])
 @Pattern(regexp = "^/([a-zA-Z0-9-_]+/*)*[a-zA-Z0-9-_]+$", message = "{jakidate.path}")
 annotation class Path(
+    /**
+     * the error message template
+     */
     val message: String = "{jakidate.path}",
+    /**
+     * the groups the constraint belongs to
+     */
     val groups: Array<KClass<*>> = [],
+    /**
+     * the payload associated to the constraint
+     */
     val payload: Array<KClass<out Payload>> = []
 )

@@ -1,5 +1,15 @@
 package io.github.robertomike.jakidate.validations.objects
 
+/**
+ * This annotation is put it on top of two or more fields to check if they are the same
+ *
+ * You need to put Same annotation on top of the class
+ *
+ * @see Same
+ *
+ * @author Roberto Micheletti
+ * @since 1.0.0
+ */
 @MustBeDocumented
 @Target(
     AnnotationTarget.FIELD,

@@ -6,6 +6,12 @@ import jakarta.validation.Payload
 import jakarta.validation.constraints.Pattern
 import kotlin.reflect.KClass
 
+/**
+ * Validates a string is a hex color
+ *
+ * @author Roberto Micheletti
+ * @since 1.0.0
+ */
 @MustBeDocumented
 @Constraint(validatedBy = [])
 @Target(
@@ -20,8 +26,17 @@ import kotlin.reflect.KClass
 @Repeatable
 @Pattern(regexp = hexColorRegex, flags = [Pattern.Flag.CASE_INSENSITIVE], message = "{jakidate.colors.hex}")
 annotation class HexColor(
+    /**
+     * the error message template
+     */
     val message: String = "{jakidate.colors.hex}",
+    /**
+     * the groups the constraint belongs to
+     */
     val groups: Array<KClass<*>> = [],
+    /**
+     * the payload associated to the constraint
+     */
     val payload: Array<KClass<out Payload>> = []
 )
 

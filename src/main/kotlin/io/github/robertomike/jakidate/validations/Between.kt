@@ -5,6 +5,14 @@ import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass
 
+/**
+ * Annotation for validating that a number is between a minimum and maximum value.
+ *
+ * This annotation can be used to validate that a number is between a minimum and maximum value.
+ *
+ * @author Giorgio Andrei
+ * @since 1.0.0
+ */
 @MustBeDocumented
 @Constraint(validatedBy = [BetweenConstraint::class])
 @Target(
@@ -18,9 +26,24 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 annotation class Between(
-    val message: String = "{jakidate.numeric.between}",
-    val groups: Array<KClass<*>> = [],
-    val payload: Array<KClass<out Payload>> = [],
+    /**
+     * the minimum value
+     */
     val min: String,
-    val max: String
+    /**
+     * the maximum value
+     */
+    val max: String,
+    /**
+     * the error message template
+     */
+    val message: String = "{jakidate.numeric.between}",
+    /**
+     * the groups the constraint belongs to
+     */
+    val groups: Array<KClass<*>> = [],
+    /**
+     * the payload associated to the constraint
+     */
+    val payload: Array<KClass<out Payload>> = []
 )

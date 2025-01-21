@@ -5,6 +5,12 @@ import jakarta.validation.Payload
 import jakarta.validation.constraints.Pattern
 import kotlin.reflect.KClass
 
+/**
+ * The string must contain only alpha symbols
+ *
+ * @author Giorgio Andrei
+ * @since 1.0.0
+ */
 @MustBeDocumented
 @Target(
     AnnotationTarget.FIELD,
@@ -19,7 +25,16 @@ import kotlin.reflect.KClass
 @Constraint(validatedBy = [])
 @Pattern(regexp = "^([\\.,;:?!'\\\"\\-\\—_\\/\\\\()\\[\\]{}@#&%\\*\\+=<>≠≈√Δ∑π¢\\\$€£¥\\|~\\^¿¡ÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÇØÆßa-zA-Z0-9]+)\$", message = "{jakidate.string.alpha.symbols}")
 annotation class AlphaSymbols(
+    /**
+     * the error message template
+     */
     val message: String = "{jakidate.string.alpha.symbols}",
+    /**
+     * the groups the constraint belongs to
+     */
     val groups: Array<KClass<*>> = [],
+    /**
+     * the payload associated to the constraint
+     */
     val payload: Array<KClass<out Payload>> = []
 )
