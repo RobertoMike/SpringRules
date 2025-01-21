@@ -1,5 +1,6 @@
-package io.github.robertomike.jakidate.constraints
+package io.github.robertomike.jakidate.constraints.distincts
 
+import io.github.robertomike.jakidate.constraints.SimpleConstraint
 import io.github.robertomike.jakidate.validations.Distinct
 
 /**
@@ -8,14 +9,14 @@ import io.github.robertomike.jakidate.validations.Distinct
  * @author Giorgio Andrei
  * @since 1.0.0
  */
-class DistinctConstraint: SimpleConstraint<Distinct, Collection<Any>>() {
+class DistinctArrayConstraint : SimpleConstraint<Distinct, Array<Any>>() {
     /**
      * Checks if the collection is distinct.
      *
      * @param value The collection to be validated.
-     * @return `true` if the collection is distinct, `false` otherwise.
+     * `true` if the collection is distinct, `false` otherwise.
      */
-    override fun isValid(value: Collection<Any>): Boolean {
+    override fun isValid(value: Array<Any>): Boolean {
         if (value.isEmpty())
             return true
 
