@@ -1,0 +1,29 @@
+{
+  "groups": [
+    {
+      "name": "spring-rules",
+      "type": "org.springframework.boot.context.properties.ConfigurationProperties",
+      "sourceType": "io.github.robertomike.springrules.configs.SpringRulesConfig",
+      "properties": [
+        {
+          "name": "spring-rules.use-single-violation",
+          "type": "java.lang.Boolean",
+          "defaultValue": false,
+          "description": "Flag to receive a single violation as response or multiple message inside the field."
+        },
+        {
+          "name": "spring-rules.controller-advice.constraint-violations",
+          "type": "java.lang.Boolean",
+          "defaultValue": true,
+          "description": "Enable controller advice for constraint violations."
+        },
+        {
+          "name": "spring-rules.controller-advice.method-argument-not-valid",
+          "type": "java.lang.Boolean",
+          "defaultValue": true,
+          "description": "Enable controller advice for method argument not valid exceptions."
+        }
+      ]
+    }
+  ]
+}
