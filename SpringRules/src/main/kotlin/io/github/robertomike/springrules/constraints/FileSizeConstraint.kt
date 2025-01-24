@@ -10,8 +10,7 @@ import org.springframework.web.multipart.MultipartFile
  * It validates the size of a MultipartFile object against the minimum and maximum allowed sizes.
  *
  * @author Roberto Micheletti
- * @version 1.0
- * @since 27/12/2024
+ * @since 1.0.0
  */
 class FileSizeConstraint : SimpleConstraint<FileSize, MultipartFile>() {
     /**

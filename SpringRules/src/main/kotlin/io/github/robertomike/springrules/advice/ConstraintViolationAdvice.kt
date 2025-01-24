@@ -15,6 +15,15 @@ import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.ResponseBody
 
+/**
+ * Handles constraint violations in a Spring-based application.
+ *
+ * This class provides a centralized way to handle constraint violations that occur during validation.
+ * It converts the constraint violations into a [Violations] object and returns it as a [ResponseEntity].
+ *
+ * @author Roberto Micheletti
+ * @since 1.0.0
+ */
 @Configuration
 @ControllerAdvice
 @ConditionalOnProperty("spring-rules.controller-advice.constraint-violations", matchIfMissing = true)
@@ -37,6 +46,12 @@ open class ConstraintViolationAdvice(protected val config: SpringRulesConfig) {
         return ResponseEntity(errors, HttpStatus.BAD_REQUEST)
     }
 
+    /**
+     * Gets the property path from a [Path] object.
+     *
+     * @param path the [Path] object to get the property path from
+     * @return the property path as a string
+     */
     private fun getPropertyPath(path: Path): String {
         val finalPath = StringBuilder()
 

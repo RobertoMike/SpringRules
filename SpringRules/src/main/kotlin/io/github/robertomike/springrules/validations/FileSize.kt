@@ -6,6 +6,12 @@ import jakarta.validation.Payload
 import org.springframework.util.unit.DataUnit
 import kotlin.reflect.KClass
 
+/**
+ * This annotation is used to validate the size of a file
+ *
+ * @author Roberto Micheletti
+ * @since 1.0.0
+ */
 @MustBeDocumented
 @Constraint(validatedBy = [FileSizeConstraint::class])
 @Target(
@@ -31,7 +37,16 @@ annotation class FileSize(
      * This parameter is used to define the type unit for the other two parameters
      */
     val typeUnit: DataUnit = DataUnit.KILOBYTES,
+    /**
+     * the error message template
+     */
     val message: String = "{spring-rules.file.extension}",
+    /**
+     * the groups the constraint belongs to
+     */
     val groups: Array<KClass<*>> = [],
+    /**
+     * the payload associated to the constraint
+     */
     val payload: Array<KClass<out Payload>> = []
 )

@@ -1,5 +1,11 @@
 package io.github.robertomike.springrules.responses
 
+/**
+ * This class represents a collection of validation errors.
+ *
+ * @author Roberto Micheletti
+ * @since 1.0.0
+ */
 data class Violations(val violations: MutableList<Violation> = ArrayList()) {
     fun addError(field: String, message: String, useSingleViolation: Boolean) {
         if (useSingleViolation) {
