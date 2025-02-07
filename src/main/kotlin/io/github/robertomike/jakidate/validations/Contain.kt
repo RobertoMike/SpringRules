@@ -29,6 +29,10 @@ annotation class Contain(
      */
     val value: Array<String>,
     /**
+     * The operator that will be used to validate the value
+     */
+    val operator: Operator = Operator.OR,
+    /**
      * the error message template
      */
     val message: String = "{jakidate.contain}",
@@ -40,4 +44,8 @@ annotation class Contain(
      * the payload associated to the constraint
      */
     val payload: Array<KClass<out Payload>> = []
-)
+) {
+    enum class Operator {
+        OR, AND
+    }
+}

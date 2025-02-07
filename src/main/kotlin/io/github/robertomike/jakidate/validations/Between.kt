@@ -35,6 +35,10 @@ annotation class Between(
      */
     val max: String,
     /**
+     * The format used to parse the date
+     */
+    val format: String = "YYYY-MM-DD",
+    /**
      * the error message template
      */
     val message: String = "{jakidate.numeric.between}",
