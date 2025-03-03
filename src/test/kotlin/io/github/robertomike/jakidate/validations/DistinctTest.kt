@@ -9,6 +9,10 @@ class DistinctTest : BaseTest() {
         @field:Distinct
         var value: Array<String> = arrayOf()
     )
+    inner class ExampleList(
+        @field:Distinct
+        var value: List<String> = listOf()
+    )
 
     @Test
     fun validValue(validator: Validator) {
@@ -31,6 +35,34 @@ class DistinctTest : BaseTest() {
     @Test
     fun invalidValue(validator: Validator) {
         val example = Example(arrayOf("a", "b", "c", "c"))
+
+        val result = validator.validate(example)
+
+        assert(result.isNotEmpty())
+        checkMessages(result)
+    }
+
+    @Test
+    fun listValidValue(validator: Validator) {
+        val example = ExampleList(listOf("a", "b", "c", "d"))
+
+        val result = validator.validate(example)
+
+        assert(result.isEmpty())
+    }
+
+    @Test
+    fun listValidEmptyValue(validator: Validator) {
+        val example = ExampleList()
+
+        val result = validator.validate(example)
+
+        assert(result.isEmpty())
+    }
+
+    @Test
+    fun listInvalidValue(validator: Validator) {
+        val example = ExampleList(listOf("a", "b", "c", "c"))
 
         val result = validator.validate(example)
 

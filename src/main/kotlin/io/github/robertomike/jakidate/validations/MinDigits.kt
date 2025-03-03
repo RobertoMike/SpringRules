@@ -15,10 +15,20 @@ import kotlin.reflect.KClass
  */
 @MustBeDocumented
 @Constraint(validatedBy = [MinDigitsConstraint::class])
-@Target(AnnotationTarget.CLASS)
+@Target(
+    AnnotationTarget.FIELD,
+    AnnotationTarget.PROPERTY,
+    AnnotationTarget.FUNCTION,
+    AnnotationTarget.ANNOTATION_CLASS,
+    AnnotationTarget.CONSTRUCTOR,
+    AnnotationTarget.TYPE
+)
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 annotation class MinDigits(
+    /**
+     * the minimum number of digits
+     */
     val value: Int,
     /**
      * the error message template

@@ -1,12 +1,12 @@
-package io.github.robertomike.jakidate.validations.strings
+package io.github.robertomike.jakidate.validations.ip
 
 import io.github.robertomike.jakidate.utils.YamlFileSource
 import io.github.robertomike.jakidate.validations.YamlTest
 
-@YamlFileSource("/strings/isin")
-class ISINTest : YamlTest() {
+@YamlFileSource("/ip/ipv6")
+class Ipv6Test : YamlTest() {
     inner class Example(
-        @field:ISIN
+        @field:Ipv6
         val value: String
     )
 

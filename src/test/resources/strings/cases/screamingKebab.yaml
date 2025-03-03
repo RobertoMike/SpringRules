@@ -1,0 +1,42 @@
+good:
+  - SCREAMING-KEBAB-CASE
+  - THIS-IS-AN-EXAMPLE
+  - ANOTHER-CORRECT-EXAMPLE
+  - YET-ANOTHER-EXAMPLE
+  - KEBAB-CASE-IS-COOL
+  - PYTHON-IS-AWESOME
+  - YAML-FORMAT-EXAMPLE
+  - CORRECT-KEBAB-CASE
+  - EXAMPLES-ARE-FUN
+  - TWENTY-CORRECT-ITEMS
+  - LIST-OF-CORRECT-ITEMS
+  - KEBAB-CASE-FORMAT
+  - EXAMPLES-IN-YAML
+  - REALISTIC-CORRECT-CASE
+  - KEBAB-CASE-RULES
+  - CORRECT-FORMATTING
+  - EXAMPLES-FOR-TESTING
+  - KEBAB-CASE-NAMING
+  - NAMING-CONVENTION
+  - SCREAMING-KEBAB-STYLE
+wrong:
+  - ScreamingKebabCase        # CamelCase
+  - screaming_kebab_case      # Snake_case
+  - screaming kebab case      # Spazi invece di trattini
+  - screaming.kebab.case      # Punti invece di trattini
+  - screamingKebab-case       # Caso misto
+  - Screaming-kebab-case      # Prima parola maiuscola
+  - screaming--kebab--case    # Doppio trattino
+  - -screaming-kebab-case     # Trattino iniziale
+  - screaming-kebab-case-     # Trattino finale
+  - screaming--kebab-case     # Trattino extra nel mezzo
+  - screamingkebabcase        # Nessun trattino
+  - Screaming-Kebab-Case      # Title Case
+  - screaming_kebab-case      # Misto snake e kebab case
+  - screaming/kebab/case      # Slash invece di trattini
+  - screaming~kebab~case      # Tilde invece di trattini
+  - screaming*kebab*case      # Asterischi invece di trattini
+  - screaming+kebab+case      # Più invece di trattini
+  - screaming=kebab=case      # Uguali invece di trattini
+  - screaming&kebab&case      # E commerciale invece di trattini
+  - screaming@kebab@case      # Chiocciola invece di trattini

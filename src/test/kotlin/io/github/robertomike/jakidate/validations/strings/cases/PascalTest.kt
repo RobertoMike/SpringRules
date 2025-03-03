@@ -1,12 +1,12 @@
-package io.github.robertomike.jakidate.validations.strings
+package io.github.robertomike.jakidate.validations.strings.cases
 
 import io.github.robertomike.jakidate.utils.YamlFileSource
 import io.github.robertomike.jakidate.validations.YamlTest
 
-@YamlFileSource("/strings/isin")
-class ISINTest : YamlTest() {
+@YamlFileSource("/strings/cases/pascal")
+class PascalTest : YamlTest() {
     inner class Example(
-        @field:ISIN
+        @field:PascalCase
         val value: String
     )
 

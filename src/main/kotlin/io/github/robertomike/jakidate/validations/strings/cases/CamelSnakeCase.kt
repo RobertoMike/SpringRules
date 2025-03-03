@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Pattern
 import kotlin.reflect.KClass
 
 /**
- * The string must be camel snake case
+ * The string must be camel snake case (Intended to be lower camel case with snake case)
  *
  * An example is: accept_Language, hello_World
  *
@@ -25,7 +25,7 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "^([a-z0-9]+)([_]([A-Z]+)([a-z0-9]*))+\$", message = "{jakidate.string.case.camel-snake}")
+@Pattern(regexp = "^([a-z0-9]+)(_([A-Z]+)([a-z0-9]*))+\$", message = "{jakidate.string.case.camel-snake}")
 annotation class CamelSnakeCase(
     /**
      * the error message template

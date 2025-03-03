@@ -1,0 +1,41 @@
+good:
+  - userProfile
+  - paymentGateway
+  - httpRequest
+  - dataModel
+  - temperatureSensor
+  - imageConverter
+  - sessionManager
+  - errorLogger
+  - backupScheduler
+  - passwordValidator
+  - currencyExchange
+  - deviceController
+  - performanceMetrics
+  - cacheProvider
+  - notificationService
+  - fileUploader
+  - apiEndpoint
+  - securityPolicy
+  - languageTranslator
+  - databaseConnection
+wrong:
+  - UserProfile
+  - HTTPRequest
+  - data_model
+  - temperature-sensor
+  - ImageConverter
+  - Session Manager
+  - errorLogger!
+  - BackupScheduler
+  - Password_Validator
+  - CurrencyExchangeRate123
+  - device.Config
+  - performanceMetrics2_0
+  - cacheProvider?
+  - NotificationService
+  - file/uploader
+  - api-endpoint
+  - SecurityPolicy
+  - _languageTranslator
+  - databaseConnection_

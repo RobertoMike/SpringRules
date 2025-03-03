@@ -1,34 +1,16 @@
 package io.github.robertomike.jakidate.validations.strings
 
-import io.github.robertomike.jakidate.BaseTest
-import io.github.robertomike.jakidate.utils.YamlSource
-import jakarta.validation.Validator
-import org.junit.jupiter.params.ParameterizedTest
+import io.github.robertomike.jakidate.utils.YamlFileSource
+import io.github.robertomike.jakidate.validations.YamlTest
 
-class ISSNTest : BaseTest() {
+@YamlFileSource("/strings/issn")
+class ISSNTest : YamlTest() {
     inner class Example(
         @field:ISSN
-        val code: String
+        val value: String
     )
 
-    @ParameterizedTest
-    @YamlSource("/strings/issn", "good")
-    fun good(issn: String, validator: Validator) {
-        val example = Example(issn)
-
-        val constraints = validator.validate(example)
-
-        assert(constraints.isEmpty())
-    }
-
-    @ParameterizedTest
-    @YamlSource("/strings/issn", "wrong")
-    fun wrong(issn: String, validator: Validator) {
-        val example = Example(issn)
-
-        val constraints = validator.validate(example)
-
-        assert(constraints.isNotEmpty())
-        checkMessages(constraints)
+    override fun getExample(value: String): Any {
+        return Example(value)
     }
 }

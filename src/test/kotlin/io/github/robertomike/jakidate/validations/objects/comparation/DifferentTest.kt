@@ -1,17 +1,31 @@
-package io.github.robertomike.jakidate.validations.objects.conditionals
+package io.github.robertomike.jakidate.validations.objects.comparation
 
 import io.github.robertomike.jakidate.BaseTest
+import io.github.robertomike.jakidate.validations.objects.Different
+import io.github.robertomike.jakidate.validations.objects.DifferentAs
 import jakarta.validation.Validator
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class RequiredIfTest : BaseTest() {
+class DifferentTest : BaseTest() {
+    @Different
+    inner class Example(
+        @field:DifferentAs
+        val password: String,
+        @field:DifferentAs
+        val passwordConfirmation: String,
+        @field:DifferentAs("email")
+        val email: String,
+        @field:DifferentAs("email")
+        val emailConfirmation: String,
+    )
+
     @Test
     fun good(validator: Validator) {
         val example = Example(
-            1,
             "1234",
-            "yes",
+            "12345",
+            "user@mail.comm",
             "user@mail.com",
         )
 
@@ -23,10 +37,10 @@ class RequiredIfTest : BaseTest() {
     @Test
     fun allError(validator: Validator) {
         val example = Example(
-            1,
-            null,
-            "yes",
-            "",
+            "1234",
+            "1234",
+            "user@mail.com",
+            "user@mail.com",
         )
 
         val constraints = validator.validate(example)
@@ -34,34 +48,21 @@ class RequiredIfTest : BaseTest() {
         assertEquals(2, constraints.size)
         assert(constraints.any { it.propertyPath.first().name == "password" })
         assert(constraints.any { it.propertyPath.first().name == "email" })
+        checkMessages(constraints)
     }
 
     @Test
     fun onlyOneError(validator: Validator) {
         val example = Example(
-            0,
-            null,
-            "on",
-            null,
+            "1234",
+            "12345",
+            "user@mail.com",
+            "user@mail.com",
         )
 
         val constraints = validator.validate(example)
 
-        assertEquals(1, constraints.size)
+        assert(constraints.isNotEmpty())
         assertEquals("email", constraints.first().propertyPath.first().name)
     }
-
-
-
-    @Required
-    inner class Example(
-        @field:RequiredIf(true)
-        val control: Int,
-        @field:RequiredIf
-        val password: String?,
-        @field:RequiredIf(true, "email")
-        val conditional: String,
-        @field:RequiredIf(key = "email")
-        val email: String?,
-    )
 }

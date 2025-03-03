@@ -9,7 +9,7 @@ class RequiredTest : BaseTest() {
     @Test
     fun good(validator: Validator) {
         val example = Example(
-            true,
+            "yes",
             "1234",
             "no",
             "user@mail.com",
@@ -23,7 +23,7 @@ class RequiredTest : BaseTest() {
     @Test
     fun allError(validator: Validator) {
         val example = Example(
-            true,
+            "yes",
             null,
             "false",
             "",
@@ -40,7 +40,7 @@ class RequiredTest : BaseTest() {
     @Test
     fun onlyOneError(validator: Validator) {
         val example = Example(
-            false,
+            "no",
             null,
             "off",
             null,
@@ -55,7 +55,7 @@ class RequiredTest : BaseTest() {
     @Required
     inner class Example(
         @field:RequiredIf(true)
-        val control: Boolean,
+        val control: String,
         @field:RequiredIf
         val password: String?,
         @field:RequiredUnless(true, "email")

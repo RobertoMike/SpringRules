@@ -1,0 +1,37 @@
+good:
+  - 192.168.0.1
+  - 10.0.0.1
+  - 172.16.0.1
+  - 127.0.0.1
+  - 8.8.8.8
+  - 192.0.2.146
+  - 203.0.113.5
+  - 198.51.100.42
+  - 1.1.1.1
+  - 255.255.255.255
+  - 0.0.0.0
+  - 169.254.1.1
+  - 100.64.0.1
+  - 192.88.99.1
+  - 224.0.0.1
+  - 240.0.0.1
+  - 192.168.100.254
+  - 172.31.255.255
+  - 10.255.255.255
+  - 203.0.113.255
+wrong:
+  - 256.256.256.256 # Numeri fuori dal range (0-255)
+  - 192.-168.-1.-1 # Numeri negativi non validi
+  - abc.def.hij.xyz # Contiene caratteri non numerici
+  - 192,168,1,1 # Usa virgole invece di punti
+  - 192...168 # Troppi punti
+  - .192..168.# Punti iniziali o multipli consecutivi non validi
+  - 192..168..1..1 # Punti extra tra i numeri
+  - "192 .168 .1 .1" # Spazi tra i numeri non validi
+  - "192..168..01" # Zeri iniziali non consentiti (eccetto "0")
+  - "192,168/24" # Formato CIDR non valido come indirizzo puro
+  - "192:168:1:1" # Usa i due punti invece dei punti (formato IPv6 errato)
+  - "1234:5678:91011:1213" # Formato IPv6 spacciato per IPv4
+  - "192" # Indirizzo incompleto (meno di quattro ottetti)
+  - "300.-10.-10.-10" # Numeri fuori intervallo o negativi misti
+  - "00192..01168.#leadingZeroes"

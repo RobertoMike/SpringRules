@@ -1,12 +1,12 @@
-package io.github.robertomike.jakidate.validations.strings
+package io.github.robertomike.jakidate.validations.strings.cases
 
 import io.github.robertomike.jakidate.utils.YamlFileSource
 import io.github.robertomike.jakidate.validations.YamlTest
 
-@YamlFileSource("/strings/isin")
-class ISINTest : YamlTest() {
+@YamlFileSource("/strings/cases/camelSnake")
+class CamelSnakeTest : YamlTest() {
     inner class Example(
-        @field:ISIN
+        @field:CamelSnakeCase
         val value: String
     )
 

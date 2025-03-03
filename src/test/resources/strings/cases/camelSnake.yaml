@@ -1,0 +1,41 @@
+good:
+  - api_Response_Time
+  - user_Authentication_Service
+  - data_Model_Validation
+  - payment_Gateway_Integration
+  - cache_Refresh_Interval
+  - http_Request_Handler
+  - database_Connection_Pool
+  - error_Log_Aggregator
+  - file_Upload_Service
+  - session_Token_Manager
+  - temperature_Sensor_Reader
+  - image_Processing_Pipeline
+  - notification_Queue_Worker
+  - security_Policy_Enforcer
+  - backup_Scheduler_Task
+  - language_Translator_Api
+  - currency_Exchange_Rates
+  - device_Configuration_Manager
+  - performance_Metrics_Collector
+  - password_Strength_Validator
+wrong:
+  - invalidCamelCase
+  - Mixed_Format_Error
+  - lower_case_start
+  - Double__Underscore
+  - Trailing_Underscore_
+  - _Leading_Underscore
+  - With-Special-Char!
+  - Contains123_Numbers
+  - Space In Name
+  - UPPERCASE_ONLY
+  - camel_Snake_mix
+  - No_Underscore
+  - Too_Many_Underscores__
+  - hyphenated-version
+  - single
+  - MixedCase_Inside
+  - Emoji_🚫_Symbol
+  - VAR_WITH_NUM2
+  - ALL_UPPER_CASE

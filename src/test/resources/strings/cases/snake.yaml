@@ -1,0 +1,40 @@
+good:
+  - screaming_kebab_case
+  - this_is_an_example
+  - another_correct_example
+  - yet_another_example
+  - kebab_case_is_cool
+  - python_is_awesome
+  - yaml_format_example
+  - correct_kebab_case
+  - examples_are_fun
+  - twenty_correct_items
+  - list_of_correct_items
+  - kebab_case_format
+  - examples_in_yaml
+  - realistic_correct_case
+  - kebab_case_rules
+  - correct_formatting
+  - examples_for_testing
+  - kebab_case_naming
+  - naming_convention
+  - screaming_kebab_style
+wrong:
+  - ScreamingKebabCase        # CamelCase
+  - screaming kebab case      # Spazi invece di trattini
+  - screaming.kebab.case      # Punti invece di trattini
+  - screamingKebab-case       # Caso misto
+  - Screaming-kebab-case      # Prima parola maiuscola
+  - screaming--kebab--case    # Doppio trattino
+  - -screaming-kebab-case     # Trattino iniziale
+  - screaming-kebab-case-     # Trattino finale
+  - screaming--kebab-case     # Trattino extra nel mezzo
+  - Screaming-Kebab-Case      # Title Case
+  - screaming_kebab-case      # Misto snake e kebab case
+  - screaming/kebab/case      # Slash invece di trattini
+  - screaming~kebab~case      # Tilde invece di trattini
+  - screaming*kebab*case      # Asterischi invece di trattini
+  - screaming+kebab+case      # Più invece di trattini
+  - screaming=kebab=case      # Uguali invece di trattini
+  - screaming&kebab&case      # E commerciale invece di trattini
+  - screaming@kebab@case      # Chiocciola invece di trattini

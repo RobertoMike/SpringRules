@@ -1,0 +1,41 @@
+good:
+  - "::1" # Loopback address
+  - "2001:0db8:85a3:0000:0000:8a2e:0370:7334" # Full notation
+  - "2001:db8:85a3::8a2e:370:7334" # Compressed notation
+  - "fe80::1ff:fe23:4567:890a" # Link-local address
+  - "2001:db8::ff00:42:8329" # Global unicast address
+  - "ff02::1" # Multicast address (all nodes)
+  - "ff02::2" # Multicast address (all routers)
+  - "2001:0db8::1" # Documentation prefix
+  - "fc00::" # Unique local address (ULA)
+  - "fd00::1" # Unique local address with specific host ID
+  - "::ffff:c000:280" # IPv4-mapped IPv6 address (192.0.2.128)
+  - "::" # Unspecified address
+  - "0:0:0:0:0:ffff:c000:0280" # Expanded IPv4-mapped IPv6 address
+  - "2001:db8:a::123" # Shortened notation with mixed zero groups
+  - "fe80::1234%eth0" # Link-local with interface identifier
+  - "2001:db8::5678/64" # Address with CIDR notation
+  - "3ffe:1900:4545:3:200:f8ff:fe21:67cf" # Regular unicast address
+  - "2001::1" # Compressed global unicast address
+  - "abcd:1234::5678" # Custom valid compressed address
+  - "::ffff:192.168.1.1" # IPv4-embedded IPv6
+wrong:
+  - "2001:::85a3::8a2e:37023" # Multiple double colons (::)
+  - "2001:zxyv::1234" # Invalid characters (non-hexadecimal)
+  - "12345::abcd" # Segment exceeds 4 hexadecimal digits
+  - ":2001::85a3:" # Leading or trailing colon not allowed
+  - ":::" # Too many colons (::)
+  - "::ffff:" # Incomplete IPv4-mapped address
+  - "2001::85a3::7334:" # Multiple compression (::) in one address
+  - "2001-db8-85a3-0000-0000-8a2e-0370-7334" # Hyphens instead of colons
+  - "2001 db8 85a3 0000 0000 8a2e 0370 7334" # Spaces instead of colons
+  - "2001::85a3:g123" # Invalid hexadecimal in a segment
+  - "::12345" # Segment exceeds the maximum value for a group (FFFF)
+  - "::192.168.300.1" # Invalid embedded IPv4 address (out of range)
+  - "::192.168..1.1" # Invalid embedded IPv4 with missing octet
+  - "::g123::abcd" # Invalid characters and multiple double colons (::)
+  - "::/129" # CIDR prefix out of range (>128)
+  - ":abcd::1234:" # Leading and trailing colons without valid groups
+  - "" # Empty string is not a valid address
+  - ":::" # Too many consecutive colons (::)
+  - "::%eth#" # Invalid interface identifier syntax

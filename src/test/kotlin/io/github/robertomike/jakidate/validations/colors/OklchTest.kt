@@ -1,34 +1,16 @@
 package io.github.robertomike.jakidate.validations.colors
 
-import io.github.robertomike.jakidate.BaseTest
-import io.github.robertomike.jakidate.utils.YamlSource
-import jakarta.validation.Validator
-import org.junit.jupiter.params.ParameterizedTest
+import io.github.robertomike.jakidate.utils.YamlFileSource
+import io.github.robertomike.jakidate.validations.YamlTest
 
-class OklchTest : BaseTest() {
+@YamlFileSource("/colors/oklch")
+class OklchTest : YamlTest() {
     inner class Example(
         @field:OklchColor
         val color: String
     )
 
-    @ParameterizedTest
-    @YamlSource("/colors/oklch", "good")
-    fun good(color: String, validator: Validator) {
-        val example = Example(color)
-
-        val constraints = validator.validate(example)
-
-        assert(constraints.isEmpty())
-    }
-
-    @ParameterizedTest
-    @YamlSource("/colors/oklch", "wrong")
-    fun wrong(color: String, validator: Validator) {
-        val example = Example(color)
-
-        val constraints = validator.validate(example)
-
-        assert(constraints.isNotEmpty())
-        checkMessages(constraints)
+    override fun getExample(value: String): Any {
+        return Example(value)
     }
 }
