@@ -1,0 +1,23 @@
+good:
+  - ABCDEFG
+  - HIJKLMN
+  - OPQRSTU
+  - VWXYZAB
+  - CDEFHIJ
+  - KLMNOPQ
+  - RSTUVWX
+  - YZABCD
+  - EFGHIJ
+  - KLMNO
+
+wrong:
+  - hello123
+  - FooBar
+  - 123mainstreet
+  - hello_world!
+  - foo@bar.com
+  - 123.456.789
+  - foo-bar-baz
+  - hello world
+  - foo-bar-baz-qux
+  - abcdefg
