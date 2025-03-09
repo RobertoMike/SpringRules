@@ -1,0 +1,24 @@
+good:
+  - "12345"
+  - "67890"
+  - "11111"
+  - "22222"
+  - "33333"
+  - "44444"
+  - "55555"
+  - "98765"
+  - "54321"
+  - "01234"
+
+wrong:
+  - "abcdef"
+  - "Hello,World!"
+  - "Foo-Bar-Baz"
+  - "abc.def"
+  - "Hello World" #Dees not accept empty spaces
+  - "Foo@Bar.com"
+  - "abc!def"
+  - "~`!@#$%^&*()"
+  - "abcABC"
+  - "123abc"
+  - "!@#$%"
