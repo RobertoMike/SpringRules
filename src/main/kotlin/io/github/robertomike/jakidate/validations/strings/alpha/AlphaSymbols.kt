@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Pattern
 import kotlin.reflect.KClass
 
 /**
- * The string must contain only alpha symbols
+ * The string must only contain symbols or alpha symbols
  *
  * @author Giorgio Andrei
  * @since 1.0.0
