@@ -1,0 +1,24 @@
+good:
+  - "abc123"
+  - "HelloWorld"
+  - "FooBar123"
+  - "abcdef"
+  - "123456"
+  - "ABCDEF"
+  - "xyz123"
+  - "987654"
+  - "abcABC"
+  - "123abc"
+
+wrong:
+  - "!@#$%"
+  - "Hello, World!"
+  - "Foo-Bar-Baz"
+  - "abc.def"
+  - "123.456"
+  - "Hello World"
+  - "Foo@Bar.com"
+  - "abc!def"
+  - "123abc!"
+  - "~`!@#$%^&*()"
+  - "bye bye" #Dees not accept empty spaces
