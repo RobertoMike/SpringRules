@@ -1,18 +1,18 @@
-package io.github.robertomike.jakidate.validations.strings
+package io.github.robertomike.jakidate.validations.strings.end
 
-import io.github.robertomike.jakidate.constraints.strings.end.EndsWithConstraint
+import io.github.robertomike.jakidate.constraints.strings.end.DoesntEndWithConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass
 
 /**
- * The string must end with the specified value
+ * The string must not end with the specified value
  *
- * @author Roberto Micheletti
+ * @author Giorgio Andrei
  * @since 1.0.0
  */
 @MustBeDocumented
-@Constraint(validatedBy = [EndsWithConstraint::class])
+@Constraint(validatedBy = [DoesntEndWithConstraint::class])
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
@@ -23,15 +23,15 @@ import kotlin.reflect.KClass
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
-annotation class EndsWith(
+annotation class DoesntEndWith(
     /**
-     * the value the string must end with
+     * the value to check
      */
     val value: String,
     /**
      * the error message template
      */
-    val message: String = "{jakidate.string.end-with}",
+    val message: String = "{jakidate.string.doesnt-end-with}",
     /**
      * the groups the constraint belongs to
      */

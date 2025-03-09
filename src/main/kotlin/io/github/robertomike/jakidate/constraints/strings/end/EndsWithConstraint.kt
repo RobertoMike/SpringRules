@@ -1,7 +1,7 @@
 package io.github.robertomike.jakidate.constraints.strings.end
 
 import io.github.robertomike.jakidate.constraints.SimpleConstraint
-import io.github.robertomike.jakidate.validations.strings.EndsWith
+import io.github.robertomike.jakidate.validations.strings.end.EndsWith
 
 /**
  * A constraint that checks if a string ends with a specified value.

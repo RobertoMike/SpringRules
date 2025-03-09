@@ -1,7 +1,7 @@
 package io.github.robertomike.jakidate.constraints.strings.start
 
 import io.github.robertomike.jakidate.constraints.SimpleConstraint
-import io.github.robertomike.jakidate.validations.strings.StartsWith
+import io.github.robertomike.jakidate.validations.strings.start.StartsWith
 
 /**
  * A constraint that checks if a string starts with a specified value.
