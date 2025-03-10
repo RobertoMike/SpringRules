@@ -1,7 +1,6 @@
 package io.github.robertomike.jakidate.validations.objects.conditionals
 
 import io.github.robertomike.jakidate.constraints.objects.conditionals.RequiredConstraint
-import io.github.robertomike.jakidate.validations.objects.DifferentAs
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass

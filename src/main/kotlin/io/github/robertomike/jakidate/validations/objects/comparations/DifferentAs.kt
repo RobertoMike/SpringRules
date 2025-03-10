@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate.validations.objects
+package io.github.robertomike.jakidate.validations.objects.comparations
 
 /**
  * This annotation is put it on top of two or more fields to check if they are different

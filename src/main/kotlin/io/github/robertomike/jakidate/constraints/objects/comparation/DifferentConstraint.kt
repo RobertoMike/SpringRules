@@ -1,7 +1,7 @@
 package io.github.robertomike.jakidate.constraints.objects.comparation
 
-import io.github.robertomike.jakidate.validations.objects.Different
-import io.github.robertomike.jakidate.validations.objects.DifferentAs
+import io.github.robertomike.jakidate.validations.objects.comparations.Different
+import io.github.robertomike.jakidate.validations.objects.comparations.DifferentAs
 import java.lang.reflect.Field
 
 /**

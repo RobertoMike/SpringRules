@@ -1,8 +1,6 @@
-package io.github.robertomike.jakidate.validations.objects.comparation
+package io.github.robertomike.jakidate.validations.objects.comparations
 
 import io.github.robertomike.jakidate.BaseTest
-import io.github.robertomike.jakidate.validations.objects.Different
-import io.github.robertomike.jakidate.validations.objects.DifferentAs
 import jakarta.validation.Validator
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals

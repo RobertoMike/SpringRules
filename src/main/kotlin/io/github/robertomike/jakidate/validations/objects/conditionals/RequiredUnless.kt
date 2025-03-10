@@ -1,7 +1,6 @@
 package io.github.robertomike.jakidate.validations.objects.conditionals
 
 import io.github.robertomike.jakidate.constraints.objects.Expression
-import io.github.robertomike.jakidate.validations.objects.Different
 import kotlin.reflect.KClass
 
 /**
