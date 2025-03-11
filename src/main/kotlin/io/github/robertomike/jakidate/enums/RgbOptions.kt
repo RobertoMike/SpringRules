@@ -1,8 +1,6 @@
 package io.github.robertomike.jakidate.enums
 
-import io.github.robertomike.jakidate.utils.rgbLegacyPercentageRegex
 import io.github.robertomike.jakidate.utils.rgbLegacyRegex
-import io.github.robertomike.jakidate.utils.rgbPercentageRegex
 import io.github.robertomike.jakidate.utils.rgbRegex
 
 /**
@@ -15,22 +13,13 @@ import io.github.robertomike.jakidate.utils.rgbRegex
  */
 enum class RgbOptions {
     /**
-     * Legacy RGB format (e.g. "rgb(0,0,0)").
+     * Legacy RGB format (e.g. "rgb(0,0,0)" or "rgba(0,0,0,1)").
      */
     LEGACY,
     /**
-     * Legacy RGB format with percentage values (e.g. "rgb(0%,0%,0%)").
-     */
-    LEGACY_PERCENTAGE,
-    /**
-     * New RGB format (e.g. "rgb(0 0 0)").
+     * New RGB format (e.g. "rgb(0 0 0)" or "rgba(0 0 0, 1)").
      */
     NEW,
-    /**
-     * New RGB format with percentage values (e.g. "rgb(0% 0% 0%)").
-     */
-    NEW_PERCENTAGE,
-
     /**
      * All the precedent RGB formats.
      */
@@ -44,9 +33,7 @@ enum class RgbOptions {
     val regex: List<String>
         get() = when (this) {
             LEGACY -> listOf(rgbLegacyRegex)
-            LEGACY_PERCENTAGE -> listOf(rgbLegacyPercentageRegex)
             NEW -> listOf(rgbRegex)
-            NEW_PERCENTAGE -> listOf(rgbPercentageRegex)
-            ALL -> listOf(rgbLegacyRegex, rgbLegacyPercentageRegex, rgbRegex, rgbPercentageRegex)
+            ALL -> listOf(rgbLegacyRegex, rgbRegex)
         }
 }
