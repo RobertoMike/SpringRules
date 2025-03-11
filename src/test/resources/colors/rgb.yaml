@@ -1,0 +1,41 @@
+good:
+  - rgb(255, 0, 0)           # Rosso
+  - rgb(0, 255, 0)           # Verde
+  - rgb(0, 0, 255)           # Blu
+  - rgb(255, 255, 255)       # Bianco
+  - rgb(0, 0, 0)             # Nero
+  - rgb(128, 128, 128)       # Grigio
+  - rgba(255, 0, 0, 0.5)     # Rosso semi-trasparente
+  - rgba(0, 255, 0, 1)       # Verde opaco
+  - rgba(0, 0, 255, 0.75)    # Blu 75% opaco
+  - rgb(255, 165, 0)         # Arancione
+  - rgba(128, 0, 128, 0.8)   # Viola 80% opaco
+  - rgb(255, 192, 203)       # Rosa
+  - rgba(0, 255, 255, 0.3)   # Ciano 30% opaco
+  - rgb(139, 69, 19)         # Marrone
+  - rgba(255, 255, 0, 0.9)   # Giallo 90% opaco
+  - rgb(50, 205, 50)         # Verde lime
+  - rgba(220, 20, 60, 0.6)   # Rosso cremisi 60% opaco
+  - rgb(70, 130, 180)        # Blu acciaio
+  - rgba(255, 228, 196, 1)   # Beige opaco
+  - rgb(240, 248, 255)       # Alice blu
+wrong:
+  - rgb(256, 0, 0)           # Valore superiore a 255
+  - rgb(256 0 0)           # Valore superiore a 255
+  - rgb(0, -1, 255)          # Valore negativo
+  - rgb(255, 255)            # Manca un valore
+  - rgba(255, 255, 255)      # Manca il valore alpha
+  - rgb(255, 255, 255, 0.5)  # RGB non accetta alpha
+  - rgba(255, 255, 255, 2)   # Alpha superiore a 1
+  - rgba(255, 255, 255, -0.5) # Alpha negativo
+  - rgb(255, 255, 255.5)     # Valore decimale non permesso in RGB
+  - rgb(FF, 00, 00)          # Valori esadecimali non permessi
+  - rgb(100%, 0%, 0%)        # Percentuali non permesse in questa sintassi
+  - rgba(255, 255, 255, 50%) # Alpha in percentuale non permesso
+  - rgb(255, 0, 0;)          # Punto e virgola non permesso
+  - rgba(255, 0, 0, 0.5, 1)  # Troppi valori
+  - rgb(255, 0)              # Manca un valore
+  - rgba(255, , 0, 1)        # Valore mancante
+  - rgb(255, 0, 0, )         # Virgola in eccesso
+  - rgba('255', '0', '0', '1') # Valori tra apici non permessi
+  - rgb(255.0, 0.0, 0.0)     # Decimali non necessari in RGB
