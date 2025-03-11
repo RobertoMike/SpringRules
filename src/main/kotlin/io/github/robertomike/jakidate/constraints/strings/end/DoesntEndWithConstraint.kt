@@ -1,7 +1,7 @@
 package io.github.robertomike.jakidate.constraints.strings.end
 
 import io.github.robertomike.jakidate.constraints.SimpleConstraint
-import io.github.robertomike.jakidate.validations.strings.DoesntEndWith
+import io.github.robertomike.jakidate.validations.strings.end.DoesntEndWith
 
 /**
  * A constraint that checks if a string doesn't end with a specified value.

@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate.validations.strings
+package io.github.robertomike.jakidate.validations.strings.start
 
 import io.github.robertomike.jakidate.constraints.strings.start.DoesntStartWithConstraint
 import jakarta.validation.Constraint

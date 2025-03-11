@@ -1,0 +1,27 @@
+good:
+  - aeiou
+  - bcdfg
+  - hijkl
+  - mnopr
+  - qrstu
+  - vwxyz
+  - Abcdef
+  - ghijkl
+  - mnoabc
+  - rstuvw
+  - QWERTY
+
+wrong:
+  - "123456"
+  - "hello123"
+  - "foo@bar.com"
+  - "123.456.789"
+  - "hello_world!"
+  - "foo-bar-baz"
+  - "abc123def"
+  - "$$$$abcd"
+  - "abc!def"
+  - "123abcdef"
+  - "abc def" #Dees not accept empty spaces
+  - "<wrong>"
+  - "500€"

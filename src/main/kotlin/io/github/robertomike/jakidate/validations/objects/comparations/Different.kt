@@ -1,29 +1,29 @@
-package io.github.robertomike.jakidate.validations.objects
+package io.github.robertomike.jakidate.validations.objects.comparations
 
-import io.github.robertomike.jakidate.constraints.objects.comparation.SameConstraint
+import io.github.robertomike.jakidate.constraints.objects.comparation.DifferentConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass
 
 /**
- * This annotation allow you to check if two or more fields of the object are the same,
- * this is made possible using the SameAs annotation
+ * This annotation allow you to check if two or more fields of the object are different,
+ * this is made possible using the DifferentAs annotation
  *
- * @see SameAs
+ * @see DifferentAs
  *
  * @author Roberto Micheletti
  * @since 1.0.0
  */
 @MustBeDocumented
-@Constraint(validatedBy = [SameConstraint::class])
+@Constraint(validatedBy = [DifferentConstraint::class])
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
-annotation class Same(
+annotation class Different(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.same}",
+    val message: String = "{jakidate.different}",
     /**
      * the groups the constraint belongs to
      */

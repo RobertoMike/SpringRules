@@ -1,0 +1,23 @@
+good:
+  - This-Is-Train-Case-Example
+  - Foo-Bar-Baz-Qux-Quux
+  - Hello-World-This-Is-A-Test
+  - Big-Brown-Bear-Is-Happy
+  - Lovely-Day-For-A-Walk
+  - Quick-Brown-Fox-Jumps-Over
+  - The-Sun-Is-Shining-Bright
+  - Happy-Cat-Purrs-Contentedly
+  - Beautiful-Day-For-A-Picnic
+  - Wonderful-World-Of-Code
+
+wrong:
+  - this_is_snake_case
+  - hello world
+  - foo.bar.baz
+  - 123mainstreet
+  - helloWorld
+  - FooBarBaz
+  - hello-world!
+  - foo_bar_baz_qux
+  - 123.456.789
+  - abcdefg

@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Pattern
 import kotlin.reflect.KClass
 
 /**
- * The string must contain only alpha symbols
+ * The string must only contain symbols or alpha symbols
  *
  * @author Giorgio Andrei
  * @since 1.0.0
@@ -24,7 +24,7 @@ import kotlin.reflect.KClass
 @Repeatable
 @Constraint(validatedBy = [])
 @Pattern(regexp = "^([.,;:?!'\"\\-—_/\\\\()\\[\\]{}@#&%*+=<>≠≈√Δ∑π¢$€£¥|~^¿¡ÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÇØÆßa-zA-Z0-9]+)$", message = "{jakidate.string.alpha.symbols}")
-annotation class AlphaSymbol(
+annotation class AlphaSymbols(
     /**
      * the error message template
      */

@@ -1,0 +1,23 @@
+good:
+  - fjnqwxob
+  - hzgxv
+  - kxwma
+  - ehnjz
+  - yxzq
+  - jgkpv
+  - wqkx
+  - fmrz
+  - pqgx
+  - znhk
+
+wrong:
+  - "HELLO123"
+  - "FooBar"
+  - "123MainStreet"
+  - "Hello_World!"
+  - "Foo@Bar.com"
+  - "123456"
+  - "Foo-Bar-Baz"
+  - "Hello World"
+  - "Foo-Bar-Baz-Qux"
+  - "123.456.789"
