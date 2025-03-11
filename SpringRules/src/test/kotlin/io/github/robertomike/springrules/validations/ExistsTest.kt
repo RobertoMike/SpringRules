@@ -1,14 +1,16 @@
-package io.github.robertomike.springrules.constraints
+package io.github.robertomike.springrules.validations
 
 import io.github.robertomike.jakidate.BaseTest
-import io.github.robertomike.springrules.validations.Exists
 import jakarta.validation.Validator
 import org.junit.jupiter.api.Test
 
-class ExistsConstraintTest : BaseTest() {
+class ExistsTest : BaseTest() {
     inner class Repository {
         fun findById(id: Long): Any? {
-            return null
+            if (id > 1L) {
+                return null
+            }
+            return Example(1L)
         }
     }
 
@@ -18,8 +20,17 @@ class ExistsConstraintTest : BaseTest() {
     )
 
     @Test
-    fun notValid(validator: Validator) {
+    fun valid(validator: Validator) {
         val example = Example(1L)
+
+        val errors = validator.validate(example)
+
+        assert(errors.isEmpty())
+    }
+
+    @Test
+    fun notValid(validator: Validator) {
+        val example = Example(2L)
 
         val errors = validator.validate(example)
 
