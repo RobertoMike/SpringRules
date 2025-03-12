@@ -59,3 +59,82 @@ configurations {
 artifacts {
     add("testArtifacts", testJar)
 }
+
+
+publishing {
+    publications {
+        register("library", MavenPublication::class) {
+            from(components["java"])
+
+            groupId = "$group"
+            artifactId = "jakidate"
+            version = version
+
+            pom {
+                name = "Jakidate"
+                description = "This is an open-source Java library that provides validation rules for every java project that use Jakarta to validate."
+                url = "https://github.com/RobertoMike/Jakidate"
+                inceptionYear = "2025"
+
+                licenses {
+                    license {
+                        name = "MIT License"
+                        url = "http://www.opensource.org/licenses/mit-license.php"
+                    }
+                }
+                developers {
+                    developer {
+                        name = "Roberto Micheletti"
+                        email = "rmworking@hotmail.com"
+                        organization = "Kaiten"
+                        organizationUrl = "https://github.com/RobertoMike"
+                    }
+                    developer {
+                        name = "Giorgio Andrei"
+                        email = "giorgio.work24@gmail.com"
+                        organization = "Kaiten"
+                        organizationUrl = "https://github.com/RobertoMike"
+                    }
+                }
+                scm {
+                    connection = "scm:git:git://github.com/RobertoMike/Jakidate.git"
+                    developerConnection = "scm:git:ssh://github.com:RobertoMike/Jakidate.git"
+                    url = "https://github.com/RobertoMike/Jakidate"
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+
+            name = "OSSRH"
+            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+            credentials {
+                username = System.getenv("OSSRH_USERNAME")
+                password = System.getenv("OSSRH_PASSWORD")
+            }
+            metadataSources {
+                gradleMetadata()
+            }
+        }
+    }
+}
+
+if (!project.hasProperty("local")) {
+    signing {
+        setRequired { !version.toString().endsWith("SNAPSHOT") }
+        sign(publishing.publications["library"])
+    }
+}
+
+tasks.withType(JavaCompile::class).configureEach {
+    options.encoding = "UTF-8"
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(11))
+    }
+}

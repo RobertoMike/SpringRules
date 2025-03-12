@@ -1,5 +1,6 @@
 package io.github.robertomike.jakidate.configs
 
+import jakarta.validation.Configuration
 import jakarta.validation.Validation
 import jakarta.validation.Validator
 import org.junit.jupiter.api.extension.*
@@ -8,7 +9,7 @@ import java.util.concurrent.locks.ReentrantLock
 import kotlin.concurrent.Volatile
 
 
-class TestConfig : BeforeAllCallback, ParameterResolver {
+open class TestConfig : BeforeAllCallback, ParameterResolver {
     companion object {
         /**
          * volatile boolean to tell other threads, when unblocked, whether they should try attempt start-up.  Alternatively, could use AtomicBoolean.
@@ -28,10 +29,9 @@ class TestConfig : BeforeAllCallback, ParameterResolver {
                 started = true
             }
 
-            validator = Validation.byDefaultProvider()
-                .configure()
-                .buildValidatorFactory()
-                .validator
+            validator = customizeValidator(
+                Validation.byDefaultProvider().configure()
+            ).buildValidatorFactory().validator
         } catch (e: Exception) {
             println(e.message)
             throw RuntimeException(e)
@@ -43,6 +43,14 @@ class TestConfig : BeforeAllCallback, ParameterResolver {
 
         val globalStore = context.getStore(NAMESPACE)
         globalStore.put("Validator", validator)
+        registerParameters(globalStore)
+    }
+
+    open fun registerParameters(store: ExtensionContext.Store) {
+    }
+
+    open fun customizeValidator(factory: Configuration<*>): Configuration<*> {
+        return factory
     }
 
     private fun getSimpleName(parameterContext: ParameterContext): String {

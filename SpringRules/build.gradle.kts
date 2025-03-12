@@ -38,10 +38,104 @@ dependencies {
     api(project(":"))
 
     testImplementation(kotlin("test"))
-    testImplementation("org.springframework.boot:spring-boot-starter-test:$springVersion")
     testImplementation(project(":", "testArtifacts"))
+    testImplementation("org.mockito:mockito-core:5.16.0")
 }
 
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.register("getMessagesFromJakidate") {
+    val filePath = "/resources/main/ValidationMessages.properties"
+    inputs.files(project(":").layout.buildDirectory.file(filePath))
+    doLast {
+        val dataFile = inputs.files.singleFile
+        val targetFile = layout.buildDirectory.file(filePath).get().asFile
+        targetFile.appendText(dataFile.readText())
+    }
+}
+
+//tasks.named("build").configure {
+//    finalizedBy("getMessagesFromJakidate")
+//}
+
+// Library Publication
+
+publishing {
+    publications {
+        register("library", MavenPublication::class) {
+            from(components["java"])
+
+            groupId = "$group"
+            artifactId = "spring-rules"
+            version = version
+
+            pom {
+                name = "Spring rules"
+                description = "This is an open-source Java library that provides validation rules for Spring applications."
+                url = "https://github.com/RobertoMike/Jakidate"
+                inceptionYear = "2025"
+
+                licenses {
+                    license {
+                        name = "MIT License"
+                        url = "http://www.opensource.org/licenses/mit-license.php"
+                    }
+                }
+                developers {
+                    developer {
+                        name = "Roberto Micheletti"
+                        email = "rmworking@hotmail.com"
+                        organization = "Kaiten"
+                        organizationUrl = "https://github.com/RobertoMike"
+                    }
+                    developer {
+                        name = "Giorgio Andrei"
+                        email = "giorgio.work24@gmail.com"
+                        organization = "Kaiten"
+                        organizationUrl = "https://github.com/RobertoMike"
+                    }
+                }
+                scm {
+                    connection = "scm:git:git://github.com/RobertoMike/Jakidate.git"
+                    developerConnection = "scm:git:ssh://github.com:RobertoMike/Jakidate.git"
+                    url = "https://github.com/RobertoMike/Jakidate"
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+
+            name = "OSSRH"
+            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+            credentials {
+                username = System.getenv("OSSRH_USERNAME")
+                password = System.getenv("OSSRH_PASSWORD")
+            }
+            metadataSources {
+                gradleMetadata()
+            }
+        }
+    }
+}
+
+if (!project.hasProperty("local")) {
+    signing {
+        setRequired { !version.toString().endsWith("SNAPSHOT") }
+        sign(publishing.publications["library"])
+    }
+}
+
+tasks.withType(JavaCompile::class).configureEach {
+    options.encoding = "UTF-8"
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
 }

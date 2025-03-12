@@ -1,8 +1,11 @@
 package io.github.robertomike.springrules.validations
 
-import io.github.robertomike.jakidate.BaseTest
+import io.github.robertomike.springrules.BaseTest
 import jakarta.validation.Validator
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.mockito.Mockito
+import org.springframework.context.ApplicationContext
 import java.util.*
 
 class UniqueTest : BaseTest() {
@@ -20,6 +23,11 @@ class UniqueTest : BaseTest() {
         var userId: Long
     )
 
+    @BeforeEach
+    fun setUp(context: ApplicationContext) {
+        Mockito.`when`(context.getBean(Repository::class.java)).thenReturn(Repository())
+    }
+
     @Test
     fun valid(validator: Validator) {
         val example = Example(1L)
@@ -35,6 +43,6 @@ class UniqueTest : BaseTest() {
 
         val errors = validator.validate(example)
 
-        assert(errors.isNotEmpty())
+        checkMessages(errors)
     }
 }

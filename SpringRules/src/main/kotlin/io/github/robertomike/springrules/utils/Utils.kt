@@ -1,7 +1,7 @@
 package io.github.robertomike.springrules.utils
 
 import org.springframework.context.ApplicationContext
-import org.springframework.util.ClassUtils.*
+import org.springframework.util.ClassUtils.getMethodIfAvailable
 import java.lang.reflect.Method
 import java.util.*
 
@@ -12,9 +12,13 @@ import java.util.*
  */
 fun ApplicationContext.getBeanAndExecute(repository: Class<out Any>, method: String, value: Any): Any? {
     val instance = this.getBean(repository)
-    val callable: Method = getMethodIfAvailable(repository, method, value.javaClass)
-        ?: getMethod(repository, method, null)
+    val callable: Method = getMethodIfAvailable(repository, method, value::class.java)
+        ?: getMethod(repository, method)
     return callable.invoke(instance, value)
+}
+
+fun getMethod(clazz: Class<out Any>, method: String): Method {
+    return clazz.declaredMethods.first { it.name == method }
 }
 
 /**
