@@ -15,8 +15,6 @@ import kotlin.reflect.KClass
  * @property payload The payload types to which this constraint belongs. Defaults to an empty array.
  *
  * @see UrlConstraint
- * @see jakarta.validation.Constraint
- * @see jakarta.validation.Payload
  */
 @MustBeDocumented
 @Constraint(validatedBy = [UrlConstraint::class])
