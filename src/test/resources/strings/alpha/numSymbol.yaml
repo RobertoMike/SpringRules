@@ -1,0 +1,21 @@
+good:
+  - "123456"
+  - "20$"
+  - "1!3£4$"
+  - "5%6&7/"
+
+wrong:
+  - " "
+  - "Hello,World!"
+  - "Foo-Bar-Baz:Qux"
+  - "abc.def+ghi"
+  - "123abc!def"
+  - "foo@bar.com"
+  - "abc(def)ghi"
+  - "hello_world?"
+  - "abc[def]ghi"
+  - "foo-bar-baz-qux"
+  - "abc~def"
+  - "<good>"
+  - "abc [def]ghi"
+  - "that's what she said!" #Dees not accept empty spaces
