@@ -2,17 +2,18 @@ good:
   - "Hello,World!"
   - "Foo-Bar-Baz:Qux"
   - "abc.def+ghi"
-  - "123abc!def"
+  - "abc!def"
   - "foo@bar.com"
   - "abc(def)ghi"
   - "hello_world?"
   - "abc[def]ghi"
   - "foo-bar-baz-qux"
   - "abc~def"
-  - "123456"
   - "<good>"
-  - "20$"
+  - "$dollars"
 
 wrong:
   - ""
+  - "abc123456"
+  - "20$"
   - "that's what she said!" #Dees not accept empty spaces
