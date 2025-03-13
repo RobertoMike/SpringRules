@@ -23,12 +23,12 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "^([.,;:?!'\"\\-—_/\\\\()\\[\\]{}@#&%*+=<>≠≈√Δ∑π¢$€£¥|~^¿¡ÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÇØÆßa-zA-Z0-9]+)$", message = "{jakidate.strings.alpha.numeric-symbols}")
+@Pattern(regexp = "^([.,;:?!'\"\\-—_/\\\\()\\[\\]{}@#&%*+=<>≠≈√Δ∑π¢$€£¥|~^¿¡ÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÇØÆßa-zA-Z0-9]+)$", message = "{jakidate.strings.alpha.alpha-numeric-symbols}")
 annotation class AlphaNumSymbol(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.strings.alpha.numeric-symbols}",
+    val message: String = "{jakidate.strings.alpha.alpha-numeric-symbols}",
     /**
      * the groups the constraint belongs to
      */
