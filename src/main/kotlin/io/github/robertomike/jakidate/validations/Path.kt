@@ -25,7 +25,7 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "^/([a-zA-Z0-9-_]+/*)*[a-zA-Z0-9-_]+$", message = "{jakidate.path}")
+@Pattern(regexp = "^/(?:[a-zA-Z0-9_\\-!\"£$%&'^.,;:#]+)*(/[a-zA-Z0-9_\\-!\"£$%&'^.,;:#]+)*$", message = "{jakidate.path}")
 annotation class Path(
     /**
      * the error message template
