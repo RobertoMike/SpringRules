@@ -25,12 +25,12 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "^/([a-zA-Z0-9_\\-!\"£$%&'^.,;:#]+)*(/[a-zA-Z0-9_\\-!\"£$%&'^.,;:#]+)*$", message = "{jakidate.path}")
+@Pattern(regexp = "^/([a-zA-Z0-9_\\-!\"£$%&'^.,;:#]+)*(/[a-zA-Z0-9_\\-!\"£$%&'^.,;:#]+)*$", message = "{jakidate.web.relative-path}")
 annotation class RelativePath(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.path}",
+    val message: String = "{jakidate.web.relative-path}",
     /**
      * the groups the constraint belongs to
      */

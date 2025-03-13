@@ -23,7 +23,7 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "[a-zA-Z]+", message = "{jakidate.string.alpha.default}")
+@Pattern(regexp = "[a-zA-Z]+", message = "{jakidate.strings.alpha.default}")
 annotation class Alpha(
     /**
      * the error message template

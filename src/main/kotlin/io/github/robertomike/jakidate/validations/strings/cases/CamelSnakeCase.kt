@@ -25,7 +25,7 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "^([a-z0-9]+)(_([A-Z]+)([a-z0-9]*))+\$", message = "{jakidate.string.case.camel-snake}")
+@Pattern(regexp = "^([a-z0-9]+)(_([A-Z]+)([a-z0-9]*))+\$", message = "{jakidate.strings.case.camel-snake}")
 annotation class CamelSnakeCase(
     /**
      * the error message template

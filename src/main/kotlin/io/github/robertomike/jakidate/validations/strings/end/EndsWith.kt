@@ -31,7 +31,7 @@ annotation class EndsWith(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.string.end-with}",
+    val message: String = "{jakidate.strings.end-with}",
     /**
      * the groups the constraint belongs to
      */

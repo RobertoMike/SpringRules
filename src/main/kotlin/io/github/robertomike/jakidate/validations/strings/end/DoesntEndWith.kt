@@ -31,7 +31,7 @@ annotation class DoesntEndWith(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.string.doesnt-end-with}",
+    val message: String = "{jakidate.strings.doesnt-end-with}",
     /**
      * the groups the constraint belongs to
      */

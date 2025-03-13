@@ -23,7 +23,7 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "\\d+", message = "{jakidate.string.numeric}")
+@Pattern(regexp = "\\d+", message = "{jakidate.numeric.default}")
 annotation class IsNumeric(
     /**
      * the error message template

@@ -25,7 +25,7 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "^([a-z])+\$", message = "{jakidate.string.case.lower}")
+@Pattern(regexp = "^([a-z])+\$", message = "{jakidate.strings.case.lower}")
 annotation class LowerCase(
     /**
      * the error message template
