@@ -1,15 +1,108 @@
-Jakidate
-================
+# About Jakidate
 
+Jakidate is a library that extends the existing Jakarta/Javax annotations by adding a various set of annotations to simplify the work.
+
+## Links
+- [How to install](#how-to-install)
+- [Validations](#validations)
+
+## How to install
+
+If you only need the jakidate library you can use this
+
+Maven
+```xml
+<dependency>
+    <groupId>io.github.robertomike</groupId>
+    <artifactId>jakidate</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+Gradle
+```gradle
+dependencies {
+    implementation 'io.github.robertomike:jakidate:1.0.0'
+}
+```
+
+If you want use it on Spring boot 2, 3 we recommend you to check this: [springrules](link)
 
 ## Validations:
-- Password: A constraint validator that checks if a password meets certain requirements, such as minimum and maximum length, digit, letter, and special character requirements.
-- NotCompromisedPassword: A constraint validator that checks if a password has been compromised by checking it against the Pwned Passwords API.
-- MinDigits: A constraint validator that checks if a number has at least a minimum number of digits.
-- MaxDigits: A constraint validator that checks if a number has at most a maximum number of digits.
-- Ip: A constraint validator that checks if a string is a valid IP address.
-- Different: A constraint validator that checks if two fields are different.
-- Same: A constraint validator that checks if two fields are the same.
+
+### Boolean Validations:
+- Accepted: Checks if a value is accepted. [Supported types](#accepted-supported-types)
+- Declined: Checks if a value is declined. [Supported types](#declined-supported-types)
+
+### Collections Validations:
+- Contains: Checks if a value is contained in a list of allowed values. [Supported types](#contain-supported-types)
+- Distinct: Checks if a collection has not duplicate elements.
+
+### Colors Validations:
+- Hex: Checks if a string is a valid hex color.
+- Hsl: Checks if a string is a valid Hsl color.
+- Oklch: Checks if a string is a valid Oklch color.
+- Rgb: Checks if a string is a valid Rgb color.
+
+### Documents validations:
+- FiscalCode: Checks if a string is a valid Italian Fiscal Code.
+- ISIN: Checks if a string is a valid International Securities Identification Number (ISIN).
+- ISSN: Checks if a string is a valid International Standard Serial Number (ISSN).
+
+### Numbers Validations:
+- Between: Checks if a number is between a minimum and maximum value.  [Supported types](#between-supported-types)
+- MaxDigits: Checks if a given Number value has the maximum number of digits specified by the annotation.
+- MinDigits: Checks if a given Number value has at least the minimum number of digits specified by the annotation.
+- MultipleOf: Checks if a value is a multiple of a given number. [Supported types](#multipleof-supported-types)
+
+### Comparations Validations:
+- Different: [Different](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/comparations/different.md)
+- Same: [Different](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/comparations/same.md)
+
+
+DA QUI IN POI RICONTROLLA LE DESCRIZIONI DELLE ANNOTAZIONI
+
+
+### Conditionals
+- Exclude: Checks if a value is not contained in a list of forbidden values.
+- Required: Checks if a value is required based on another field of the object.
+
+### Password Validations:
+- NotCompromisedPassword: Checks if a password has not been compromised by checking it against the Pwned Passwords API.
+- Password: Checks if a password meets certain requirements, such as minimum and maximum length, digit, letter, and special character requirements.
+
+### String Validations:
+- Alpha:
+  - Alpha: Checks if a string contains only letters. 
+  - AlphaNumSymbol: Checks if a string contains only letters, numbers, and symbols.
+  - AlphaNum: Checks if a string contains only letters and numbers.
+  - AlphaSymbol: Checks if a string contains only letters and symbols.
+  - IsNumeric: Checks if a string contains only numbers.
+- End:
+  - DoesntEndWith: Checks if a string doesn't end with a specified value.
+  - EndsWith: Checks if a string ends with a specified value.
+- Start:
+    - DoesntStartWith: Checks if a string doesn't start with a specified value.
+    - StartsWith: Checks if a string starts with a specified value.
+
+- Cases:
+  - CamelCase: Checks if a string is in camelCase format.
+  - CamelSnakeCase: Checks if a string is in camel_snake_case format.
+  - KebabCase: Checks if a string is in kebab-case format.
+  - LowerCase: Checks if a string is in lowercase format.
+  - PascalCase: Checks if a string is in PascalCase format.
+  - ScreamingKebabCase: Checks if a string is in SCREAMING-KEBAB-CASE format.
+  - ScreamingSnakeCase: Checks if a string is in SCREAMING_SNAKE_CASE format.
+  - SnakeCase: Checks if a string is in snake_case format.
+  - TrainCase: Checks if a string is in TrainCase format.
+  - UpperCase: Checks if a string is in UPPERCASE format.
+
+### Web Validations:
+- RelativePath: Checks if a string is a valid path in a variety of contexts, such as a URL path or a file path.
+- Url: Checks if a given string is a URL in correct format.
+- Ip:
+  - Ip: Checks if a string is a valid IP, IPv4 or IPv6 address.
+  - Ipv4: Checks if a string is a valid IPv4 address.
+  - Ipv6: Checks if a string is a valid IPv6 address.
 
 Usage
 To use these validation classes, simply annotate the fields or properties of your class with the corresponding annotation. For example:
@@ -42,4 +135,9 @@ data class User(
     val same: String
 )
 ```
+## Validations supported types:
 
+- ##### <a id="accepted-supported-types">Accepted:</a> String, Boolean, Number.
+- ##### <a id="between-supported-types">Between:</a> Int, Double, Long, Float, Short, Byte, BigInteger, BigDecimal, Date, LocalDateTime.
+- ##### <a id="contain-supported-types">Contain:</a> String, Int, Long, BigInteger, BigDecimal, Short, Byte, Double, Float, Map.
+- ##### <a id="declined-supported-types">Declined:</a> Boolean, String, Number.

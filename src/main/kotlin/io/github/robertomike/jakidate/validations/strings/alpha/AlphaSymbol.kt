@@ -24,7 +24,7 @@ import kotlin.reflect.KClass
 @Repeatable
 @Constraint(validatedBy = [])
 @Pattern(regexp = "^([.,;:?!'\"\\-—_/\\\\()\\[\\]{}@#&%*+=<>≠≈√Δ∑π¢$€£¥|~^¿¡ÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÇØÆßa-zA-Z0-9]+)$", message = "{jakidate.string.alpha.symbols}")
-annotation class AlphaSymbols(
+annotation class AlphaSymbol(
     /**
      * the error message template
      */
