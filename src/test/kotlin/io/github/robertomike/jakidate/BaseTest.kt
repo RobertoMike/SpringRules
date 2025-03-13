@@ -5,7 +5,7 @@ import javax.validation.ConstraintViolation
 
 @CustomTest
 abstract class BaseTest {
-    private val templateRegex = "^\\{}$".toRegex()
+    private val templateRegex = "^\\{.*}\$".toRegex()
 
     fun checkMessages(constraints: Set<ConstraintViolation<*>>) {
         constraints.forEach {
