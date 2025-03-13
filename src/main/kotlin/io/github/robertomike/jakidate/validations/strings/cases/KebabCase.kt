@@ -2,6 +2,7 @@ package io.github.robertomike.jakidate.validations.strings.cases
 
 import javax.validation.Constraint
 import javax.validation.Payload
+import javax.validation.ReportAsSingleViolation
 import javax.validation.constraints.Pattern
 import kotlin.reflect.KClass
 
@@ -25,6 +26,7 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
+@ReportAsSingleViolation
 @Pattern(regexp = "^[a-z]+(-[a-z]+)*\$", message = "{jakidate.strings.case.kebab}")
 annotation class KebabCase(
     /**

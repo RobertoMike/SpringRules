@@ -3,6 +3,7 @@ package io.github.robertomike.jakidate.validations.colors
 import io.github.robertomike.jakidate.utils.oklchRegex
 import javax.validation.Constraint
 import javax.validation.Payload
+import javax.validation.ReportAsSingleViolation
 import javax.validation.constraints.Pattern
 import kotlin.reflect.KClass
 
@@ -24,6 +25,7 @@ import kotlin.reflect.KClass
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
+@ReportAsSingleViolation
 @Pattern(regexp = oklchRegex, flags = [Pattern.Flag.CASE_INSENSITIVE], message = "{jakidate.colors.oklch}")
 annotation class OklchColor(
     /**

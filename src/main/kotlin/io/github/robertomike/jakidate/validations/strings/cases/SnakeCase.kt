@@ -2,6 +2,7 @@ package io.github.robertomike.jakidate.validations.strings.cases
 
 import javax.validation.Constraint
 import javax.validation.Payload
+import javax.validation.ReportAsSingleViolation
 import javax.validation.constraints.Pattern
 import kotlin.reflect.KClass
 
@@ -25,7 +26,8 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "^(([a-z0-9]+)([_])*)+\$", message = "{jakidate.strings.case.snake}")
+@ReportAsSingleViolation
+@Pattern(regexp = "^(([a-z0-9]+)(_)*)+$", message = "{jakidate.strings.case.snake}")
 annotation class SnakeCase(
     /**
      * the error message template
