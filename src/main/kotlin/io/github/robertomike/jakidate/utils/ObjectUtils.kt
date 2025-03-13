@@ -39,7 +39,7 @@ fun <T> Annotation.getFieldValue(name: String): T {
  * @return the value of the field
  */
 fun Field.getValue(original: Any): Any? {
-    this.trySetAccessible()
+    this.isAccessible = true
 
     return this.get(original)
 }

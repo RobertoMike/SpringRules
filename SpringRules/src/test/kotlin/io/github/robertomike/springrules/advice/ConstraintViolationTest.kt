@@ -3,9 +3,9 @@ package io.github.robertomike.springrules.advice
 import io.github.robertomike.jakidate.validations.Accepted
 import io.github.robertomike.springrules.BaseTest
 import io.github.robertomike.springrules.configs.SpringRulesConfig
-import jakarta.validation.ConstraintViolation
-import jakarta.validation.ConstraintViolationException
-import jakarta.validation.Validator
+import javax.validation.ConstraintViolation
+import javax.validation.ConstraintViolationException
+import javax.validation.Validator
 import org.hibernate.validator.internal.engine.path.PathImpl
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito

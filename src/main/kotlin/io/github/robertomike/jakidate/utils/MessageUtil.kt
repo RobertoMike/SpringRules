@@ -1,6 +1,6 @@
 package io.github.robertomike.jakidate.utils
 
-import jakarta.validation.ConstraintValidatorContext
+import javax.validation.ConstraintValidatorContext
 import java.lang.reflect.Field
 import kotlin.reflect.KFunction
 import kotlin.reflect.full.declaredFunctions

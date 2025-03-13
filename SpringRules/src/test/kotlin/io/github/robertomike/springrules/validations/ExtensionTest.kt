@@ -1,7 +1,7 @@
 package io.github.robertomike.springrules.validations
 
 import io.github.robertomike.springrules.BaseTest
-import jakarta.validation.Validator
+import javax.validation.Validator
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 import org.springframework.web.multipart.MultipartFile

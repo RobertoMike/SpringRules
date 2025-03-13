@@ -2,7 +2,7 @@ package io.github.robertomike.jakidate.constraints
 
 import io.github.robertomike.jakidate.exceptions.RulesException
 import io.github.robertomike.jakidate.utils.MessageUtil
-import jakarta.validation.ConstraintValidatorContext
+import javax.validation.ConstraintValidatorContext
 import java.lang.reflect.InvocationTargetException
 
 /**

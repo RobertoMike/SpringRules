@@ -1,8 +1,8 @@
 package io.github.robertomike.jakidate.validations.objects.comparations
 
 import io.github.robertomike.jakidate.constraints.objects.comparation.DifferentConstraint
-import jakarta.validation.Constraint
-import jakarta.validation.Payload
+import javax.validation.Constraint
+import javax.validation.Payload
 import kotlin.reflect.KClass
 
 /**

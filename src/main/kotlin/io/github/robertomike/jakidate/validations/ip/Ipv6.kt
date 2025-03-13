@@ -1,9 +1,9 @@
 package io.github.robertomike.jakidate.validations.ip
 
 import io.github.robertomike.jakidate.constraints.IpConstraint
-import jakarta.validation.Constraint
-import jakarta.validation.Payload
-import jakarta.validation.constraints.Pattern
+import javax.validation.Constraint
+import javax.validation.Payload
+import javax.validation.constraints.Pattern
 import kotlin.reflect.KClass
 
 /**

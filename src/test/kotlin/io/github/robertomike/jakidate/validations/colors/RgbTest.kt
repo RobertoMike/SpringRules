@@ -4,7 +4,7 @@ import io.github.robertomike.jakidate.enums.RgbOptions
 import io.github.robertomike.jakidate.utils.YamlFileSource
 import io.github.robertomike.jakidate.utils.YamlSource
 import io.github.robertomike.jakidate.validations.YamlTest
-import jakarta.validation.Validator
+import javax.validation.Validator
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 

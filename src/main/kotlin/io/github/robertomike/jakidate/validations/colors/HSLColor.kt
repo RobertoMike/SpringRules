@@ -1,9 +1,9 @@
 package io.github.robertomike.jakidate.validations.colors
 
 import io.github.robertomike.jakidate.utils.hslRegex
-import jakarta.validation.Constraint
-import jakarta.validation.Payload
-import jakarta.validation.constraints.Pattern
+import javax.validation.Constraint
+import javax.validation.Payload
+import javax.validation.constraints.Pattern
 import kotlin.reflect.KClass
 
 /**

@@ -3,7 +3,7 @@ package io.github.robertomike.jakidate.validations
 import io.github.robertomike.jakidate.BaseTest
 import io.github.robertomike.jakidate.utils.toDate
 import io.github.robertomike.jakidate.utils.toLocalDateTime
-import jakarta.validation.Validator
+import javax.validation.Validator
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest

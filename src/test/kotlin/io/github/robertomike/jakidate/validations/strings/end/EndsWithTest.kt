@@ -1,7 +1,7 @@
 package io.github.robertomike.jakidate.validations.strings.end
 
 import io.github.robertomike.jakidate.BaseTest
-import jakarta.validation.Validator
+import javax.validation.Validator
 import org.junit.jupiter.api.Test
 
 class EndsWithTest : BaseTest() {

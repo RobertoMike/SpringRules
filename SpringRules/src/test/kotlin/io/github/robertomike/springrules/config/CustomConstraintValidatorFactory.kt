@@ -1,7 +1,7 @@
 package io.github.robertomike.springrules.config
 
-import jakarta.validation.ConstraintValidator
-import jakarta.validation.ConstraintValidatorFactory
+import javax.validation.ConstraintValidator
+import javax.validation.ConstraintValidatorFactory
 import org.springframework.context.ApplicationContext
 
 

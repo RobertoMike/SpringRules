@@ -8,25 +8,25 @@ plugins {
 }
 
 group = "io.github.robertomike"
-version = "2.0.0"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(8)
     compilerOptions {
         freeCompilerArgs.addAll("-Xjsr305=strict")
     }
 }
 
-val springVersion = "3.0.0"
+val springVersion = "2.1.0.RELEASE"
 
 dependencies {
     implementation(project(":"))
@@ -39,7 +39,7 @@ dependencies {
 
     testImplementation(kotlin("test"))
     testImplementation(project(":", "testArtifacts"))
-    testImplementation("org.mockito:mockito-core:5.16.0")
+    testImplementation("org.mockito:mockito-core:4.11.0")
 }
 
 tasks.test {
@@ -56,9 +56,12 @@ tasks.register("getMessagesFromJakidate") {
     }
 }
 
-//tasks.named("build").configure {
-//    finalizedBy("getMessagesFromJakidate")
-//}
+tasks.named("build").configure {
+    finalizedBy("getMessagesFromJakidate")
+}
+tasks.named("publish").configure {
+    finalizedBy("getMessagesFromJakidate")
+}
 
 // Library Publication
 
@@ -136,6 +139,6 @@ java {
     withJavadocJar()
     withSourcesJar()
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion.set(JavaLanguageVersion.of(8))
     }
 }

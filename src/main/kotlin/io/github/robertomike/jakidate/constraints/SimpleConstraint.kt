@@ -1,8 +1,8 @@
 package io.github.robertomike.jakidate.constraints
 
 import io.github.robertomike.jakidate.exceptions.RulesException
-import jakarta.validation.ConstraintValidator
-import jakarta.validation.ConstraintValidatorContext
+import javax.validation.ConstraintValidator
+import javax.validation.ConstraintValidatorContext
 import java.lang.reflect.InvocationTargetException
 
 /**

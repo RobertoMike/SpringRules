@@ -2,7 +2,7 @@ package io.github.robertomike.jakidate.validations.it
 
 import io.github.robertomike.jakidate.BaseTest
 import io.github.robertomike.jakidate.utils.YamlSource
-import jakarta.validation.Validator
+import javax.validation.Validator
 import org.junit.jupiter.params.ParameterizedTest
 
 class FiscalCodeTest : BaseTest() {

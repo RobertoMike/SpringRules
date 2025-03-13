@@ -2,8 +2,8 @@ package io.github.robertomike.jakidate.validations.colors
 
 import io.github.robertomike.jakidate.constraints.colors.RgbConstraint
 import io.github.robertomike.jakidate.enums.RgbOptions
-import jakarta.validation.Constraint
-import jakarta.validation.Payload
+import javax.validation.Constraint
+import javax.validation.Payload
 import kotlin.reflect.KClass
 
 /**

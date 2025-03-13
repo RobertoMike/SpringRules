@@ -1,9 +1,9 @@
 package io.github.robertomike.jakidate.validations
 
 import io.github.robertomike.jakidate.constraints.UrlConstraint
-import jakarta.validation.Constraint
-import jakarta.validation.Payload
-import jakarta.validation.constraints.NotNull
+import javax.validation.Constraint
+import javax.validation.Payload
+import javax.validation.constraints.NotNull
 import kotlin.reflect.KClass
 
 /**

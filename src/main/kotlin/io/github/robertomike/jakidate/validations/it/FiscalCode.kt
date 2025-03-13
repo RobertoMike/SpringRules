@@ -1,12 +1,12 @@
 package io.github.robertomike.jakidate.validations.it
 
 import io.github.robertomike.jakidate.constraints.it.FiscalCodeConstraint
-import jakarta.validation.Constraint
-import jakarta.validation.OverridesAttribute
-import jakarta.validation.Payload
-import jakarta.validation.ReportAsSingleViolation
-import jakarta.validation.constraints.Pattern
-import jakarta.validation.constraints.Pattern.Flag
+import javax.validation.Constraint
+import javax.validation.OverridesAttribute
+import javax.validation.Payload
+import javax.validation.ReportAsSingleViolation
+import javax.validation.constraints.Pattern
+import javax.validation.constraints.Pattern.Flag
 import kotlin.reflect.KClass
 
 /**

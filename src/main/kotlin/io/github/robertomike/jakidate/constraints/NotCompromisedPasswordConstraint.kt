@@ -3,10 +3,10 @@ package io.github.robertomike.jakidate.constraints
 import io.github.robertomike.jakidate.exceptions.RulesException
 import io.github.robertomike.jakidate.utils.sha1
 import io.github.robertomike.jakidate.validations.NotCompromisedPassword
-import java.net.URI
-import java.net.http.HttpClient
-import java.net.http.HttpRequest
-import java.net.http.HttpResponse
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.net.HttpURLConnection
+import java.net.URL
 
 /**
  * A constraint that checks if a password has been compromised by checking it against the Pwned Passwords API.
@@ -27,24 +27,33 @@ class NotCompromisedPasswordConstraint : SimpleConstraint<NotCompromisedPassword
         val shortHash = hash.substring(0, 5)
 
         return try {
-            val client = HttpClient.newHttpClient()
-            val request = HttpRequest.newBuilder()
-                .uri(URI("https://api.pwnedpasswords.com/range/${shortHash}"))
-                .GET()
-                .build()
+            val url = URL("https://api.pwnedpasswords.com/range/${shortHash}")
+            val con = url.openConnection() as HttpURLConnection
+            con.requestMethod = "GET"
 
-            val response = client.send(request, HttpResponse.BodyHandlers.ofString())
+            val responseCode = con.getResponseCode()
 
-            if (response.statusCode() != 200) {
-                throw RulesException("Error, status code: ${response.statusCode()}")
+            if (responseCode != 200) {
+                throw RulesException("Error, status code: $responseCode")
             }
 
-            response.body().split("\r\n")
+            getBody(con).split("\r\n")
                 .asSequence()
                 .map { shortHash + it.split(":")[0] }
                 .none { it.equals(hash, ignoreCase = true) }
         } catch (e: Exception) {
             throw RulesException("There was an error communicating with the server", e)
         }
+    }
+
+    private fun getBody(con: HttpURLConnection): String {
+        val input = BufferedReader(InputStreamReader(con.inputStream))
+        var inputLine: String?
+        val response = StringBuffer()
+        while ((input.readLine().also { inputLine = it }) != null) {
+            response.append("$inputLine\r\n")
+        }
+        input.close()
+        return response.toString()
     }
 }

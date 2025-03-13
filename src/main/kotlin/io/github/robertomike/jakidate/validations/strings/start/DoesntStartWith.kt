@@ -1,8 +1,8 @@
 package io.github.robertomike.jakidate.validations.strings.start
 
 import io.github.robertomike.jakidate.constraints.strings.start.DoesntStartWithConstraint
-import jakarta.validation.Constraint
-import jakarta.validation.Payload
+import javax.validation.Constraint
+import javax.validation.Payload
 import kotlin.reflect.KClass
 
 /**

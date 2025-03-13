@@ -2,8 +2,8 @@ package io.github.robertomike.springrules.advice
 
 import io.github.robertomike.springrules.configs.SpringRulesConfig
 import io.github.robertomike.springrules.responses.Violations
-import jakarta.validation.ConstraintViolationException
-import jakarta.validation.ValidationException
+import javax.validation.ConstraintViolationException
+import javax.validation.ValidationException
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpStatus

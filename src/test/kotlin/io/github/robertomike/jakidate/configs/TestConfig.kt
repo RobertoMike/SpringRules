@@ -1,8 +1,8 @@
 package io.github.robertomike.jakidate.configs
 
-import jakarta.validation.Configuration
-import jakarta.validation.Validation
-import jakarta.validation.Validator
+import javax.validation.Configuration
+import javax.validation.Validation
+import javax.validation.Validator
 import org.junit.jupiter.api.extension.*
 import java.util.concurrent.locks.Lock
 import java.util.concurrent.locks.ReentrantLock

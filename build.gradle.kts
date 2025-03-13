@@ -9,26 +9,28 @@ plugins {
 }
 
 group = "io.github.robertomike"
-version = "2.0.0"
+version = "1.0.0"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 repositories {
     mavenCentral()
 }
 
-var jakartaVersion = "3.0.0"
+var jakartaVersion = "2.0.1"
 
 dependencies {
     implementation("jakarta.validation:jakarta.validation-api:$jakartaVersion")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("javax.el:javax.el-api:3.0.0")
+    implementation("org.glassfish:javax.el:3.0.0")
 
     api("jakarta.validation:jakarta.validation-api:$jakartaVersion")
 
-    testImplementation("org.hibernate.validator:hibernate-validator:8.0.1.Final")
+    testImplementation("org.hibernate.validator:hibernate-validator:6.2.0.Final")
     testImplementation("org.glassfish.expressly:expressly:5.0.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.yaml:snakeyaml:2.0")
@@ -135,6 +137,6 @@ java {
     withJavadocJar()
     withSourcesJar()
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(11))
+        languageVersion.set(JavaLanguageVersion.of(8))
     }
 }

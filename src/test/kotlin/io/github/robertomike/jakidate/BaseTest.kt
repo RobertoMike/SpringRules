@@ -1,7 +1,7 @@
 package io.github.robertomike.jakidate
 
 import io.github.robertomike.jakidate.configs.CustomTest
-import jakarta.validation.ConstraintViolation
+import javax.validation.ConstraintViolation
 
 @CustomTest
 abstract class BaseTest {
