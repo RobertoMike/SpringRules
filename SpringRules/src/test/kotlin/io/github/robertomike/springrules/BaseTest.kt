@@ -6,7 +6,7 @@ import org.junit.jupiter.api.extension.ExtendWith
 
 @ExtendWith(SpringTestConfig::class)
 abstract class BaseTest {
-    private val templateRegex = "^\\{}$".toRegex()
+    private val templateRegex = "^\\{.*}\$".toRegex()
 
     fun checkMessages(constraints: Set<ConstraintViolation<*>>) {
         assert(constraints.isNotEmpty())
