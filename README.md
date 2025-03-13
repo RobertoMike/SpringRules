@@ -56,13 +56,13 @@ If you want use it on Spring boot 2, 3 we recommend you to check this: [springru
 
 ### Comparations Validations:
 - Different: [Different](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/comparations/different.md)
-- Same: [Different](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/comparations/same.md)
+- Same: [Same](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/comparations/same.md)
 
 FARE FILE README A PARTE PER LE CONDITIONALS
 
 ### Conditionals
-- Exclude: Checks if a value is not contained in a list of forbidden values. !!FILE README A PARTE
-- Required: Checks if a value is required based on another field of the object. !!FILE README A PARTE
+- Exclude: Checks if a value is not contained in a list of forbidden values. [Same](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/conditionals/exclude.md)
+- Required: Checks if a value is required based on another field of the object. [Required](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/conditionals/required.md)
 
 ### Password Validations:
 - NotCompromisedPassword: Checks if a password has not been compromised in a data breach.
