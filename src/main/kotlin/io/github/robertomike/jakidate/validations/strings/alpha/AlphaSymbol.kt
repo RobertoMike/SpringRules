@@ -7,7 +7,7 @@ import jakarta.validation.ReportAsSingleViolation
 import kotlin.reflect.KClass
 
 /**
- * The string must only contain symbols, numbers or alpha symbols
+ * The string must only contain symbols or alpha symbols
  *
  * @author Giorgio Andrei
  * @since 1.0.0
