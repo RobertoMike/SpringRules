@@ -30,7 +30,7 @@ annotation class AlphaSymbol(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.string.alpha.symbols}",
+    val message: String = "{jakidate.strings.alpha.symbols}",
     /**
      * the groups the constraint belongs to
      */

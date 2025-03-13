@@ -30,7 +30,7 @@ annotation class AlphaNum(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.string.alpha.numeric}",
+    val message: String = "{jakidate.strings.alpha.numeric}",
     /**
      * the groups the constraint belongs to
      */

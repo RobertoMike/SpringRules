@@ -32,7 +32,7 @@ annotation class UpperCase(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.string.case.upper}",
+    val message: String = "{jakidate.strings.case.upper}",
     /**
      * the groups the constraint belongs to
      */
