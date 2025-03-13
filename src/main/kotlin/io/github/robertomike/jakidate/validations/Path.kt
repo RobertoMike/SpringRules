@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate.validations
+package io.github.robertomike.jakidate.validations.web
 
 import javax.validation.Constraint
 import javax.validation.Payload
@@ -8,7 +8,7 @@ import kotlin.reflect.KClass
 /**
  * Annotation for validating a path.
  *
- * This annotation can be used to validate a path in a variety of contexts, such as a file path or a URL path.
+ * This annotation can be used to validate a path in a variety of contexts, such as a URL path or a file path.
  *
  * @author Roberto Micheletti
  * @since 1.0.0
@@ -25,12 +25,12 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "^/(?:[a-zA-Z0-9_\\-!\"£$%&'^.,;:#]+)*(/[a-zA-Z0-9_\\-!\"£$%&'^.,;:#]+)*$", message = "{jakidate.path}")
-annotation class Path(
+@Pattern(regexp = "^/([a-zA-Z0-9_\\-!\"£$%&'^.,;:#]+)*(/[a-zA-Z0-9_\\-!\"£$%&'^.,;:#]+)*$", message = "{jakidate.web.relative-path}")
+annotation class RelativePath(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.path}",
+    val message: String = "{jakidate.web.relative-path}",
     /**
      * the groups the constraint belongs to
      */

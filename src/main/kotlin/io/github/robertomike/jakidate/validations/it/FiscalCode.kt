@@ -28,7 +28,7 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @ReportAsSingleViolation
-@Pattern(regexp = "^[A-Z]{6}\\d{2}[ABCDEHLMPRST]\\d{2}[A-Z]\\d{3}[A-Z]\$", message = "{jakidate.it.fiscal-code}")
+@Pattern(regexp = "^[A-Z]{6}\\d{2}[ABCDEHLMPRST]\\d{2}[A-Z]\\d{3}[A-Z]\$", message = "{jakidate.document.it.fiscal-code}")
 annotation class FiscalCode(
     /**
      * These are flags to control the pattern matching
@@ -38,7 +38,7 @@ annotation class FiscalCode(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.it.fiscal-code}",
+    val message: String = "{jakidate.document.it.fiscal-code}",
     /**
      * the groups the constraint belongs to
      */

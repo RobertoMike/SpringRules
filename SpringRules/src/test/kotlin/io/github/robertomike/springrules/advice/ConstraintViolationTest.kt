@@ -1,6 +1,6 @@
 package io.github.robertomike.springrules.advice
 
-import io.github.robertomike.jakidate.validations.Accepted
+import io.github.robertomike.jakidate.validations.booleans.Accepted
 import io.github.robertomike.springrules.BaseTest
 import io.github.robertomike.springrules.configs.SpringRulesConfig
 import javax.validation.ConstraintViolation

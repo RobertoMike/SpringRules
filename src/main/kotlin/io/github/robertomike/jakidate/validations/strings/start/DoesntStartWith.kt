@@ -31,7 +31,7 @@ annotation class DoesntStartWith(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.string.doesnt-start-with}",
+    val message: String = "{jakidate.strings.doesnt-start-with}",
     /**
      * the groups the constraint belongs to
      */

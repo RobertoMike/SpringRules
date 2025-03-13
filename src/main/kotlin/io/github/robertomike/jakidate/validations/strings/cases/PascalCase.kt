@@ -25,7 +25,7 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
-@Pattern(regexp = "^(([A-Z]+)([a-z0-9]*))+\$", message = "{jakidate.string.case.pascal}")
+@Pattern(regexp = "^(([A-Z]+)([a-z0-9]*))+\$", message = "{jakidate.strings.case.pascal}")
 annotation class PascalCase(
     /**
      * the error message template

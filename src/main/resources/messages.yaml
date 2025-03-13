@@ -48,6 +48,7 @@ jakidate:
   numeric:
     default: "Field must contain only numbers"
     between: "Field must be between {min} and {max}"
+    multiple-of: "Field must be a multiple of {value}"
   file:
     format: "File format is not valid, allowed are {value}"
   distinct: "Array must not contain any duplicate entries"
@@ -64,3 +65,8 @@ jakidate:
   digits:
     max: "Field must contain at most {value} digits"
     min: "Field must contain at least {value} digits"
+  document:
+    it:
+      fiscal-code: "Invalid Fiscal Code"
+  web:
+    relative-path: "Invalid relative path"
