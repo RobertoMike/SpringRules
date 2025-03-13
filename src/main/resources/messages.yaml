@@ -1,3 +1,4 @@
+#! Needs to be rearranged in the same way as the validations folder structure
 jakidate:
   accepted: "You must accept"
   declined: "You must decline"

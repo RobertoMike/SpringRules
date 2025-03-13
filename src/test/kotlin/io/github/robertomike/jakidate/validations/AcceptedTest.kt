@@ -2,6 +2,7 @@ package io.github.robertomike.jakidate.validations
 
 import io.github.robertomike.jakidate.BaseTest
 import javax.validation.Validator
+import io.github.robertomike.jakidate.validations.booleans.Accepted
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
