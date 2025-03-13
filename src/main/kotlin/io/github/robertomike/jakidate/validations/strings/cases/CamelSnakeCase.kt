@@ -32,7 +32,7 @@ annotation class CamelSnakeCase(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.string.case.camel-snake}",
+    val message: String = "{jakidate.strings.case.camel-snake}",
     /**
      * the groups the constraint belongs to
      */

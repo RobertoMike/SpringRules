@@ -30,7 +30,7 @@ annotation class IsNumeric(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.string.numeric}",
+    val message: String = "{jakidate.numeric.default}",
     /**
      * the groups the constraint belongs to
      */

@@ -32,7 +32,7 @@ annotation class LowerCase(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.string.case.lower}",
+    val message: String = "{jakidate.strings.case.lower}",
     /**
      * the groups the constraint belongs to
      */

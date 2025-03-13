@@ -32,7 +32,7 @@ annotation class PascalCase(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.string.case.pascal}",
+    val message: String = "{jakidate.strings.case.pascal}",
     /**
      * the groups the constraint belongs to
      */

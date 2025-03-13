@@ -32,7 +32,7 @@ annotation class ScreamingKebabCase(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.string.case.screaming-kebab}",
+    val message: String = "{jakidate.strings.case.screaming-kebab}",
     /**
      * the groups the constraint belongs to
      */

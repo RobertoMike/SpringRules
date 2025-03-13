@@ -32,7 +32,7 @@ annotation class TrainCase(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.string.case.train}",
+    val message: String = "{jakidate.strings.case.train}",
     /**
      * the groups the constraint belongs to
      */
