@@ -4,6 +4,7 @@ import io.github.robertomike.jakidate.utils.oklchRegex
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import jakarta.validation.constraints.Pattern
+import jakarta.validation.ReportAsSingleViolation
 import kotlin.reflect.KClass
 
 /**
@@ -24,6 +25,7 @@ import kotlin.reflect.KClass
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
+@ReportAsSingleViolation
 @Pattern(regexp = oklchRegex, flags = [Pattern.Flag.CASE_INSENSITIVE], message = "{jakidate.colors.oklch}")
 annotation class OklchColor(
     /**

@@ -3,6 +3,7 @@ package io.github.robertomike.jakidate.validations.web
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import jakarta.validation.constraints.Pattern
+import jakarta.validation.ReportAsSingleViolation
 import kotlin.reflect.KClass
 
 /**
@@ -25,6 +26,7 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
+@ReportAsSingleViolation
 @Pattern(regexp = "^/([a-zA-Z0-9_\\-!\"£$%&'^.,;:#]+)*(/[a-zA-Z0-9_\\-!\"£$%&'^.,;:#]+)*$", message = "{jakidate.web.relative-path}")
 annotation class RelativePath(
     /**

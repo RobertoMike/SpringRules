@@ -3,6 +3,7 @@ package io.github.robertomike.jakidate.validations.strings.alpha
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import jakarta.validation.constraints.Pattern
+import jakarta.validation.ReportAsSingleViolation
 import kotlin.reflect.KClass
 
 /**
@@ -23,12 +24,13 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
+@ReportAsSingleViolation
 @Pattern(regexp = "[a-zA-Z]+", message = "{jakidate.strings.alpha.default}")
 annotation class Alpha(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.string.alpha.default}",
+    val message: String = "{jakidate.strings.alpha.default}",
     /**
      * the groups the constraint belongs to
      */

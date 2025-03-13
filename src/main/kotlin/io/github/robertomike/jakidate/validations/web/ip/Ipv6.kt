@@ -4,6 +4,7 @@ import io.github.robertomike.jakidate.constraints.web.IpConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import jakarta.validation.constraints.Pattern
+import jakarta.validation.ReportAsSingleViolation
 import kotlin.reflect.KClass
 
 /**
@@ -24,6 +25,7 @@ import kotlin.reflect.KClass
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
+@ReportAsSingleViolation
 @Pattern(regexp = IpConstraint.IP6_REGEX, flags = [Pattern.Flag.CASE_INSENSITIVE], message = "{jakidate.ipv6}")
 annotation class Ipv6(
     /**
