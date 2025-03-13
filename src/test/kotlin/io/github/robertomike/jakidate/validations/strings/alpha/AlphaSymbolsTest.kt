@@ -6,7 +6,7 @@ import io.github.robertomike.jakidate.validations.YamlTest
 @YamlFileSource("/strings/alpha/alphaSymbols")
 class AlphaSymbolsTest : YamlTest() {
     inner class Example(
-        @field:AlphaSymbols
+        @field:AlphaSymbol
         val value: String
     )
 
