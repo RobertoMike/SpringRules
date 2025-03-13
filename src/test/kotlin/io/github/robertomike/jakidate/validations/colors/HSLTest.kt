@@ -6,7 +6,7 @@ import io.github.robertomike.jakidate.validations.YamlTest
 @YamlFileSource("/colors/hsl")
 class HSLTest : YamlTest() {
     inner class Example(
-        @field:HSLColor
+        @field:HslColor
         val color: String
     )
 

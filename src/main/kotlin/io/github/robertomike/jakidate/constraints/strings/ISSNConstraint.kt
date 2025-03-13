@@ -1,7 +1,7 @@
 package io.github.robertomike.jakidate.constraints.strings
 
 import io.github.robertomike.jakidate.constraints.SimpleConstraint
-import io.github.robertomike.jakidate.validations.strings.ISSN
+import io.github.robertomike.jakidate.validations.documents.us.ISSN
 
 /**
  * A constraint validator that checks if a given string is a valid ISSN (International Standard Serial Number).

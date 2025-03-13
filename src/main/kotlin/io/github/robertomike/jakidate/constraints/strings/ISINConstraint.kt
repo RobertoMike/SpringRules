@@ -1,7 +1,7 @@
 package io.github.robertomike.jakidate.constraints.strings
 
 import io.github.robertomike.jakidate.constraints.SimpleConstraint
-import io.github.robertomike.jakidate.validations.strings.ISIN
+import io.github.robertomike.jakidate.validations.documents.us.ISIN
 
 /**
  * A constraint validator that checks if a given string is a valid International Securities Identification Number (ISIN).

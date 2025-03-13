@@ -3,7 +3,7 @@ package io.github.robertomike.jakidate.constraints.it
 import io.github.robertomike.jakidate.constraints.SimpleConstraint
 import io.github.robertomike.jakidate.exceptions.RulesException
 import io.github.robertomike.jakidate.utils.specialToMap
-import io.github.robertomike.jakidate.validations.it.FiscalCode
+import io.github.robertomike.jakidate.validations.documents.it.FiscalCode
 
 /**
  * A custom constraint validator for Italian fiscal codes.
