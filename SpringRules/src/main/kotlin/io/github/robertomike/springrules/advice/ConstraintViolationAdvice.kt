@@ -60,10 +60,12 @@ open class ConstraintViolationAdvice(protected val config: SpringRulesConfig) {
                 ElementKind.PROPERTY -> finalPath.append(it.name).append(".")
                 ElementKind.PARAMETER -> {
                     if (it.index != null) {
+                        finalPath.deleteAt(finalPath.length - 1)
                         finalPath.append("[").append(it.index).append("]").append(".")
                     }
 
                     if (it is NodeImpl) {
+                        finalPath.deleteAt(finalPath.length - 1)
                         finalPath.append("[").append(it.parameterIndex).append("]").append(".")
                     }
                 }
@@ -71,6 +73,8 @@ open class ConstraintViolationAdvice(protected val config: SpringRulesConfig) {
             }
         }
 
-        return finalPath.substring(0, finalPath.length - 1)
+        finalPath.deleteAt(finalPath.length - 1)
+
+        return finalPath.toString()
     }
 }

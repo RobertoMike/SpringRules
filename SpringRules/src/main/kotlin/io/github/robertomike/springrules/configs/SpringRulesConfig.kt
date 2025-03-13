@@ -22,13 +22,13 @@ class SpringRulesConfig {
      * Whether to use a single violation or not. Defaults to `false`.
      */
     @field:NotNull
-    val useSingleViolation: Boolean = false
+    var useSingleViolation: Boolean = false
     /**
-     * The configuration for controller advice. This property is validated using the [ControllerAdvice](cci:2://file:///C:/Work/personal/SpringShield/SpringRules/src/main/kotlin/io/github/robertomike/springrules/configs/SpringRulesConfig.kt:35:0-56:1) class.
+     * The configuration for controller advice. This property is validated using the [ControllerAdvice] class.
      */
     @field:NotNull
     @field:Valid
-    val controllerAdvice: ControllerAdvice = ControllerAdvice()
+    var controllerAdvice: ControllerAdvice = ControllerAdvice()
 }
 
 /**
@@ -49,7 +49,7 @@ class ControllerAdvice {
      * Default value is `true`.
      */
     @field:NotNull
-    val constraintViolations: Boolean = true
+    var constraintViolations: Boolean = true
     /**
      * Flag to enable or disable controller advice for method argument not valid exceptions.
      *
@@ -59,5 +59,5 @@ class ControllerAdvice {
      * Default value is `true`.
      */
     @field:NotNull
-    val methodArgumentNotValid: Boolean = true
+    var methodArgumentNotValid: Boolean = true
 }
