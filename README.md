@@ -56,34 +56,33 @@ If you want use it on Spring boot 2, 3 we recommend you to check this: [springru
 
 ### Comparations Validations:
 - Different: [Different](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/comparations/different.md)
-- Same: [Different](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/comparations/same.md)
+- Same: [Same](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/comparations/same.md)
 
-
-DA QUI IN POI RICONTROLLA LE DESCRIZIONI DELLE ANNOTAZIONI
-
+FARE FILE README A PARTE PER LE CONDITIONALS
 
 ### Conditionals
-- Exclude: Checks if a value is not contained in a list of forbidden values.
-- Required: Checks if a value is required based on another field of the object.
+- Exclude: Checks if a value is not contained in a list of forbidden values. [Same](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/conditionals/exclude.md)
+- Required: Checks if a value is required based on another field of the object. [Required](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/conditionals/required.md)
 
 ### Password Validations:
-- NotCompromisedPassword: Checks if a password has not been compromised by checking it against the Pwned Passwords API.
+- NotCompromisedPassword: Checks if a password has not been compromised in a data breach.
 - Password: Checks if a password meets certain requirements, such as minimum and maximum length, digit, letter, and special character requirements.
 
 ### String Validations:
 - Alpha:
   - Alpha: Checks if a string contains only letters. 
-  - AlphaNumSymbol: Checks if a string contains only letters, numbers, and symbols.
-  - AlphaNum: Checks if a string contains only letters and numbers.
-  - AlphaSymbol: Checks if a string contains only letters and symbols.
+  - AlphaNum: Checks if a string contains only letters or numbers.
+  - AlphaNumSymbol: Checks if a string contains only letters, numbers or symbols.
+  - AlphaSymbol: Checks if a string contains only letters or symbols.
   - IsNumeric: Checks if a string contains only numbers.
+  - NumSymbol: Checks if a string contains only numbers or symbols.
+  - Symbol: Checks if a string contains only symbols.
 - End:
   - DoesntEndWith: Checks if a string doesn't end with a specified value.
   - EndsWith: Checks if a string ends with a specified value.
 - Start:
     - DoesntStartWith: Checks if a string doesn't start with a specified value.
     - StartsWith: Checks if a string starts with a specified value.
-
 - Cases:
   - CamelCase: Checks if a string is in camelCase format.
   - CamelSnakeCase: Checks if a string is in camel_snake_case format.
