@@ -17,7 +17,7 @@ open class Expression {
      * @param unless Whether the expression should be inverted.
      * @return Whether the value is valid according to the expression.
      */
-    fun apply(value: Any, unless: Boolean): Boolean {
+    open fun apply(value: Any, unless: Boolean): Boolean {
         return when (value) {
             is String -> value in (if (unless) declinedStringValues else acceptedStringValues)
             is Number -> value.toInt() == (if (unless) 0 else 1)
