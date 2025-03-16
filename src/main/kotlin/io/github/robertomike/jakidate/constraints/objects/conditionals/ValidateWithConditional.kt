@@ -6,7 +6,7 @@ import io.github.robertomike.jakidate.utils.*
 import java.lang.reflect.Field
 
 /**
- * Validates a conditional constraint based on a given annotation field and message.
+ * Validates a condition constraint based on a given annotation field and message.
  *
  * @author Roberto Micheletti
  * @since 1.0.0
@@ -57,12 +57,12 @@ class ValidateWithConditional(
      * @return Whether the field is valid.
      */
     private fun validateGroup(fields: List<Field>, message: String, annotationField: Class<out Annotation>, unless: Boolean): Boolean {
-        val fieldCondition = fields.firstOrNull { it.getAnnotation(annotationField).getFieldValue("conditional") }
+        val fieldCondition = fields.firstOrNull { it.getAnnotation(annotationField).getFieldValue("condition") }
             ?: throw RulesException("You need to use the ${annotationField.name} annotation on the condition field")
 
         val condition = getCondition(fieldCondition, annotationField, unless)
 
-        val fieldsToValidate = fields.filterNot { it.getAnnotation(annotationField).getFieldValue("conditional") }
+        val fieldsToValidate = fields.filterNot { it.getAnnotation(annotationField).getFieldValue("condition") }
 
         if (condition) {
             util.addParameters(Pair("conditionField", fieldCondition.name))

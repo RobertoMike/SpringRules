@@ -4,7 +4,7 @@ import io.github.robertomike.jakidate.constraints.objects.Expression
 import kotlin.reflect.KClass
 
 /**
- * This annotation is put it on top of two or more fields, there is a conditional field
+ * This annotation is put it on top of two or more fields, there is a condition field
  * and n° quantity of fields that will be considered as necessary when the condition field is false
  *
  * You need to put Required annotation on top of the class
@@ -30,7 +30,7 @@ annotation class RequiredUnless(
      *
      * If the value is false, the field will be considered as necessary field
      */
-    val conditional: Boolean = false,
+    val condition: Boolean = false,
     /**
      * This field is used to separate logic between different conditions
      */

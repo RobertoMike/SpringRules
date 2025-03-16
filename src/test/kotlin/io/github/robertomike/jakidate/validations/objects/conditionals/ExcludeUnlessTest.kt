@@ -13,7 +13,7 @@ class ExcludeUnlessTest : BaseTest() {
         @field:ExcludeUnless
         val password: String?,
         @field:ExcludeUnless(true, "email")
-        val conditional: String,
+        val condition: String,
         @field:ExcludeUnless(key = "email")
         val email: String?,
     )

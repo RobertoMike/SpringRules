@@ -59,7 +59,7 @@ class RequiredUnlessTest : BaseTest() {
         @field:RequiredUnless
         val password: String?,
         @field:RequiredUnless(true, "email")
-        val conditional: String,
+        val condition: String,
         @field:RequiredUnless(key = "email")
         val email: String?,
     )

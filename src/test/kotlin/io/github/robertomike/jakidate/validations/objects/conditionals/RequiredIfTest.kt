@@ -60,7 +60,7 @@ class RequiredIfTest : BaseTest() {
         @field:RequiredIf
         val password: String?,
         @field:RequiredIf(true, "email")
-        val conditional: String,
+        val condition: String,
         @field:RequiredIf(key = "email")
         val email: String?,
     )
