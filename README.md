@@ -1,7 +1,7 @@
 # About Jakidate
 
 Jakidate is a library that extends the existing Jakarta/Javax annotations by adding a various set of annotations to simplify the work.
-
+<br>If you are not familiar with Jakarta validation, you can check the documentation [here](https://beanvalidation.org/).
 ## Links
 - [How to install](#how-to-install)
 - [Validations](#validations)
@@ -55,14 +55,12 @@ If you want use it on Spring boot 2, 3 we recommend you to check this: [springru
 - MultipleOf: Checks if a value is a multiple of a given number. [Supported types](#multipleof-supported-types)
 
 ### Comparations Validations:
-- Different: [Different](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/comparations/different.md)
-- Same: [Same](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/comparations/same.md)
-
-FARE FILE README A PARTE PER LE CONDITIONALS
+- Different: Checks if two or more fields are different. [More details](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/comparations/different.md)
+- Same: Checks if two or more fields are the same. [More details](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/comparations/same.md)
 
 ### Conditionals
-- Exclude: Checks if a value is not contained in a list of forbidden values. [Same](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/conditionals/exclude.md)
-- Required: Checks if a value is required based on another field of the object. [Required](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/conditionals/required.md)
+- Exclude: Checks if a value is not contained in a list of forbidden values. [More details](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/conditionals/exclude.md)
+- Required: Checks if a value is required based on another field of the object. [More details](../../src/main/kotlin/io/github/robertomike/jakidate/validations/objects/conditionals/required.md)
 
 ### Password Validations:
 - NotCompromisedPassword: Checks if a password has not been compromised in a data breach.
