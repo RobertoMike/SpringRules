@@ -134,6 +134,7 @@ class ValidateWithConditional(
         return when (value) {
             is String -> value.isEmpty()
             is Collection<*> -> value.isEmpty()
+            is Array<*> -> value.isEmpty()
             else -> false
         }
     }
