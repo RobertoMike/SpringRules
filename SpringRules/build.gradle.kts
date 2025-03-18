@@ -47,21 +47,24 @@ tasks.test {
 }
 
 tasks.register("getMessagesFromJakidate") {
-    val filePath = "/resources/main/ValidationMessages.properties"
+    dependsOn(":processResources")
+
+    val filePath = "/resources/main/META-INF/ValidationMessages.properties"
     inputs.files(project(":").layout.buildDirectory.file(filePath))
     doLast {
         val dataFile = inputs.files.singleFile
-        val targetFile = layout.buildDirectory.file(filePath).get().asFile
+        var targetFile = layout.buildDirectory.file(filePath).get().asFile
+        targetFile.appendText(dataFile.readText())
+        targetFile = layout.buildDirectory.file(filePath.replace("/META-INF", "")).get().asFile
         targetFile.appendText(dataFile.readText())
     }
 }
 
-tasks.named("build").configure {
-    finalizedBy("getMessagesFromJakidate")
+tasks.withType<Jar>().configureEach {
+    dependsOn("getMessagesFromJakidate")
 }
-tasks.named("publish").configure {
-    finalizedBy("getMessagesFromJakidate")
-}
+
+
 
 // Library Publication
 
