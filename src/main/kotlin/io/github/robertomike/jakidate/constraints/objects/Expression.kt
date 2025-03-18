@@ -9,7 +9,7 @@ import io.github.robertomike.jakidate.utils.declinedStringValues
  * @author Roberto Micheletti
  * @since 1.0.0
  */
-open class Expression {
+open class Expression<T> {
     /**
      * Applies the expression to the given value, taking into account the `unless` condition.
      *
@@ -17,11 +17,11 @@ open class Expression {
      * @param unless Whether the expression should be inverted.
      * @return Whether the value is valid according to the expression.
      */
-    open fun apply(value: Any, unless: Boolean): Boolean {
+    open fun apply(value: T, unless: Boolean): Boolean {
         return when (value) {
             is String -> value in (if (unless) declinedStringValues else acceptedStringValues)
             is Number -> value.toInt() == (if (unless) 0 else 1)
-            else -> throw UnsupportedOperationException("Type ${value::class.simpleName} is not supported, create your own expression")
+            else -> throw UnsupportedOperationException("Type ${value!!::class.simpleName} is not supported, create your own expression")
         }
     }
 }
