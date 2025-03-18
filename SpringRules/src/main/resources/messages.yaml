@@ -1,5 +1,6 @@
 spring-rules:
-  exists: The element {value} does not exist
-  unique: The element {value} already exists
+  exists: The element does not exist
+  unique: The element already exists
   file:
     extension: The file must have one of the following extensions {value}
+    size: The file must have at least {min}{typeUnit} and max {max}{typeUnit}
