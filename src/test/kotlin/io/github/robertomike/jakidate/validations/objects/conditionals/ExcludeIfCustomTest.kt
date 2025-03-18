@@ -1,7 +1,7 @@
 package io.github.robertomike.jakidate.validations.objects.conditionals
 
 import io.github.robertomike.jakidate.BaseTest
-import javax.validation.Validator
+import jakarta.validation.Validator
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
