@@ -40,7 +40,7 @@ annotation class FileSize(
     /**
      * the error message template
      */
-    val message: String = "{spring-rules.file.extension}",
+    val message: String = "{spring-rules.file.size}",
     /**
      * the groups the constraint belongs to
      */
