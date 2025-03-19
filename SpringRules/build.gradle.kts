@@ -5,7 +5,6 @@ plugins {
     `maven-publish`
     id("signing")
     id("yaml-to-properties")
-    id("generate-constraint-validator-meta-file")
 }
 
 group = "io.github.robertomike"
@@ -18,10 +17,6 @@ repositories {
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
-}
-
-generateConstraintValidatorMetaFile {
-    packagePath = "io\\github\\robertomike\\springrules\\constraints"
 }
 
 kotlin {

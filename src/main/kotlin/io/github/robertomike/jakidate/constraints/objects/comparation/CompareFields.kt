@@ -16,7 +16,7 @@ import java.lang.reflect.Field
  * @author Roberto Micheletti
  * @since 1.0.0
  */
-abstract class CompareFieldsConstraint<A : Annotation> : SimpleMessageConstraint<A, Any>() {
+abstract class CompareFields<A : Annotation> : SimpleMessageConstraint<A, Any>() {
     /**
      * The annotation field that is used to annotate the fields to be compared.
      */
