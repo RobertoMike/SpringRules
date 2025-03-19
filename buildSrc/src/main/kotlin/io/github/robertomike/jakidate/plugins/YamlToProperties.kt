@@ -20,22 +20,15 @@ class YamlToProperties: Plugin<Project> {
         // This is necessary because on linux take the base dir of the machine
         val buildDirObject = layout.buildDirectory
         val buildDir = buildDirObject.get().asFile.path
-        val startPath = buildDirObject.file("$buildDir/resources/main/META-INF")
+        val startPath = buildDirObject.file("$buildDir/resources/main")
         startPath.get().asFile.mkdirs()
 
-        val propertiesFile = buildDirObject.file("$buildDir/resources/main/META-INF/ValidationMessages.properties")
-        propertiesFile.get().asFile.createNewFile()
-
-        val propertiesFileOnResource = buildDirObject.file("$buildDir/resources/main/ValidationMessages.properties")
+        val propertiesFileOnResource = buildDirObject.file("$buildDir/resources/main/ContributorValidationMessages.properties")
         propertiesFileOnResource.get().asFile.createNewFile()
 
         val properties = Properties()
 
         flattenYaml(messages, properties)
-
-        propertiesFile.get().asFile.outputStream().use {
-            properties.store(it, null)
-        }
 
         propertiesFileOnResource.get().asFile.outputStream().use {
             properties.store(it, null)
