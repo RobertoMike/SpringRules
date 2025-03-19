@@ -7,6 +7,7 @@ import org.gradle.kotlin.dsl.withType
 
 open class GenerateConstraintValidatorMetaFileExtension {
     var packagePath: String? = null
+    var excludedClasses: Set<String> = setOf()
 }
 
 class GenerateConstraintValidatorMetaFile: Plugin<Project> {
@@ -33,7 +34,7 @@ class GenerateConstraintValidatorMetaFile: Plugin<Project> {
 
             // Create a FileCollection of class files
             val classFiles = classesDir.walk().filter {
-                it.name.endsWith(".class")
+                it.name.endsWith("Constraint.class") && !it.path.contains("\$") && !config.excludedClasses.contains(it.name.replace(".class", ""))
             }
 
 
@@ -45,7 +46,11 @@ class GenerateConstraintValidatorMetaFile: Plugin<Project> {
                 val packagePathDot = packagePath.replace('\\', '.')
 
                 classFiles.forEach { clazz ->
-                    it.write("$packagePathDot.${clazz.name.replace(".class", "")}\n".toByteArray())
+                    var name = clazz.path.replace(".class", "")
+                    name = name.split(packagePath).last()
+                    name = name.replace('\\', '.')
+
+                    it.write("$packagePathDot${name}\n".toByteArray())
                 }
             }
         }

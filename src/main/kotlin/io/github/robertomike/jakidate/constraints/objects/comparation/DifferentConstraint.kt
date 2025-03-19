@@ -7,13 +7,13 @@ import java.lang.reflect.Field
 /**
  * A constraint validator that checks if two fields are different.
  *
- * This class extends the [CompareFieldsConstraint] and provides a specific implementation
+ * This class extends the [CompareFields] and provides a specific implementation
  * for the [Different] annotation.
  *
  * @author Roberto Micheletti
  * @since 1.0.0
  */
-class DifferentConstraint(override val message: String = "different") : CompareFieldsConstraint<Different>() {
+class DifferentConstraint(override val message: String = "different") : CompareFields<Different>() {
     /**
      * The annotation field that is used to retrieve the value for grouping fields.
      */

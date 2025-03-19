@@ -7,13 +7,13 @@ import java.lang.reflect.Field
 /**
  * A constraint validator that checks if two fields are the same.
  *
- * This class extends the [CompareFieldsConstraint] and provides a specific implementation
+ * This class extends the [CompareFields] and provides a specific implementation
  * for the [Same] annotation.
  *
  * @author Roberto Micheletti
  * @since 1.0.0
  */
-class SameConstraint(override val message: String = "same") : CompareFieldsConstraint<Same>() {
+class SameConstraint(override val message: String = "same") : CompareFields<Same>() {
     /**
      * The annotation field that is used to retrieve the value for grouping fields.
      */
