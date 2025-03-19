@@ -21,5 +21,9 @@ gradlePlugin {
             id = "yaml-to-properties"
             implementationClass = "io.github.robertomike.jakidate.plugins.YamlToProperties"
         }
+        register("generate-constraint-validator-meta-file") {
+            id = "generate-constraint-validator-meta-file"
+            implementationClass = "io.github.robertomike.jakidate.plugins.GenerateConstraintValidatorMetaFile"
+        }
     }
 }
