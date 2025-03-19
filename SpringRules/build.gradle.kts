@@ -5,6 +5,7 @@ plugins {
     `maven-publish`
     id("signing")
     id("yaml-to-properties")
+    id("generate-constraint-validator-meta-file")
 }
 
 group = "io.github.robertomike"
@@ -17,6 +18,10 @@ repositories {
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+generateConstraintValidatorMetaFile {
+    packagePath = "io\\github\\robertomike\\springrules\\constraints"
 }
 
 kotlin {
@@ -46,28 +51,7 @@ tasks.test {
     useJUnitPlatform()
 }
 
-tasks.register("getMessagesFromJakidate") {
-    dependsOn(":processResources")
-
-    val filePath = "/resources/main/META-INF/ValidationMessages.properties"
-    inputs.files(project(":").layout.buildDirectory.file(filePath))
-    doLast {
-        val dataFile = inputs.files.singleFile
-        var targetFile = layout.buildDirectory.file(filePath).get().asFile
-        targetFile.appendText(dataFile.readText())
-        targetFile = layout.buildDirectory.file(filePath.replace("/META-INF", "")).get().asFile
-        targetFile.appendText(dataFile.readText())
-    }
-}
-
-tasks.withType<Jar>().configureEach {
-    dependsOn("getMessagesFromJakidate")
-}
-
-
-
 // Library Publication
-
 publishing {
     publications {
         register("library", MavenPublication::class) {

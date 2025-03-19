@@ -5,6 +5,7 @@ plugins {
     `maven-publish`
     id("signing")
     id("yaml-to-properties")
+    id("generate-constraint-validator-meta-file")
     `java-test-fixtures`
 }
 
@@ -18,6 +19,10 @@ java {
 
 repositories {
     mavenCentral()
+}
+
+generateConstraintValidatorMetaFile {
+    packagePath = "io\\github\\robertomike\\jakidate\\constraints"
 }
 
 var jakartaVersion = "2.0.1"
