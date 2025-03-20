@@ -38,11 +38,11 @@ open class MethodArgumentNotValidExceptionAdvice(protected val config: SpringRul
         val errors = Violations()
         // These are errors that can happen when putting new error message on top the object
         e.bindingResult.globalErrors.forEach {
-            errors.addError("form", it.defaultMessage ?: "", config.useSingleViolation)
+            errors.addError(mutableListOf("form"), it.defaultMessage ?: "", config.violationBody)
         }
 
         e.bindingResult.fieldErrors.forEach {
-            errors.addError(it.field, it.defaultMessage ?: "", config.useSingleViolation)
+            errors.addError(mutableListOf(it.field), it.defaultMessage ?: "", config.violationBody)
         }
 
         return ResponseEntity(errors, HttpStatus.UNPROCESSABLE_ENTITY)

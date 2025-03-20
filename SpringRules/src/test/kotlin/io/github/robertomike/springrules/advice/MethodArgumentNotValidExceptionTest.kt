@@ -2,6 +2,7 @@ package io.github.robertomike.springrules.advice
 
 import io.github.robertomike.springrules.BaseTest
 import io.github.robertomike.springrules.configs.SpringRulesConfig
+import io.github.robertomike.springrules.configs.ViolationType
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 import org.springframework.core.MethodParameter
@@ -18,7 +19,7 @@ class MethodArgumentNotValidExceptionTest : BaseTest() {
     private val properties = SpringRulesConfig()
 
     init {
-        properties.useSingleViolation = true
+        properties.violationBody = ViolationType.SINGLE_MESSAGE
         advise = MethodArgumentNotValidExceptionAdvice(properties)
     }
 
