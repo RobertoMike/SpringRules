@@ -122,6 +122,7 @@ import io.github.robertomike.jakidate.validations.objects.RequiredIf;
 
 @Required
 class Example{
+
     @RequiredIf(true) //^ When no key is specified, it uses "default" as key.
     String firstNameCondition;
     @RequiredIf //^ No need to specify the key in this case, it will use "default".
@@ -156,6 +157,7 @@ import io.github.robertomike.jakidate.validations.objects.RequiredIf;
 
 @Required(checkEmpty = false) // The checkEmpty parameter it's always set to true by default, in this case we set it to false.
 class Example{
+
     @RequiredIf(true)
     Boolean condition;
     @RequiredIf
@@ -192,6 +194,7 @@ import io.github.robertomike.jakidate.validations.objects.RequiredUnless;
 
 @Required
 class Example{
+
     @RequiredUnless(true)
     String condition;
     @RequiredUnless
@@ -220,6 +223,7 @@ Example falseConditionValidationPassedExample = new Example(
 ```java
 @Required
 class Example{
+
     @RequiredUnless(true) //^ When no key is specified, it uses "default" as key.
     Boolean control;
     @RequiredUnless

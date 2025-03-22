@@ -2,6 +2,7 @@
 
 Jakidate is a library that extends the existing Jakarta/Javax annotations by adding a various set of annotations to simplify the work.
 <br>If you are not familiar with Jakarta validation, you can check the documentation [here](https://beanvalidation.org/).
+
 ## Links
 - [How to install](#how-to-install)
 - [Validations](#validations)
@@ -104,34 +105,36 @@ If you want use it on Spring boot 2, 3 we recommend you to check this: [springru
 Usage
 To use these validation classes, simply annotate the fields or properties of your class with the corresponding annotation. For example:
 
-```
-data class User(
+```java
+class User{
+
     @NotCompromisedPassword
     @Password(minLength = 8, maxLength = 256, digit = true, letters = true, uppercaseAndLowercase = true, specialCharacters = true)
-    val password: String,
+    String password;
 
     @MinDigits(2)
-    val minDigits: Int,
+    Int minDigits;
 
     @MaxDigits(10)
-    val maxDigits: Int,
+    Int maxDigits;
 
     @Ip
-    val ipAddress: String,
+    String ipAddress;
 
     @Different
-    val different: String,
+    String different;
 
     @Different
-    val different: String,
+    String different;
 
     @Same
-    val same: String,
+    String same;
 
     @Same
-    val same: String
-)
+    String same;
+};
 ```
+
 ## Validations supported types:
 
 - ##### <a id="accepted-supported-types">Accepted:</a> String, Boolean, Number.

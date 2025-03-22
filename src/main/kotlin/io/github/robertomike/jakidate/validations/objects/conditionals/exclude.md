@@ -122,6 +122,7 @@ import io.github.robertomike.jakidate.validations.objects.ExcludeIf;
 
 @Exclude
 class Example{
+
     @ExcludeIf(true) //^ When no key is specified, it uses "default" as key.
     String firstNameCondition;
     @ExcludeIf //^ No need to specify the key in this case, it will use "default".
@@ -156,6 +157,7 @@ import io.github.robertomike.jakidate.validations.objects.ExcludeIf;
 
 @Exclude(checkEmpty = false) // The checkEmpty parameter it's always set to true by default, in this case we set it to false.
 class Example{
+
     @ExcludeIf(true)
     Boolean condition;
     @ExcludeIf
@@ -192,6 +194,7 @@ import io.github.robertomike.jakidate.validations.objects.ExcludeUnless;
 
 @Exclude
 class Example{
+
     @ExcludeUnless(true)
     String condition;
     @ExcludeUnless
@@ -224,6 +227,7 @@ import io.github.robertomike.jakidate.validations.objects.ExcludeIf;
 
 @Exclude
 class Example{
+
     @ExcludeUnless(true) //^ When no key is specified, it uses "default" as key.
     Boolean control;
     @ExcludeUnless
