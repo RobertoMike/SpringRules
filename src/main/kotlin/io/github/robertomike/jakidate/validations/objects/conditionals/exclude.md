@@ -41,7 +41,7 @@ Example validationRejectedExample = new Example(
 );
 
 // When "condition" is set to false.
-Example validationPassedExample = new Example(
+Example falseConditionValidationPassedExample = new Example(
         false, // "condition" field value is now set to false, therefore the validation is now deactivated.
         "myPassword" // "password" field has a value, but the validation is deactivated, so no error message will be added.
 );
@@ -76,7 +76,6 @@ Example validationPassedExample = new Example(
 Example validationRejectedExample = new Example(
         "0", // "condition" field value.
         "myPassword" // "password" field has a value, so the validation will not pass and an error message will be added.
-
 );
 ```
 
@@ -188,8 +187,9 @@ This annotation works in the same way as the @ExcludeIf annotation, but this tim
 Only excluding one field based on condition field that can support different types: <b>Boolean, Numbers, String and *Custom.</b>
 
 ```java
-import io.github.robertomike.jakidate.validations.objects.Exclude
-import io.github.robertomike.jakidate.validations.objects.ExcludeUnless
+import io.github.robertomike.jakidate.validations.objects.Exclude;
+import io.github.robertomike.jakidate.validations.objects.ExcludeUnless;
+
 @Exclude
 class Example{
     @ExcludeUnless(true)
@@ -203,21 +203,25 @@ Example validationPassedExample = new Example(
   "password123" // "password" field is not null, so the validation will pass.
 );
 
-Example validationNotPassedExample = new Example(
+Example validationRejectedExample = new Example(
   "true", // "condition" field value.
   null // "password" field is null, so the validation not will pass.
 );
 
 // When "condition" is set to false.
-Example validationPassedExample = new Example(
-  "false", // "condition" field value is now set to false, therefore the condition is now reversed.
-  "" // "password" field has a value, so the validation will pass.
+Example falseConditionValidationPassedExample = new Example(
+  "false", // "condition" field value is now set to false, therefore validation is now deactivated.
+  null // "password" field is null, but the validation is deactivated, so no error message will be added.
 );
 ```
 
 #### Excluding multiple fields, using also @ExcludeIf
 
 ```java
+import io.github.robertomike.jakidate.validations.objects.Exclude;
+import io.github.robertomike.jakidate.validations.objects.ExcludeUnless;
+import io.github.robertomike.jakidate.validations.objects.ExcludeIf;
+
 @Exclude
 class Example{
     @ExcludeUnless(true) //^ When no key is specified, it uses "default" as key.
@@ -229,7 +233,6 @@ class Example{
     @ExcludeIf(key = "email")
     String email;
 }
-
 
 Example validationPassedExample = new Example(
         true, // "control" field value.
