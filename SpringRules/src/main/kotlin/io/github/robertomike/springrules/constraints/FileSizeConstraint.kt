@@ -1,7 +1,7 @@
 package io.github.robertomike.springrules.constraints
 
 import io.github.robertomike.jakidate.constraints.SimpleConstraint
-import io.github.robertomike.springrules.validations.FileSize
+import io.github.robertomike.springrules.validations.file.FileSize
 import org.springframework.util.unit.DataSize
 import org.springframework.web.multipart.MultipartFile
 

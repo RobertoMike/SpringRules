@@ -1,18 +1,18 @@
-package io.github.robertomike.springrules.validations
+package io.github.robertomike.springrules.validations.database
 
-import io.github.robertomike.springrules.constraints.ExistsConstraint
+import io.github.robertomike.springrules.constraints.UniqueConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass
 
 /**
- * Checks if a value exists in the database through the repository
+ * Checks if a value is unique in the database through the repository
  *
  * @author Roberto Micheletti
  * @since 1.0.0
  */
 @MustBeDocumented
-@Constraint(validatedBy = [ExistsConstraint::class])
+@Constraint(validatedBy = [UniqueConstraint::class])
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
@@ -23,7 +23,7 @@ import kotlin.reflect.KClass
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
-annotation class Exists(
+annotation class Unique(
     /**
      * the repository class that will be used
      */
@@ -35,7 +35,7 @@ annotation class Exists(
     /**
      * the error message template
      */
-    val message: String = "{spring-rules.exists}",
+    val message: String = "{spring-rules.unique}",
     /**
      * the groups the constraint belongs to
      */

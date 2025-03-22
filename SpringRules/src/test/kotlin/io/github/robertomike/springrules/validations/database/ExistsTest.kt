@@ -1,4 +1,4 @@
-package io.github.robertomike.springrules.validations
+package io.github.robertomike.springrules.validations.database
 
 import io.github.robertomike.springrules.BaseTest
 import jakarta.validation.Validator
@@ -6,20 +6,19 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 import org.springframework.context.ApplicationContext
-import java.util.*
 
-class UniqueTest : BaseTest() {
+class ExistsTest : BaseTest() {
     inner class Repository {
-        fun findById(id: Long): Optional<Example> {
+        fun findById(id: Long): Any? {
             if (id > 1L) {
-                return Optional.of(Example(id))
+                return null
             }
-            return Optional.empty()
+            return Example(1L)
         }
     }
 
     inner class Example(
-        @field:Unique(repository = Repository::class)
+        @field:Exists(repository = Repository::class)
         var userId: Long
     )
 

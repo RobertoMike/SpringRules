@@ -1,4 +1,4 @@
-package io.github.robertomike.springrules.validations
+package io.github.robertomike.springrules.validations.file
 
 import io.github.robertomike.springrules.constraints.FileSizeConstraint
 import jakarta.validation.Constraint
