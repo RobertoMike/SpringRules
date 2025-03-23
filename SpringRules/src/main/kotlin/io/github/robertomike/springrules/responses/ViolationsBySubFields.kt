@@ -20,8 +20,7 @@ class ViolationsBySubFields(
             return
         }
 
-        startMessages()
-        messages!!.add(message)
+        addMessage(message)
     }
 
     /**
@@ -64,19 +63,21 @@ class ViolationsBySubFields(
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as ViolationsBySubFields
+        if (other !is ViolationsBySubFields) return false
+        if (!super.equals(other)) return false
 
         if (messages != other.messages) return false
         if (subfields != other.subfields) return false
 
-        return super.equals(other)
+        return true
     }
 
     override fun hashCode(): Int {
-        var result = messages.hashCode()
-        result = 31 * result + subfields.hashCode() + super.hashCode()
+        var result = super.hashCode()
+        result = 31 * result + (messages?.hashCode() ?: 0)
+        result = 31 * result + (subfields?.hashCode() ?: 0)
         return result
     }
+
+
 }

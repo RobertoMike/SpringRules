@@ -3,7 +3,6 @@ package io.github.robertomike.springrules.advice
 import io.github.robertomike.jakidate.validations.booleans.Accepted
 import io.github.robertomike.springrules.BaseTest
 import io.github.robertomike.springrules.configs.SpringRulesConfig
-import io.github.robertomike.springrules.responses.Violation
 import io.github.robertomike.springrules.responses.ViolationsBySubFields
 import jakarta.validation.ConstraintViolation
 import jakarta.validation.ConstraintViolationException
@@ -69,9 +68,9 @@ class ConstraintViolationTest : BaseTest() {
     @Test
     fun validWithManyParameters() {
         val errors = mutableSetOf<ConstraintViolation<*>>()
+        createAndAddError(errors, "name", 2)
         createAndAddError(errors, "lastName", 1)
         createAndAddError(errors, "name", 1)
-        createAndAddError(errors, "name", 2)
 
         val response = advise.validationError(ConstraintViolationException(errors))
 
