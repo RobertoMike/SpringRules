@@ -3,6 +3,7 @@
 
 name: Publish to Nexus OSSRH
 
+# Condition to run the workflow
 on:
   release:
     types: [ created ]
@@ -10,12 +11,13 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # The type of operating system that the following commands run on
     permissions:
       contents: read
       packages: write
 
     steps:
+      - # Shows your private key
       - name: GPG configuration
         run: |
           export GPG_TTY=$(tty)
@@ -40,6 +42,7 @@ jobs:
           server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
 
       - name: Build and publish to Apache Maven Central Spring rules
+        # Commands to build only spring rules
         if: contains(github.event.release.tag_name, '-spring-rules') || contains(github.event.release.tag_name, '-all')
         run: |
           gradle build
@@ -50,6 +53,7 @@ jobs:
           OSSRH_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
 
       - name: Build and publish to Apache Maven Central Jakidate
+        # Commands to build only jakidate
         if: contains(github.event.release.tag_name, '-jakidate') || contains(github.event.release.tag_name, '-all')
         run: |
           gradle build

@@ -1,9 +1,9 @@
 plugins {
-    kotlin("jvm") version "2.1.0"
+    kotlin("jvm") version "2.1.0" // States that this project uses Kotlin and specifies version
 
-    id("java-library")
-    `maven-publish`
-    id("signing")
+    id("java-library") // States that this project is a Java library
+    `maven-publish` // Add commands and configuration for publishing
+    id("signing") // Used for Maven digital signature
     id("yaml-to-properties")
     `java-test-fixtures`
 }
@@ -11,17 +11,20 @@ plugins {
 group = "io.github.robertomike"
 version = "2.0.0"
 
+// Specifies the Java version used to build the project
 java {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
 }
 
+// Specifies the repositories used to download dependencies below
 repositories {
     mavenCentral()
 }
 
 var jakartaVersion = "3.0.0"
 
+// Specifies the dependencies used in the project
 dependencies {
     implementation("jakarta.validation:jakarta.validation-api:$jakartaVersion")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -36,6 +39,7 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
+// Specifies the build version for Java
 kotlin {
     jvmToolchain(11)
     compilerOptions {
@@ -47,6 +51,7 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
+// Gives access to Jakidate tests to SpringRules
 val testJar by tasks.registering(Jar::class) {
     archiveClassifier.set("${project.name}-tests")
     from(sourceSets.test.get().output)
@@ -60,14 +65,14 @@ artifacts {
     add("testArtifacts", testJar)
 }
 
-
+// Publishes the library
 publishing {
     publications {
         register("library", MavenPublication::class) {
             from(components["java"])
 
-            groupId = "$group"
-            artifactId = "jakidate"
+            groupId = "$group" // The group ID of the library
+            artifactId = "jakidate" // The artifact ID of the library
             version = version
 
             pom {
@@ -76,6 +81,7 @@ publishing {
                 url = "https://github.com/RobertoMike/Jakidate"
                 inceptionYear = "2025"
 
+                // The license of the library
                 licenses {
                     license {
                         name = "MIT License"
@@ -96,7 +102,7 @@ publishing {
                         organizationUrl = "https://github.com/RobertoMike"
                     }
                 }
-                scm {
+                scm { // Where our library will be hosted (GitHub)
                     connection = "scm:git:git://github.com/RobertoMike/SpringRules.git"
                     developerConnection = "scm:git:ssh://github.com:RobertoMike/SpringRules.git"
                     url = "https://github.com/RobertoMike/SpringRules"
@@ -104,7 +110,7 @@ publishing {
             }
         }
     }
-    repositories {
+    repositories { // Specifies the repositories used to publish the library
         maven {
 
             name = "OSSRH"
@@ -120,6 +126,7 @@ publishing {
     }
 }
 
+// If the local property is set, it doesn't execute the signing
 if (!project.hasProperty("local")) {
     signing {
         setRequired { !version.toString().endsWith("SNAPSHOT") }
