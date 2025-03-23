@@ -97,9 +97,9 @@ publishing {
                     }
                 }
                 scm {
-                    connection = "scm:git:git://github.com/RobertoMike/Jakidate.git"
-                    developerConnection = "scm:git:ssh://github.com:RobertoMike/Jakidate.git"
-                    url = "https://github.com/RobertoMike/Jakidate"
+                    connection = "scm:git:git://github.com/RobertoMike/SpringRules.git"
+                    developerConnection = "scm:git:ssh://github.com:RobertoMike/SpringRules.git"
+                    url = "https://github.com/RobertoMike/SpringRules"
                 }
             }
         }
