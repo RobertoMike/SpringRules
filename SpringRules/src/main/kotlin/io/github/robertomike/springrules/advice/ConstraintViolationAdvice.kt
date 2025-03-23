@@ -52,7 +52,7 @@ open class ConstraintViolationAdvice(protected val config: SpringRulesConfig) {
      * @param path the [Path] object to get the property path from
      * @return the property path as a string
      */
-    private fun getPropertyPath(path: Path): MutableList<String> {
+    open fun getPropertyPath(path: Path): MutableList<String> {
         val finalPath = mutableListOf<String>()
 
         path.forEach {
