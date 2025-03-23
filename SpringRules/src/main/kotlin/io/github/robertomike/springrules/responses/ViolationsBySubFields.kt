@@ -8,7 +8,7 @@ package io.github.robertomike.springrules.responses
  */
 class ViolationsBySubFields(
     field: String,
-    val messages: MutableList<String>? = null,
+    var messages: MutableList<String>? = null,
     var subfields: MutableList<ViolationsBySubFields>? = null
 ) : Violation(field) {
     constructor(field: String, path: MutableList<String>, message: String) : this(field) {
@@ -42,8 +42,8 @@ class ViolationsBySubFields(
     }
 
     private fun startMessages() {
-        if (subfields == null) {
-             subfields = mutableListOf()
+        if (messages == null) {
+             messages = mutableListOf()
         }
     }
 
