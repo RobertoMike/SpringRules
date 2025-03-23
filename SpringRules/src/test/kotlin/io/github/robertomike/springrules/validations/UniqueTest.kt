@@ -19,7 +19,7 @@ class UniqueTest : BaseTest() {
     }
 
     inner class Example(
-        @field:Unique(repository = Repository::class)
+        @field:Unique(value = Repository::class)
         var userId: Long
     )
 

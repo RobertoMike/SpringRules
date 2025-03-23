@@ -28,7 +28,7 @@ class ExistsConstraint(private val applicationContext: ApplicationContext) : Sim
      * This repository is specified in the [Unique] annotation.
      */
     private val repository: Class<out Any>
-        get() = annotation.repository.java
+        get() = annotation.value.java
 
     /**
      * Checks if the given value exists in the Spring application context.

@@ -18,7 +18,7 @@ class ExistsTest : BaseTest() {
     }
 
     inner class Example(
-        @field:Exists(repository = Repository::class)
+        @field:Exists(value = Repository::class)
         var userId: Long
     )
 

@@ -27,7 +27,7 @@ annotation class Unique(
     /**
      * the repository class that will be used
      */
-    val repository: KClass<*>,
+    val value: KClass<*>,
     /**
      * the repository method that will be used to search the value
      */
