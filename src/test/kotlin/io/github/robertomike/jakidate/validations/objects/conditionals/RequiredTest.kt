@@ -54,11 +54,11 @@ class RequiredTest : BaseTest() {
 
     @Required
     inner class Example(
-        @field:RequiredIf(true)
+        @field:Conditional
         val control: String,
         @field:RequiredIf
         val password: String?,
-        @field:RequiredUnless(true, "email")
+        @field:Conditional("email")
         val condition: String,
         @field:RequiredUnless(key = "email")
         val email: String?,
@@ -66,9 +66,9 @@ class RequiredTest : BaseTest() {
 
     @Required(checkEmpty = false)
     inner class CheckEmptyFalseExample(
-        @field:RequiredIf(true) val control: Boolean,
+        @field:Conditional val control: Boolean,
         @field:RequiredIf val password: String?,
-        @field:RequiredUnless(true, "email") val condition: String,
+        @field:Conditional("email") val condition: String,
         @field:RequiredUnless(key = "email") val email: String?,
     )
 
@@ -89,10 +89,10 @@ class RequiredTest : BaseTest() {
 
     @Required
     inner class DifferentTypesExample(
-        @field:RequiredIf(true) val control: Boolean,
+        @field:Conditional val control: Boolean,
         @field:RequiredIf val firstName: String?,
         @field:RequiredIf val lastName: String?,
-        @field:RequiredUnless(true, "excludeUnless") val excludeUnlessCondition: String,
+        @field:Conditional("excludeUnless") val excludeUnlessCondition: String,
         @field:RequiredUnless(key = "excludeUnless") val isPremiumSubscriber: Boolean?,
         @field:RequiredUnless(key = "excludeUnless") val age: Number?,
         @field:RequiredUnless(key = "excludeUnless") val email: String?,
@@ -117,13 +117,13 @@ class RequiredTest : BaseTest() {
 
     @Required()
     inner class DifferentTypesAndConditionsExample(
-        @field:RequiredIf(true) val control: Boolean,
+        @field:Conditional val control: Boolean,
         @field:RequiredIf val firstName: String?,
-        @field:RequiredUnless(true, "isPremiumSubscriber") val isPremiumSubscriberCondition: String,
+        @field:Conditional("isPremiumSubscriber") val isPremiumSubscriberCondition: String,
         @field:RequiredUnless(key = "isPremiumSubscriber") val isPremiumSubscriber: Boolean?,
-        @field:RequiredUnless(true, "age") val ageCondition: String,
+        @field:Conditional("age") val ageCondition: String,
         @field:RequiredUnless(key = "age") val age: Number?,
-        @field:RequiredUnless(true, "email") val emailCondition: String,
+        @field:Conditional("email") val emailCondition: String,
         @field:RequiredUnless(key = "email") val email: String?,
     )
 

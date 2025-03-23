@@ -5,6 +5,6 @@ import io.github.robertomike.jakidate.validations.objects.conditionals.ExcludeIf
 
 class CustomExpression : Expression<CustomEnum>() {
     override fun apply(value: CustomEnum, unless: Boolean): Boolean {
-        return CustomEnum.ONE == value
+        return (CustomEnum.ONE == value) == !unless
     }
 }

@@ -19,9 +19,14 @@ import kotlin.reflect.KClass
     AnnotationTarget.FIELD
 )
 @Retention(AnnotationRetention.RUNTIME)
-annotation class ExcludeIf(
+annotation class Conditional(
     /**
      * This field is used to separate logic between different conditions
      */
     val key: String = "default",
+    /**
+     * This field is used to define the expression that will be used to evaluate the condition,
+     * when this is different from supported expressions or behavior
+     */
+    val expression: KClass<out Expression<*>> = Expression::class,
 )

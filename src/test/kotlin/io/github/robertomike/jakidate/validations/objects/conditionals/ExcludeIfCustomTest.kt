@@ -12,8 +12,7 @@ class ExcludeIfCustomTest : BaseTest() {
 
     @Exclude
     inner class Example(
-        @field:ExcludeIf(true, expression = CustomExpression::class)
-        @field:ExcludeUnless(true, expression = CustomExpression::class)
+        @field:Conditional(expression = CustomExpression::class)
         val control: CustomEnum,
         @field:ExcludeIf
         val password: String?,
@@ -25,7 +24,8 @@ class ExcludeIfCustomTest : BaseTest() {
     fun good(validator: Validator) {
         val example = Example(
             CustomEnum.TWO,
-            "Ciao"
+            "Ciao",
+            ""
         )
 
         val constraints = validator.validate(example)
@@ -37,6 +37,7 @@ class ExcludeIfCustomTest : BaseTest() {
     fun error(validator: Validator) {
         val example = Example(
             CustomEnum.ONE,
+            "Ciao",
             "Ciao"
         )
 

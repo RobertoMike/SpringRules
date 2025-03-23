@@ -8,9 +8,9 @@ import kotlin.test.assertEquals
 class ExcludeTest : BaseTest() {
     @Exclude
     inner class Example(
-        @field:ExcludeIf(true) val control: Boolean,
+        @field:Conditional val control: Boolean,
         @field:ExcludeIf val password: String?,
-        @field:ExcludeUnless(true, "email") val condition: String,
+        @field:Conditional("email") val condition: String,
         @field:ExcludeUnless(key = "email") val email: String?,
     )
 
@@ -62,9 +62,9 @@ class ExcludeTest : BaseTest() {
 
     @Exclude(checkEmpty = false)
     inner class CheckEmptyFalseExample(
-        @field:ExcludeIf(true) val control: Boolean,
+        @field:Conditional val control: Boolean,
         @field:ExcludeIf val password: String?,
-        @field:ExcludeUnless(true, "email") val condition: String,
+        @field:Conditional("email") val condition: String,
         @field:ExcludeUnless(key = "email") val email: String?,
     )
 
@@ -85,10 +85,10 @@ class ExcludeTest : BaseTest() {
 
     @Exclude
     inner class DifferentTypesExample(
-        @field:ExcludeIf(true) val control: Boolean,
+        @field:Conditional val control: Boolean,
         @field:ExcludeIf val firstName: String?,
         @field:ExcludeIf val lastName: String?,
-        @field:ExcludeUnless(true, "excludeUnless") val excludeUnlessCondition: String,
+        @field:Conditional("excludeUnless") val excludeUnlessCondition: String,
         @field:ExcludeUnless(key = "excludeUnless") val isPremiumSubscriber: Boolean?,
         @field:ExcludeUnless(key = "excludeUnless") val age: Number?,
         @field:ExcludeUnless(key = "excludeUnless") val email: String?,
@@ -113,13 +113,13 @@ class ExcludeTest : BaseTest() {
 
     @Exclude()
     inner class DifferentTypesAndConditionsExample(
-        @field:ExcludeIf(true) val control: Boolean,
+        @field:Conditional val control: Boolean,
         @field:ExcludeIf val firstName: String?,
-        @field:ExcludeUnless(true, "isPremiumSubscriber") val isPremiumSubscriberCondition: String,
+        @field:Conditional("isPremiumSubscriber") val isPremiumSubscriberCondition: String,
         @field:ExcludeUnless(key = "isPremiumSubscriber") val isPremiumSubscriber: Boolean?,
-        @field:ExcludeUnless(true, "age") val ageCondition: String,
+        @field:Conditional("age") val ageCondition: String,
         @field:ExcludeUnless(key = "age") val age: Number?,
-        @field:ExcludeUnless(true, "email") val emailCondition: String,
+        @field:Conditional("email") val emailCondition: String,
         @field:ExcludeUnless(key = "email") val email: String?,
     )
 

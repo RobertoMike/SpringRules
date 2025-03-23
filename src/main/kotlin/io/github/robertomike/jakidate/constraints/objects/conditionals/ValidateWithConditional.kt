@@ -3,7 +3,9 @@ package io.github.robertomike.jakidate.constraints.objects.conditionals
 import io.github.robertomike.jakidate.constraints.objects.Expression
 import io.github.robertomike.jakidate.exceptions.RulesException
 import io.github.robertomike.jakidate.utils.*
+import io.github.robertomike.jakidate.validations.objects.conditionals.Conditional
 import java.lang.reflect.Field
+import kotlin.reflect.jvm.javaConstructor
 
 /**
  * Validates a condition constraint based on a given annotation field and message.
@@ -23,6 +25,12 @@ class ValidateWithConditional(
     private val checkEmpty: Boolean,
     private val invertCheckLogic: Boolean = false
 ) {
+    var conditionals = mapOf<String, Field>()
+
+    init {
+        conditionals = original.getFieldsByAnnotation(Conditional::class.java)
+            .associateBy { it.getAnnotation(Conditional::class.java).key }
+    }
     /**
      * Checks if the annotation field is valid based on the given message and unless condition.
      *
@@ -57,16 +65,16 @@ class ValidateWithConditional(
      * @return Whether the field is valid.
      */
     private fun validateGroup(fields: List<Field>, message: String, annotationField: Class<out Annotation>, unless: Boolean): Boolean {
-        val fieldCondition = fields.firstOrNull { it.getAnnotation(annotationField).getFieldValue("condition") }
-            ?: throw RulesException("You need to use the ${annotationField.name} annotation on the condition field")
+        val key = fields.first().getAnnotation(annotationField).getFieldValue<String>("key")
 
-        val condition = getCondition(fieldCondition, annotationField, unless)
+        val fieldCondition = conditionals[key]
+            ?: throw RulesException("You need to use the Conditional annotation on the condition field")
 
-        val fieldsToValidate = fields.filterNot { it.getAnnotation(annotationField).getFieldValue("condition") }
+        val condition = getCondition(fieldCondition, unless)
 
         if (condition) {
             util.addParameters(Pair("conditionField", fieldCondition.name))
-            return validateFields(fieldsToValidate, message)
+            return validateFields(fields, message)
         }
 
         return true
@@ -97,12 +105,11 @@ class ValidateWithConditional(
      * Gets the condition based on the given field, annotation field, and unless condition.
      *
      * @param field The field to get the condition for.
-     * @param annotationField The annotation field.
      * @param unless Whether the condition should be inverted.
      * @return The condition.
      */
-    private fun getCondition(field: Field, annotationField: Class<out Annotation>, unless: Boolean): Boolean {
-        val annotationCondition = field.getAnnotation(annotationField)
+    private fun getCondition(field: Field, unless: Boolean): Boolean {
+        val annotationCondition = field.getAnnotation(Conditional::class.java)
         val value = field.getValue(original)
             ?: throw RulesException("The value of the field cannot be null when is a condition field")
 
@@ -110,12 +117,12 @@ class ValidateWithConditional(
             return value == unless
         }
 
-        val constructor = annotationCondition.getFieldValue<Class<out Expression<Any>>>("expression")
+        val constructor = annotationCondition.expression
             .constructors
             .firstOrNull { it.parameters.isEmpty() }
             ?: throw RulesException("The expression need to have a empty constructor")
 
-        val expression = constructor.newInstance() as Expression<Any>
+        val expression = constructor.javaConstructor?.newInstance() as Expression<Any>
 
         return expression.apply(value, !unless)
     }

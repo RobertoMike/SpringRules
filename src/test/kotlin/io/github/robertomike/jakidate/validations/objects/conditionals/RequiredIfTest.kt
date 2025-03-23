@@ -55,11 +55,11 @@ class RequiredIfTest : BaseTest() {
 
     @Required
     inner class Example(
-        @field:RequiredIf(true)
+        @field:Conditional
         val control: Int,
         @field:RequiredIf
         val password: String?,
-        @field:RequiredIf(true, "email")
+        @field:Conditional("email")
         val condition: String,
         @field:RequiredIf(key = "email")
         val email: String?,

@@ -54,11 +54,11 @@ class RequiredUnlessTest : BaseTest() {
 
     @Required
     inner class Example(
-        @field:RequiredUnless(true)
+        @field:Conditional
         val control: Boolean,
         @field:RequiredUnless
         val password: String?,
-        @field:RequiredUnless(true, "email")
+        @field:Conditional("email")
         val condition: String,
         @field:RequiredUnless(key = "email")
         val email: String?,
