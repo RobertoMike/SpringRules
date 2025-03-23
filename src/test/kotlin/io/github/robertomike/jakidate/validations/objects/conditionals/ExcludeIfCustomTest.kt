@@ -13,9 +13,12 @@ class ExcludeIfCustomTest : BaseTest() {
     @Exclude
     inner class Example(
         @field:ExcludeIf(true, expression = CustomExpression::class)
+        @field:ExcludeUnless(true, expression = CustomExpression::class)
         val control: CustomEnum,
         @field:ExcludeIf
-        val password: String?
+        val password: String?,
+        @field:ExcludeUnless
+        val email: String?
     )
 
     @Test
