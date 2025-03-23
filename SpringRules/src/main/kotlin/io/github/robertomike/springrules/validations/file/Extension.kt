@@ -1,18 +1,20 @@
-package io.github.robertomike.springrules.validations
+package io.github.robertomike.springrules.validations.file
 
-import io.github.robertomike.springrules.constraints.ExistsConstraint
+import io.github.robertomike.springrules.constraints.ExtensionConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
 import kotlin.reflect.KClass
 
 /**
- * Checks if a value exists in the database through the repository
+ * Annotation for validating file extensions.
+ *
+ * This annotation is used to validate the extension of a file based on a list of allowed extensions.
  *
  * @author Roberto Micheletti
  * @since 1.0.0
  */
 @MustBeDocumented
-@Constraint(validatedBy = [ExistsConstraint::class])
+@Constraint(validatedBy = [ExtensionConstraint::class])
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
@@ -23,19 +25,15 @@ import kotlin.reflect.KClass
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
-annotation class Exists(
+annotation class Extension(
     /**
-     * the repository class that will be used
+     * the allowed extensions
      */
-    val value: KClass<*>,
-    /**
-     * the repository method that will be used to search the value
-     */
-    val method: String = "findById",
+    val value: Array<String> = [],
     /**
      * the error message template
      */
-    val message: String = "{spring-rules.exists}",
+    val message: String = "{spring-rules.file.extension}",
     /**
      * the groups the constraint belongs to
      */

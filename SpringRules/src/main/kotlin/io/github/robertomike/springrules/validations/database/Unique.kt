@@ -1,4 +1,4 @@
-package io.github.robertomike.springrules.validations
+package io.github.robertomike.springrules.validations.database
 
 import io.github.robertomike.springrules.constraints.UniqueConstraint
 import jakarta.validation.Constraint

@@ -3,8 +3,8 @@ package io.github.robertomike.springrules.constraints
 import io.github.robertomike.jakidate.constraints.SimpleConstraint
 import io.github.robertomike.springrules.utils.getBeanAndExecute
 import io.github.robertomike.springrules.utils.verifyIfPresent
-import io.github.robertomike.springrules.validations.Exists
-import io.github.robertomike.springrules.validations.Unique
+import io.github.robertomike.springrules.validations.database.Exists
+import io.github.robertomike.springrules.validations.database.Unique
 import org.springframework.context.ApplicationContext
 
 /**
