@@ -1,4 +1,4 @@
-package io.github.robertomike.springrules.validations
+package io.github.robertomike.springrules.validations.database
 
 import io.github.robertomike.springrules.BaseTest
 import javax.validation.Validator
@@ -18,7 +18,7 @@ class ExistsTest : BaseTest() {
     }
 
     inner class Example(
-        @field:Exists(repository = Repository::class)
+        @field:Exists(value = Repository::class)
         var userId: Long
     )
 

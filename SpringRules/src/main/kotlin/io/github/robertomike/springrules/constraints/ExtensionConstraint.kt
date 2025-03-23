@@ -1,7 +1,7 @@
 package io.github.robertomike.springrules.constraints
 
 import io.github.robertomike.jakidate.constraints.SimpleConstraint
-import io.github.robertomike.springrules.validations.Extension
+import io.github.robertomike.springrules.validations.file.Extension
 import org.springframework.web.multipart.MultipartFile
 
 /**

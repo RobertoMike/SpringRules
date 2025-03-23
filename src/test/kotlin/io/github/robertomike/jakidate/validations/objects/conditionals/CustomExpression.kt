@@ -1,10 +1,10 @@
 package io.github.robertomike.jakidate.validations.objects.conditionals
 
 import io.github.robertomike.jakidate.constraints.objects.Expression
-import io.github.robertomike.jakidate.validations.objects.conditionals.ExcludeIfCustomTest.CustomEnum
+import io.github.robertomike.jakidate.validations.objects.conditionals.CustomExpressionTest.PersonTypeEnum
 
-class CustomExpression : Expression<CustomEnum>() {
-    override fun apply(value: CustomEnum, unless: Boolean): Boolean {
-        return CustomEnum.ONE == value
+class CustomExpression : Expression<PersonTypeEnum>() {
+    override fun apply(value: PersonTypeEnum, unless: Boolean): Boolean {
+        return (PersonTypeEnum.NATURAL != value) == !unless
     }
 }

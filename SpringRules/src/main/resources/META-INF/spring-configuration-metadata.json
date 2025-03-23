@@ -6,9 +6,9 @@
       "sourceType": "io.github.robertomike.springrules.configs.SpringRulesConfig",
       "properties": [
         {
-          "name": "spring-rules.use-single-violation",
-          "type": "java.lang.Boolean",
-          "defaultValue": false,
+          "name": "spring-rules.violation-body",
+          "type": "io.github.robertomike.springrules.configs.ViolationType",
+          "defaultValue": "SUBFIELDS_MESSAGES",
           "description": "Flag to receive a single violation as response or multiple message inside the field."
         },
         {

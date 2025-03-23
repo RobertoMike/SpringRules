@@ -21,9 +21,6 @@ import kotlin.reflect.KClass
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
-    AnnotationTarget.FUNCTION,
-    AnnotationTarget.ANNOTATION_CLASS,
-    AnnotationTarget.CONSTRUCTOR,
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)

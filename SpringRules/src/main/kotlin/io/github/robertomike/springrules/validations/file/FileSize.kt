@@ -1,4 +1,4 @@
-package io.github.robertomike.springrules.validations
+package io.github.robertomike.springrules.validations.file
 
 import io.github.robertomike.springrules.constraints.FileSizeConstraint
 import javax.validation.Constraint
@@ -17,9 +17,6 @@ import kotlin.reflect.KClass
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
-    AnnotationTarget.FUNCTION,
-    AnnotationTarget.ANNOTATION_CLASS,
-    AnnotationTarget.CONSTRUCTOR,
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)

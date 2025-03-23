@@ -4,6 +4,7 @@ import javax.validation.Constraint
 import javax.validation.Payload
 import javax.validation.ReportAsSingleViolation
 import javax.validation.constraints.Pattern
+import jakarta.validation.ReportAsSingleViolation
 import kotlin.reflect.KClass
 
 /**
@@ -16,21 +17,18 @@ import kotlin.reflect.KClass
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
-    AnnotationTarget.FUNCTION,
-    AnnotationTarget.ANNOTATION_CLASS,
-    AnnotationTarget.CONSTRUCTOR,
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
 @Constraint(validatedBy = [])
 @ReportAsSingleViolation
-@Pattern(regexp = "^([.,;:?!'\"\\-—_/\\\\()\\[\\]{}@#&%*+=<>≠≈√Δ∑π¢\$€£¥|~^¿¡ÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÇØÆßa-zA-Z]+)\$", message = "{jakidate.strings.alpha.symbols}")
+@Pattern(regexp = "^([.,;:?!'\"\\-—_/\\\\()\\[\\]{}@#&%*+=<>≠≈√Δ∑π¢$€£¥|~^¿¡ÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÇØÆßa-zA-Z]+)$", message = "{jakidate.strings.alpha.alpha-symbols}")
 annotation class AlphaSymbol(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.strings.alpha.symbols}",
+    val message: String = "{jakidate.strings.alpha.alpha-symbols}",
     /**
      * the groups the constraint belongs to
      */

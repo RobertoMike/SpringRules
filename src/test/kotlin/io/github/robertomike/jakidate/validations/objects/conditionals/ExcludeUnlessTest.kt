@@ -8,12 +8,12 @@ import kotlin.test.assertEquals
 class ExcludeUnlessTest : BaseTest() {
     @Exclude
     inner class Example(
-        @field:ExcludeUnless(true)
+        @field:Conditional
         val control: Boolean,
         @field:ExcludeUnless
         val password: String?,
-        @field:ExcludeUnless(true, "email")
-        val conditional: String,
+        @field:Conditional("email")
+        val condition: String,
         @field:ExcludeUnless(key = "email")
         val email: String?,
     )

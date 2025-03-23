@@ -22,7 +22,7 @@ class SpringRulesConfig {
      * Whether to use a single violation or not. Defaults to `false`.
      */
     @field:NotNull
-    var useSingleViolation: Boolean = false
+    var violationBody = ViolationType.SUBFIELDS_MESSAGES
     /**
      * The configuration for controller advice. This property is validated using the [ControllerAdvice] class.
      */

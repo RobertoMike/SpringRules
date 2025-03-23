@@ -33,9 +33,12 @@ jakidate:
     doesnt-end-with: "String doesn't have to ends with {value}"
     alpha:
       default: "Field must contain only letters"
-      numeric: "Field must contain only letters and numbers"
-      symbols: "Field must contain only letters and symbols"
-      numeric-symbols: "Field must contain only letters, numbers and symbols"
+      numeric: "Field must contain only numbers"
+      symbols: "Field must contain only symbols"
+      alpha-numeric: "Field must contain only letters or numbers"
+      alpha-symbols: "Field must contain only letters or symbols"
+      numeric-symbols: "Field must contain only numbers or symbols"
+      alpha-numeric-symbols: "Field must contain only letters, numbers or symbols"
     case:
       snake: "Field must be in snake_case"
       screaming-snake: "Field must be in SCREAMING_SNAKE_CASE"
@@ -48,7 +51,6 @@ jakidate:
       pascal: "Field must be in PascalCase"
       train: "Field must be in Train-Case"
   numeric:
-    default: "Field must contain only numbers"
     between: "Field must be between {min} and {max}"
     multiple-of: "Field must be a multiple of {value}"
   file:

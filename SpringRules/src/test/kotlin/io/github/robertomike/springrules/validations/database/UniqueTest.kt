@@ -1,4 +1,4 @@
-package io.github.robertomike.springrules.validations
+package io.github.robertomike.springrules.validations.database
 
 import io.github.robertomike.springrules.BaseTest
 import javax.validation.Validator
@@ -19,7 +19,7 @@ class UniqueTest : BaseTest() {
     }
 
     inner class Example(
-        @field:Unique(repository = Repository::class)
+        @field:Unique(value = Repository::class)
         var userId: Long
     )
 

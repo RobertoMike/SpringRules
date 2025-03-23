@@ -8,12 +8,12 @@ import kotlin.test.assertEquals
 class ExcludeIfTest : BaseTest() {
     @Exclude
     inner class Example(
-        @field:ExcludeIf(true)
+        @field:Conditional
         val control: Boolean,
         @field:ExcludeIf
         val password: String?,
-        @field:ExcludeIf(true, "email")
-        val conditional: String,
+        @field:Conditional("email")
+        val condition: String,
         @field:ExcludeIf(key = "email")
         val email: String?,
     )

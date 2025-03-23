@@ -40,7 +40,7 @@ open class ConstraintViolationAdvice(protected val config: SpringRulesConfig) {
         val errors = Violations()
 
         e.constraintViolations.forEach {
-            errors.addError(getPropertyPath(it.propertyPath), it.message, config.useSingleViolation)
+            errors.addError(getPropertyPath(it.propertyPath), it.message, config.violationBody)
         }
 
         return ResponseEntity(errors, HttpStatus.BAD_REQUEST)
@@ -52,29 +52,25 @@ open class ConstraintViolationAdvice(protected val config: SpringRulesConfig) {
      * @param path the [Path] object to get the property path from
      * @return the property path as a string
      */
-    private fun getPropertyPath(path: Path): String {
-        val finalPath = StringBuilder()
+    open fun getPropertyPath(path: Path): MutableList<String> {
+        val finalPath = mutableListOf<String>()
 
         path.forEach {
             when (it.kind) {
-                ElementKind.PROPERTY -> finalPath.append(it.name).append(".")
+                ElementKind.PROPERTY -> finalPath.add(it.name)
                 ElementKind.PARAMETER -> {
                     if (it.index != null) {
-                        finalPath.deleteAt(finalPath.length - 1)
-                        finalPath.append("[").append(it.index).append("]").append(".")
+                        finalPath.add("[${it.index}]")
                     }
 
                     if (it is NodeImpl) {
-                        finalPath.deleteAt(finalPath.length - 1)
-                        finalPath.append("[").append(it.parameterIndex).append("]").append(".")
+                        finalPath.add("[${it.parameterIndex}]")
                     }
                 }
                 else -> {}
             }
         }
 
-        finalPath.deleteAt(finalPath.length - 1)
-
-        return finalPath.toString()
+        return finalPath
     }
 }

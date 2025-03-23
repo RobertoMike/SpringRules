@@ -1,0 +1,60 @@
+# This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
+# For more information see: https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#apache-maven-with-a-settings-path
+
+name: Publish to Nexus OSSRH
+
+on:
+  release:
+    types: [ created ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: GPG configuration
+        run: |
+          export GPG_TTY=$(tty)
+          gpg --list-secret-keys --keyid-format LONG
+
+      - name: Install secret key and Create file secring.gpg
+        run: |
+          cat <(echo -e "${{ secrets.GPG_PRIVATE_KEY }}") | gpg --batch --import
+          gpg --list-secret-keys --keyid-format SHORT
+          chmod -R 777 ~/.gnupg
+          
+          export GPG_TTY=$(tty) 
+          gpg --batch --export-secret-keys --pinentry-mode=loopback --passphrase ${{ secrets.GPG_SECRET_KEY_PASSWORD }} -o ~/.gnupg/secring.gpg
+          ls -lh ~/.gnupg/secring.gpg
+
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
+
+      - name: Build and publish to Apache Maven Central Spring rules
+        if: contains(github.event.release.tag_name, '-spring-rules') || contains(github.event.release.tag_name, '-all')
+        run: |
+          gradle build
+          export GPG_TTY=$(tty) && gradle -Psigning.keyId=${{ secrets.GPG_SHORT_KEY }} -Psigning.secretKeyRingFile=/home/runner/.gnupg/secring.gpg -Psigning.password=${GPG_KEY_PASSPHRASE} :SpringRules:publishLibraryPublicationToOSSRHRepository
+        env:
+          GPG_KEY_PASSPHRASE: ${{ secrets.GPG_SECRET_KEY_PASSWORD }}
+          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          OSSRH_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+
+      - name: Build and publish to Apache Maven Central Jakidate
+        if: contains(github.event.release.tag_name, '-jakidate') || contains(github.event.release.tag_name, '-all')
+        run: |
+          gradle build
+          export GPG_TTY=$(tty) && gradle -Psigning.keyId=${{ secrets.GPG_SHORT_KEY }} -Psigning.secretKeyRingFile=/home/runner/.gnupg/secring.gpg -Psigning.password=${GPG_KEY_PASSPHRASE} :publishLibraryPublicationToOSSRHRepository
+        env:
+          GPG_KEY_PASSPHRASE: ${{ secrets.GPG_SECRET_KEY_PASSWORD }}
+          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          OSSRH_PASSWORD: ${{ secrets.OSSRH_TOKEN }}

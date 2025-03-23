@@ -1,14 +1,11 @@
-package io.github.robertomike.springrules.validations
+package io.github.robertomike.springrules.validations.file
 
 import io.github.robertomike.springrules.BaseTest
 import javax.validation.Validator
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
-import org.springframework.context.ApplicationContext
 import org.springframework.util.unit.DataUnit
 import org.springframework.web.multipart.MultipartFile
-import java.util.*
 
 class FileSizeTest : BaseTest() {
     inner class Example(
