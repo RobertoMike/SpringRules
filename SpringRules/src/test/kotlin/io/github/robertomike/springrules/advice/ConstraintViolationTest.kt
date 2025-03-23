@@ -68,9 +68,9 @@ class ConstraintViolationTest : BaseTest() {
     @Test
     fun validWithManyParameters() {
         val errors = mutableSetOf<ConstraintViolation<*>>()
-        createAndAddError(errors, "name", 2)
         createAndAddError(errors, "lastName", 1)
         createAndAddError(errors, "name", 1)
+        createAndAddError(errors, "name", 2)
 
         val response = advise.validationError(ConstraintViolationException(errors))
 

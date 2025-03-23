@@ -5,7 +5,6 @@ import javax.validation.Constraint
 import javax.validation.Payload
 import javax.validation.ReportAsSingleViolation
 import javax.validation.constraints.Pattern
-import jakarta.validation.ReportAsSingleViolation
 import kotlin.reflect.KClass
 
 /**

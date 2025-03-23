@@ -2,7 +2,6 @@ package io.github.robertomike.jakidate.validations
 
 import io.github.robertomike.jakidate.BaseTest
 import io.github.robertomike.jakidate.validations.passwords.NotCompromisedPassword
-import io.github.robertomike.jakidate.validations.passwords.NotCompromisedPassword
 import javax.validation.Validator
 import org.junit.jupiter.api.Test
 

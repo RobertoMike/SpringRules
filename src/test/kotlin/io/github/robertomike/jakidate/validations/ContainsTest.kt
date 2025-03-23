@@ -2,7 +2,6 @@ package io.github.robertomike.jakidate.validations
 
 import io.github.robertomike.jakidate.BaseTest
 import io.github.robertomike.jakidate.validations.collections.Contains
-import io.github.robertomike.jakidate.validations.collections.Contains
 import javax.validation.Validator
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows

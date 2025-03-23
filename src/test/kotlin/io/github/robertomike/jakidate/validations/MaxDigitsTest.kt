@@ -2,7 +2,6 @@ package io.github.robertomike.jakidate.validations
 
 import io.github.robertomike.jakidate.BaseTest
 import io.github.robertomike.jakidate.validations.numbers.MaxDigits
-import io.github.robertomike.jakidate.validations.numbers.MaxDigits
 import javax.validation.Validator
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
