@@ -15,8 +15,8 @@ Here are some examples, going from the most basic to the more advanced.
 Only requiring one field based on condition field that can support different types: <b>Boolean, Numbers, String and *Custom.</b>
 
 ```java
-import io.github.robertomike.jakidate.validations.objects.Required;
-import io.github.robertomike.jakidate.validations.objects.RequiredIf;
+import io.github.robertomike.jakidate.validations.objects.conditionals.Required;
+import io.github.robertomike.jakidate.validations.objects.conditionals.RequiredIf;
 
 @Required // This annotation is necessary to use this validation.
 class Example{
@@ -53,8 +53,8 @@ In this example we are going to use the condition field with different types.
 <br>[Here](#true-supported-types) you can find the supported values for each type.
 
 ```java
-import io.github.robertomike.jakidate.validations.objects.Required;
-import io.github.robertomike.jakidate.validations.objects.RequiredIf;
+import io.github.robertomike.jakidate.validations.objects.conditionals.Required;
+import io.github.robertomike.jakidate.validations.objects.conditionals.RequiredIf;
 
 @Required
 class Example {
@@ -84,8 +84,8 @@ Example validationRejectedExample = new Example(
 In this example we are going to validate more than one field, using the same condition field to validate all the elements.
 
 ```java
-import io.github.robertomike.jakidate.validations.objects.Required;
-import io.github.robertomike.jakidate.validations.objects.RequiredIf;
+import io.github.robertomike.jakidate.validations.objects.conditionals.Required;
+import io.github.robertomike.jakidate.validations.objects.conditionals.RequiredIf;
 
 @Required
 class Example{
@@ -117,8 +117,8 @@ In this example we are going to validate more than one field, but this time we a
 <br> For each new condition, we need to specify a different <b>key</b> and use it also for the field we want to validate.
 
 ```java
-import io.github.robertomike.jakidate.validations.objects.Required;
-import io.github.robertomike.jakidate.validations.objects.RequiredIf;
+import io.github.robertomike.jakidate.validations.objects.conditionals.Required;
+import io.github.robertomike.jakidate.validations.objects.conditionals.RequiredIf;
 
 @Required
 class Example{
@@ -152,8 +152,8 @@ Example validationPassedExample = new Example(
 This example shows how the validations work when <b>checkEmpty</b> is set to false, in this case the validation should pass even if the fields are empty, and it will not pass when a field is null.
 
 ```java
-import io.github.robertomike.jakidate.validations.objects.Required;
-import io.github.robertomike.jakidate.validations.objects.RequiredIf;
+import io.github.robertomike.jakidate.validations.objects.conditionals.Required;
+import io.github.robertomike.jakidate.validations.objects.conditionals.RequiredIf;
 
 @Required(checkEmpty = false) // The checkEmpty parameter it's always set to true by default, in this case we set it to false.
 class Example{
@@ -178,7 +178,47 @@ Example validationPassedExample = new Example(
 
 #### Using Custom type for the condition field:
 
------------------------------------ TO FINISH -----------------------------------
+This example shows how to use a custom type, such as enum, for the condition field.
+
+```java
+import io.github.robertomike.jakidate.validations.objects.conditionals.Required;
+import io.github.robertomike.jakidate.validations.objects.conditionals.RequiredIf;
+enum PersonTypeEnum {
+    NATURAL, LEGAL_PERSON
+}
+
+public class CustomExpression extends Expression<PersonTypeEnum> { 
+    @Override 
+    public Boolean apply(PersonTypeEnum value, Boolean unless) {
+        return (PersonTypeEnum.NATURAL.equals(value)) == !unless;
+    }
+}
+
+@Required
+class Example {
+
+    @Condition(expression = CustomExpression.class) 
+    PersonTypeEnum control;
+
+    @RequiredIf
+    String taxCode; // control.equals(PersonTypeEnum.NATURAL)
+
+    @RequiredUnless
+    String vat; // control.equals(PersonTypeEnum.LEGAL_PERSON)
+}
+
+Example validationPassedExample = new Example(
+    PersonTypeEnum.NATURAL,
+    "Hello", // Can have a value
+    "" // Must be empty or null
+);
+
+Example validationRejectedExample = new Example(
+    PersonTypeEnum.LEGAL_PERSON, 
+    "Hello", // Must be empty or null
+    "ciao" // Can have a value
+);
+```
 
 ### @RequiredUnless:
 
@@ -189,8 +229,8 @@ This annotation works in the same way as the @RequiredIf annotation, but this ti
 Only requiring one field based on condition field that can support different types: <b>Boolean, Numbers, String and *Custom.</b>
 
 ```java
-import io.github.robertomike.jakidate.validations.objects.Required;
-import io.github.robertomike.jakidate.validations.objects.RequiredUnless;
+import io.github.robertomike.jakidate.validations.objects.conditionals.Required;
+import io.github.robertomike.jakidate.validations.objects.conditionals.RequiredUnless;
 
 @Required
 class Example{

@@ -107,6 +107,11 @@ Usage
 To use these validation classes, simply annotate the fields or properties of your class with the corresponding annotation. For example:
 
 ```java
+import io.github.robertomike.springrules.validations.database.Exists;
+import io.github.robertomike.springrules.validations.database.Unique;
+import io.github.robertomike.springrules.validations.file.Extension;
+import io.github.robertomike.springrules.validations.file.FileSize;
+
 class User{
 
     @Exists(UserRepository.class) // The default method is findById, but it can be changed.

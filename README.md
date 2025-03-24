@@ -108,6 +108,14 @@ Usage
 To use these validation classes, simply annotate the fields or properties of your class with the corresponding annotation. For example:
 
 ```java
+import io.github.robertomike.jakidate.validations.passwords.NotCompromisedPassword;
+import io.github.robertomike.jakidate.validations.passwords.Password;
+import io.github.robertomike.jakidate.validations.numbers.MinDigits;
+import io.github.robertomike.jakidate.validations.numbers.MaxDigits;
+import io.github.robertomike.jakidate.validations.web.ip.Ip;
+import io.github.robertomike.jakidate.validations.objects.comparations.Different;
+import io.github.robertomike.jakidate.validations.objects.comparations.Same;
+
 class User {
 
     @NotCompromisedPassword
