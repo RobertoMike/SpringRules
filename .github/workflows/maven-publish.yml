@@ -41,6 +41,9 @@ jobs:
           distribution: 'temurin'
           server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
 
+      - name: Run chmod to make gradlew executable
+        run: chmod +x ./gradlew
+
       - name: Build with Gradle (silent)
         run: ./gradlew build --quiet
         continue-on-error: true
