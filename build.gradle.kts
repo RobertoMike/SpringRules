@@ -38,7 +38,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.11.0")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testImplementation("org.slf4j:slf4j-api:1.7.36")
-    testImplementation("ch.qos.logback:logback-classic:1.2.11")
+    testImplementation("ch.qos.logback:logback-classic:1.4.12")
 }
 
 // Specifies the build version for Java

@@ -13,6 +13,8 @@ object Versions {
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-serialization:${Versions.KOTLIN}")
     implementation("org.yaml:snakeyaml:2.0")
+    testImplementation("org.slf4j:slf4j-api:1.7.36")
+    testImplementation("ch.qos.logback:logback-classic:1.4.12")
 }
 
 gradlePlugin {
