@@ -12,8 +12,8 @@ Here are some examples, going from the most basic to the more advanced.
 This example is basic, only comparing two fields
 
 ```java
-import io.github.robertomike.jakidate.validations.objects.Different;
-import io.github.robertomike.jakidate.validations.objects.DifferentAs;
+import io.github.robertomike.jakidate.validations.objects.comparations.Different;
+import io.github.robertomike.jakidate.validations.objects.comparations.DifferentAs;
 
 @Different // This annotation is necessary to use this validation 
 class Example {
@@ -42,8 +42,8 @@ Example validationRejectedExample = new Example(
 In this example we are going to validate more than one field, using the same condition field to validate all the elements.
 
 ```java
-import io.github.robertomike.jakidate.validations.objects.Different;
-import io.github.robertomike.jakidate.validations.objects.DifferentAs;
+import io.github.robertomike.jakidate.validations.objects.comparations.Different;
+import io.github.robertomike.jakidate.validations.objects.comparations.DifferentAs;
 
 @Different
 class Example {
@@ -78,8 +78,8 @@ In this example we are going to validate more than one field, but this time we a
 <br> For each new condition, we need to specify a different <b>key</b> and use it also for the field we want to validate.
 
 ```java
-import io.github.robertomike.jakidate.validations.objects.Different;
-import io.github.robertomike.jakidate.validations.objects.DifferentAs;
+import io.github.robertomike.jakidate.validations.objects.comparations.Different;
+import io.github.robertomike.jakidate.validations.objects.comparations.DifferentAs;
 
 @Different
 class Example {

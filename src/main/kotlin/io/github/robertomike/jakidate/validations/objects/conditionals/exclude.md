@@ -15,8 +15,8 @@ Here are some examples, going from the most basic to the more advanced.
 Only excluding one field based on condition field that can support different types: <b>Boolean, Numbers, String and *Custom.</b>
 
 ```java
-import io.github.robertomike.jakidate.validations.objects.Exclude;
-import io.github.robertomike.jakidate.validations.objects.ExcludeIf;
+import io.github.robertomike.jakidate.validations.objects.conditionals.Exclude;
+import io.github.robertomike.jakidate.validations.objects.conditionals.ExcludeIf;
 
 @Exclude // This annotation is necessary to use this validation.
 class Example {
@@ -52,8 +52,8 @@ In this example we are going to use the condition field with different types.
 <br>[Here](#true-supported-types) you can find the supported values for each type.
 
 ```java
-import io.github.robertomike.jakidate.validations.objects.Exclude;
-import io.github.robertomike.jakidate.validations.objects.ExcludeIf;
+import io.github.robertomike.jakidate.validations.objects.conditionals.Exclude;
+import io.github.robertomike.jakidate.validations.objects.conditionals.ExcludeIf;
 
 @Exclude
 class Example {
@@ -82,8 +82,8 @@ Example validationRejectedExample = new Example(
 In this example we are going to validate more than one field, using the same condition field to validate all the elements.
 
 ```java
-import io.github.robertomike.jakidate.validations.objects.Exclude;
-import io.github.robertomike.jakidate.validations.objects.ExcludeIf;
+import io.github.robertomike.jakidate.validations.objects.conditionals.Exclude;
+import io.github.robertomike.jakidate.validations.objects.conditionals.ExcludeIf;
 
 @Exclude
 class Example {
@@ -114,8 +114,8 @@ In this example we are going to validate more than one field, but this time we a
 <br> For each new condition, we need to specify a different <b>key</b> and use it also for the field we want to validate.
 
 ```java
-import io.github.robertomike.jakidate.validations.objects.Exclude;
-import io.github.robertomike.jakidate.validations.objects.ExcludeIf;
+import io.github.robertomike.jakidate.validations.objects.conditionals.Exclude;
+import io.github.robertomike.jakidate.validations.objects.conditionals.ExcludeIf;
 
 @Exclude
 class Example {
@@ -153,8 +153,8 @@ Example validationPassedExample = new Example(
 This example shows how the validations work when <b>checkEmpty</b> is set to false, in this case the validation should pass even if the fields are empty, and it will not pass when a field is null.
 
 ```java
-import io.github.robertomike.jakidate.validations.objects.Exclude;
-import io.github.robertomike.jakidate.validations.objects.ExcludeIf;
+import io.github.robertomike.jakidate.validations.objects.conditionals.Exclude;
+import io.github.robertomike.jakidate.validations.objects.conditionals.ExcludeIf;
 
 @Exclude(checkEmpty = false) // The checkEmpty parameter it's always set to true by default, in this case we set it to false.
 class Example {
@@ -182,7 +182,8 @@ Example validationPassedExample = new Example(
 This example shows how to use a custom type, such as enum, for the condition field.
 
 ```java
-import io.github.robertomike.jakidate.validations.objects.Exclude;
+import io.github.robertomike.jakidate.validations.objects.conditionals.Exclude;
+import io.github.robertomike.jakidate.validations.objects.conditionals.ExcludeIf;
 
 enum PersonTypeEnum {
     NATURAL, LEGAL_PERSON
@@ -191,7 +192,7 @@ enum PersonTypeEnum {
 public class CustomExpression extends Expression<PersonTypeEnum> { 
     @Override 
     public Boolean apply(PersonTypeEnum value, Boolean unless) {
-        return (PersonTypeEnum.NATURAL != value) == !unless;
+        return (!PersonTypeEnum.NATURAL.equals(value)) == !unless;
     }
 }
 
@@ -202,10 +203,10 @@ class Example {
     PersonTypeEnum control;
 
     @ExcludeIf
-    String taxCode; // control != PersonTypeEnum.NATURAL
+    String taxCode; // !control.equals(PersonTypeEnum.NATURAL)
 
     @ExcludeUnless
-    String vat; // control != PersonTypeEnum.LEGAL_PERSON
+    String vat; // !control.equals(PersonTypeEnum.LEGAL_PERSON)
 }
 
 Example validationPassedExample = new Example(
@@ -230,8 +231,8 @@ This annotation works in the same way as the @ExcludeIf annotation, but this tim
 Only excluding one field based on condition field that can support different types: <b>Boolean, Numbers, String and *Custom.</b>
 
 ```java
-import io.github.robertomike.jakidate.validations.objects.Exclude;
-import io.github.robertomike.jakidate.validations.objects.ExcludeUnless;
+import io.github.robertomike.jakidate.validations.objects.conditionals.Exclude;
+import io.github.robertomike.jakidate.validations.objects.conditionals.ExcludeUnless;
 
 @Exclude
 class Example {
@@ -261,9 +262,9 @@ Example falseConditionValidationPassedExample = new Example(
 #### Excluding multiple fields, using also @ExcludeIf
 
 ```java
-import io.github.robertomike.jakidate.validations.objects.Exclude;
-import io.github.robertomike.jakidate.validations.objects.ExcludeUnless;
-import io.github.robertomike.jakidate.validations.objects.ExcludeIf;
+import io.github.robertomike.jakidate.validations.objects.conditionals.Exclude;
+import io.github.robertomike.jakidate.validations.objects.conditionals.ExcludeUnless;
+import io.github.robertomike.jakidate.validations.objects.conditionals.ExcludeIf;
 
 @Exclude
 class Example {
