@@ -13,7 +13,7 @@ SpringRules is a library that includes all the validations used in [Jakidate](..
 
 ## How to install
 
-If you need to use
+If you use Spring boot 2 then go to the [javax branch](../../javax/SpringRules)
 
 Maven
 ```xml
