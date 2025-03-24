@@ -22,7 +22,7 @@ Maven
 Gradle
 ```gradle
 dependencies {
-    implementation 'io.github.robertomike:jakidate:2.0.0'
+    implementation 'io.github.robertomike:jakidate:1.0.0'
 }
 ```
 

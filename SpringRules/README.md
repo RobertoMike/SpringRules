@@ -26,7 +26,7 @@ Maven
 Gradle
 ```gradle
 dependencies {
-    implementation 'io.github.robertomike:springrules:2.0.0'
+    implementation 'io.github.robertomike:springrules:1.0.0'
 }
 ```
 
