@@ -28,7 +28,6 @@ import kotlin.reflect.KClass
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
-@NotNull
 annotation class Accepted(
     /**
      * the error message template
