@@ -147,17 +147,3 @@ java {
         languageVersion.set(JavaLanguageVersion.of(11))
     }
 }
-
-sourceSets {
-    main {
-        resources.srcDirs("src/main/resources")
-    }
-    test {
-        resources.srcDirs("src/main/resources")
-        resources.srcDirs("src/test/resources")
-    }
-}
-
-tasks.withType<Copy> {
-    setDuplicatesStrategy(DuplicatesStrategy.EXCLUDE)
-}
