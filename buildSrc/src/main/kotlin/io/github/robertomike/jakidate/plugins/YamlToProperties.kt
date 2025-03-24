@@ -37,7 +37,7 @@ class YamlToProperties: Plugin<Project> {
             startPath.get().asFile.mkdirs()
 
             val propertiesFileOnResource =
-                buildDirObject.file("$buildDir\\resources\\main\\ContributorValidationMessages.properties")
+                buildDirObject.file("$buildDir/resources/main/ContributorValidationMessages.properties")
             propertiesFileOnResource.get().asFile.createNewFile()
 
             val properties = Properties()
@@ -45,7 +45,7 @@ class YamlToProperties: Plugin<Project> {
             flattenYaml(messages, properties)
 
             logger.info(properties.toString())
-            logger.info("$buildDir\\resources\\main\\ContributorValidationMessages.properties")
+            logger.info("$buildDir/resources/main/ContributorValidationMessages.properties")
 
             propertiesFileOnResource.get().asFile.outputStream().use {
                 properties.store(it, null)
