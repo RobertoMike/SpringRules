@@ -41,6 +41,10 @@ jobs:
           distribution: 'temurin'
           server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
 
+      - name: Build with Gradle (silent)
+        run: ./gradlew build --quiet
+        continue-on-error: true
+
       - name: Build and publish to Apache Maven Central Spring rules
         # Commands to build only spring rules
         if: contains(github.event.release.tag_name, '-spring-rules') || contains(github.event.release.tag_name, '-all')
