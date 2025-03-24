@@ -157,3 +157,7 @@ sourceSets {
         resources.srcDirs("src/test/resources")
     }
 }
+
+tasks.withType<Copy> {
+    setDuplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+}

@@ -2,6 +2,7 @@ package io.github.robertomike.jakidate.plugins
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.tasks.testing.Test
 import org.gradle.jvm.tasks.Jar
 import org.gradle.kotlin.dsl.withType
 import org.slf4j.LoggerFactory
@@ -14,6 +15,9 @@ class YamlToProperties: Plugin<Project> {
 
     override fun apply(project: Project) {
         project.tasks.withType<Jar>().configureEach {
+            dependsOn("generateContributorMessage")
+        }
+        project.tasks.withType<Test>().configureEach {
             dependsOn("generateContributorMessage")
         }
 
