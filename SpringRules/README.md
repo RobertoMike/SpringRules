@@ -1,27 +1,97 @@
 # About SpringRules
 
-SpringRules is a library that includes all the validations used in [Jakidate](#jakidate) library, plus some specific validations for Spring and some utility classes for the error messages.
+SpringRules is a library that includes all the validations used in [Jakidate](../) library, plus some specific validations for Spring and some utility classes for the error messages.
 
 ## Links
 - [How to install](#how-to-install)
+- [Configuration](#configuration)
+  -  [Disable the controller advices](#disable-the-controller-advices)
+  -  [Structures for validations errors](#structures-for-validations-errors)
 - [Validations](#validations)
+  - [Database Validations](#database-validations)
+  - [File Validations](#file-validations)
 
 ## How to install
+
+If you need to use
 
 Maven
 ```xml
 <dependency>
     <groupId>io.github.robertomike</groupId>
     <artifactId>springrules</artifactId>
-    <version>1.0.0</version>
+    <version>2.0.0</version>
 </dependency>
 ```
 Gradle
 ```gradle
 dependencies {
-    implementation 'io.github.robertomike:springrules:1.0.0'
+    implementation 'io.github.robertomike:springrules:2.0.0'
 }
 ```
+
+## Configuration
+Per default Spring Rules has two controllers advices actives, this controllers advice will catch the 
+validations exception and transforms the errors in a more beautiful structure.
+
+### Structures for validations errors
+There are three possible structures that you can receive based on the property 'spring-rules.violation-body'
+
+Examples:
+
+- SINGLE_MESSAGE -> 
+```json 
+[
+  {
+    "field": "name",
+    "message": "Some error"
+  },
+  {
+    "field": "user.name",
+    "message": "Some error"
+  }
+] 
+```
+- MULTIPLE_MESSAGE -> 
+ ```json 
+[
+  {
+    "field": "name",
+    "messages": [
+      "Some error"
+    ]
+  }
+] 
+```
+- SUBFIELDS_MESSAGES -> 
+```json 
+[
+  {
+    "field": "user",
+    "messages": [
+      "Some error"
+    ],
+    "subfields": [
+      {
+        "field": "name",
+        "messages": [
+          "Some error"
+        ]
+      }
+    ]
+  }
+] 
+```
+
+### Disable the controller advices
+If you want to disable the controller advices you can do it putting this two properties on false like this
+```properties
+# To disable the controller advice for the exception ConstraintViolationException
+spring-rules.controller-advice.constraint-violations=false
+# To disable the controller advice for the exception MethodArgumentNotValidException
+spring-rules.controller-advice.method-argument-not-valid=false
+```
+
 
 ## Validations:
 
