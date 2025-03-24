@@ -16,7 +16,7 @@ Maven
 <dependency>
     <groupId>io.github.robertomike</groupId>
     <artifactId>jakidate</artifactId>
-    <version>2.0.0</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 Gradle
@@ -27,6 +27,8 @@ dependencies {
 ```
 
 If you want use it on Spring boot 2, 3 we recommend you to check this: [Spring Rules](./SpringRules)
+
+Instead if you use jakarta version instead of javax, you need to see the [master branch](../../)
 
 ## Validations:
 
