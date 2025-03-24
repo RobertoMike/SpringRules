@@ -45,7 +45,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build with Gradle (silent)
-        run: ./gradlew build --quiet
+        run: gradle build --quiet
         continue-on-error: true
 
       - name: Build and publish to Apache Maven Central Spring rules
