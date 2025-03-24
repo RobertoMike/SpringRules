@@ -122,3 +122,7 @@ class User{
     MultipartFile file2;
 }
 ```
+
+## If you think this library was useful to you...
+
+[![coffee](../buy-me-coffee.png)](https://www.buymeacoffee.com/robertomike)

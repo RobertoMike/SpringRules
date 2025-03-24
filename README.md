@@ -106,7 +106,7 @@ Usage
 To use these validation classes, simply annotate the fields or properties of your class with the corresponding annotation. For example:
 
 ```java
-class User{
+class User {
 
     @NotCompromisedPassword
     @Password(minLength = 8, maxLength = 256, digit = true, letters = true, uppercaseAndLowercase = true, specialCharacters = true)
@@ -132,7 +132,7 @@ class User{
 
     @Same
     String same;
-};
+}
 ```
 
 ## Validations supported types:
@@ -141,3 +141,8 @@ class User{
 - ##### <a id="between-supported-types">Between:</a> Int, Double, Long, Float, Short, Byte, BigInteger, BigDecimal, Date, LocalDateTime.
 - ##### <a id="contain-supported-types">Contain:</a> String, Int, Long, BigInteger, BigDecimal, Short, Byte, Double, Float, Map.
 - ##### <a id="declined-supported-types">Declined:</a> Boolean, String, Number.
+
+
+## If you think this library was useful to you...
+
+[![coffee](./buy-me-coffee.png)](https://www.buymeacoffee.com/robertomike)
