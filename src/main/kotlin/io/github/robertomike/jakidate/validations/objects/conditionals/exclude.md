@@ -19,9 +19,8 @@ import io.github.robertomike.jakidate.validations.objects.Exclude;
 import io.github.robertomike.jakidate.validations.objects.ExcludeIf;
 
 @Exclude // This annotation is necessary to use this validation.
-class Example{
-
-    @ExcludeIf(true) // Always needs to have at least an ExcludeIf annotation set to true, this will be our condition field.
+class Example {
+    @Condition // Always needs to have at least a @Condition annotation, this will be our condition field.
     private Boolean condition;
 
     @ExcludeIf // Always needs to have at least a field to validate.
@@ -30,20 +29,20 @@ class Example{
 
 // In this example, the validation will pass.
 Example validationPassedExample = new Example(
-        true, // "condition" field value.
-        "" // "password" field is empty, so the validation will pass.
+    true, // "condition" field value.
+    "" // "password" field is empty, so the validation will pass.
 );
 
 // In this example, the validation will not pass.
 Example validationRejectedExample = new Example(
-        true, // "condition" field value.
-        "myPassword" // "password" field has a value, so the validation will not pass and an error message will be added.
+    true, // "condition" field value.
+    "myPassword" // "password" field has a value, so the validation will not pass and an error message will be added.
 );
 
 // When "condition" is set to false.
 Example falseConditionValidationPassedExample = new Example(
-        false, // "condition" field value is now set to false, therefore the validation is now deactivated.
-        "myPassword" // "password" field has a value, but the validation is deactivated, so no error message will be added.
+    false, // "condition" field value is now set to false, therefore the validation is now deactivated.
+    "myPassword" // "password" field has a value, but the validation is deactivated, so no error message will be added.
 );
 ```
 
@@ -58,8 +57,7 @@ import io.github.robertomike.jakidate.validations.objects.ExcludeIf;
 
 @Exclude
 class Example {
-    
-    @ExcludeIf(true)
+    @Condition
     private String condition; // condition field is of type String.
 
     @ExcludeIf
@@ -68,14 +66,14 @@ class Example {
 
 // In this example, the validation will pass.
 Example validationPassedExample = new Example(
-        "1", // "condition" field value.
-        "" // "password" field is empty, so the validation will pass.
+    "1", // "condition" field value.
+    "" // "password" field is empty, so the validation will pass.
 );
 
 // In this example, the validation will not pass.
 Example validationRejectedExample = new Example(
-        "0", // "condition" field value.
-        "myPassword" // "password" field has a value, so the validation will not pass and an error message will be added.
+    "0", // "condition" field value.
+    "myPassword" // "password" field has a value, so the validation will not pass and an error message will be added.
 );
 ```
 
@@ -88,9 +86,8 @@ import io.github.robertomike.jakidate.validations.objects.Exclude;
 import io.github.robertomike.jakidate.validations.objects.ExcludeIf;
 
 @Exclude
-class Example{
-
-    @ExcludeIf(true)
+class Example {
+    @Condition
     Boolean control; // Clearly, you can name the condition field as you want.
 
     @ExcludeIf
@@ -104,14 +101,14 @@ class Example{
 }
 
 Example validationPassedExample = new Example(
-  true, // "control" field value.
-  "", // "password" field is empty, so the validation will pass.
-  null, // "isPremiumSubscriber" field is null, so the validation will pass.
-  null // "age" field is null, so the validation will pass.
+    true, // "control" field value.
+    "", // "password" field is empty, so the validation will pass.
+    null, // "isPremiumSubscriber" field is null, so the validation will pass.
+    null // "age" field is null, so the validation will pass.
 );
 ```
 
-#### Excluding multiple fields using the multiple conditions for each field
+#### Excluding multiple fields using multiple conditions for each field
 
 In this example we are going to validate more than one field, but this time we are going to use different conditions for each field we want to validate.
 <br> For each new condition, we need to specify a different <b>key</b> and use it also for the field we want to validate.
@@ -121,29 +118,33 @@ import io.github.robertomike.jakidate.validations.objects.Exclude;
 import io.github.robertomike.jakidate.validations.objects.ExcludeIf;
 
 @Exclude
-class Example{
-
-    @ExcludeIf(true) //^ When no key is specified, it uses "default" as key.
+class Example {
+    @Condition //^ When no key is specified, it uses "default" as key.
     String firstNameCondition;
+
     @ExcludeIf //^ No need to specify the key in this case, it will use "default".
     String firstName;
-    @ExcludeIf(true, "isPremiumSubscriber") //^ We specify the key used for the condition field.
+
+    @Condition("isPremiumSubscriber") //^ We specify the key used for the condition field.
     String isPremiumSubscriberCondition;
+
     @ExcludeIf("isPremiumSubscriber") //^ We specify the same key as the condition used to validate this field.
     Boolean isPremiumSubscriber;
-    @ExcludeIf(true, "age") //^ We specify the key used for the condition field.
+
+    @Condition("age") //^ We specify the key used for the condition field.
     Number ageCondition;
+
     @ExcludeIf("age") //^ We specify the same key as the condition used to validate this field.
     Number age;
 }
 
 Example validationPassedExample = new Example(
-  "true", // "firstNameCondition" field value.
-  null, // "firstName" field is null, so the validation will pass.
-  "yes", // "isPremiumSubscriberCondition" field value.
-  null, // "isPremiumSubscriber" field is null, so the validation will pass.
-  1, // "ageCondition" field value.
-  null // "age" field is null, so the validation will pass.
+    "true", // "firstNameCondition" field value.
+    null, // "firstName" field is null, so the validation will pass.
+    "yes", // "isPremiumSubscriberCondition" field value.
+    null, // "isPremiumSubscriber" field is null, so the validation will pass.
+    1, // "ageCondition" field value.
+    null // "age" field is null, so the validation will pass.
 );
 ```
 
@@ -156,9 +157,9 @@ import io.github.robertomike.jakidate.validations.objects.Exclude;
 import io.github.robertomike.jakidate.validations.objects.ExcludeIf;
 
 @Exclude(checkEmpty = false) // The checkEmpty parameter it's always set to true by default, in this case we set it to false.
-class Example{
+class Example {
 
-    @ExcludeIf(true)
+    @Condition
     Boolean condition;
     @ExcludeIf
     String firstName;
@@ -169,16 +170,56 @@ class Example{
 }
 
 Example validationPassedExample = new Example(
-  true, // "condition" field value.
-  null, // "password" field is null, so the validation will pass.
-  "", // This should not pass when checkEmpty is set to false, because it's empty and not null.
-  null // "age" field is null, so the validation will pass.
+    true, // "condition" field value.
+    null, // "password" field is null, so the validation will pass.
+    "", // This should not pass when checkEmpty is set to false, because it's empty and not null.
+    null // "age" field is null, so the validation will pass.
 );
 ```
 
 #### Using Custom type for the condition field:
 
------------------------------------ TO FINISH -----------------------------------
+This example shows how to use a custom type, such as enum, for the condition field.
+
+```java
+import io.github.robertomike.jakidate.validations.objects.Exclude;
+
+enum PersonTypeEnum {
+    NATURAL, LEGAL_PERSON
+}
+
+public class CustomExpression extends Expression<PersonTypeEnum> { 
+    @Override 
+    public Boolean apply(PersonTypeEnum value, Boolean unless) {
+        return (PersonTypeEnum.NATURAL != value) == !unless;
+    }
+}
+
+@Exclude
+class Example {
+
+    @Condition(expression = CustomExpression.class) 
+    PersonTypeEnum control;
+
+    @ExcludeIf
+    String taxCode; // control != PersonTypeEnum.NATURAL
+
+    @ExcludeUnless
+    String vat; // control != PersonTypeEnum.LEGAL_PERSON
+}
+
+Example validationPassedExample = new Example(
+    PersonTypeEnum.NATURAL,
+    "Hello", // Can have a value
+    "" // Must be empty or null
+);
+
+Example validationRejectedExample = new Example(
+    PersonTypeEnum.LEGAL_PERSON, 
+    "Hello", // Must be empty or null
+    "ciao" // Can have a value
+);
+```
 
 ### @ExcludeUnless:
 
@@ -193,28 +234,27 @@ import io.github.robertomike.jakidate.validations.objects.Exclude;
 import io.github.robertomike.jakidate.validations.objects.ExcludeUnless;
 
 @Exclude
-class Example{
-
-    @ExcludeUnless(true)
+class Example {
+    @Condition
     String condition;
     @ExcludeUnless
     String password;
 }
 
 Example validationPassedExample = new Example(
-  "1", // "condition" field value.
-  "password123" // "password" field is not null, so the validation will pass.
+    "1", // "condition" field value.
+    "password123" // "password" field is not null, so the validation will pass.
 );
 
 Example validationRejectedExample = new Example(
-  "true", // "condition" field value.
-  null // "password" field is null, so the validation not will pass.
+    "true", // "condition" field value.
+    null // "password" field is null, so the validation not will pass.
 );
 
 // When "condition" is set to false.
 Example falseConditionValidationPassedExample = new Example(
-  "false", // "condition" field value is now set to false, therefore validation is now deactivated.
-  null // "password" field is null, but the validation is deactivated, so no error message will be added.
+    "false", // "condition" field value is now set to false, therefore validation is now deactivated.
+    null // "password" field is null, but the validation is deactivated, so no error message will be added.
 );
 ```
 
@@ -226,23 +266,23 @@ import io.github.robertomike.jakidate.validations.objects.ExcludeUnless;
 import io.github.robertomike.jakidate.validations.objects.ExcludeIf;
 
 @Exclude
-class Example{
+class Example {
 
-    @ExcludeUnless(true) //^ When no key is specified, it uses "default" as key.
+    @Condition //^ When no key is specified, it uses "default" as key.
     Boolean control;
     @ExcludeUnless
     String password;
-    @ExcludeIf(true, "email")
+    @Condition("email")
     String condition;
     @ExcludeIf(key = "email")
     String email;
 }
 
 Example validationPassedExample = new Example(
-        true, // "control" field value.
-        "password123", // "password" field is not null, so the validation will pass.
-        true, // "condition" field value.
-        "" // "email" field is empty, so the validation will pass.        
+    true, // "control" field value.
+    "password123", // "password" field is not null, so the validation will pass.
+    true, // "condition" field value.
+    "" // "email" field is empty, so the validation will pass.    
 );
 ```
 #### condition values:

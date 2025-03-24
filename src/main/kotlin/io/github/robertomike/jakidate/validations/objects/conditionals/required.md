@@ -111,7 +111,7 @@ Example validationPassedExample = new Example(
 );
 ```
 
-#### Requiring multiple fields using the multiple conditions for each field
+#### Requiring multiple fields using multiple conditions for each field
 
 In this example we are going to validate more than one field, but this time we are going to use different conditions for each field we want to validate.
 <br> For each new condition, we need to specify a different <b>key</b> and use it also for the field we want to validate.
