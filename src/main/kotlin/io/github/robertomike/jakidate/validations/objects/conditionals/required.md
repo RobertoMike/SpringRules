@@ -12,7 +12,7 @@ Here are some examples, going from the most basic to the more advanced.
 
 #### Requiring one field
 
-Only requiring one field based on condition field that can support different types: <b>Boolean, Numbers, String and *Custom.</b>
+Only requiring one field based on condition field that can support different types: <b>Boolean, Numbers, String and [Custom](#custom-type).</b>
 
 ```java
 import io.github.robertomike.jakidate.validations.objects.conditionals.Required;
@@ -176,7 +176,7 @@ Example validationPassedExample = new Example(
 );
 ```
 
-#### Using Custom type for the condition field:
+#### <a id="custom-type">Using Custom type for the condition field:</a>
 
 This example shows how to use a custom type, such as enum, for the condition field.
 
