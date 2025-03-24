@@ -28,7 +28,7 @@ dependencies {
 
 If you want use it on Spring boot 2, 3 we recommend you to check this: [Spring Rules](./SpringRules)
 
-Instead, if you use javax version instead of jakarta, you need to see the [javax branch](../../tree/javax)
+If you want to use javax version instead of jakarta, you need to see the [javax branch](../../tree/javax)
 
 ## Validations:
 
