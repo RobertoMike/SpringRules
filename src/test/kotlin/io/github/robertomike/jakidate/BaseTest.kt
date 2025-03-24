@@ -10,6 +10,7 @@ abstract class BaseTest {
     fun checkMessages(constraints: Set<ConstraintViolation<*>>) {
         constraints.forEach {
             val message = it.message
+            println("Message: $message")
             assert(!message.matches(templateRegex))
         }
     }
