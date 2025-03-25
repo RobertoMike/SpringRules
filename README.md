@@ -152,6 +152,7 @@ class User {
 - ##### <a id="contain-supported-types">Contain:</a> String, Int, Long, BigInteger, BigDecimal, Short, Byte, Double, Float, Map.
 - ##### <a id="declined-supported-types">Declined:</a> Boolean, String, Number.
 
+If you have any ideas on how to implement the library or new annotations that you would like to see in the future, please [open an issue](https://github.com/robertomike/jakidate/issues) with your suggestions.
 
 ## If you think this library was useful to you...
 
