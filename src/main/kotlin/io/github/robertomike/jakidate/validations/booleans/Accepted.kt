@@ -4,7 +4,6 @@ import io.github.robertomike.jakidate.constraints.booleans.AcceptedConstraint
 import io.github.robertomike.jakidate.constraints.booleans.DeclinedConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
-import jakarta.validation.constraints.NotNull
 import kotlin.reflect.KClass
 
 /**
@@ -24,6 +23,8 @@ import kotlin.reflect.KClass
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
+    AnnotationTarget.VALUE_PARAMETER,
+    AnnotationTarget.TYPE_PARAMETER,
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)

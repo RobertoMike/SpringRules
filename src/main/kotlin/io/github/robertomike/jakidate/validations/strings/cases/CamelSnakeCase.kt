@@ -18,6 +18,8 @@ import kotlin.reflect.KClass
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
+    AnnotationTarget.VALUE_PARAMETER,
+    AnnotationTarget.TYPE_PARAMETER,
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)

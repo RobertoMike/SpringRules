@@ -14,6 +14,8 @@ package io.github.robertomike.jakidate.validations.objects.comparations
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
+    AnnotationTarget.VALUE_PARAMETER,
+    AnnotationTarget.TYPE_PARAMETER,
     AnnotationTarget.TYPE
 )
 @Retention(AnnotationRetention.RUNTIME)
