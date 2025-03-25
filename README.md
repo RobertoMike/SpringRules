@@ -1,6 +1,6 @@
 # About Jakidate
 
-Jakidate is a library that extends the existing Jakarta/Javax annotations by adding a various set of annotations to simplify the work.
+Jakidate is a library that contains <b>50+ annotations</b> that you can use to validate your forms/configurations. It extends the existing Jakarta/Javax annotations by adding a various set of annotations to simplify the work.
 <br>If you are not familiar with Jakarta validation, you can check the documentation [here](https://beanvalidation.org/).
 
 ## Links
