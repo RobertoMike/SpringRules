@@ -18,7 +18,7 @@ fun ApplicationContext.getBeanAndExecute(repository: Class<out Any>, method: Str
 }
 
 fun getMethod(clazz: Class<out Any>, method: String): Method {
-    return clazz.declaredMethods.first { it.name == method }
+    return clazz.methods.firstOrNull { it.name == method } ?: throw NoSuchMethodException("The $method was not found")
 }
 
 /**
