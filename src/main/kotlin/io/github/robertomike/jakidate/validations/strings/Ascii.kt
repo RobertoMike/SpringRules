@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate.validations.web
+package io.github.robertomike.jakidate.validations.strings
 
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
@@ -7,7 +7,7 @@ import jakarta.validation.ReportAsSingleViolation
 import kotlin.reflect.KClass
 
 /**
- * This annotation can be used to validate that a MacAddress is in a correct format.
+ * This annotation can be used to validate that ASCII code is in a correct format.
  *
  * @author Giorgio Andrei
  * @since 1.0.2
@@ -24,12 +24,12 @@ import kotlin.reflect.KClass
 @Repeatable
 @Constraint(validatedBy = [])
 @ReportAsSingleViolation
-@Pattern(regexp = "^([0-9A-Fa-f]{2}[:-]){5}[0-9A-Fa-f]{2}\$|^[0-9A-Fa-f]{12}\$", message = "{jakidate.web.mac-address}")
-annotation class MacAddress(
+@Pattern(regexp = "^(?:[0-9]|[1-9][0-9]|1[0-1][0-9]|12[0-7])$", message = "{jakidate.strings.ascii}")
+annotation class Ascii(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.web.mac-address}",
+    val message: String = "{jakidate.strings.ascii}",
     /**
      * the groups the constraint belongs to
      */
