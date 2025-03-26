@@ -7,16 +7,9 @@ import kotlin.reflect.KClass
 
 /**
  * Annotation to validate that a field of type String.
-
  * This annotation can be used to validate that a URL is in a correct format. It uses the [UrlConstraint] to perform the validation.
-
- * @property message The error message to display if the URL is not valid. Defaults to "{spring-rules.url}".
- * @property groups The groups to which this constraint belongs. Defaults to an empty array.
- * @property payload The payload types to which this constraint belongs. Defaults to an empty array.
- *
- * @see UrlConstraint
- * @see jakarta.validation.Constraint
- * @see jakarta.validation.Payload
+ * @author Giorgio Andrei
+ * @since 1.0.0
  */
 @MustBeDocumented
 @Constraint(validatedBy = [UrlConstraint::class])
