@@ -74,3 +74,4 @@ jakidate:
       fiscal-code: "Invalid Fiscal Code"
   web:
     relative-path: "Invalid relative path"
+    mac-address: "Invalid MAC address"
