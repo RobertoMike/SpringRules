@@ -1,9 +1,9 @@
 package io.github.robertomike.jakidate.validations.strings
 
-import jakarta.validation.Constraint
-import jakarta.validation.Payload
-import jakarta.validation.constraints.Pattern
-import jakarta.validation.ReportAsSingleViolation
+import javax.validation.Constraint
+import javax.validation.Payload
+import javax.validation.constraints.Pattern
+import javax.validation.ReportAsSingleViolation
 import kotlin.reflect.KClass
 
 /**
