@@ -55,10 +55,18 @@ open class ConstraintViolationAdvice(protected val config: SpringRulesConfig) {
     open fun getPropertyPath(path: Path): MutableList<String> {
         val finalPath = mutableListOf<String>()
 
+        var method = false
+
         path.forEach {
             when (it.kind) {
                 ElementKind.PROPERTY -> finalPath.add(it.name)
+                ElementKind.METHOD -> method = true
                 ElementKind.PARAMETER -> {
+                    if (method) {
+                        finalPath.add(it.name)
+                        return@forEach
+                    }
+
                     if (it.index != null) {
                         finalPath.add("[${it.index}]")
                     }
