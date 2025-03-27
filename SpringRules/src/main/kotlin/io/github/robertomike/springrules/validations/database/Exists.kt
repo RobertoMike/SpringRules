@@ -34,7 +34,7 @@ annotation class Exists(
     /**
      * the error message template
      */
-    val message: String = "{spring-rules.exists}",
+    val message: String = "{spring-rules.db.exists}",
     /**
      * the groups the constraint belongs to
      */
