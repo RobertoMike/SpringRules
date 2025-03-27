@@ -1,18 +1,18 @@
 package io.github.robertomike.jakidate.validations.web
 
-import io.github.robertomike.jakidate.constraints.web.UrlConstraint
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
+import jakarta.validation.constraints.Pattern
+import jakarta.validation.ReportAsSingleViolation
 import kotlin.reflect.KClass
 
 /**
- * Annotation to validate that a field of type String.
- * This annotation can be used to validate that a URL is in a correct format. It uses the [UrlConstraint] to perform the validation.
+ * This annotation can be used to validate that a MacAddress is in a correct format.
+ *
  * @author Giorgio Andrei
- * @since 1.0.0
+ * @since 1.0.2
  */
 @MustBeDocumented
-@Constraint(validatedBy = [UrlConstraint::class])
 @Target(
     AnnotationTarget.FIELD,
     AnnotationTarget.PROPERTY,
@@ -22,11 +22,14 @@ import kotlin.reflect.KClass
 )
 @Retention(AnnotationRetention.RUNTIME)
 @Repeatable
-annotation class Url(
+@Constraint(validatedBy = [])
+@ReportAsSingleViolation
+@Pattern(regexp = "^([0-9A-Fa-f]{2}[:-]){5}[0-9A-Fa-f]{2}\$|^[0-9A-Fa-f]{12}\$", message = "{jakidate.web.mac-address}")
+annotation class MacAddress(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.url}",
+    val message: String = "{jakidate.web.mac-address}",
     /**
      * the groups the constraint belongs to
      */
@@ -36,4 +39,3 @@ annotation class Url(
      */
     val payload: Array<KClass<out Payload>> = []
 )
-

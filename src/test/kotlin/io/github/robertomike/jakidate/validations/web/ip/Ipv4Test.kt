@@ -1,14 +1,12 @@
-package io.github.robertomike.jakidate.validations.ip
+package io.github.robertomike.jakidate.validations.web.ip
 
 import io.github.robertomike.jakidate.utils.YamlFileSource
 import io.github.robertomike.jakidate.validations.YamlTest
-import io.github.robertomike.jakidate.validations.web.ip.Ip
 
-@YamlFileSource("/ip/ipv4")
-@YamlFileSource("/ip/ipv6")
-class IpTest : YamlTest() {
+@YamlFileSource("/web/ip/ipv4")
+class Ipv4Test : YamlTest() {
     inner class Example(
-        @field:Ip
+        @field:Ipv4
         val value: String
     )
 
