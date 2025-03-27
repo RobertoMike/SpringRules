@@ -142,6 +142,9 @@ class User {
 
     @Same
     String same;
+    
+    // The annotations can be used also inside the generic types of collections.
+    Set<@FiscalCode @NotNull String> fiscalCode;
 }
 ```
 
