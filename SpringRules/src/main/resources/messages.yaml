@@ -4,4 +4,4 @@ spring-rules:
     unique: The element {validatedValue} already exists
   file:
     extension: The file must have one of the following extensions {value}
-    size: The file must have at least {min}{typeUnit} and max {max}{typeUnit}
+    size: The file must have at least {min} {typeUnit} and max {max} {typeUnit}
