@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "io.github.robertomike"
-version = "1.0.2"
+version = "1.0.3"
 
 // Specifies the Java version used to build the project
 java {
