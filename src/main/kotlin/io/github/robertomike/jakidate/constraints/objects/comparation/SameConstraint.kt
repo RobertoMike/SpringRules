@@ -13,7 +13,7 @@ import java.lang.reflect.Field
  * @author Roberto Micheletti
  * @since 1.0.0
  */
-class SameConstraint(override val message: String = "same") : CompareFields<Same>() {
+class SameConstraint(override val message: String = "objects.comparations.same") : CompareFields<Same>() {
     /**
      * The annotation field that is used to retrieve the value for grouping fields.
      */

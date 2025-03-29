@@ -27,7 +27,7 @@ annotation class Distinct(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.distinct}",
+    val message: String = "{jakidate.collections.distinct}",
     /**
      * the groups the constraint belongs to
      */

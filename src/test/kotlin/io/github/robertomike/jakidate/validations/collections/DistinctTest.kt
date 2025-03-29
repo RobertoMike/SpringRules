@@ -1,7 +1,6 @@
-package io.github.robertomike.jakidate.validations
+package io.github.robertomike.jakidate.validations.collections
 
 import io.github.robertomike.jakidate.BaseTest
-import io.github.robertomike.jakidate.validations.collections.Distinct
 import jakarta.validation.Validator
 import org.junit.jupiter.api.Test
 

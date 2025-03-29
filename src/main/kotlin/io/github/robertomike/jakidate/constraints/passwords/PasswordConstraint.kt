@@ -44,30 +44,30 @@ class PasswordConstraint: SimpleMessageConstraint<Password, String>() {
         val messages = mutableListOf<String>()
 
         if (value.length < annotation.minLength) {
-            messages.add("password.length.min")
+            messages.add("passwords.length.min")
         }
 
         if (value.length > annotation.maxLength) {
-            messages.add("password.length.max")
+            messages.add("passwords.length.max")
         }
 
         if (annotation.specialCharacters && !value.matches(symbolRegex)) {
-            messages.add("password.special-character")
+            messages.add("passwords.special-character")
         }
 
         if (annotation.digit && !value.matches(digitRegex)) {
-            messages.add("password.digit")
+            messages.add("passwords.digit")
         }
 
         if (annotation.letters && annotation.uppercaseAndLowercase) {
             when {
-                !value.matches(lowercaseRegex) -> messages.add("password.lower-case")
-                !value.matches(uppercaseRegex) -> messages.add("password.upper-case")
+                !value.matches(lowercaseRegex) -> messages.add("passwords.lower-case")
+                !value.matches(uppercaseRegex) -> messages.add("passwords.upper-case")
             }
         }
 
         if (annotation.letters && !value.matches(letterRegex)) {
-            messages.add("password.letter")
+            messages.add("passwords.letter")
         }
 
         if (messages.isNotEmpty()) {

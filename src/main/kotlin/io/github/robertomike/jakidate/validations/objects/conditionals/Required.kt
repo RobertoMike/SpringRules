@@ -28,7 +28,7 @@ annotation class Required(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.required.default}",
+    val message: String = "{jakidate.objects.conditionals.required.default}",
     /**
      * the groups the constraint belongs to
      */

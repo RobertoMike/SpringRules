@@ -24,12 +24,12 @@ import kotlin.reflect.KClass
 @Repeatable
 @Constraint(validatedBy = [])
 @ReportAsSingleViolation
-@Pattern(regexp = "[a-zA-Z]+", message = "{jakidate.strings.alpha.default}")
+@Pattern(regexp = "[a-zA-Z]+", message = "{jakidate.strings.alpha.alpha}")
 annotation class Alpha(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.strings.alpha.default}",
+    val message: String = "{jakidate.strings.alpha.alpha}",
     /**
      * the groups the constraint belongs to
      */

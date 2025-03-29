@@ -28,7 +28,7 @@ annotation class Exclude(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.exclude.default}",
+    val message: String = "{jakidate.objects.conditionals.exclude.default}",
     /**
      * the groups the constraint belongs to
      */

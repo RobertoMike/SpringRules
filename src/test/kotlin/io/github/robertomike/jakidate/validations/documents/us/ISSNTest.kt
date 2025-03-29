@@ -1,10 +1,9 @@
-package io.github.robertomike.jakidate.validations.strings
+package io.github.robertomike.jakidate.validations.documents.us
 
 import io.github.robertomike.jakidate.utils.YamlFileSource
 import io.github.robertomike.jakidate.validations.YamlTest
-import io.github.robertomike.jakidate.validations.documents.us.ISSN
 
-@YamlFileSource("/strings/issn")
+@YamlFileSource("/documents/us/issn")
 class ISSNTest : YamlTest() {
     inner class Example(
         @field:ISSN

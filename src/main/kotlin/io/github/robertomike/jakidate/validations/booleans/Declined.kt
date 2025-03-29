@@ -33,7 +33,7 @@ annotation class Declined(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.declined}",
+    val message: String = "{jakidate.boolean.declined}",
     /**
      * the groups the constraint belongs to
      */

@@ -1,7 +1,6 @@
-package io.github.robertomike.jakidate.validations
+package io.github.robertomike.jakidate.validations.web
 
 import io.github.robertomike.jakidate.BaseTest
-import io.github.robertomike.jakidate.validations.web.RelativePath
 import jakarta.validation.Validator
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource

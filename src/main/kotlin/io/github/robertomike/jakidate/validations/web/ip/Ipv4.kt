@@ -25,12 +25,12 @@ import kotlin.reflect.KClass
 @Repeatable
 @Constraint(validatedBy = [])
 @ReportAsSingleViolation
-@Pattern(regexp = IpConstraint.IP4_REGEX, flags = [Pattern.Flag.CASE_INSENSITIVE], message = "{jakidate.ipv4}")
+@Pattern(regexp = IpConstraint.IP4_REGEX, flags = [Pattern.Flag.CASE_INSENSITIVE], message = "{jakidate.web.ip.ipv4}")
 annotation class Ipv4(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.ipv4}",
+    val message: String = "{jakidate.web.ip.ipv4}",
     /**
      * the groups the constraint belongs to
      */

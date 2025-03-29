@@ -30,7 +30,7 @@ annotation class StartsWith(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.strings.start-with}",
+    val message: String = "{jakidate.strings.start.starts-with}",
     /**
      * the groups the constraint belongs to
      */

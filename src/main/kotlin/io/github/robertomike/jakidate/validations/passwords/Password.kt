@@ -28,7 +28,7 @@ annotation class Password(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.password.default}",/**
+    val message: String = "{jakidate.passwords.default}",/**
      * The minimum length of the password.
      *
      * This is the minimum number of characters that the password must have to be considered valid.

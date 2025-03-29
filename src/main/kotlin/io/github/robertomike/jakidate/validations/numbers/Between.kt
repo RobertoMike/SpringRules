@@ -40,7 +40,7 @@ annotation class Between(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.numeric.between}",
+    val message: String = "{jakidate.numbers.between}",
     /**
      * the groups the constraint belongs to
      */

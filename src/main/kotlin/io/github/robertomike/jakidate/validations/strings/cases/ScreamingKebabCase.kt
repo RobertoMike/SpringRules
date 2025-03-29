@@ -26,12 +26,12 @@ import kotlin.reflect.KClass
 @Repeatable
 @Constraint(validatedBy = [])
 @ReportAsSingleViolation
-@Pattern(regexp = "^([A-Z0-9]+-?)+$", message = "{jakidate.strings.case.screaming-kebab}")
+@Pattern(regexp = "^([A-Z0-9]+-?)+$", message = "{jakidate.strings.cases.screaming-kebab-case}")
 annotation class ScreamingKebabCase(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.strings.case.screaming-kebab}",
+    val message: String = "{jakidate.strings.cases.screaming-kebab-case}",
     /**
      * the groups the constraint belongs to
      */

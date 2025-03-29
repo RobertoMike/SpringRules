@@ -1,8 +1,7 @@
-package io.github.robertomike.jakidate.validations.it
+package io.github.robertomike.jakidate.validations.documents.it
 
 import io.github.robertomike.jakidate.BaseTest
 import io.github.robertomike.jakidate.utils.YamlSource
-import io.github.robertomike.jakidate.validations.documents.it.FiscalCode
 import jakarta.validation.Validator
 import org.junit.jupiter.params.ParameterizedTest
 
@@ -13,7 +12,7 @@ class FiscalCodeTest : BaseTest() {
     )
 
     @ParameterizedTest
-    @YamlSource("/it/fiscalCode", "good")
+    @YamlSource("/documents/it/fiscalCode", "good")
     fun good(color: String, validator: Validator) {
         val example = Example(color)
 
@@ -23,7 +22,7 @@ class FiscalCodeTest : BaseTest() {
     }
 
     @ParameterizedTest
-    @YamlSource("/it/fiscalCode", "wrong")
+    @YamlSource("/documents/it/fiscalCode", "wrong")
     fun wrong(color: String, validator: Validator) {
         val example = Example(color)
 

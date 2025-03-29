@@ -23,7 +23,7 @@ annotation class Different(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.different}",
+    val message: String = "{jakidate.objects.comparations.different}",
     /**
      * the groups the constraint belongs to
      */
