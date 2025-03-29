@@ -1,10 +1,9 @@
-package io.github.robertomike.jakidate.validations.strings
+package io.github.robertomike.jakidate.validations.documents.us
 
 import io.github.robertomike.jakidate.utils.YamlFileSource
 import io.github.robertomike.jakidate.validations.YamlTest
-import io.github.robertomike.jakidate.validations.documents.us.ISIN
 
-@YamlFileSource("/strings/isin")
+@YamlFileSource("/documents/us/isin")
 class ISINTest : YamlTest() {
     inner class Example(
         @field:ISIN

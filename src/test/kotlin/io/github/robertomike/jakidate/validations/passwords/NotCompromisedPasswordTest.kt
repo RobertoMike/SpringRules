@@ -1,21 +1,19 @@
-package io.github.robertomike.jakidate.validations
+package io.github.robertomike.jakidate.validations.passwords
 
 import io.github.robertomike.jakidate.BaseTest
-import io.github.robertomike.jakidate.validations.web.Url
+import io.github.robertomike.jakidate.validations.passwords.NotCompromisedPassword
 import javax.validation.Validator
 import org.junit.jupiter.api.Test
 
-class UrlTest : BaseTest() {
+class NotCompromisedPasswordTest : BaseTest() {
     inner class Example(
-        @field:Url
-        val url: String,
+        @field:NotCompromisedPassword
+        val password: String,
     )
 
     @Test
     fun good(validator: Validator) {
-        val example = Example(
-            "https://google.com",
-        )
+        val example = Example("sup3r*str0ng/ultra__SECURED_p4SSw0rd")
 
         val constraints = validator.validate(example)
 
@@ -24,9 +22,7 @@ class UrlTest : BaseTest() {
 
     @Test
     fun error(validator: Validator) {
-        val example = Example(
-            "some random thing",
-        )
+        val example = Example("12345678")
 
         val constraints = validator.validate(example)
 

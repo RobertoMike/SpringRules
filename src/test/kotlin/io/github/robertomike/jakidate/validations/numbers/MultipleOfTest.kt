@@ -1,4 +1,4 @@
-package io.github.robertomike.jakidate.validations
+package io.github.robertomike.jakidate.validations.numbers
 
 import io.github.robertomike.jakidate.BaseTest
 import io.github.robertomike.jakidate.validations.numbers.MultipleOf

@@ -27,8 +27,8 @@ class ExcludeConstraint : SimpleMessageConstraint<Exclude, Any>() {
         )
 
 
-        val ifValid = validateWithConditional.isValid(ExcludeIf::class.java, "exclude.if")
-        val unlessValid = validateWithConditional.isValid(ExcludeUnless::class.java, "exclude.unless", true)
+        val ifValid = validateWithConditional.isValid(ExcludeIf::class.java, "objects.conditionals.exclude.if")
+        val unlessValid = validateWithConditional.isValid(ExcludeUnless::class.java, "objects.conditionals.exclude.unless", true)
 
         return ifValid && unlessValid
     }

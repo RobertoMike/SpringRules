@@ -26,7 +26,7 @@ annotation class Url(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.url}",
+    val message: String = "{jakidate.web.url}",
     /**
      * the groups the constraint belongs to
      */

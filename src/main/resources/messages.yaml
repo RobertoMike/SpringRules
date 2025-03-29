@@ -1,12 +1,42 @@
-#! Needs to be rearranged in the same way as the validations folder structure
 jakidate:
-  accepted: "You must accept"
-  declined: "You must decline"
-  ip: "Invalid IP address"
-  ipv4: "Invalid IPv4 address"
-  ipv6: "Invalid IPv6 address"
-  password:
+  boolean:
+    accepted: "You must accept"
+    declined: "You must decline"
+  collections:
+    contains: "The field must be one of the following values: {value}"
+    distinct: "Array must not contain any duplicate entries"
+  colors:
+    hex: "Invalid Hexadecimal color"
+    rgb: "Invalid RGB color"
+    hsl: "Invalid HSL color"
+    oklch: "Invalid OKLCH color"
+  documents:
+    it:
+      fiscal-code: "Invalid Fiscal Code"
+    us:
+      isin: "Invalid ISIN"
+      issn: "Invalid ISSN"
+  numbers:
+    between: "Field must be between {min} and {max}"
+    max-digits: "Field must contain at most {value} digits"
+    min-digits: "Field must contain at least {value} digits"
+    multiple-of: "Field must be a multiple of {value}"
+  objects:
+    comparations:
+      different: "The value need to be different for {otherFields}"
+      same: "The value need to be the same for {otherFields}"
+    conditionals:
+      exclude:
+        default: "Field is required"
+        if: "It needs to be null when {conditionField} is true"
+        unless: "It needs to be null when {conditionField} is false"
+      required:
+        default: "Field is required"
+        if: "It cannot be null when {conditionField} is true"
+        unless: "It cannot be null when {conditionField} is false"
+  passwords:
     default: "Invalid password"
+    compromised: "Password is compromised"
     length:
       min: "Password must be at least {minLength} characters long"
       max: "Password must be at most {maxLength} characters long"
@@ -15,64 +45,38 @@ jakidate:
     upper-case: "Password must contain at least one upper case character"
     lower-case: "Password must contain at least one lower case character"
     letter: "Password must contain at least one letter"
-    compromised: "Password is compromised"
-  required:
-    default: "Field is required"
-    if: "It cannot be null when {conditionField} is true"
-    unless: "It cannot be null when {conditionField} is false"
-  exclude:
-    default: "Field is required"
-    if: "It needs to be null when {conditionField} is true"
-    unless: "It needs to be null when {conditionField} is false"
   strings:
-    isin: "The field must be a valid ISIN"
-    issn: "The field must be a valid ISSN"
-    start-with: "String needs to start with {value}"
-    end-with: "String needs to end with {value}"
-    doesnt-start-with: "String doesn't have to starts with {value}"
-    doesnt-end-with: "String doesn't have to ends with {value}"
-    ascii: "Invalid ASCII code"
     alpha:
-      default: "Field must contain only letters"
-      numeric: "Field must contain only numbers"
+      alpha: "Field must contain only letters"
+      alpha-num: "Field must contain only letters or numbers"
+      alpha-num-symbol: "Field must contain only letters, numbers or symbols"
+      alpha-symbol: "Field must contain only letters or symbols"
+      is-numeric: "Field must contain only numbers"
+      num-symbol: "Field must contain only numbers or symbols"
       symbols: "Field must contain only symbols"
-      alpha-numeric: "Field must contain only letters or numbers"
-      alpha-symbols: "Field must contain only letters or symbols"
-      numeric-symbols: "Field must contain only numbers or symbols"
-      alpha-numeric-symbols: "Field must contain only letters, numbers or symbols"
-    case:
-      snake: "Field must be in snake_case"
-      screaming-snake: "Field must be in SCREAMING_SNAKE_CASE"
-      lower: "Field must be in lowercase"
-      upper: "Field must be in UPPERCASE"
-      camel: "Field must be in camelCase"
-      camel-snake: "Field must be in camel_Snake_Case"
-      kebab: "Field must be in kebab-case"
-      screaming-kebab: "Field must be in SCREAMING-KEBAB-CASE"
-      pascal: "Field must be in PascalCase"
-      train: "Field must be in Train-Case"
-  numeric:
-    between: "Field must be between {min} and {max}"
-    multiple-of: "Field must be a multiple of {value}"
-  file:
-    format: "File format is not valid, allowed are {value}"
-  distinct: "Array must not contain any duplicate entries"
-  different: "The value need to be different for {otherFields}"
-  same: "The value need to be the same for {otherFields}"
-  url: "Invalid URL"
-  contain: "The field must be one of the following values: {value}"
-  multiple: "The field must be a multiple of {value}"
-  colors:
-    hex: "Invalid Hexadecimal color"
-    rgb: "Invalid RGB color"
-    hsl: "Invalid HSL color"
-    oklch: "Invalid OKLCH color"
-  digits:
-    max: "Field must contain at most {value} digits"
-    min: "Field must contain at least {value} digits"
-  document:
-    it:
-      fiscal-code: "Invalid Fiscal Code"
+    cases:
+      camel-case: "Field must be in camelCase"
+      camel-snake-case: "Field must be in camel_Snake_Case"
+      kebab-case: "Field must be in kebab-case"
+      lower-case: "Field must be in lowercase"
+      pascal-case: "Field must be in PascalCase"
+      screaming-kebab-case: "Field must be in SCREAMING-KEBAB-CASE"
+      screaming-snake-case: "Field must be in SCREAMING_SNAKE_CASE"
+      snake-case: "Field must be in snake_case"
+      train-case: "Field must be in Train-Case"
+      upper-case: "Field must be in UPPERCASE"
+    end:
+      doesnt-end-with: "String doesn't have to ends with {value}"
+      ends-with: "String needs to end with {value}"
+    start:
+      doesnt-start-with: "String doesn't have to starts with {value}"
+      starts-with: "String needs to start with {value}"
+    ascii: "Invalid ASCII code"
   web:
-    relative-path: "Invalid relative path"
+    ip:
+      ip: "Invalid IP address"
+      ipv4: "Invalid IPv4 address"
+      ipv6: "Invalid IPv6 address"
     mac-address: "Invalid MAC address"
+    relative-path: "Invalid relative path"
+    url: "Invalid URL"

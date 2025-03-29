@@ -13,7 +13,7 @@ import java.lang.reflect.Field
  * @author Roberto Micheletti
  * @since 1.0.0
  */
-class DifferentConstraint(override val message: String = "different") : CompareFields<Different>() {
+class DifferentConstraint(override val message: String = "objects.comparations.different") : CompareFields<Different>() {
     /**
      * The annotation field that is used to retrieve the value for grouping fields.
      */

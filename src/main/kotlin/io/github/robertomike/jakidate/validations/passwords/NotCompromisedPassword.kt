@@ -30,7 +30,7 @@ annotation class NotCompromisedPassword(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.password.compromised}",
+    val message: String = "{jakidate.passwords.compromised}",
     /**
      * the groups the constraint belongs to
      */

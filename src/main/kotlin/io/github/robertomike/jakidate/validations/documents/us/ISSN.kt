@@ -25,12 +25,12 @@ import kotlin.reflect.KClass
 @Repeatable
 @Constraint(validatedBy = [ISSNConstraint::class])
 @ReportAsSingleViolation
-@Pattern(regexp = "^(\\d{4}-\\d{3}[Xx0-9])$", message = "{jakidate.strings.isin}")
+@Pattern(regexp = "^(\\d{4}-\\d{3}[Xx0-9])$", message = "{jakidate.documents.us.issn}")
 annotation class ISSN(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.strings.isin}",
+    val message: String = "{jakidate.documents.us.issn}",
     /**
      * the groups the constraint belongs to
      */

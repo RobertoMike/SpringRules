@@ -24,12 +24,12 @@ import kotlin.reflect.KClass
 @Repeatable
 @Constraint(validatedBy = [])
 @ReportAsSingleViolation
-@Pattern(regexp = "^([.,;:?!'\"\\-—_/\\\\()\\[\\]{}@#&%*+=<>≠≈√Δ∑π¢$€£¥|~^¿¡ÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÇØÆß]+)$", message = "{jakidate.strings.alpha.symbols}")
+@Pattern(regexp = "^([.,;:?!'\"\\-—_/\\\\()\\[\\]{}@#&%*+=<>≠≈√Δ∑π¢$€£¥|~^¿¡ÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÇØÆß]+)$", message = "{jakidate.strings.alpha.alpha-symbol}")
 annotation class Symbol(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.strings.alpha.symbols}",
+    val message: String = "{jakidate.strings.alpha.alpha-symbol}",
     /**
      * the groups the constraint belongs to
      */

@@ -23,7 +23,7 @@ annotation class Same(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.same}",
+    val message: String = "{jakidate.objects.comparations.same}",
     /**
      * the groups the constraint belongs to
      */

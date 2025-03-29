@@ -26,7 +26,7 @@ annotation class Ip(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.ip}",
+    val message: String = "{jakidate.web.ip.ip}",
     /**
      * the groups the constraint belongs to
      */

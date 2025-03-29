@@ -34,7 +34,7 @@ annotation class Contains(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.contain}",
+    val message: String = "{jakidate.collections.contains}",
     /**
      * the groups the constraint belongs to
      */

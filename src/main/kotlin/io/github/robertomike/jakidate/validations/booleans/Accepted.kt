@@ -33,7 +33,7 @@ annotation class Accepted(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.accepted}",
+    val message: String = "{jakidate.boolean.accepted}",
     /**
      * the groups the constraint belongs to
      */

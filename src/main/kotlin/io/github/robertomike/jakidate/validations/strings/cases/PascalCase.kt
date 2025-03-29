@@ -26,12 +26,12 @@ import kotlin.reflect.KClass
 @Repeatable
 @Constraint(validatedBy = [])
 @ReportAsSingleViolation
-@Pattern(regexp = "^(([A-Z]+)([a-z0-9]*))+\$", message = "{jakidate.strings.case.pascal}")
+@Pattern(regexp = "^(([A-Z]+)([a-z0-9]*))+\$", message = "{jakidate.strings.cases.pascal-case}")
 annotation class PascalCase(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.strings.case.pascal}",
+    val message: String = "{jakidate.strings.cases.pascal-case}",
     /**
      * the groups the constraint belongs to
      */

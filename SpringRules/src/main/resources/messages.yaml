@@ -1,5 +1,5 @@
 spring-rules:
-  db:
+  database:
     exists: The element {validatedValue} does not exist
     unique: The element {validatedValue} already exists
   file:

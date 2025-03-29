@@ -26,12 +26,12 @@ import kotlin.reflect.KClass
 @Repeatable
 @Constraint(validatedBy = [])
 @ReportAsSingleViolation
-@Pattern(regexp = "^([A-Z])+\$", message = "{jakidate.strings.case.upper}")
+@Pattern(regexp = "^([A-Z])+\$", message = "{jakidate.strings.cases.upper-case}")
 annotation class UpperCase(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.strings.case.upper}",
+    val message: String = "{jakidate.strings.cases.upper-case}",
     /**
      * the groups the constraint belongs to
      */

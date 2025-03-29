@@ -32,7 +32,7 @@ annotation class MinDigits(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.digits.min}",
+    val message: String = "{jakidate.numbers.min-digits}",
     /**
      * the groups the constraint belongs to
      */

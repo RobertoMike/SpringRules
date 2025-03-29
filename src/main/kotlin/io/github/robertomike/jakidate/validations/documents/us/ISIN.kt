@@ -25,12 +25,12 @@ import kotlin.reflect.KClass
 @Repeatable
 @Constraint(validatedBy = [ISINConstraint::class])
 @ReportAsSingleViolation
-@Pattern(regexp = "^([A-Z]{2}-?[0-9A-Z]{9}-?\\d)$", message = "{jakidate.strings.isin}")
+@Pattern(regexp = "^([A-Z]{2}-?[0-9A-Z]{9}-?\\d)$", message = "{jakidate.documents.us.isin}")
 annotation class ISIN(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.strings.isin}",
+    val message: String = "{jakidate.documents.us.isin}",
     /**
      * the groups the constraint belongs to
      */

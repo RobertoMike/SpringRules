@@ -30,7 +30,7 @@ annotation class MaxDigits(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.digits.max}",
+    val message: String = "{jakidate.numbers.max-digits}",
     /**
      * the groups the constraint belongs to
      */

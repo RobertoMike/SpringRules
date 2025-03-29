@@ -32,7 +32,7 @@ annotation class MultipleOf(
     /**
      * the error message template
      */
-    val message: String = "{jakidate.numeric.multiple-of}",
+    val message: String = "{jakidate.numbers.multiple-of}",
     /**
      * the groups the constraint belongs to
      */

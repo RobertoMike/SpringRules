@@ -34,7 +34,7 @@ annotation class Unique(
     /**
      * the error message template
      */
-    val message: String = "{spring-rules.db.unique}",
+    val message: String = "{spring-rules.database.unique}",
     /**
      * the groups the constraint belongs to
      */
