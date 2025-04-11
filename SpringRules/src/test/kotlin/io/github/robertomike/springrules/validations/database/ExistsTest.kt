@@ -24,7 +24,7 @@ class ExistsTest : BaseTest() {
 
     @BeforeEach
     fun setUp(context: ApplicationContext) {
-        Mockito.`when`(context.getBean(Repository::class.java)).thenReturn(Repository())
+        Mockito.`when`(context.getBeanProvider(Repository::class.java)).thenReturn(Repository())
     }
 
     @Test
