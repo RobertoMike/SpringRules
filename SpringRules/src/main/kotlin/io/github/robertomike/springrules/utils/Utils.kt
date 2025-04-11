@@ -11,8 +11,8 @@ import java.util.*
  * @see org.springframework.context.ApplicationContext
  */
 fun ApplicationContext.getBeanAndExecute(repository: Class<out Any>, method: String, value: Any): Any? {
-    val instance = this.getBean(repository)
-    val callable: Method = getMethodIfAvailable(repository, method, value::class.java)
+    val instance = this.getBeanProvider(repository)
+    val callable = getMethodIfAvailable(repository, method, value::class.java)
         ?: getMethod(repository, method)
     return callable.invoke(instance, value)
 }
