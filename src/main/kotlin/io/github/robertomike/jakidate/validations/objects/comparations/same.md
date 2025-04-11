@@ -1,6 +1,6 @@
 # Welcome to Different validation
 
-This annotation checks if two or more fields have a different value from each other.
+This annotation checks if two or more fields have the same value.
 <br>In order to work correctly, the usage of the <b>@SameAs</b> annotation is required.
 
 ### Usage examples:

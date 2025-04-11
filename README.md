@@ -78,12 +78,6 @@ If you want to use javax version instead of jakarta, you need to see the [javax 
   - IsNumeric: Checks if a string contains only numbers.
   - NumSymbol: Checks if a string contains only numbers or symbols.
   - Symbol: Checks if a string contains only symbols.
-- End:
-  - DoesntEndWith: Checks if a string doesn't end with a specified value.
-  - EndsWith: Checks if a string ends with a specified value.
-- Start:
-    - DoesntStartWith: Checks if a string doesn't start with a specified value.
-    - StartsWith: Checks if a string starts with a specified value.
 - Cases:
   - CamelCase: Checks if a string is in camelCase format.
   - CamelSnakeCase: Checks if a string is in camel_snake_case format.
@@ -95,8 +89,16 @@ If you want to use javax version instead of jakarta, you need to see the [javax 
   - SnakeCase: Checks if a string is in snake_case format.
   - TrainCase: Checks if a string is in TrainCase format.
   - UpperCase: Checks if a string is in UPPERCASE format.
+- End:
+  - DoesntEndWith: Checks if a string doesn't end with a specified value.
+  - EndsWith: Checks if a string ends with a specified value.
+- Start:
+    - DoesntStartWith: Checks if a string doesn't start with a specified value.
+    - StartsWith: Checks if a string starts with a specified value.
+- Ascii: Checks if a string contains only ASCII characters.
 
 ### Web Validations:
+- MacAddress: Checks if a string is a MacAddress in a correct format.
 - RelativePath: Checks if a string is a valid path in a variety of contexts, such as a URL path or a file path.
 - Url: Checks if a given string is a URL in correct format.
 - Ip:
