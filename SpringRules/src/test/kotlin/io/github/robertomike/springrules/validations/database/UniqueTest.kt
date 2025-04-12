@@ -1,12 +1,14 @@
 package io.github.robertomike.springrules.validations.database
 
 import io.github.robertomike.springrules.BaseTest
-import javax.validation.Validator
+import io.github.robertomike.springrules.validations.database.ExistsTest.Repository
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
+import org.springframework.beans.factory.ObjectProvider
 import org.springframework.context.ApplicationContext
 import java.util.*
+import javax.validation.Validator
 
 class UniqueTest : BaseTest() {
     inner class Repository {
@@ -25,7 +27,8 @@ class UniqueTest : BaseTest() {
 
     @BeforeEach
     fun setUp(context: ApplicationContext) {
-        Mockito.`when`(context.getBeanProvider(Repository::class.java)).thenReturn(Repository())
+        Mockito.`when`(context.getBean(Repository::class.java))
+            .thenReturn(Repository())
     }
 
     @Test

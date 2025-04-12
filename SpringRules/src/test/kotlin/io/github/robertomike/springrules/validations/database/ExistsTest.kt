@@ -5,6 +5,7 @@ import javax.validation.Validator
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
+import org.springframework.beans.factory.ObjectProvider
 import org.springframework.context.ApplicationContext
 
 class ExistsTest : BaseTest() {
@@ -24,7 +25,7 @@ class ExistsTest : BaseTest() {
 
     @BeforeEach
     fun setUp(context: ApplicationContext) {
-        Mockito.`when`(context.getBeanProvider(Repository::class.java)).thenReturn(Repository())
+        Mockito.`when`(context.getBean(Repository::class.java)).thenReturn(Repository())
     }
 
     @Test
