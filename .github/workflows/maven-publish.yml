@@ -44,9 +44,6 @@ jobs:
         with:
           gradle-version: '8.5'
 
-      - name: Run chmod to make gradlew executable
-        run: chmod +x ./gradlew
-
       - name: Build with Gradle (silent)
         run: gradle build --quiet
         continue-on-error: true
