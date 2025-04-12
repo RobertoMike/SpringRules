@@ -39,13 +39,13 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Run chmod to make gradlew executable
-        run: chmod +x ./gradlew
-
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
         with:
           gradle-version: '8.5'
+
+      - name: Run chmod to make gradlew executable
+        run: chmod +x ./gradlew
 
       - name: Build with Gradle (silent)
         run: gradle build --quiet
