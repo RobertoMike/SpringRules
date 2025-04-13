@@ -48,6 +48,11 @@ jobs:
         run: gradle build --quiet
         continue-on-error: true
 
+      - name: Show directory and files
+        run: |
+          pwd
+          ls
+
       - name: Build and publish to Apache Maven Central Spring rules
         # Commands to build only spring rules
         if: contains(github.event.release.tag_name, '-spring-rules') || contains(github.event.release.tag_name, '-all')
