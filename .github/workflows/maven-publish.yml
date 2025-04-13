@@ -52,6 +52,7 @@ jobs:
         run: |
           pwd
           ls
+          dir
 
       - name: Build and publish to Apache Maven Central Spring rules
         # Commands to build only spring rules
