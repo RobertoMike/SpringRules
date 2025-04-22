@@ -20,13 +20,13 @@ Maven
 <dependency>
     <groupId>io.github.robertomike</groupId>
     <artifactId>springrules</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
 </dependency>
 ```
 Gradle
 ```gradle
 dependencies {
-    implementation 'io.github.robertomike:springrules:1.0.5'
+    implementation 'io.github.robertomike:springrules:1.0.6'
 }
 ```
 
