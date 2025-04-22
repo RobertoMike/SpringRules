@@ -12,34 +12,41 @@ import java.util.*
 fun ApplicationContext.getBeanByClassOrName(clazz: Class<out Any>): Any {
     try {
         return this.getBean(clazz)
-    } catch (_: Exception) {}
+    } catch (_: Exception) {
+    }
 
     try {
         return this.getBean(StringUtils.uncapitalize(clazz.simpleName))
-    } catch (_: Exception) {}
+    } catch (_: Exception) {
+    }
 
     val name = when {
-        clazz.isAnnotationPresent(Repository::class.java) -> clazz.getAnnotation(Repository::class.java).value
-        clazz.isAnnotationPresent(Service::class.java) -> clazz.getAnnotation(Service::class.java).value
-        clazz.isAnnotationPresent(Component::class.java) -> clazz.getAnnotation(Component::class.java).value
+        clazz.isAnnotationPresent(Repository::class.java) -> clazz.getAnnotation(Repository::class.java)?.value
+        clazz.isAnnotationPresent(Service::class.java) -> clazz.getAnnotation(Service::class.java)?.value
+        clazz.isAnnotationPresent(Component::class.java) -> clazz.getAnnotation(Component::class.java)?.value
         else -> throw RuntimeException("The bean $clazz was not found")
     }
-    try {
-        return this.getBean(name)
-    } catch (_: Exception) {
-        throw RuntimeException("The bean $clazz was not found")
+
+    name?.let {
+        try {
+            return this.getBean(name)
+        } catch (_: Exception) {
+        }
+
     }
+
+    throw RuntimeException("The bean $clazz was not found")
 }
 
 /**
- * This method get a bean and execute a method on it using the ApplicationContext
+ * This method gets a bean and executes a method on it using the ApplicationContext
  *
  * @see org.springframework.context.ApplicationContext
  */
 fun ApplicationContext.getBeanAndExecute(repository: Class<out Any>, method: String, value: Any): Any? {
     val instance = this.getBeanByClassOrName(repository)
-    val callable = getMethodIfAvailable(repository, method, value::class.java)
-        ?: getMethod(repository, method)
+    val callable = getMethodIfAvailable(instance::class.java, method, value::class.java)
+        ?: getMethod(instance::class.java, method)
     return callable.invoke(instance, value)
 }
 
