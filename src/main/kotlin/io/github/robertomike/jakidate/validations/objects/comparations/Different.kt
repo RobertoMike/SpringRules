@@ -6,7 +6,7 @@ import jakarta.validation.Payload
 import kotlin.reflect.KClass
 
 /**
- * This annotation allow you to check if two or more fields of the object are different,
+ * This annotation allows you to check if two or more fields of the object are different,
  * this is made possible using the DifferentAs annotation
  *
  * @see DifferentAs
@@ -29,7 +29,7 @@ annotation class Different(
      */
     val groups: Array<KClass<*>> = [],
     /**
-     * the payload associated to the constraint
+     * the payload associated with the constraint
      */
     val payload: Array<KClass<out Payload>> = [],
 )

@@ -3,7 +3,7 @@ package io.github.robertomike.jakidate.validations.strings
 import io.github.robertomike.jakidate.utils.YamlFileSource
 import io.github.robertomike.jakidate.validations.YamlTest
 
-@YamlFileSource("/strings/Ascii")
+@YamlFileSource("/strings/ascii")
 class AsciiTest : YamlTest() {
     inner class Example(
         @field:Ascii

@@ -6,7 +6,7 @@ import jakarta.validation.Payload
 import kotlin.reflect.KClass
 
 /**
- * This annotation allow you to exclude fields based on another field of the object,
+ * This annotation allows you to exclude fields based on another field of the object,
  * this is made possible using the ExcludeIf and ExcludeUnless annotation
  *
  * @see ExcludeIf
@@ -34,7 +34,7 @@ annotation class Exclude(
      */
     val groups: Array<KClass<*>> = [],
     /**
-     * the payload associated to the constraint
+     * the payload associated with the constraint
      */
     val payload: Array<KClass<out Payload>> = [],
 )

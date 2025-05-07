@@ -3,7 +3,7 @@ package io.github.robertomike.jakidate.validations.web
 import io.github.robertomike.jakidate.utils.YamlFileSource
 import io.github.robertomike.jakidate.validations.YamlTest
 
-@YamlFileSource("/web/MacAddress")
+@YamlFileSource("/web/macAddress")
 class MacAddressTest : YamlTest() {
     inner class Example(
         @field:MacAddress

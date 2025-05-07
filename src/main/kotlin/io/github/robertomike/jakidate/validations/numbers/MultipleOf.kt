@@ -38,7 +38,7 @@ annotation class MultipleOf(
      */
     val groups: Array<KClass<*>> = [],
     /**
-     * the payload associated to the constraint
+     * the payload associated with the constraint
      */
     val payload: Array<KClass<out Payload>> = []
 )
