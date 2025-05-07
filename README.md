@@ -1,6 +1,6 @@
 # About Jakidate
 
-Jakidate is a library that contains <b>50+ annotations</b> that you can use to validate your forms/configurations. It extends the existing Jakarta/Javax annotations by adding a various set of annotations to simplify the work.
+Jakidate is a library that contains <b>50+ annotations</b> that you can use to validate your forms/configurations. It extends the existing Jakarta/Javax annotations by adding various sets of annotations to simplify the work.
 <br>If you are not familiar with Jakarta validation, you can check the documentation [here](https://beanvalidation.org/).
 
 ## Links
@@ -9,26 +9,26 @@ Jakidate is a library that contains <b>50+ annotations</b> that you can use to v
 
 ## How to install
 
-If you only need the jakidate library you can use this
+If you only need the jakidate library, you can use this
 
 Maven
 ```xml
 <dependency>
     <groupId>io.github.robertomike</groupId>
     <artifactId>jakidate</artifactId>
-    <version>2.0.3</version>
+    <version>2.0.4</version>
 </dependency>
 ```
 Gradle
 ```gradle
 dependencies {
-    implementation 'io.github.robertomike:jakidate:2.0.3'
+    implementation 'io.github.robertomike:jakidate:2.0.4'
 }
 ```
 
-If you want use it on Spring boot 2, 3 we recommend you to check this: [Spring Rules](./SpringRules)
+If you want to use it on Spring boot 2, 3, we recommend you to check this: [Spring Rules](./SpringRules)
 
-If you want to use javax version instead of jakarta, you need to see the [javax branch](../../tree/javax)
+If you want to use a javax version instead of jakarta, you need to see the [javax branch](../../tree/javax)
 
 ## Validations:
 
@@ -38,7 +38,7 @@ If you want to use javax version instead of jakarta, you need to see the [javax 
 
 ### Collections Validations:
 - Contains: Checks if a value is contained in a list of allowed values. [Supported types](#contain-supported-types)
-- Distinct: Checks if a collection has not duplicate elements.
+- Distinct: Checks if a collection has no duplicate elements.
 
 ### Colors Validations:
 - Hex: Checks if a string is a valid hex color.
@@ -73,7 +73,7 @@ If you want to use javax version instead of jakarta, you need to see the [javax 
 - Alpha:
   - Alpha: Checks if a string contains only letters. 
   - AlphaNum: Checks if a string contains only letters or numbers.
-  - AlphaNumSymbol: Checks if a string contains only letters, numbers or symbols.
+  - AlphaNumSymbol: Checks if a string contains only letters, numbers, or symbols.
   - AlphaSymbol: Checks if a string contains only letters or symbols.
   - IsNumeric: Checks if a string contains only numbers.
   - NumSymbol: Checks if a string contains only numbers or symbols.
@@ -92,6 +92,9 @@ If you want to use javax version instead of jakarta, you need to see the [javax 
 - End:
   - DoesntEndWith: Checks if a string doesn't end with a specified value.
   - EndsWith: Checks if a string ends with a specified value.
+- Nullable:
+  - NullOrNotBlank: Used to validate a field of type string, the validation passes if the field is not passed or when it is null, but if it is passed, it must not be blank.
+  - NullOrNotEmpty: Used to validate a field of type string, the validation passes if the field is not passed or when it is null, but if it is passed, it must not be empty.
 - Start:
     - DoesntStartWith: Checks if a string doesn't start with a specified value.
     - StartsWith: Checks if a string starts with a specified value.
@@ -100,9 +103,9 @@ If you want to use javax version instead of jakarta, you need to see the [javax 
 ### Web Validations:
 - MacAddress: Checks if a string is a MacAddress in a correct format.
 - RelativePath: Checks if a string is a valid path in a variety of contexts, such as a URL path or a file path.
-- Url: Checks if a given string is a URL in correct format.
+- Url: Checks if a given string is a URL in the correct format.
 - Ip:
-  - Ip: Checks if a string is a valid IP, IPv4 or IPv6 address.
+  - Ip: Checks if a string is a valid IP, IPv4, or IPv6 address.
   - Ipv4: Checks if a string is a valid IPv4 address.
   - Ipv6: Checks if a string is a valid IPv6 address.
 
