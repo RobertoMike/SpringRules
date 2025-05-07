@@ -71,6 +71,9 @@ jakidate:
     start:
       doesnt-start-with: "String doesn't have to starts with {value}"
       starts-with: "String needs to start with {value}"
+    nullable:
+      null-or-not-blank: "String cannot be blank"
+      null-or-not-empty: "String cannot be empty"
     ascii: "Invalid ASCII code"
   web:
     ip:
