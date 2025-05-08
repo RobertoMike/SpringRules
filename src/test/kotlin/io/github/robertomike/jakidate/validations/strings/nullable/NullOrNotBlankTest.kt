@@ -2,7 +2,7 @@ package io.github.robertomike.jakidate.validations.strings.nullable
 
 import io.github.robertomike.jakidate.utils.YamlFileSource
 import io.github.robertomike.jakidate.validations.YamlTest
-import jakarta.validation.Validator
+import javax.validation.Validator
 import org.junit.jupiter.api.Test
 
 @YamlFileSource("/strings/nullable/nullOrNotBlank")
