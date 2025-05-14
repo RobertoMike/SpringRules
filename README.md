@@ -16,13 +16,13 @@ Maven
 <dependency>
     <groupId>io.github.robertomike</groupId>
     <artifactId>jakidate</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
 </dependency>
 ```
 Gradle
 ```gradle
 dependencies {
-    implementation 'io.github.robertomike:jakidate:1.0.4'
+    implementation 'io.github.robertomike:jakidate:1.0.5'
 }
 ```
 
