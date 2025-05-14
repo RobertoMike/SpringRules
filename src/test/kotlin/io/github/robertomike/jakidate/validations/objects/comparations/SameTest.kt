@@ -7,7 +7,7 @@ import kotlin.test.assertEquals
 
 class SameTest : BaseTest() {
     @Same
-    inner class Example(
+    open inner class Example(
         @field:SameAs
         val password: String,
         @field:SameAs
@@ -16,6 +16,17 @@ class SameTest : BaseTest() {
         val email: String,
         @field:SameAs("email")
         val emailConfirmation: String,
+    )
+    inner class ExampleExtended(
+        password: String,
+        passwordConfirmation: String,
+        email: String,
+        emailConfirmation: String,
+    ): Example(
+        password,
+        passwordConfirmation,
+        email,
+        emailConfirmation,
     )
 
     @Test
@@ -52,6 +63,21 @@ class SameTest : BaseTest() {
     @Test
     fun onlyOneError(validator: Validator) {
         val example = Example(
+            "1234",
+            "12345",
+            "user@mail.com",
+            "user@mail.com",
+        )
+
+        val constraints = validator.validate(example)
+
+        assert(constraints.isNotEmpty())
+        assertEquals("password", constraints.first().propertyPath.first().name)
+    }
+
+    @Test
+    fun testInChildClass(validator: Validator) {
+        val example = ExampleExtended(
             "1234",
             "12345",
             "user@mail.com",
