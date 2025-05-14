@@ -11,7 +11,18 @@ import java.lang.reflect.Field
  * @return a sequence of fields
  */
 fun <T : Annotation> Any.getFieldsByAnnotation(annotation: Class<T>): Sequence<Field> {
-    return this.javaClass.declaredFields
+    tailrec fun getFields(currentClass: Class<*>?, fields: MutableList<Field> = mutableListOf()): List<Field> {
+        return when {
+            currentClass == null || currentClass == Any::class.java -> fields
+            else -> {
+                fields.addAll(currentClass.declaredFields)
+                getFields(currentClass.superclass, fields)
+            }
+        }
+    }
+
+
+    return getFields(this.javaClass)
         .asSequence()
         .filter { it.isAnnotationPresent(annotation) }
 }
