@@ -1,5 +1,6 @@
 package io.github.robertomike.springrules.utils
 
+import org.springframework.beans.factory.BeanCreationException
 import org.springframework.context.ApplicationContext
 import org.springframework.stereotype.Component
 import org.springframework.stereotype.Repository
@@ -13,11 +14,15 @@ fun ApplicationContext.getBeanByClassOrName(clazz: Class<out Any>): Any {
     try {
         return this.getBean(clazz)
     } catch (_: Exception) {
+    } catch (e: BeanCreationException) {
+        throw e
     }
 
     try {
         return this.getBean(StringUtils.uncapitalize(clazz.simpleName))
     } catch (_: Exception) {
+    } catch (e: BeanCreationException) {
+        throw e
     }
 
     val name = when {
@@ -31,8 +36,9 @@ fun ApplicationContext.getBeanByClassOrName(clazz: Class<out Any>): Any {
         try {
             return this.getBean(name)
         } catch (_: Exception) {
+        } catch (e: BeanCreationException) {
+            throw e
         }
-
     }
 
     throw RuntimeException("The bean $clazz was not found")
