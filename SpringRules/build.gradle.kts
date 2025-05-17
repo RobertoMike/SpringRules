@@ -26,17 +26,20 @@ kotlin {
     }
 }
 
-val springVersion = "2.1.0.RELEASE"
+val springBootVersion = "2.1.0.RELEASE"
+val springVersion = "5.1.0.RELEASE"
 
 dependencies {
     implementation(project(":"))
-    implementation("org.springframework.boot:spring-boot-starter-validation:$springVersion")
-    implementation("org.springframework.boot:spring-boot-starter-web:$springVersion")
+    implementation("org.hibernate.validator:hibernate-validator:6.0.13.Final")
 
-    api("org.springframework.boot:spring-boot-starter-validation:$springVersion")
-    api("org.springframework.boot:spring-boot-starter-web:$springVersion")
+    api("org.springframework:spring-web:$springVersion")
+    api("org.springframework:spring-context:$springVersion")
+    api("org.springframework.boot:spring-boot-autoconfigure:$springBootVersion")
+
     api(project(":"))
 
+    testImplementation("org.springframework.boot:spring-boot-starter-validation:${springBootVersion}")
     testImplementation(kotlin("test"))
     testImplementation(project(":", "testArtifacts"))
     testImplementation("org.mockito:mockito-core:4.11.0")

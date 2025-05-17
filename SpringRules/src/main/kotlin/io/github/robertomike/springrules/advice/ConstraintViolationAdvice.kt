@@ -7,6 +7,7 @@ import javax.validation.ElementKind
 import javax.validation.Path
 import javax.validation.ValidationException
 import org.hibernate.validator.internal.engine.path.NodeImpl
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpStatus
@@ -26,6 +27,7 @@ import org.springframework.web.bind.annotation.ResponseBody
  */
 @Configuration
 @ControllerAdvice
+@ConditionalOnClass(name = ["org.hibernate.validator.internal.engine.path.NodeImpl"])
 @ConditionalOnProperty("spring-rules.controller-advice.constraint-violations", matchIfMissing = true)
 open class ConstraintViolationAdvice(protected val config: SpringRulesConfig) {
     /**
