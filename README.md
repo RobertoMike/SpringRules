@@ -16,17 +16,17 @@ Maven
 <dependency>
     <groupId>io.github.robertomike</groupId>
     <artifactId>jakidate</artifactId>
-    <version>2.0.5</version>
+    <version>3.0.0</version>
 </dependency>
 ```
 Gradle
 ```gradle
 dependencies {
-    implementation 'io.github.robertomike:jakidate:2.0.5'
+    implementation 'io.github.robertomike:jakidate:3.0.0'
 }
 ```
 
-If you want to use it on Spring boot 2, 3, we recommend you to check this: [Spring Rules](./SpringRules)
+If you want to use it on Spring boot 2, 3, 4, we recommend you to check this: [Spring Rules](./SpringRules)
 
 If you want to use a javax version instead of jakarta, you need to see the [javax branch](../../tree/javax)
 

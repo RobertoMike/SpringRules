@@ -45,4 +45,60 @@ class MethodArgumentNotValidExceptionTest : BaseTest() {
         assertNotNull(violations.firstOrNull { it.field == "name" })
         assertNotNull(violations.firstOrNull { it.field == "form" })
     }
+
+    @Test
+    fun `no errors at all still returns an empty but valid response`() {
+        val methodParam = Mockito.mock(MethodParameter::class.java)
+        val bindResult = Mockito.mock(BindingResult::class.java)
+
+        Mockito.`when`(bindResult.globalErrors).thenReturn(emptyList())
+        Mockito.`when`(bindResult.fieldErrors).thenReturn(emptyList())
+
+        val exception = MethodArgumentNotValidException(methodParam, bindResult)
+
+        val response = advise.onMethodArgumentNotValidException(exception)
+
+        assertEquals(422, response.statusCode.value())
+        assertTrue(response.body!!.violations.isEmpty())
+    }
+
+    @Test
+    fun `a null default message falls back to an empty string instead of throwing`() {
+        val methodParam = Mockito.mock(MethodParameter::class.java)
+        val bindResult = Mockito.mock(BindingResult::class.java)
+        val fieldError = FieldError("request", "name", null, false, null, null, null)
+
+        Mockito.`when`(bindResult.globalErrors).thenReturn(emptyList())
+        Mockito.`when`(bindResult.fieldErrors).thenReturn(listOf(fieldError))
+
+        val exception = MethodArgumentNotValidException(methodParam, bindResult)
+
+        val response = advise.onMethodArgumentNotValidException(exception)
+
+        val violation = response.body!!.violations.first()
+        assertEquals("", (violation as io.github.robertomike.springrules.responses.SingleViolation).message)
+    }
+
+    @Test
+    fun `MULTIPLE_MESSAGE type merges several errors on the same field into one violation`() {
+        properties.violationBody = ViolationType.MULTIPLE_MESSAGE
+
+        val methodParam = Mockito.mock(MethodParameter::class.java)
+        val bindResult = Mockito.mock(BindingResult::class.java)
+        val firstError = FieldError("request", "name", "must not be blank")
+        val secondError = FieldError("request", "name", "must be at least 3 characters")
+
+        Mockito.`when`(bindResult.globalErrors).thenReturn(emptyList())
+        Mockito.`when`(bindResult.fieldErrors).thenReturn(listOf(firstError, secondError))
+
+        val exception = MethodArgumentNotValidException(methodParam, bindResult)
+
+        val response = advise.onMethodArgumentNotValidException(exception)
+        val violations = response.body!!.violations
+
+        assertEquals(1, violations.size)
+        val violation = violations.first() as io.github.robertomike.springrules.responses.ViolationsByField
+        assertEquals("name", violation.field)
+        assertEquals(listOf("must not be blank", "must be at least 3 characters"), violation.messages)
+    }
 }

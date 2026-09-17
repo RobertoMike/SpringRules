@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "2.1.0"
+    kotlin("jvm") version "2.3.20"
 
     id("java-library")
     `maven-publish`
@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "io.github.robertomike"
-version = "2.0.9"
+version = "3.0.0"
 
 repositories {
     mavenCentral()
@@ -26,12 +26,12 @@ kotlin {
     }
 }
 
-val springBootVersion = "3.0.0"
-val springVersion = "6.0.0"
+val springBootVersion = "4.1.1"
+val springVersion = "7.0.8"
 
 dependencies {
     implementation(project(":"))
-    implementation("org.hibernate.validator:hibernate-validator:8.0.0.Final")
+    implementation("org.hibernate.validator:hibernate-validator:9.1.3.Final")
 
     api("org.springframework:spring-web:${springVersion}")
     api("org.springframework:spring-context:$springVersion")
@@ -40,9 +40,11 @@ dependencies {
     api(project(":"))
 
     testImplementation("org.springframework.boot:spring-boot-starter-validation:${springBootVersion}")
+    testImplementation("org.springframework.boot:spring-boot-test:${springBootVersion}")
+    testImplementation("org.assertj:assertj-core:3.27.7")
     testImplementation(kotlin("test"))
     testImplementation(project(":", "testArtifacts"))
-    testImplementation("org.mockito:mockito-core:5.16.0")
+    testImplementation("org.mockito:mockito-core:5.23.0")
 }
 
 tasks.test {

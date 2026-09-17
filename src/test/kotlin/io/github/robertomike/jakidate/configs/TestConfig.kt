@@ -64,6 +64,6 @@ open class TestConfig : BeforeAllCallback, ParameterResolver {
 
     @Throws(ParameterResolutionException::class)
     override fun resolveParameter(parameterContext: ParameterContext, extensionContext: ExtensionContext): Any {
-        return extensionContext.getStore(NAMESPACE)[getSimpleName(parameterContext)]
+        return extensionContext.getStore(NAMESPACE)[getSimpleName(parameterContext)]!!
     }
 }

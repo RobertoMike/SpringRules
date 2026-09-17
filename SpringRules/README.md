@@ -15,18 +15,20 @@ SpringRules is a library that includes all the validations used in the [Jakidate
 
 If you use Spring boot 2 then go to the [javax branch](../../javax/SpringRules)
 
+This version (3.x) requires Spring Boot 4 and Java 17+. If you use Spring Boot 3, use version 2.x instead.
+
 Maven
 ```xml
 <dependency>
     <groupId>io.github.robertomike</groupId>
     <artifactId>springrules</artifactId>
-    <version>2.0.9</version>
+    <version>3.0.0</version>
 </dependency>
 ```
 Gradle
 ```gradle
 dependencies {
-    implementation 'io.github.robertomike:springrules:2.0.9'
+    implementation 'io.github.robertomike:springrules:3.0.0'
 }
 ```
 
