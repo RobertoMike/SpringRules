@@ -130,4 +130,47 @@ class ConstraintViolationTest : BaseTest() {
 
         assertEquals(mutableListOf("[0]"), fieldPath)
     }
+
+    @Test
+    fun `an element inside a @Valid List keeps its numeric index in the field path`() {
+        val path = MutablePath.createRootPath()
+        path.addPropertyNode("items")
+        path.addContainerElementNode("<list element>")
+        path.makeLeafNodeIterableAndSetIndex(3)
+        path.addPropertyNode("name")
+
+        val fieldPath = advise.getPropertyPath(path)
+
+        assertEquals(mutableListOf("items", "[3]", "name"), fieldPath)
+    }
+
+    inner class ListHolder(
+        @field:jakarta.validation.Valid
+        var items: MutableList<Example> = mutableListOf(Example(false))
+    )
+
+    @Test
+    fun `a real cascaded List element failure reports its index, not just the field name`(validator: Validator) {
+        val errors = validator.validate(ListHolder())
+
+        val response = advise.validationError(ConstraintViolationException(errors))
+        val violations = response.body!!.violations as MutableList<ViolationsBySubFields>
+
+        assertEquals("items", violations.first().field)
+        assertEquals("[0]", violations.first().subfields!!.first().field)
+        assertEquals("value", violations.first().subfields!!.first().subfields!!.first().field)
+    }
+
+    @Test
+    fun `an element inside a @Valid Map keeps its key in the field path`() {
+        val path = MutablePath.createRootPath()
+        path.addPropertyNode("items")
+        path.addContainerElementNode("<map value>")
+        path.makeLeafNodeIterableAndSetMapKey("europe")
+        path.addPropertyNode("name")
+
+        val fieldPath = advise.getPropertyPath(path)
+
+        assertEquals(mutableListOf("items", "[europe]", "name"), fieldPath)
+    }
 }
