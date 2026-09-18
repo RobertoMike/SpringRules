@@ -2,8 +2,7 @@ plugins {
     kotlin("jvm") version "2.3.20" // States that this project uses Kotlin and specifies version
 
     id("java-library") // States that this project is a Java library
-    `maven-publish` // Add commands and configuration for publishing
-    id("signing") // Used for Maven digital signature
+    id("com.vanniktech.maven.publish") version "0.37.0" // Publishes to Maven Central via the Central Portal
     id("yaml-to-properties")
     `java-test-fixtures`
 }
@@ -67,83 +66,62 @@ artifacts {
     add("testArtifacts", testJar)
 }
 
-// Publishes the library
-publishing {
-    publications {
-        register("library", MavenPublication::class) {
-            from(components["java"])
-
-            groupId = "$group" // The group ID of the library
-            artifactId = "jakidate" // The artifact ID of the library
-            version = version
-
-            pom {
-                name = "Jakidate"
-                description = "This is an open-source Java library that provides validation rules for every java project that use Jakarta to validate."
-                url = "https://github.com/RobertoMike/Jakidate"
-                inceptionYear = "2025"
-
-                // The license of the library
-                licenses {
-                    license {
-                        name = "MIT License"
-                        url = "http://www.opensource.org/licenses/mit-license.php"
-                    }
-                }
-                developers {
-                    developer {
-                        name = "Roberto Micheletti"
-                        email = "rmworking@hotmail.com"
-                        organization = "Kaiten"
-                        organizationUrl = "https://github.com/RobertoMike"
-                    }
-                    developer {
-                        name = "Giorgio Andrei"
-                        email = "giorgio.work24@gmail.com"
-                        organization = "Kaiten"
-                        organizationUrl = "https://github.com/RobertoMike"
-                    }
-                }
-                scm { // Where our library will be hosted (GitHub)
-                    connection = "scm:git:git://github.com/RobertoMike/SpringRules.git"
-                    developerConnection = "scm:git:ssh://github.com:RobertoMike/SpringRules.git"
-                    url = "https://github.com/RobertoMike/SpringRules"
-                }
-            }
-        }
-    }
-    repositories { // Specifies the repositories used to publish the library
-        maven {
-
-            name = "OSSRH"
-            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-            credentials {
-                username = System.getenv("OSSRH_USERNAME")
-                password = System.getenv("OSSRH_PASSWORD")
-            }
-            metadataSources {
-                gradleMetadata()
-            }
-        }
-    }
-}
-
-// If the local property is set, it doesn't execute the signing
-if (!project.hasProperty("local")) {
-    signing {
-        setRequired { !version.toString().endsWith("SNAPSHOT") }
-        sign(publishing.publications["library"])
-    }
-}
-
 tasks.withType(JavaCompile::class).configureEach {
     options.encoding = "UTF-8"
 }
 
 java {
-    withJavadocJar()
-    withSourcesJar()
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+
+// Publishes the library to Maven Central through the Sonatype Central Portal.
+// OSSRH (s01.oss.sonatype.org) was decommissioned; this plugin targets the new portal API.
+mavenPublishing {
+    publishToMavenCentral(automaticRelease = true)
+
+    // Only sign if credentials are available (CI environment)
+    if (project.hasProperty("signing.keyId")) {
+        signAllPublications()
+    }
+
+    coordinates(
+        groupId = project.group.toString(),
+        artifactId = "jakidate",
+        version = project.version.toString()
+    )
+
+    pom {
+        name = "Jakidate"
+        description = "This is an open-source Java library that provides validation rules for every java project that use Jakarta to validate."
+        url = "https://github.com/RobertoMike/Jakidate"
+        inceptionYear = "2025"
+
+        licenses {
+            license {
+                name = "MIT License"
+                url = "http://www.opensource.org/licenses/mit-license.php"
+            }
+        }
+        developers {
+            developer {
+                name = "Roberto Micheletti"
+                email = "rmworking@hotmail.com"
+                organization = "Kaiten"
+                organizationUrl = "https://github.com/RobertoMike"
+            }
+            developer {
+                name = "Giorgio Andrei"
+                email = "giorgio.work24@gmail.com"
+                organization = "Kaiten"
+                organizationUrl = "https://github.com/RobertoMike"
+            }
+        }
+        scm {
+            connection = "scm:git:git://github.com/RobertoMike/SpringRules.git"
+            developerConnection = "scm:git:ssh://github.com:RobertoMike/SpringRules.git"
+            url = "https://github.com/RobertoMike/SpringRules"
+        }
     }
 }

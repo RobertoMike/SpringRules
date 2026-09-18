@@ -55,19 +55,19 @@ jobs:
         if: contains(github.event.release.tag_name, '-spring-rules') || contains(github.event.release.tag_name, '-all')
         run: |
           gradle build
-          export GPG_TTY=$(tty) && gradle -Psigning.keyId=${{ secrets.GPG_SHORT_KEY }} -Psigning.secretKeyRingFile=/home/runner/.gnupg/secring.gpg -Psigning.password=${GPG_KEY_PASSPHRASE} :SpringRules:publishLibraryPublicationToOSSRHRepository
+          export GPG_TTY=$(tty) && gradle :SpringRules:publishAllPublicationsToMavenCentralRepository -Psigning.keyId=${{ secrets.GPG_SHORT_KEY }} -Psigning.secretKeyRingFile=/home/runner/.gnupg/secring.gpg -Psigning.password=${GPG_KEY_PASSPHRASE}
         env:
           GPG_KEY_PASSPHRASE: ${{ secrets.GPG_SECRET_KEY_PASSWORD }}
-          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          OSSRH_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.OSSRH_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.OSSRH_TOKEN }}
 
       - name: Build and publish to Apache Maven Central Jakidate
         # Commands to build only jakidate
         if: contains(github.event.release.tag_name, '-jakidate') || contains(github.event.release.tag_name, '-all')
         run: |
           gradle build
-          export GPG_TTY=$(tty) && gradle -Psigning.keyId=${{ secrets.GPG_SHORT_KEY }} -Psigning.secretKeyRingFile=/home/runner/.gnupg/secring.gpg -Psigning.password=${GPG_KEY_PASSPHRASE} :publishLibraryPublicationToOSSRHRepository
+          export GPG_TTY=$(tty) && gradle publishAllPublicationsToMavenCentralRepository -Psigning.keyId=${{ secrets.GPG_SHORT_KEY }} -Psigning.secretKeyRingFile=/home/runner/.gnupg/secring.gpg -Psigning.password=${GPG_KEY_PASSPHRASE}
         env:
           GPG_KEY_PASSPHRASE: ${{ secrets.GPG_SECRET_KEY_PASSWORD }}
-          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          OSSRH_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.OSSRH_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.OSSRH_TOKEN }}

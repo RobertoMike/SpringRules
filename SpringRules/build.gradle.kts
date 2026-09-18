@@ -2,8 +2,7 @@ plugins {
     kotlin("jvm") version "2.3.20"
 
     id("java-library")
-    `maven-publish`
-    id("signing")
+    id("com.vanniktech.maven.publish") version "0.37.0"
     id("yaml-to-properties")
 }
 
@@ -51,81 +50,62 @@ tasks.test {
     useJUnitPlatform()
 }
 
-// Library Publication
-publishing {
-    publications {
-        register("library", MavenPublication::class) {
-            from(components["java"])
-
-            groupId = "$group"
-            artifactId = "spring-rules"
-            version = version
-
-            pom {
-                name = "Spring rules"
-                description = "This is an open-source Java library that provides validation rules for Spring applications."
-                url = "https://github.com/RobertoMike/Jakidate"
-                inceptionYear = "2025"
-
-                licenses {
-                    license {
-                        name = "MIT License"
-                        url = "http://www.opensource.org/licenses/mit-license.php"
-                    }
-                }
-                developers {
-                    developer {
-                        name = "Roberto Micheletti"
-                        email = "rmworking@hotmail.com"
-                        organization = "Kaiten"
-                        organizationUrl = "https://github.com/RobertoMike"
-                    }
-                    developer {
-                        name = "Giorgio Andrei"
-                        email = "giorgio.work24@gmail.com"
-                        organization = "Kaiten"
-                        organizationUrl = "https://github.com/RobertoMike"
-                    }
-                }
-                scm {
-                    connection = "scm:git:git://github.com/RobertoMike/SpringRules.git"
-                    developerConnection = "scm:git:ssh://github.com:RobertoMike/SpringRules.git"
-                    url = "https://github.com/RobertoMike/SpringRules"
-                }
-            }
-        }
-    }
-    repositories {
-        maven {
-
-            name = "OSSRH"
-            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-            credentials {
-                username = System.getenv("OSSRH_USERNAME")
-                password = System.getenv("OSSRH_PASSWORD")
-            }
-            metadataSources {
-                gradleMetadata()
-            }
-        }
-    }
-}
-
-if (!project.hasProperty("local")) {
-    signing {
-        setRequired { !version.toString().endsWith("SNAPSHOT") }
-        sign(publishing.publications["library"])
-    }
-}
-
 tasks.withType(JavaCompile::class).configureEach {
     options.encoding = "UTF-8"
 }
 
 java {
-    withJavadocJar()
-    withSourcesJar()
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+
+// Publishes the library to Maven Central through the Sonatype Central Portal.
+// OSSRH (s01.oss.sonatype.org) was decommissioned; this plugin targets the new portal API.
+mavenPublishing {
+    publishToMavenCentral(automaticRelease = true)
+
+    // Only sign if credentials are available (CI environment)
+    if (project.hasProperty("signing.keyId")) {
+        signAllPublications()
+    }
+
+    coordinates(
+        groupId = project.group.toString(),
+        artifactId = "spring-rules",
+        version = project.version.toString()
+    )
+
+    pom {
+        name = "Spring rules"
+        description = "This is an open-source Java library that provides validation rules for Spring applications."
+        url = "https://github.com/RobertoMike/Jakidate"
+        inceptionYear = "2025"
+
+        licenses {
+            license {
+                name = "MIT License"
+                url = "http://www.opensource.org/licenses/mit-license.php"
+            }
+        }
+        developers {
+            developer {
+                name = "Roberto Micheletti"
+                email = "rmworking@hotmail.com"
+                organization = "Kaiten"
+                organizationUrl = "https://github.com/RobertoMike"
+            }
+            developer {
+                name = "Giorgio Andrei"
+                email = "giorgio.work24@gmail.com"
+                organization = "Kaiten"
+                organizationUrl = "https://github.com/RobertoMike"
+            }
+        }
+        scm {
+            connection = "scm:git:git://github.com/RobertoMike/SpringRules.git"
+            developerConnection = "scm:git:ssh://github.com:RobertoMike/SpringRules.git"
+            url = "https://github.com/RobertoMike/SpringRules"
+        }
     }
 }
