@@ -66,7 +66,7 @@ jobs:
         if: contains(github.event.release.tag_name, '-jakidate') || contains(github.event.release.tag_name, '-all')
         run: |
           gradle build
-          export GPG_TTY=$(tty) && gradle publishAllPublicationsToMavenCentralRepository -Psigning.keyId=${{ secrets.GPG_SHORT_KEY }} -Psigning.secretKeyRingFile=/home/runner/.gnupg/secring.gpg -Psigning.password=${GPG_KEY_PASSPHRASE}
+          export GPG_TTY=$(tty) && gradle :publishAllPublicationsToMavenCentralRepository -Psigning.keyId=${{ secrets.GPG_SHORT_KEY }} -Psigning.secretKeyRingFile=/home/runner/.gnupg/secring.gpg -Psigning.password=${GPG_KEY_PASSPHRASE}
         env:
           GPG_KEY_PASSPHRASE: ${{ secrets.GPG_SECRET_KEY_PASSWORD }}
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.OSSRH_USERNAME }}
