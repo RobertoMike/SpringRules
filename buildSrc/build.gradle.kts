@@ -6,15 +6,10 @@ repositories {
     mavenCentral()
 }
 
-object Versions {
-    const val KOTLIN = "2.1.0"
-}
-
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-serialization:${Versions.KOTLIN}")
-    implementation("org.yaml:snakeyaml:2.0")
-    testImplementation("org.slf4j:slf4j-api:1.7.36")
-    testImplementation("ch.qos.logback:logback-classic:1.4.12")
+    implementation("org.yaml:snakeyaml:2.7")
+    testImplementation("org.slf4j:slf4j-api:2.0.19")
+    testImplementation("ch.qos.logback:logback-classic:1.6.3")
 }
 
 gradlePlugin {

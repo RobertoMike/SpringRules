@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "2.1.0" // States that this project uses Kotlin and specifies version
+    kotlin("jvm") version "2.3.20" // States that this project uses Kotlin and specifies version
 
     id("java-library") // States that this project is a Java library
     `maven-publish` // Add commands and configuration for publishing
@@ -9,12 +9,12 @@ plugins {
 }
 
 group = "io.github.robertomike"
-version = "2.0.5"
+version = "3.0.0"
 
 // Specifies the Java version used to build the project
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 // Specifies the repositories used to download dependencies below
@@ -22,7 +22,7 @@ repositories {
     mavenCentral()
 }
 
-var jakartaVersion = "3.0.0"
+var jakartaVersion = "3.1.1"
 
 // Specifies the dependencies used in the project
 dependencies {
@@ -31,19 +31,19 @@ dependencies {
 
     api("jakarta.validation:jakarta.validation-api:$jakartaVersion")
 
-    testImplementation("org.hibernate.validator:hibernate-validator:8.0.1.Final")
-    testImplementation("org.glassfish.expressly:expressly:5.0.0")
+    testImplementation("org.hibernate.validator:hibernate-validator:9.1.3.Final")
+    testImplementation("org.glassfish.expressly:expressly:6.0.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
-    testImplementation("org.yaml:snakeyaml:2.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.11.0")
+    testImplementation("org.yaml:snakeyaml:2.7")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:6.1.3")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    testImplementation("org.slf4j:slf4j-api:1.7.36")
-    testImplementation("ch.qos.logback:logback-classic:1.4.12")
+    testImplementation("org.slf4j:slf4j-api:2.0.19")
+    testImplementation("ch.qos.logback:logback-classic:1.6.3")
 }
 
 // Specifies the build version for Java
 kotlin {
-    jvmToolchain(11)
+    jvmToolchain(17)
     compilerOptions {
         freeCompilerArgs.addAll("-Xjsr305=strict")
     }
@@ -144,6 +144,6 @@ java {
     withJavadocJar()
     withSourcesJar()
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(11))
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }

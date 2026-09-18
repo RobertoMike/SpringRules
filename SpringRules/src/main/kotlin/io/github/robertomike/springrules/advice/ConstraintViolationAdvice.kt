@@ -6,7 +6,6 @@ import jakarta.validation.ConstraintViolationException
 import jakarta.validation.ElementKind
 import jakarta.validation.Path
 import jakarta.validation.ValidationException
-import org.hibernate.validator.internal.engine.path.NodeImpl
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.context.annotation.Configuration
@@ -27,7 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody
  */
 @Configuration
 @ControllerAdvice
-@ConditionalOnClass(name = ["org.hibernate.validator.internal.engine.path.NodeImpl"])
+@ConditionalOnClass(name = ["org.hibernate.validator.HibernateValidator"])
 @ConditionalOnProperty("spring-rules.controller-advice.constraint-violations", matchIfMissing = true)
 open class ConstraintViolationAdvice(protected val config: SpringRulesConfig) {
     /**
@@ -61,7 +60,10 @@ open class ConstraintViolationAdvice(protected val config: SpringRulesConfig) {
 
         path.forEach {
             when (it.kind) {
-                ElementKind.PROPERTY -> finalPath.add(it.name)
+                ElementKind.PROPERTY -> {
+                    addIterableMarker(finalPath, it)
+                    finalPath.add(it.name)
+                }
                 ElementKind.METHOD -> method = true
                 ElementKind.PARAMETER -> {
                     if (method) {
@@ -69,18 +71,32 @@ open class ConstraintViolationAdvice(protected val config: SpringRulesConfig) {
                         return@forEach
                     }
 
-                    if (it.index != null) {
-                        finalPath.add("[${it.index}]")
-                    }
-
-                    if (it is NodeImpl) {
+                    if (it is Path.ParameterNode) {
                         finalPath.add("[${it.parameterIndex}]")
                     }
                 }
+                // Some providers/generic shapes carry the element index/key on a dedicated
+                // CONTAINER_ELEMENT node instead of on the following PROPERTY node.
+                ElementKind.CONTAINER_ELEMENT -> addIterableMarker(finalPath, it)
                 else -> {}
             }
         }
 
         return finalPath
+    }
+
+    /**
+     * Appends an `[index]`/`[key]` segment when [node] represents an element of a @Valid
+     * List/Set/Map (i.e. [Path.Node.isInIterable] is true), so the failing element can be
+     * identified in the resulting field path instead of being silently collapsed.
+     */
+    private fun addIterableMarker(finalPath: MutableList<String>, node: Path.Node) {
+        if (!node.isInIterable) return
+
+        if (node.index != null) {
+            finalPath.add("[${node.index}]")
+        } else if (node.key != null) {
+            finalPath.add("[${node.key}]")
+        }
     }
 }

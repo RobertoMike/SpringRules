@@ -6,6 +6,7 @@ import org.junit.jupiter.api.extension.ExtensionContext
 import org.junit.jupiter.params.provider.AnnotationBasedArgumentsProvider
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.ArgumentsSource
+import org.junit.jupiter.params.support.ParameterDeclarations
 import org.yaml.snakeyaml.Yaml
 import java.io.FileInputStream
 import java.util.stream.Stream
@@ -21,7 +22,11 @@ annotation class YamlSource(
     val element: String
 ) {
     class YamlSourceProvider : AnnotationBasedArgumentsProvider<YamlSource>() {
-        override fun provideArguments(context: ExtensionContext, annotation: YamlSource): Stream<out Arguments> {
+        override fun provideArguments(
+            parameters: ParameterDeclarations,
+            context: ExtensionContext,
+            annotation: YamlSource
+        ): Stream<out Arguments> {
             val strings = loadAndGetValues(getFileNames(context, annotation), annotation.element)
 
             return strings.stream()

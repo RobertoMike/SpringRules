@@ -22,40 +22,42 @@ class YamlToProperties: Plugin<Project> {
         }
 
         project.tasks.register("generateContributorMessage") {
-            dependsOn(":processResources")
+            dependsOn(project.tasks.named("processResources"))
 
-            logger.info("Converting YAML to properties...")
+            // The conversion must run as an actual task action (not at configuration time),
+            // otherwise processResources - which owns build/resources/main exclusively -
+            // wipes the generated properties file when it executes afterwards.
+            doLast {
+                logger.info("Converting YAML to properties...")
 
-            val yaml = Yaml()
+                val yaml = Yaml()
 
-            val layout = project.layout
-            val projectDirectory = layout.projectDirectory
-            val messageFile = projectDirectory.file("src/main/resources/messages.yaml")
+                val layout = project.layout
+                val projectDirectory = layout.projectDirectory
+                val messageFile = projectDirectory.file("src/main/resources/messages.yaml")
 
-            val messages = yaml.load<Map<String, Any>>(FileInputStream(messageFile.asFile))
+                val messages = yaml.load<Map<String, Any>>(FileInputStream(messageFile.asFile))
 
-            // This is necessary because on linux take the base dir of the machine
-            val buildDirObject = layout.buildDirectory
-            val buildDir = buildDirObject.get().asFile.path
-            val startPath = buildDirObject.file("$buildDir/resources/main")
-            startPath.get().asFile.mkdirs()
+                val buildDirObject = layout.buildDirectory
+                val startPath = buildDirObject.dir("resources/main")
+                startPath.get().asFile.mkdirs()
 
-            val propertiesFileOnResource =
-                buildDirObject.file("$buildDir/resources/main/ContributorValidationMessages.properties")
-            propertiesFileOnResource.get().asFile.createNewFile()
+                val propertiesFileOnResource = buildDirObject.file("resources/main/ContributorValidationMessages.properties")
+                propertiesFileOnResource.get().asFile.createNewFile()
 
-            val properties = Properties()
+                val properties = Properties()
 
-            flattenYaml(messages, properties)
+                flattenYaml(messages, properties)
 
-            logger.info(properties.toString())
-            logger.info("$buildDir/resources/main/ContributorValidationMessages.properties")
+                logger.info(properties.toString())
+                logger.info(propertiesFileOnResource.get().asFile.path)
 
-            propertiesFileOnResource.get().asFile.outputStream().use {
-                properties.store(it, null)
+                propertiesFileOnResource.get().asFile.outputStream().use {
+                    properties.store(it, null)
+                }
+
+                logger.info("Finished converting YAML to properties...")
             }
-
-            logger.info("Finished converting YAML to properties...")
         }
     }
 
